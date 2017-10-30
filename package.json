@@ -1,0 +1,53 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "webapp",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
+    "build": "webpack --config webpack-production.config.js --progress --colors"
+  },
+  "private": true,
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "6.2.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-syntax-export-extensions": "^6.13.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "css-loader": "^0.24.0",
+    "eslint": "^3.19.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-react": "^7.0.0",
+    "html-webpack-plugin": "^2.7.2",
+    "json-loader": "^0.5.4",
+    "node-sass": "^3.9.0",
+    "react-hot-loader": "^1.3.0",
+    "sass-loader": "^4.0.1",
+    "style-loader": "0.13.1",
+    "transfer-webpack-plugin": "^0.1.4",
+    "webpack": "^1.15.0",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "babel-polyfill": "^6.23.0",
+    "bluebird": "^3.5.0",
+    "counterpart": "^0.17.8",
+    "history": "^2.0.2",
+    "lodash": "^4.17.4",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-interpolate-component": "^0.11.0",
+    "react-redux": "^5.0.4",
+    "react-router": "^2.4.0",
+    "react-router-redux": "^4.0.4",
+    "react-translate-component": "^0.14.0",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
+  }
+}

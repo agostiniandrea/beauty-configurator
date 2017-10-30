@@ -1,0 +1,19 @@
+{
+    "code": "EN_en",
+    "navBarTop":{
+        "title": "Virtual Swim Trainer",
+        "menu": {
+            "configure": "Configure",
+            "create": "Create",
+            "play": "Play"
+        }
+    },
+    "languages": {
+        "en": {
+            "name": "ENGLISH"
+        },
+        "it": {
+            "name": "ITALIAN"
+        }
+    }
+}
