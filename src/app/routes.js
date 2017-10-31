@@ -1,4 +1,7 @@
-import Main from './React/Main';
+import React, { Component } from 'react';
+import Header from './Redux/containers/Header';
+import Main from './Redux/containers/Main';
+import PageWrapper from './Redux/containers/PageWrapper';
 
 //## Routes
 /**
@@ -8,9 +11,21 @@ import Main from './React/Main';
 * * getComponent: assures that principal component of the page gets split into another chunk and than imported only when the relative route is active
 * * routeParams: are the params send to the Parent. These are the params that can change from a route to another
 */
+
+class Parent extends Component {
+    render() {
+        return (
+            <PageWrapper>
+                <Header />
+                <Main />
+            </PageWrapper>
+        );
+    }
+}
+
 export default {
     getComponent: (nextState, cb) => {
-        cb(null, Main);
+        cb(null, Parent);
     },
     indexRoute: { onEnter: (/* nextState, replace */) =>  {
         console.log('indexRoute');
@@ -18,11 +33,11 @@ export default {
     childRoutes: getChilds()
 };
 
-export const paramNames = ['nome'];
+export const paramNames = ['mua'];
 
 function getChilds() {
     return [{
-        path: '/nome/:nome',
+        path: '/mua/:mua',
         indexRoute: {
             onEnter: (/* nextState, replace */) => console.log('prova router params')
         }
@@ -31,7 +46,7 @@ function getChilds() {
         indexRoute: {
             onEnter: (nextState, replace) => {
                 console.log('child IndexRoute');
-                replace('/nome/pippo');
+                replace('/mua/DNTLCA');
             }
         }
     }];
