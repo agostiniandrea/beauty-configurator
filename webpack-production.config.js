@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const webpackAlias = require('./webpack-alias');
 const path = require('path');
 const buildPath = path.resolve(__dirname, 'build');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
@@ -49,18 +50,18 @@ const config = {
       },
       {
         test: /\.css$/,
-        loaders: ["style", "css"]
+        loaders: ['style', 'css']
       },
       {
         test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
+        loaders: ['style', 'css', 'sass']
       },
       {
         test: /\.less$/,
-        loaders: ["style", "css", "less"]
+        loaders: ['style', 'css', 'less']
       }
     ]
-  },
+  }
 };
 
 module.exports = config;

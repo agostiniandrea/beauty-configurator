@@ -1,5 +1,4 @@
 import { paramNames } from './../../routes';
-import { data } from './../../../users/users.json';
 
 export default (state = {}, action) => {
     switch(action.type){
@@ -16,9 +15,7 @@ function getParams({pathname}){
     let pathElements = pathname.split('/');
     for(let key of paramNames){
         if(pathElements.indexOf(key)>-1){
-            for (let user of data) {
-                if (user.id == pathElements[pathElements.indexOf(key)+1]) params = user;
-            }
+            params[key] = pathElements[pathElements.indexOf(key)+1];
         }
     }
     return params;

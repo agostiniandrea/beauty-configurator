@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const webpackAlias = require('./webpack-alias.js');
 const path = require('path');
 const buildPath = path.resolve(__dirname, 'build');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
@@ -21,30 +22,30 @@ const config = {
     host: 'localhost', // Change to '0.0.0.0' for external facing server
     noInfo: false,
     stats: {
-        assets: false,
-        cached: false,
-        cachedAssets: false,
-        children: false,
-        chunks: false,
-        chunkModules: false,
-        chunkOrigins: false,
-        colors: true,
-        depth: false,
-        entrypoints: false,
-        errors: true,
-        errorDetails: true,
-        hash: true,
-        modules: false,
-        moduleTrace: false,
-        performance: false,
-        providedExports: false,
-        publicPath: false,
-        reasons: false,
-        source: false,
-        timings: true,
-        usedExports: false,
-        version: false,
-        warnings: true
+      assets: false,
+      cached: false,
+      cachedAssets: false,
+      children: false,
+      chunks: false,
+      chunkModules: false,
+      chunkOrigins: false,
+      colors: true,
+      depth: false,
+      entrypoints: false,
+      errors: true,
+      errorDetails: true,
+      hash: true,
+      modules: false,
+      moduleTrace: false,
+      performance: false,
+      providedExports: false,
+      publicPath: false,
+      reasons: false,
+      source: false,
+      timings: true,
+      usedExports: false,
+      version: false,
+      warnings: true
     }
   },
   devtool: 'eval',
@@ -77,18 +78,22 @@ const config = {
       },
       {
         test: /\.css$/,
-        loaders: ["style", "css"]
+        loaders: ['style', 'css']
       },
       {
         test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
+        loaders: ['style', 'css', 'sass']
       },
       {
         test: /\.less$/,
-        loaders: ["style", "css", "less"]
+        loaders: ['style', 'css', 'less']
       }
     ]
   },
+  resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.scss', '.min.js'],
+    alias: webpackAlias
+  }
 };
 
 module.exports = config;

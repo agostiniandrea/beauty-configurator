@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Redux/containers/Header';
 import Main from './Redux/containers/Main';
 import PageWrapper from './Redux/containers/PageWrapper';
+import handler from './handler.js';
 
 //## Routes
 /**
@@ -25,7 +26,19 @@ class Parent extends Component {
 
 export default {
     getComponent: (nextState, cb) => {
-        cb(null, Parent);
+        if (nextState.location.pathname == '/') {
+            cb(null, null);
+            return;
+        }
+        handler(nextState)
+            .then(() => {
+                cb(null, Parent);
+            })
+            .catch((error) => {
+                if (error) {
+                    console.log(error);
+                }
+            });
     },
     indexRoute: { onEnter: (/* nextState, replace */) =>  {
         console.log('indexRoute');
@@ -33,11 +46,11 @@ export default {
     childRoutes: getChilds()
 };
 
-export const paramNames = ['mua'];
+export const paramNames = ['id'];
 
 function getChilds() {
     return [{
-        path: '/mua/:mua',
+        path: '/id/:id',
         indexRoute: {
             onEnter: (/* nextState, replace */) => console.log('prova router params')
         }
@@ -46,7 +59,7 @@ function getChilds() {
         indexRoute: {
             onEnter: (nextState, replace) => {
                 console.log('child IndexRoute');
-                replace('/mua/DNTLCA');
+                replace('/id/DNTLCA');
             }
         }
     }];

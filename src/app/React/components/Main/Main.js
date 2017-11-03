@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Main.scss';
 
-const Main = ({ data: {name, surname} }) => {
-    return (
-        <div className="main">{name + ' ' + surname}</div>
-    );
-};
-
-export default Main;
+export default class Main extends Component {
+    render() {
+        const { name, surname } = this.props.data;
+        return (
+            <div className="main">{name + ' ' + surname}</div>
+        );
+    }
+}

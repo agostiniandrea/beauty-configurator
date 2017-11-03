@@ -3,16 +3,10 @@ import Main from './../../React/components/Main/Main';
 
 const mapStateToProps = (state) => {
     return {
-        data: state.params
+        data: state.user
     };
 };
-/*
-const mapDispatchToProps = (dispatch) => {
-    return {
-        
-    };
-};
- */
+
 export default connect(
     mapStateToProps,
     null

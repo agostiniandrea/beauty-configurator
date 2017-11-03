@@ -1,19 +1,13 @@
 import { connect } from 'react-redux';
 import Header from './../../React/components/Header/Header';
-/*
+
 const mapStateToProps = (state) => {
     return {
-        
+        params: state.params
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        
-    };
-};
-*/
 export default connect(
-    null,
+    mapStateToProps,
     null
 )(Header);
