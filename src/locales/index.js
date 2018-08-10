@@ -9,16 +9,16 @@ counterpart.setLocale(en.code);
 
 export default [
     {
-        code: en.code,
-        avaliable: true,
         active: true,
+        available: true,
+        code: en.code,
         icon: '',
         name: 'languages.en.name'
     },
     {
-        code: it.code,
-        avaliable: true,
         active: false,
+        available: true,
+        code: it.code,
         icon: '',
         name: 'languages.it.name'
     }

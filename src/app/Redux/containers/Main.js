@@ -3,7 +3,7 @@ import Main from './../../React/components/Main/Main';
 
 const mapStateToProps = (state) => {
     return {
-        data: state.user
+        fullName: state.user.fullName
     };
 };
 

@@ -3,9 +3,7 @@
     "languages": {
         "en": {
             "name": "ENGLISH"
-        },
-        "it": {
-            "name": "ITALIAN"
         }
-    }
+    },
+    "title": "Good morning everybody! <br /> My name is %(fullName)s!"
 }

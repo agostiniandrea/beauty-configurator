@@ -1,22 +1,26 @@
 {
     "DNTLCA": {
+        "dateBirth": "17/02/1993",
+        "fullName": "Alice Di Antonio",
         "name": "Alice",
-        "surname": "Di Antonio",
-        "date_birth": "17/02/1993"
+        "surname": "Di Antonio"
     },
     "GSTNDR": {
+        "dateBirth": "24/02/1992",
+        "fullName": "Andrea Agostini",
         "name": "Andrea",
-        "surname": "Agostini",
-        "date_birth": "24/02/1992"
+        "surname": "Agostini"
     },
     "PLLPNC": {
+        "dateBirth": "12/09/1996",
+        "fullName": "Pinco Pallino",
         "name": "Pinco",
-        "surname": "Pallino",
-        "date_birth": "12/09/1996"
+        "surname": "Pallino"
     },
     "PLTPPP": {
+        "dateBirth": "12/02/1994",
+        "fullName": "Pippo Pluto",
         "name": "Pippo",
-        "surname": "Pluto",
-        "date_birth": "12/02/1994"
+        "surname": "Pluto"
     }
 }

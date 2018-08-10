@@ -14,11 +14,13 @@ export default (location) => new Promise((resolve, reject) => {
 
 function initApp(location) {
     return new Promise((resolve, reject) => {
+        document.title = 'Loading...';
         getData()
             .then((resp) => {
                 initInfo(resp[location.params.id])
                     .then(() => {
                         setInfo({ image: 'logos/' + location.params.id + '.png' });
+                        document.title = store.getState().user.fullName;
                         resolve();
                     })
                     .catch((error) => reject(error));
