@@ -52,7 +52,9 @@ function getChilds() {
     return [{
         path: '/id/:id',
         indexRoute: {
-            onEnter: (/* nextState, replace */) => console.log('prova router params')
+            onEnter: (/* nextState, replace */) => {
+                /* console.log('prova router params'); */
+            }
         }
     },{
         path: '/*',

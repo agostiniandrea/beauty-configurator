@@ -1,26 +1,19 @@
-import { data as users } from './../../../users/users.json';
-
 export default (state = {}, action) => {
-    switch(action.type){
-        case 'USER/GET_INFO': {
-            return getInfo(action.payload);
+    switch (action.type) {
+        case 'USER/INIT_DATA': {
+            return action.payload;
         }
-        case 'USER/SET_INFO': {
-            return setInfo();
+        case 'USER/SET_DATA': {
+            return setInfo(state, action.payload);
         }
         default:
             return state;
     }
 };
 
-function getInfo(params){
-    let data = {};
-    for(let user of users){
-        if (user.id == params.id) data = user;
-    }
-    return data;
-}
-
-function setInfo(){
-    //
+function setInfo(state, payload) {
+    return {
+        ...state,
+        ...payload
+    };
 }

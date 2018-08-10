@@ -1,7 +1,7 @@
 {
-  "name": "webapp",
+  "name": "alicemakeup",
   "version": "1.0.0",
-  "description": "webapp",
+  "description": "alicemakeup",
   "scripts": {
     "start": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "build": "webpack --config webpack-production.config.js --progress --colors"
@@ -38,6 +38,7 @@
     "babel-polyfill": "^6.23.0",
     "bluebird": "^3.5.0",
     "counterpart": "^0.17.8",
+    "express": "^4.16.2",
     "history": "^2.0.2",
     "lodash": "^4.17.4",
     "react": "^15.0.1",

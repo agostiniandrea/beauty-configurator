@@ -46,7 +46,15 @@ const config = {
       usedExports: false,
       version: false,
       warnings: true
-    }
+    },
+    proxy: [
+      {
+          context: [ '/server' ],
+          target: 'http://localhost:4000',
+          changeOrigin: true,
+          pathRewrite: { '^/server' : '' }
+      }
+  ]
   },
   devtool: 'eval',
   output: {
