@@ -1,9 +1,11 @@
+import _ from 'lodash';
+
 export default (state = -1, action) => {
     switch (action.type) {
-        case 'USER/INIT_DATA': {
-            return action.payload;
+        case 'SECTIONS/INIT_DATA': {
+            return [action.payload];
         }
-        case 'USER/SET_DATA': {
+        case 'SECTIONS/SET_DATA': {
             return setData(state, action.payload);
         }
         default:
@@ -12,8 +14,8 @@ export default (state = -1, action) => {
 };
 
 function setData(state, payload) {
-    return {
+    return [
         ...state,
         ...payload
-    };
+    ];
 }

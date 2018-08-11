@@ -1,7 +1,7 @@
 import { paramNames } from './../../routes';
 
-export default (state = {}, action) => {
-    switch(action.type){
+export default (state = -1, action) => {
+    switch (action.type) {
         case '@@router/LOCATION_CHANGE': {
             return getParams(action.payload);
         }
@@ -10,12 +10,12 @@ export default (state = {}, action) => {
     }
 };
 
-function getParams({pathname}){
+function getParams({ pathname }) {
     let params = {};
     let pathElements = pathname.split('/');
-    for(let key of paramNames){
-        if(pathElements.indexOf(key)>-1){
-            params[key] = pathElements[pathElements.indexOf(key)+1];
+    for (let key of paramNames) {
+        if (pathElements.indexOf(key) > -1) {
+            params[key] = pathElements[pathElements.indexOf(key) + 1];
         }
     }
     return params;

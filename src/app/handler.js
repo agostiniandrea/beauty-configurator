@@ -2,8 +2,11 @@ import store from './Redux/store';
 import axios from 'axios';
 import { objValidator } from 'Utility';
 
+let USER_ID = null;
+
 export default (location) => new Promise((resolve, reject) => {
-    initApp(location)
+    USER_ID = location.params.id;
+    initApp()
         .then(() => {
             resolve();
         })
@@ -12,16 +15,24 @@ export default (location) => new Promise((resolve, reject) => {
         });
 });
 
-function initApp(location) {
+function initApp() {
     return new Promise((resolve, reject) => {
         document.title = 'Loading...';
-        getData()
+        initConfiguration(store.getState().appConfig.firstStep);
+        getRegistry(USER_ID)
             .then((resp) => {
-                initInfo(resp[location.params.id])
+                setRegistry(resp)
                     .then(() => {
-                        setInfo({ image: 'logos/' + location.params.id + '.png' });
                         document.title = store.getState().user.fullName;
-                        resolve();
+                        getConfiguration(USER_ID)
+                            .then((resp) => {
+                                setConfiguration(resp['steps'])
+                                    .then(() => {
+                                        resolve();
+                                    })
+                                    .catch((error) => reject(error));
+                            })
+                            .catch((error) => reject(error));
                     })
                     .catch((error) => reject(error));
             })
@@ -29,10 +40,10 @@ function initApp(location) {
     });
 }
 
-function getData() {
+function getRegistry(id) {
     return new Promise((resolve, reject) => {
         axios({
-            url: 'http://localhost:3000/server/data/users.json',
+            url: 'http://localhost:3000/server/registry/' + id + '.json',
             method: 'get',
             headers: { 'Content-type': 'application/json; charset=UTF-8' }
         }).then((response) => {
@@ -49,7 +60,7 @@ function getData() {
     });
 }
 
-function initInfo(payload) {
+function setRegistry(payload) {
     return new Promise((resolve) => {
         store.dispatch({
             type: 'USER/INIT_DATA',
@@ -60,10 +71,30 @@ function initInfo(payload) {
     });
 }
 
-function setInfo(payload) {
+function getConfiguration(id) {
+    return new Promise((resolve, reject) => {
+        axios({
+            url: 'http://localhost:3000/server/configurations/' + id + '.json',
+            method: 'get',
+            headers: { 'Content-type': 'application/json; charset=UTF-8' }
+        }).then((response) => {
+            if (response && response.status == 200) {
+                const result = objValidator(response, 'data');
+                resolve(result);
+            } else {
+                resolve([]);
+            }
+        }).catch((error) => {
+            console.log(error);
+            reject(error);
+        });
+    });
+}
+
+function initConfiguration(payload) {
     return new Promise((resolve) => {
         store.dispatch({
-            type: 'USER/SET_DATA',
+            type: 'SECTIONS/INIT_DATA',
             payload: payload
         });
 
@@ -71,21 +102,13 @@ function setInfo(payload) {
     });
 }
 
-function getImage(id) {
-    return new Promise((resolve, reject) => {
-        axios({
-            url: 'http://localhost:3000/server/logos/' + id + '.png',
-            method: 'get',
-            headers: { 'Content-type': 'image/png' }
-        }).then((response) => {
-            if (response && response.status == 200) {
-                resolve(response.data);
-            } else {
-                resolve(null);
-            }
-        }).catch((error) => {
-            console.log(error);
-            reject(error);
+function setConfiguration(payload) {
+    return new Promise((resolve) => {
+        store.dispatch({
+            type: 'SECTIONS/SET_DATA',
+            payload: payload
         });
+
+        resolve();
     });
 }
