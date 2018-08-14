@@ -1,48 +1,154 @@
 {
-    "steps": [
-        {
+    "categories": {
+        "1": {
+            "description": "Category 1",
+            "order": 1,
+            "visible": true
+        },
+        "2": {
+            "description": "Category 2",
+            "order": 2,
+            "visible": true
+        },
+        "3": {
+            "description": "Category 3",
+            "order": 3,
+            "visible": true
+        },
+        "4": {
+            "description": "Category 4",
+            "order": 4,
+            "visible": true
+        }
+    },
+    "subCategories": {
+        "1": {
+            "categoryId": 1,
+            "description": "SubCategory 1",
+            "order": 1,
+            "visible": true
+        },
+        "2": {
+            "categoryId": 2,
+            "description": "SubCategory 2",
+            "order": 2,
+            "visible": true
+        },
+        "3": {
+            "categoryId": 3,
+            "description": "SubCategory 3",
+            "order": 3,
+            "visible": true
+        },
+        "4": {
+            "categoryId": 4,
+            "description": "SubCategory 4",
+            "order": 4,
+            "visible": true
+        }
+    },
+    "options": {
+        "1": {
+            "order": 1,
+            "visible": true,
+            "description": "Option 1",
+            "subCategoryID": 1
+        },
+        "2": {
+            "order": 2,
+            "visible": true,
+            "description": "Option 2",
+            "subCategoryID": 2
+        },
+        "3": {
+            "order": 3,
+            "visible": true,
+            "description": "Option 3",
+            "subCategoryID": 3
+        },
+        "4": {
+            "order": 4,
+            "visible": true,
+            "description": "Option 4",
+            "subCategoryID": 4
+        }
+    },
+    "steps": {
+        "1": {
             "id": 1,
+            "order": 1,
             "title": "Page 1",
             "description": "Page description 1",
             "categories": [
-                0,
-                1,
-                2,
-                3
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "subCategories": [
+                "1",
+                "2",
+                "3",
+                "4"
             ]
         },
-        {
+        "2": {
             "id": 2,
+            "order": 2,
             "title": "Page 2",
             "description": "Page description 2",
             "categories": [
-                0,
-                1,
-                2,
-                3
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "subCategories": [
+                "1",
+                "2",
+                "3",
+                "4"
             ]
         },
-        {
+        "3": {
             "id": 3,
+            "order": 3,
             "title": "Page 3",
             "description": "Page description 3",
             "categories": [
-                0,
-                1,
-                2,
-                3
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "subCategories": [
+                "1",
+                "2",
+                "3",
+                "4"
             ]
         },
-        {
+        "4": {
             "id": 4,
+            "order": 4,
             "title": "Page 4",
             "description": "Page description 4",
             "categories": [
-                0,
-                1,
-                2,
-                3
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "subCategories": [
+                "1",
+                "2",
+                "3",
+                "4"
             ]
         }
-    ]
+    },
+    "version": {
+        "release-level": 1,
+        "revision": "latest"
+    }
 }

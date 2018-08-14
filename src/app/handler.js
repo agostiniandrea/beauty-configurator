@@ -26,7 +26,7 @@ function initApp() {
                         document.title = store.getState().user.fullName;
                         getConfiguration(USER_ID)
                             .then((resp) => {
-                                setConfiguration(resp['steps'])
+                                setConfiguration(resp)
                                     .then(() => {
                                         resolve();
                                     })

@@ -14,8 +14,26 @@ export default (state = -1, action) => {
 };
 
 function setData(state, payload) {
-    return [
-        ...state,
-        ...payload
-    ];
+    let newState = _.cloneDeep(state);
+    for (let step in payload.steps) {
+        populateObj(payload, payload.steps[step], newState, 'categories');
+    }
+    return newState;
+}
+
+function populateObj(fullPayloadObj, curPayloadObj, obj, childrenPropName) {
+    obj[curPayloadObj.order] = {
+        id: curPayloadObj.id,
+        title: curPayloadObj.title,
+        description: curPayloadObj.description
+    };
+    if (childrenPropName) {
+        populateProperty(fullPayloadObj, curPayloadObj, obj, childrenPropName);
+    }
+}
+
+function populateProperty(fullPayloadObj, curPayloadObj, obj, childrenPropName) {
+    if (curPayloadObj[childrenPropName] && fullPayloadObj[childrenPropName]) {
+        obj[curPayloadObj.order][childrenPropName] = [];
+    }
 }
