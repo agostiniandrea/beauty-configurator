@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import modulo from './modulo';
+import appConfig from './appConfig';
 import params from './params';
+import sections from './sections';
+import user from './user';
 
 export default combineReducers({
-    modulo,
+    appConfig,
+    params,
     routing: routerReducer,
-    params
+    sections,
+    user
 });

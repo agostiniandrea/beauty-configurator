@@ -1,4 +1,8 @@
-import Main from './React/Main';
+import React, { Component } from 'react';
+import Header from './Redux/containers/Header';
+import Main from './Redux/containers/Main';
+import PageWrapper from './Redux/containers/PageWrapper';
+import handler from './handler.js';
 
 //## Routes
 /**
@@ -8,9 +12,33 @@ import Main from './React/Main';
 * * getComponent: assures that principal component of the page gets split into another chunk and than imported only when the relative route is active
 * * routeParams: are the params send to the Parent. These are the params that can change from a route to another
 */
+
+class Parent extends Component {
+    render() {
+        return (
+            <PageWrapper>
+                <Header />
+                <Main />
+            </PageWrapper>
+        );
+    }
+}
+
 export default {
     getComponent: (nextState, cb) => {
-        cb(null, Main);
+        if (nextState.location.pathname == '/') {
+            cb(null, null);
+            return;
+        }
+        handler(nextState)
+            .then(() => {
+                cb(null, Parent);
+            })
+            .catch((error) => {
+                if (error) {
+                    console.log(error);
+                }
+            });
     },
     indexRoute: { onEnter: (/* nextState, replace */) =>  {
         console.log('indexRoute');
@@ -18,20 +46,22 @@ export default {
     childRoutes: getChilds()
 };
 
-export const paramNames = ['nome'];
+export const paramNames = ['id'];
 
 function getChilds() {
     return [{
-        path: '/nome/:nome',
+        path: '/id/:id',
         indexRoute: {
-            onEnter: (/* nextState, replace */) => console.log('prova router params')
+            onEnter: (/* nextState, replace */) => {
+                /* console.log('prova router params'); */
+            }
         }
     },{
         path: '/*',
         indexRoute: {
             onEnter: (nextState, replace) => {
                 console.log('child IndexRoute');
-                replace('/nome/pippo');
+                replace('/id/DNTLCA');
             }
         }
     }];

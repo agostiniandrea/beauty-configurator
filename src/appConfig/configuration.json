@@ -1,0 +1,9 @@
+{
+    "theme": "white",
+    "firstStep": {
+        "id": 0,
+        "title": "Page 0",
+        "description": "Page description 0",
+        "categories": null
+    }
+}
