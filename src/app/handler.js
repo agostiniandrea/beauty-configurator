@@ -41,12 +41,14 @@ function initApp() {
 }
 
 function getRegistry(id) {
+    startLoading();
     return new Promise((resolve, reject) => {
         axios({
             url: 'http://localhost:3000/server/registry/' + id + '.json',
             method: 'get',
             headers: { 'Content-type': 'application/json; charset=UTF-8' }
         }).then((response) => {
+            endLoading();
             if (response && response.status == 200) {
                 const result = objValidator(response, 'data');
                 resolve(result);
@@ -57,6 +59,40 @@ function getRegistry(id) {
             console.log(error);
             reject(error);
         });
+    });
+}
+
+function getConfiguration(id) {
+    startLoading();
+    return new Promise((resolve, reject) => {
+        axios({
+            url: 'http://localhost:3000/server/configurations/' + id + '.json',
+            method: 'get',
+            headers: { 'Content-type': 'application/json; charset=UTF-8' }
+        }).then((response) => {
+            endLoading();
+            if (response && response.status == 200) {
+                const result = objValidator(response, 'data');
+                resolve(result);
+            } else {
+                resolve([]);
+            }
+        }).catch((error) => {
+            console.log(error);
+            reject(error);
+        });
+    });
+}
+
+function startLoading() {
+    store.dispatch({
+        type: 'LOADING/START_LOADING'
+    });
+}
+
+function endLoading() {
+    store.dispatch({
+        type: 'LOADING/END_LOADING'
     });
 }
 
@@ -68,26 +104,6 @@ function setRegistry(payload) {
         });
 
         resolve();
-    });
-}
-
-function getConfiguration(id) {
-    return new Promise((resolve, reject) => {
-        axios({
-            url: 'http://localhost:3000/server/configurations/' + id + '.json',
-            method: 'get',
-            headers: { 'Content-type': 'application/json; charset=UTF-8' }
-        }).then((response) => {
-            if (response && response.status == 200) {
-                const result = objValidator(response, 'data');
-                resolve(result);
-            } else {
-                resolve([]);
-            }
-        }).catch((error) => {
-            console.log(error);
-            reject(error);
-        });
     });
 }
 
