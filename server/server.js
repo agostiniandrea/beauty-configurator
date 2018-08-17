@@ -9,20 +9,26 @@ function callLog(url) {
 
 app.get('/configurations/*', function (req, res) {
     callLog(req.url);
-    let data = fs.readFileSync('.' + req.url, { encoding: 'utf8' });
-    res.json(JSON.parse(data));
+    let data = fs.readFileSync('./server/' + req.url, { encoding: 'utf8' });
+    setTimeout(() => {
+        res.json(JSON.parse(data));
+    }, 500);
 });
 
 app.get('/logos/*', function (req, res) {
     callLog(req.url);
-    let data = fs.readFileSync('.' + req.url);
-    res.end(data);
+    let data = fs.readFileSync('./server/' + req.url);
+    setTimeout(() => {
+        res.end(data);
+    }, 500);
 });
 
 app.get('/registry/*', function (req, res) {
     callLog(req.url);
-    let data = fs.readFileSync('.' + req.url, { encoding: 'utf8' });
-    res.json(JSON.parse(data));
+    let data = fs.readFileSync('./server/' + req.url, { encoding: 'utf8' });
+    setTimeout(() => {
+        res.json(JSON.parse(data));
+    }, 500);
 });
 
 app.listen(4000, () => {
