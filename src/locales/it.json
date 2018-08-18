@@ -4,5 +4,6 @@
         "it": {
             "name": "ITALIANO"
         }
-    }
+    },
+    "title": "Buongiorno a tutti! <br /> Mi chiamo %(fullName)s!"
 }

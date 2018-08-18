@@ -40,29 +40,33 @@ export default {
                 }
             });
     },
-    indexRoute: { onEnter: (/* nextState, replace */) =>  {
-        console.log('indexRoute');
-    }},
+    indexRoute: {
+        onEnter: (/* nextState, replace */) => {
+            console.log('indexRoute');
+        }
+    },
     childRoutes: getChilds()
 };
 
-export const paramNames = ['id'];
+export const paramNames = ['lang', 'id'];
 
 function getChilds() {
-    return [{
-        path: '/id/:id',
-        indexRoute: {
-            onEnter: (/* nextState, replace */) => {
-                /* console.log('prova router params'); */
+    return [
+        {
+            path: '/lang/:lang/id/:id',
+            indexRoute: {
+                onEnter: (/* nextState, replace */) => {
+                    /* console.log(''); */
+                }
+            }
+        },
+        {
+            path: '/*',
+            indexRoute: {
+                onEnter: (nextState, replace) => {
+                    replace('lang/it/id/BNCLCA');
+                }
             }
         }
-    },{
-        path: '/*',
-        indexRoute: {
-            onEnter: (nextState, replace) => {
-                console.log('child IndexRoute');
-                replace('/id/BNCLCA');
-            }
-        }
-    }];
+    ];
 }
