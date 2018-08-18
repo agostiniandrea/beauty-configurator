@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Header from './Redux/containers/Header';
 import Main from './Redux/containers/Main';
+import Navigator from './Redux/containers/Navigator';
+import Footer from './Redux/containers/Footer';
 import PageWrapper from './Redux/containers/PageWrapper';
 import handler from './handler.js';
 
@@ -18,7 +20,10 @@ class Parent extends Component {
         return (
             <PageWrapper>
                 <Header />
-                <Main />
+                <Main>
+                    <Navigator />
+                </Main>
+                <Footer />
             </PageWrapper>
         );
     }
@@ -40,9 +45,11 @@ export default {
                 }
             });
     },
-    indexRoute: { onEnter: (/* nextState, replace */) =>  {
-        console.log('indexRoute');
-    }},
+    indexRoute: {
+        onEnter: (/* nextState, replace */) => {
+            console.log('indexRoute');
+        }
+    },
     childRoutes: getChilds()
 };
 
@@ -56,7 +63,7 @@ function getChilds() {
                 /* console.log('prova router params'); */
             }
         }
-    },{
+    }, {
         path: '/*',
         indexRoute: {
             onEnter: (nextState, replace) => {

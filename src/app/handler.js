@@ -106,8 +106,12 @@ function setConfiguration(payload) {
     return new Promise((resolve) => {
         store.dispatch({
             type: 'SECTIONS/SET_DATA',
-            payload: payload
+            payload
         });
+        /* store.dispatch({
+            type: 'SUMMARY/SET_DATA',
+            payload: payload.views
+        }); */
 
         resolve();
     });

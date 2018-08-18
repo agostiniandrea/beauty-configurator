@@ -15,25 +15,48 @@ export default (state = -1, action) => {
 
 function setData(state, payload) {
     let newState = _.cloneDeep(state);
-    for (let step in payload.steps) {
-        populateObj(payload, payload.steps[step], newState, 'categories');
+    for (let view in payload.views) {
+        populateObj(payload, payload.views[view], newState);
     }
     return newState;
 }
 
-function populateObj(fullPayloadObj, curPayloadObj, obj, childrenPropName) {
-    obj[curPayloadObj.order] = {
+function populateObj(fullPayloadObj, curPayloadObj, obj) {
+    obj.push({
         id: curPayloadObj.id,
         title: curPayloadObj.title,
-        description: curPayloadObj.description
-    };
-    if (childrenPropName) {
-        populateProperty(fullPayloadObj, curPayloadObj, obj, childrenPropName);
-    }
+        description: curPayloadObj.description,
+        categories: getChildren(fullPayloadObj, curPayloadObj)
+    });
 }
 
-function populateProperty(fullPayloadObj, curPayloadObj, obj, childrenPropName) {
-    if (curPayloadObj[childrenPropName] && fullPayloadObj[childrenPropName]) {
-        obj[curPayloadObj.order][childrenPropName] = [];
+function getChildren(full, cur) {
+    let obj = [];
+    for (let category of cur.categories) {
+        let _category = full.categories[category];
+        let subCategories = [];
+        for (let subCategory of cur.subCategories) {
+            let _subCategory = full.subCategories[subCategory];
+            subCategories.push({
+                ..._subCategory,
+                options: getOptionsBySubcategory(full.options, subCategory)
+            });
+        }
+        _category = {
+            ..._category,
+            subCategories
+        };
+        obj.push(_category);
     }
+    return obj;
+}
+
+function getOptionsBySubcategory(optObj, id) {
+    let options = [];
+    for (let opt in optObj) {
+        if (optObj[opt].subCategoryID == id) {
+            options.push(optObj[opt]);
+        }
+    }
+    return options;
 }
