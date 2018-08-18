@@ -1,11 +1,15 @@
 import store from './Redux/store';
 import axios from 'axios';
 import { objValidator } from 'Utility';
+import TranslateConfig from '../locales/index';
 
+let LANG = null;
 let USER_ID = null;
 
 export default (location) => new Promise((resolve, reject) => {
+    LANG = location.params.lang;
     USER_ID = location.params.id;
+    TranslateConfig(LANG);
     initApp()
         .then(() => {
             resolve();
