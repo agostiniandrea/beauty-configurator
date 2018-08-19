@@ -5,6 +5,11 @@ import { Router, useRouterHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { createHashHistory } from 'history';
 import routes from './routes';
+
+import '../scss/Variables.scss';
+
+import 'bootstrap';
+
 import store from './Redux/store';
 
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });

@@ -1,5 +1,7 @@
+@import "../../../../scss/Variables.scss";
+
 .header {
-    background: black;
+    background: $black-base;
     .header-desktop {
         width: 100%;
         height: 100px;

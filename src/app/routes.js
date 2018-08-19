@@ -59,6 +59,7 @@ function getChilds() {
     return [
         {
             path: '/lang/:lang/id/:id',
+            section: 'homepage',
             indexRoute: {
                 onEnter: (/* nextState, replace */) => {
                     /* console.log(''); */

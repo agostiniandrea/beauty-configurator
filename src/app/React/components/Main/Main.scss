@@ -1,4 +1,15 @@
+@import "../../../../scss/Variables.scss";
+
 .main {
     padding: 10px;
-    min-height: 1000px;
+    min-height: $max-content-width;
+}
+
+@media (min-width: $screen-sm-min) {
+}
+
+@media (min-width: $screen-md-min) {
+}
+
+@media (min-width: $screen-lg-min) {
 }
