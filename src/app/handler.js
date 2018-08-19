@@ -22,25 +22,24 @@ export default (location) => new Promise((resolve, reject) => {
 function initApp() {
     return new Promise((resolve, reject) => {
         document.title = 'Loading...';
-        initConfiguration(store.getState().appConfig.firstStep);
+        /* initConfiguration(store.getState().appConfig.firstStep); */
         getRegistry(USER_ID)
             .then((resp) => {
-                setRegistry(resp)
+                document.title = resp.user.description;
+                setRegistry(resp.user);
+                setModels(resp);
+                resolve();
+            })
+            .catch((error) => reject(error));
+        /* getConfiguration(USER_ID)
+            .then((resp) => {
+                setConfiguration(resp)
                     .then(() => {
-                        document.title = store.getState().user.fullName;
-                        getConfiguration(USER_ID)
-                            .then((resp) => {
-                                setConfiguration(resp)
-                                    .then(() => {
-                                        resolve();
-                                    })
-                                    .catch((error) => reject(error));
-                            })
-                            .catch((error) => reject(error));
+                        resolve();
                     })
                     .catch((error) => reject(error));
             })
-            .catch((error) => reject(error));
+            .catch((error) => reject(error)); */
     });
 }
 
@@ -63,6 +62,20 @@ function getRegistry(id) {
             console.log(error);
             reject(error);
         });
+    });
+}
+
+function setRegistry(payload) {
+    store.dispatch({
+        type: 'USER/INIT_DATA',
+        payload: payload
+    });
+}
+
+function setModels(payload) {
+    store.dispatch({
+        type: 'MODELS/INIT_DATA',
+        payload: payload
     });
 }
 
@@ -112,13 +125,9 @@ function setRegistry(payload) {
 }
 
 function initConfiguration(payload) {
-    return new Promise((resolve) => {
-        store.dispatch({
-            type: 'SECTIONS/INIT_DATA',
-            payload: payload
-        });
-
-        resolve();
+    store.dispatch({
+        type: 'SECTIONS/INIT_DATA',
+        payload: payload
     });
 }
 
@@ -126,8 +135,12 @@ function setConfiguration(payload) {
     return new Promise((resolve) => {
         store.dispatch({
             type: 'SECTIONS/SET_DATA',
-            payload: payload
+            payload
         });
+        /* store.dispatch({
+            type: 'SUMMARY/SET_DATA',
+            payload: payload.views
+        }); */
 
         resolve();
     });

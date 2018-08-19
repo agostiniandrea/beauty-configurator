@@ -12,6 +12,9 @@ export default class Main extends Component {
                     content="title"
                     with={{ fullName: this.props.fullName }}
                     unsafe />
+                {
+                    this.props.children
+                }
             </div>
         );
     }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Header from './Redux/containers/Header';
 import Main from './Redux/containers/Main';
+import Navigator from './Redux/containers/Navigator';
+import Footer from './Redux/containers/Footer';
 import PageWrapper from './Redux/containers/PageWrapper';
 import handler from './handler.js';
 
@@ -18,7 +20,10 @@ class Parent extends Component {
         return (
             <PageWrapper>
                 <Header />
-                <Main />
+                <Main>
+                    <Navigator />
+                </Main>
+                <Footer />
             </PageWrapper>
         );
     }
@@ -64,7 +69,7 @@ function getChilds() {
             path: '/*',
             indexRoute: {
                 onEnter: (nextState, replace) => {
-                    replace('lang/it/id/BNCLCA');
+                    replace('lang/it/id/MUAIT201801');
                 }
             }
         }
