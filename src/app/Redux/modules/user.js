@@ -1,27 +1,36 @@
-export default (state = -1, action) => {
+// ------------------------------------
+// CONSTANTS
+// ------------------------------------
+export const INIT_DATA = 'USER/INIT_DATA';
+
+// ------------------------------------
+// REDUCER
+// ------------------------------------
+export default function reducer(state = -1, action) {
     switch (action.type) {
-        case 'USER/INIT_DATA': {
-            return initData(action.payload);
+        case INIT_DATA: {
+            return initDataFunc(action.payload);
         }
-        /* case 'USER/SET_DATA': {
-            return setData(state, action.payload);
-        } */
         default:
             return state;
     }
+}
+
+// ------------------------------------
+// ACTIONS
+// ------------------------------------
+export const initData = (payload) => {
+    return { type: INIT_DATA, payload: payload };
 };
 
-function initData(payload) {
+// ------------------------------------
+// FUNCTIONS
+// ------------------------------------
+
+function initDataFunc(payload) {
     return {
         description: payload.description,
         divisionCode: payload.divisionCode,
         userCode: payload.userCode
     };
 }
-
-/* function setData(state, payload) {
-    return {
-        ...state,
-        ...payload
-    };
-} */

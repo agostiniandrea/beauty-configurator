@@ -5,5 +5,13 @@
             "name": "ITALIANO"
         }
     },
-    "title": "Buongiorno a tutti! <br /> Mi chiamo %(fullName)s!"
+    "modelItem": {
+        "configure": "Configura"
+    },
+    "modelsList": {
+        "title": "<strong>Scegli la categoria:</strong>"
+    },
+    "modelsPage": {
+        "title": "Buongiorno a tutti! Mi chiamo %(fullName)s!"
+    }
 }

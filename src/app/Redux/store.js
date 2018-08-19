@@ -1,6 +1,7 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './modules/index.js';
+import { combineReducers } from 'redux';
+import modules from 'Modules/index.js';
 
 //ATTIVAZIONE HOT MODULE RELOADER
 if (module.hot) {
@@ -8,7 +9,7 @@ if (module.hot) {
 }
 //CREAZIONE DELLO STORE
 const store = createStore(
-    rootReducer,
+    combineReducers(modules),
     compose(
         applyMiddleware(
             thunk

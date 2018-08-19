@@ -4,26 +4,50 @@ let initState = {
     list: []
 };
 
-export default (state = initState, action) => {
+// ------------------------------------
+// CONSTANTS
+// ------------------------------------
+export const INIT_DATA = 'MODELS/INIT_DATA';
+export const SET_MODEL_BY_ID = 'MODELS/SET_MODEL_BY_ID';
+
+// ------------------------------------
+// REDUCER
+// ------------------------------------
+export default function reducer(state = initState, action) {
     switch (action.type) {
-        case 'MODELS/INIT_DATA': {
-            return initData(state, action.payload);
+        case INIT_DATA: {
+            return initDataFunc(state, action.payload);
         }
-        /* case 'MODELS/SET_DATA': {
-            return setData(state, action.payload);
-        } */
+        case SET_MODEL_BY_ID: {
+            return setModelFunc(state, action.payload);
+        }
         default:
             return state;
     }
+}
+
+// ------------------------------------
+// ACTIONS
+// ------------------------------------
+export const initData = (payload) => {
+    return { type: INIT_DATA, payload: payload };
 };
 
-function initData(state, payload) {
+export const setModelById = (payload) => {
+    return { type: SET_MODEL_BY_ID, payload: payload };
+};
+
+// ------------------------------------
+// FUNCTIONS
+// ------------------------------------
+function initDataFunc(state, payload) {
     let newState = _.cloneDeep(state);
     for (let model in payload.user.models) {
         let _model = payload.user.models[model];
         for (let wb of payload.whyBuy) {
             if (wb.id === _model.id) {
                 _model = {
+                    selected: false,
                     ..._model,
                     ...wb
                 };
@@ -32,4 +56,20 @@ function initData(state, payload) {
         newState.list.push(_model);
     }
     return newState;
+}
+
+function setModelFunc(state, id) {
+    let newList = state.list.map((group) => {
+        let selected = false;
+        if (group.id === id) {
+            selected = true;
+        }
+        return _.assign({}, group, {
+            selected
+        });
+    });
+    return {
+        ...state,
+        list: newList
+    };
 }

@@ -1,24 +1,21 @@
 @import "../../../../scss/Variables.scss";
 
-.main {
+.model-item {
+    border: 1px solid $base-border;
+    height: 100px;
+    margin: 10px 0;
     padding: 10px;
-    min-height: $max-content-width;
 }
 
 @media (min-width: $screen-sm-min) {
-    .main {
-        padding: 20px 60px;
+    .model-item {
+        margin: 15px 0;
+        padding: 15px;
     }
 }
 
 @media (min-width: $screen-md-min) {
-    .main {
-        padding: 25px 80px;
-    }
 }
 
 @media (min-width: $screen-lg-min) {
-    .main {
-        padding: 30px 100px;
-    }
 }
