@@ -1,19 +1,42 @@
 import _ from 'lodash';
 
-export default (state = -1, action) => {
+// ------------------------------------
+// CONSTANTS
+// ------------------------------------
+export const INIT_DATA = 'SECTIONS/INIT_DATA';
+export const SET_DATA = 'SECTIONS/SET_DATA';
+
+// ------------------------------------
+// REDUCER
+// ------------------------------------
+export default function reducer(state = -1, action) {
     switch (action.type) {
-        case 'SECTIONS/INIT_DATA': {
+        case INIT_DATA: {
             return [action.payload];
         }
-        case 'SECTIONS/SET_DATA': {
-            return setData(state, action.payload);
+        case SET_DATA: {
+            return setDataFunc(state, action.payload);
         }
         default:
             return state;
     }
+}
+
+// ------------------------------------
+// ACTIONS
+// ------------------------------------
+export const initData = (payload) => {
+    return { type: INIT_DATA, payload: payload };
+};
+export const setData = (payload) => {
+    return { type: SET_DATA, payload: payload };
 };
 
-function setData(state, payload) {
+// ------------------------------------
+// FUNCTIONS
+// ------------------------------------
+
+function setDataFunc(state, payload) {
     let newState = _.cloneDeep(state);
     for (let view in payload.views) {
         populateObj(payload, payload.views[view], newState);

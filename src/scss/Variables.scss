@@ -1,0 +1,26 @@
+@import "../appConfig/ColorVariables.scss";
+
+/*
+ * Typography
+ * ========================================================================== */
+$font-specific: 'Breakers Slab';
+$font-base: 'Roboto', sans-serif;
+
+/*
+ * Layout
+ * ========================================================================== */
+
+$max-content-width: 1000px;
+
+/*
+ * Media queries breakpoints
+ * ========================================================================== */
+
+$screen-xs-min: 480px;  /* Extra small screen / phone */
+$screen-sm-min: 768px;  /* Small screen / tablet */
+$screen-md-min: 992px;  /* Medium screen / desktop */
+$screen-lg-min: 1200px; /* Large screen / wide desktop */
+$screen-xl-min: 1400px; /* Extra Large screen / wide desktop */
+$screen-xxl-min: 1920px; /* Extra Large screen / wide desktop */
+
+$screen-over-fix: 1025px; /* No over on tabltes and mobile */

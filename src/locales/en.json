@@ -5,5 +5,13 @@
             "name": "ENGLISH"
         }
     },
-    "title": "Good morning everybody! <br /> My name is %(fullName)s!"
+    "modelItem": {
+        "configure": "Configure"
+    },
+    "modelsList": {
+        "title": "<strong>Choose the category:</strong>"
+    },
+    "modelsPage": {
+        "title": "Good morning everybody! My name is %(fullName)s!"
+    }
 }

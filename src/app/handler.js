@@ -2,6 +2,10 @@ import store from './Redux/store';
 import axios from 'axios';
 import { objValidator } from 'Utility';
 import TranslateConfig from '../locales/index';
+import { endLoading, startLoading } from 'Modules/loading';
+import { initData as modelsInitData } from 'Modules/models';
+/* import { initData as sectionsInitData, setData as sectionsSetData } from 'Modules/sections'; */
+import { initData as userInitData } from 'Modules/user';
 
 let LANG = null;
 let USER_ID = null;
@@ -22,12 +26,14 @@ export default (location) => new Promise((resolve, reject) => {
 function initApp() {
     return new Promise((resolve, reject) => {
         document.title = 'Loading...';
-        /* initConfiguration(store.getState().appConfig.firstStep); */
+        /* sectionsInitData(store.getState().appConfig.firstStep); */
         getRegistry(USER_ID)
             .then((resp) => {
                 document.title = resp.user.description;
-                setRegistry(resp.user);
-                setModels(resp);
+                /* store.dispatch(sectionsSetData(resp.user)); */
+                store.dispatch(userInitData(resp.user));
+                store.dispatch(modelsInitData(resp));
+                store.dispatch(endLoading());
                 resolve();
             })
             .catch((error) => reject(error));
@@ -44,14 +50,13 @@ function initApp() {
 }
 
 function getRegistry(id) {
-    startLoading();
+    store.dispatch(startLoading());
     return new Promise((resolve, reject) => {
         axios({
             url: 'http://localhost:3000/server/registry/' + id + '.json',
             method: 'get',
             headers: { 'Content-type': 'application/json; charset=UTF-8' }
         }).then((response) => {
-            endLoading();
             if (response && response.status == 200) {
                 const result = objValidator(response, 'data');
                 resolve(result);
@@ -65,29 +70,15 @@ function getRegistry(id) {
     });
 }
 
-function setRegistry(payload) {
-    store.dispatch({
-        type: 'USER/INIT_DATA',
-        payload: payload
-    });
-}
-
-function setModels(payload) {
-    store.dispatch({
-        type: 'MODELS/INIT_DATA',
-        payload: payload
-    });
-}
-
 function getConfiguration(id) {
-    startLoading();
+    store.dispatch(startLoading());
     return new Promise((resolve, reject) => {
         axios({
             url: 'http://localhost:3000/server/configurations/' + id + '.json',
             method: 'get',
             headers: { 'Content-type': 'application/json; charset=UTF-8' }
         }).then((response) => {
-            endLoading();
+            store.dispatch(endLoading());
             if (response && response.status == 200) {
                 const result = objValidator(response, 'data');
                 resolve(result);
@@ -98,50 +89,5 @@ function getConfiguration(id) {
             console.log(error);
             reject(error);
         });
-    });
-}
-
-function startLoading() {
-    store.dispatch({
-        type: 'LOADING/START_LOADING'
-    });
-}
-
-function endLoading() {
-    store.dispatch({
-        type: 'LOADING/END_LOADING'
-    });
-}
-
-function setRegistry(payload) {
-    return new Promise((resolve) => {
-        store.dispatch({
-            type: 'USER/INIT_DATA',
-            payload: payload
-        });
-
-        resolve();
-    });
-}
-
-function initConfiguration(payload) {
-    store.dispatch({
-        type: 'SECTIONS/INIT_DATA',
-        payload: payload
-    });
-}
-
-function setConfiguration(payload) {
-    return new Promise((resolve) => {
-        store.dispatch({
-            type: 'SECTIONS/SET_DATA',
-            payload
-        });
-        /* store.dispatch({
-            type: 'SUMMARY/SET_DATA',
-            payload: payload.views
-        }); */
-
-        resolve();
     });
 }

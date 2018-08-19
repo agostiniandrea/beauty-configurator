@@ -1,14 +1,30 @@
 import { paramNames } from './../../routes';
 
-export default (state = -1, action) => {
+// ------------------------------------
+// CONSTANTS
+// ------------------------------------
+export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
+
+// ------------------------------------
+// REDUCER
+// ------------------------------------
+export default function reducer(state = -1, action) {
     switch (action.type) {
-        case '@@router/LOCATION_CHANGE': {
+        case LOCATION_CHANGE: {
             return getParams(action.payload);
         }
         default:
             return state;
     }
-};
+}
+
+// ------------------------------------
+// ACTIONS
+// ------------------------------------
+
+// ------------------------------------
+// FUNCTIONS
+// ------------------------------------
 
 function getParams({ pathname }) {
     let params = {};

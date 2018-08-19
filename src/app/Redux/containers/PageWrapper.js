@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import PageWrapper from './../../React/components/PageWrapper/PageWrapper';
+import PageWrapper from 'Components/PageWrapper/PageWrapper';
 
 export default connect(
     null,

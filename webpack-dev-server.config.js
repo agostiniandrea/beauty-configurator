@@ -80,6 +80,12 @@ const config = {
         exclude: [nodeModulesPath],
       },
       {
+        // React-hot loader and
+        test: /\.jsx$/, // All .jsx files
+        loaders: ['react-hot', 'babel-loader'], // react-hot is like browser sync and babel loads jsx and es6-7
+        exclude: [nodeModulesPath],
+      },
+      {
         test: /\.json$/,
         loader: 'json',
         exclude: /(node_modules|libraries)/

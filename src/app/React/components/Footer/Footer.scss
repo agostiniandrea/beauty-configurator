@@ -1,5 +1,7 @@
+@import "../../../../scss/Variables.scss";
+
 .footer {
-    background: black;
+    background: $black-base;
     .footer-desktop {
         width: 100%;
         height: 100px;

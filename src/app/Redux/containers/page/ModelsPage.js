@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
-import Main from 'Components/Main/Main';
+import ModelsPage from 'Pages/ModelsPage/ModelsPage';
 
 const mapStateToProps = (state) => {
     return {
-        fullName: state.user.description
+        loading: state.loading,
+        models: state.models,
+        user: state.user
     };
 };
 
 export default connect(
     mapStateToProps,
     null
-)(Main);
+)(ModelsPage);

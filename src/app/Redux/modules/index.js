@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+
 import { routerReducer } from 'react-router-redux';
 import appConfig from './appConfig';
 import loading from './loading';
@@ -8,7 +8,7 @@ import sections from './sections';
 /* import summary from './summary'; */
 import user from './user';
 
-export default combineReducers({
+export default {
     appConfig,
     loading,
     models,
@@ -17,4 +17,4 @@ export default combineReducers({
     sections,
     /* summary, */
     user
-});
+};

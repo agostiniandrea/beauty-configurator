@@ -1,0 +1,23 @@
+// Colors variables base
+// ==========================================================================
+
+$black-base:#000;
+$white-base:#FFF;
+
+//brand colors
+$red-base:#8f0c2c;						// gcss-colors-element-primary
+$red-dark: #7B061B;						// gcss-color-element-primary-hover
+$red-dark-hover: #670403;				// gcss-color-element-primary-active - UNUSED
+$base-border:#BFBFBF;					// gcss-colors-element-subdued
+$light-bg:#d1d1d1;						// gcss-colors-background-tertiary
+$light-bg-b:#e7e7e7;					// gcss-colors-background-secondary
+$light-bg-b-hover:darken( $light-bg-b, 10% );
+
+//greys
+$grey-dark:#212121;						// gcss-colors-background-secondary (dark theme)
+$grey-semidark:#3E3E3E;					// gcss-colors-background-quaternary (dark theme)
+$grey-text:#636363;						// gcss-colors-text-body-tertiary
+$grey-border-medium: #BFBFBF;			// gcss-colors-element-subdued
+
+// popin wrapper bottom height
+//$popin-scroller-wrapper-has-buttons-bottom: 58px;

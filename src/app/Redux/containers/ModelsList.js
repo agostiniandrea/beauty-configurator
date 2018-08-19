@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
-import Main from 'Components/Main/Main';
+import ModelsList from 'Components/ModelsList/ModelsList';
 
 const mapStateToProps = (state) => {
     return {
-        fullName: state.user.description
+        list: state.models.list
     };
 };
 
 export default connect(
     mapStateToProps,
     null
-)(Main);
+)(ModelsList);

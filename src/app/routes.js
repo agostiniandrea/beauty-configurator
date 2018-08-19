@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import Header from './Redux/containers/Header';
-import Main from './Redux/containers/Main';
-import Navigator from './Redux/containers/Navigator';
-import Footer from './Redux/containers/Footer';
-import PageWrapper from './Redux/containers/PageWrapper';
+import ModelsPage from 'Containers/page/ModelsPage';
 import handler from './handler.js';
 
 //## Routes
@@ -18,13 +14,7 @@ import handler from './handler.js';
 class Parent extends Component {
     render() {
         return (
-            <PageWrapper>
-                <Header />
-                <Main>
-                    <Navigator />
-                </Main>
-                <Footer />
-            </PageWrapper>
+            <ModelsPage />
         );
     }
 }
@@ -59,6 +49,7 @@ function getChilds() {
     return [
         {
             path: '/lang/:lang/id/:id',
+            section: 'homepage',
             indexRoute: {
                 onEnter: (/* nextState, replace */) => {
                     /* console.log(''); */
