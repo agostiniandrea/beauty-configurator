@@ -18,25 +18,24 @@ export default (location) => new Promise((resolve, reject) => {
 function initApp() {
     return new Promise((resolve, reject) => {
         document.title = 'Loading...';
-        initConfiguration(store.getState().appConfig.firstStep);
+        /* initConfiguration(store.getState().appConfig.firstStep); */
         getRegistry(USER_ID)
             .then((resp) => {
-                setRegistry(resp)
+                document.title = resp.user.description;
+                setRegistry(resp);
+                setModels(resp);
+                resolve();
+            })
+            .catch((error) => reject(error));
+        /* getConfiguration(USER_ID)
+            .then((resp) => {
+                setConfiguration(resp)
                     .then(() => {
-                        document.title = store.getState().user.fullName;
-                        getConfiguration(USER_ID)
-                            .then((resp) => {
-                                setConfiguration(resp)
-                                    .then(() => {
-                                        resolve();
-                                    })
-                                    .catch((error) => reject(error));
-                            })
-                            .catch((error) => reject(error));
+                        resolve();
                     })
                     .catch((error) => reject(error));
             })
-            .catch((error) => reject(error));
+            .catch((error) => reject(error)); */
     });
 }
 
@@ -61,13 +60,16 @@ function getRegistry(id) {
 }
 
 function setRegistry(payload) {
-    return new Promise((resolve) => {
-        store.dispatch({
-            type: 'USER/INIT_DATA',
-            payload: payload
-        });
+    store.dispatch({
+        type: 'USER/INIT_DATA',
+        payload: payload.user
+    });
+}
 
-        resolve();
+function setModels(payload) {
+    store.dispatch({
+        type: 'MODELS/INIT_DATA',
+        payload: payload
     });
 }
 
@@ -92,13 +94,9 @@ function getConfiguration(id) {
 }
 
 function initConfiguration(payload) {
-    return new Promise((resolve) => {
-        store.dispatch({
-            type: 'SECTIONS/INIT_DATA',
-            payload: payload
-        });
-
-        resolve();
+    store.dispatch({
+        type: 'SECTIONS/INIT_DATA',
+        payload: payload
     });
 }
 

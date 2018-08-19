@@ -68,7 +68,7 @@ function getChilds() {
         indexRoute: {
             onEnter: (nextState, replace) => {
                 console.log('child IndexRoute');
-                replace('/id/BNCLCA');
+                replace('/id/MUAIT201801');
             }
         }
     }];
