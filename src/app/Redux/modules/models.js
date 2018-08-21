@@ -45,13 +45,15 @@ function initDataFunc(state, payload) {
     for (let model in payload.user.models) {
         let _model = payload.user.models[model];
         for (let wb of payload.whyBuy) {
+            let _wb = [];
             if (wb.id === _model.id) {
-                _model = {
-                    selected: false,
-                    ..._model,
-                    ...wb
-                };
+                _wb = wb;
             }
+            _model = {
+                selected: false,
+                ..._model,
+                ..._wb
+            };
         }
         newState.list.push(_model);
     }

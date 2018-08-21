@@ -5,17 +5,17 @@
         "userCode": "MUAIT201801",
         "models": {
             "MUAIT201801_1": {
-                "id": "1",
+                "id": "MUAIT201801_1",
                 "order": 1,
                 "description": "Evening"
             },
             "MUAIT201801_2": {
-                "id": "2",
+                "id": "MUAIT201801_2",
                 "order": 2,
                 "description": "Formal"
             },
             "MUAIT201801_3": {
-                "id": "3",
+                "id": "MUAIT201801_3",
                 "order": 3,
                 "description": "Nighttime"
             }

@@ -1,6 +1,7 @@
 var path = require('path');
 
 module.exports = {
+    Api: path.resolve(__dirname + '/src/api/index.js'),
     AppConfig: path.resolve(__dirname + '/src/appConfig/configuration.json'),
     ColorVariables: path.resolve(__dirname + './src/appConfig/ColorVariables.scss'),
     Components: path.resolve(__dirname + '/src/app/React/components/'),
