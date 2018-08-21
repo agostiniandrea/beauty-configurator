@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Translate from 'react-translate-component';
 import './ModelsList.scss';
 
-class ModelsList extends Component {
+export default class ModelsList extends Component {
     constructor(props) {
         super(props);
     }
@@ -30,5 +30,3 @@ ModelsList.propTypes = {
     children: PropTypes.array,
     list: PropTypes.array
 };
-
-export default ModelsList;

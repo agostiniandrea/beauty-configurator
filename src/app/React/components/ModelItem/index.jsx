@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from 'Components/Button/Button';
+import Button from 'Components/Button';
 import './ModelItem.scss';
 
-class ModelItem extends Component {
+export default class ModelItem extends Component {
     constructor(props) {
         super(props);
     }
@@ -30,5 +30,3 @@ ModelItem.propTypes = {
     id: PropTypes.string,
     features: PropTypes.array
 };
-
-export default ModelItem;

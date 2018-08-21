@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Navigator from 'Components/Navigator/Navigator';
+import Navigator from 'Components/Navigator';
 
 /* const mapStateToProps = (state) => {
     return {

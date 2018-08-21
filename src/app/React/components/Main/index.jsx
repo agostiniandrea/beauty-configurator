@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Translate from 'react-translate-component';
 import './Main.scss';
 
-class Main extends Component {
+export default class Main extends Component {
     constructor(props) {
         super(props);
     }
@@ -30,5 +30,3 @@ Main.propTypes = {
     chidren: PropTypes.array,
     fullName: PropTypes.string
 };
-
-export default Main;

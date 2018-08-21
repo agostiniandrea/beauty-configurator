@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 /* import Translate from 'react-translate-component'; */
 import './Navigator.scss';
 
-class Navigator extends Component {
+export default class Navigator extends Component {
     constructor(props) {
         super(props);
     }
@@ -12,11 +12,7 @@ class Navigator extends Component {
         return (
             <nav className="navigator">
                 <ul>
-                    {/* 
-                        this.props.views.map((view) => {
-                            return <li key={`navigator-${view.id}`}>{view.title}</li>;
-                        })
-                     */}
+                    {this.props.views.map(view => <li key={`navigator-${view.id}`}>{view.title}</li>)}
                 </ul>
             </nav>
         );
@@ -26,5 +22,3 @@ class Navigator extends Component {
 Navigator.propTypes = {
     views: PropTypes.array
 };
-
-export default Navigator;

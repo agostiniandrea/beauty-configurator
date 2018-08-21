@@ -1,5 +1,5 @@
 import store from './Redux/store';
-import api from 'Api';
+import Api from 'Api';
 import TranslateConfig from '../locales/index';
 import { endLoading, startLoading } from 'Modules/loading';
 import { initData as modelsInitData } from 'Modules/models';
@@ -27,7 +27,7 @@ function initApp() {
         document.title = 'Loading...';
         store.dispatch(startLoading());
         /* store.dispatch(sectionsInitData(store.getState().appConfig.firstStep)); */
-        api.getRegistry(USER_ID)
+        Api.getRegistry(USER_ID)
             .then((resp) => {
                 document.title = resp.user.description;
                 /* store.dispatch(sectionsSetData(resp.user)); */

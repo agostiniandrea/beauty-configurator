@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import api from 'Api';
+import Api from 'Api';
 
 // ------------------------------------
 // CONSTANTS

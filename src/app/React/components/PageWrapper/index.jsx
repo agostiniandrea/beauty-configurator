@@ -5,7 +5,7 @@ import Main from 'Containers/Main';
 import PropTypes from 'prop-types';
 import './PageWrapper.scss';
 
-class PageWrapper extends Component {
+export default class PageWrapper extends Component {
     constructor(props) {
         super(props);
     }
@@ -26,5 +26,3 @@ class PageWrapper extends Component {
 PageWrapper.propTypes = {
     children: PropTypes.object
 };
-
-export default PageWrapper;

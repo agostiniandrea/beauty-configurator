@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 /* import PropTypes from 'prop-types'; */
 import './Header.scss';
 
-class Header extends Component {
+export default class Header extends Component {
     constructor(props) {
         super(props);
     }
@@ -22,8 +22,6 @@ class Header extends Component {
     }
 }
 
-/* Footer.propTypes = {
+/* Header.propTypes = {
 
 }; */
-
-export default Header;
