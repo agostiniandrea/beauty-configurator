@@ -10,7 +10,7 @@ class Footer extends Component {
 
     render() {
         return (
-            <footer className="main-footer">
+            <footer className="page-footer">
                 {/* <Responsive minWidth={768}>
                     <div className="footer-desktop"></div>
                 </Responsive>

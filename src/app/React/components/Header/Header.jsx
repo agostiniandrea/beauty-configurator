@@ -10,7 +10,7 @@ class Header extends Component {
 
     render() {
         return (
-            <header className="main-header">
+            <header className="page-header">
                 {/* <Responsive minWidth={768}>
                     <div className="header-desktop"></div>
                 </Responsive>

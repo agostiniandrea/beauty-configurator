@@ -11,12 +11,15 @@ class ModelsList extends Component {
     render() {
         return (
             <article className="models-list">
-                <Translate
-                    className="models-list-title"
-                    content="modelsList.title"
-                    key="models-list-title"
-                    unsafe
-                />
+                <title>
+                    <Translate
+                        className="models-list-title"
+                        component="h3"
+                        content="modelsList.title"
+                        key="models-list-title"
+                        unsafe
+                    />
+                </title>
                 {this.props.children}
             </article>
         );

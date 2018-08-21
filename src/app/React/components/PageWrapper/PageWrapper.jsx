@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Footer from 'Containers/Footer';
+import Header from 'Containers/Header';
+import Main from 'Containers/Main';
 import PropTypes from 'prop-types';
 import './PageWrapper.scss';
 
@@ -9,15 +12,19 @@ class PageWrapper extends Component {
 
     render() {
         return (
-            <div className="wrapper">
-                {this.props.children}
-            </div>
+            <main className="page-wrapper">
+                <Header />
+                <Main>
+                    {this.props.children}
+                </Main>
+                <Footer />
+            </main>
         );
     }
 }
 
 PageWrapper.propTypes = {
-    children: PropTypes.array
+    children: PropTypes.object
 };
 
 export default PageWrapper;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Translate from 'react-translate-component';
 import Button from 'Components/Button/Button';
 import './ModelItem.scss';
 
@@ -18,11 +17,7 @@ class ModelItem extends Component {
                 <main>
                 </main>
                 <footer>
-                    <Button onClick={() => this.props.configureFunc(this.props.id)}>
-                        <Translate
-                            content="modelItem.configure"
-                        />
-                    </Button>
+                    <Button text="modelItem.configure" onClick={() => this.props.configureFunc(this.props.id)} />
                 </footer>
             </section>
         );

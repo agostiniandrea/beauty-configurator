@@ -1,6 +1,6 @@
 @import "../../../../scss/Variables.scss";
 
-section.models-list {
+article.models-list {
     padding-top: 10px;
     .models-list-title {
         color: $red-base;
@@ -11,19 +11,19 @@ section.models-list {
 }
 
 @media (min-width: $screen-sm-min) {
-    section.models-list {
+    article.models-list {
         padding-top: 15px;
     }
 }
 
 @media (min-width: $screen-md-min) {
-    section.models-list {
+    article.models-list {
         padding-top: 20px;
     }
 }
 
 @media (min-width: $screen-lg-min) {
-    section.models-list {
+    article.models-list {
         padding-top: 25px;
     }
 }

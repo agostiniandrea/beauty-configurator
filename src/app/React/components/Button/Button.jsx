@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Translate from 'react-translate-component';
 import './Button.scss';
 
 class Button extends Component {
@@ -9,18 +10,18 @@ class Button extends Component {
 
     render() {
         return (
-            <button onClick={this.props.onClick}>
-                {
-                    this.props.children
-                }
-            </button>
+            <Translate
+                content={this.props.text}
+                component="button"
+                onClick={this.props.onClick}
+            />
         );
     }
 }
 
 Button.propTypes = {
-    children: PropTypes.element,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    text: PropTypes.string
 };
 
 export default Button;

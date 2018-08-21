@@ -27,7 +27,7 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-    chidren: PropTypes.element,
+    chidren: PropTypes.array,
     fullName: PropTypes.string
 };
 
