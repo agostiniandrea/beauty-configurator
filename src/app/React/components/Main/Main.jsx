@@ -10,16 +10,18 @@ class Main extends Component {
 
     render() {
         return (
-            <div className="main">
-                <h1>{this.props.fullName}</h1>
-                <Translate
-                    content="modelsPage.title"
-                    key="title"
-                    with={{ fullName: this.props.fullName }}
-                    unsafe
-                />
+            <main className="main">
+                <title>
+                    <h1>{this.props.fullName}</h1>
+                    <Translate
+                        content="modelsPage.title"
+                        key="title"
+                        with={{ fullName: this.props.fullName }}
+                        unsafe
+                    />
+                </title>
                 {this.props.children}
-            </div>
+            </main>
         );
     }
 }

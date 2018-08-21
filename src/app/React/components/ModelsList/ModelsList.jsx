@@ -10,7 +10,7 @@ class ModelsList extends Component {
 
     render() {
         return (
-            <div className="models-list">
+            <article className="models-list">
                 <Translate
                     className="models-list-title"
                     content="modelsList.title"
@@ -18,7 +18,7 @@ class ModelsList extends Component {
                     unsafe
                 />
                 {this.props.children}
-            </div>
+            </article>
         );
     }
 }

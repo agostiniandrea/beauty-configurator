@@ -9,11 +9,11 @@ class Button extends Component {
 
     render() {
         return (
-            <a className="button" onClick={this.props.onClick}>
+            <button onClick={this.props.onClick}>
                 {
                     this.props.children
                 }
-            </a>
+            </button>
         );
     }
 }

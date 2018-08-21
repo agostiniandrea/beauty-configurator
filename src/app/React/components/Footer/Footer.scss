@@ -1,13 +1,14 @@
 @import "../../../../scss/Variables.scss";
 
-.footer {
+footer.main-footer {
     background: $black-base;
-    .footer-desktop {
+    width: 100%;
+    height: 100px;
+}
+
+@media (min-width: $screen-sm-min) {
+    footer.main-footer {
         width: 100%;
-        height: 100px;
-    }
-    .footer-mobile {
-        width: 100%;
-        height: 50px;
+        height: 75px;
     }
 }

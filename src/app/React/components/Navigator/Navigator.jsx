@@ -10,7 +10,7 @@ class Navigator extends Component {
 
     render() {
         return (
-            <div className="navigator">
+            <nav className="navigator">
                 <ul>
                     {/* 
                         this.props.views.map((view) => {
@@ -18,7 +18,7 @@ class Navigator extends Component {
                         })
                      */}
                 </ul>
-            </div>
+            </nav>
         );
     }
 }

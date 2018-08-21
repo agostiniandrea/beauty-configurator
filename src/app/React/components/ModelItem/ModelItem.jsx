@@ -11,20 +11,20 @@ class ModelItem extends Component {
 
     render() {
         return (
-            <div className="model-item col-xs-12">
-                <div>
+            <section className="model-item col-xs-12">
+                <header>
                     <h2>{this.props.description}</h2>
-                </div>
-                <div>
-                </div>
-                <div>
+                </header>
+                <main>
+                </main>
+                <footer>
                     <Button onClick={() => this.props.configureFunc(this.props.id)}>
                         <Translate
                             content="modelItem.configure"
                         />
                     </Button>
-                </div>
-            </div>
+                </footer>
+            </section>
         );
     }
 }
