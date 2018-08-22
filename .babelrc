@@ -6,6 +6,7 @@
     ],
     "plugins": [
         "add-module-exports",
+        "react-hot-loader/babel",
         "syntax-export-extensions",
         "transform-export-extensions"
     ]
