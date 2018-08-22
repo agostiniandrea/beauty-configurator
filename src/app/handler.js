@@ -13,13 +13,15 @@ export default (location) => new Promise((resolve, reject) => {
     LANG = location.params.lang;
     USER_ID = location.params.id;
     TranslateConfig(LANG);
-    initApp()
-        .then(() => {
-            resolve();
-        })
-        .catch((err) => {
-            reject(err);
-        });
+    if (store.getState().user === -1) {
+        initApp()
+            .then(() => {
+                resolve();
+            })
+            .catch((err) => {
+                reject(err);
+            });
+    }
 });
 
 function initApp() {
