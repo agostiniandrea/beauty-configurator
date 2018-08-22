@@ -8,8 +8,6 @@ import routes from './routes';
 
 import '../scss/Variables.scss';
 
-import 'bootstrap';
-
 import store from './Redux/store';
 
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });

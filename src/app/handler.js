@@ -3,7 +3,7 @@ import Api from 'Api';
 import TranslateConfig from '../locales/index';
 import { endLoading, startLoading } from 'Modules/loading';
 import { initData as modelsInitData } from 'Modules/models';
-/* import { initData as sectionsInitData } from 'Modules/sections'; */
+import { initData as sectionsInitData } from 'Modules/sections';
 import { initData as userInitData } from 'Modules/user';
 
 let LANG = null;
@@ -26,7 +26,7 @@ function initApp() {
     return new Promise((resolve, reject) => {
         document.title = 'Loading...';
         store.dispatch(startLoading());
-        /* store.dispatch(sectionsInitData(store.getState().appConfig.firstStep)); */
+        store.dispatch(sectionsInitData(store.getState().appConfig.firstStep));
         Api.getRegistry(USER_ID)
             .then((resp) => {
                 document.title = resp.user.description;

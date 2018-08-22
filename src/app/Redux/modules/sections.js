@@ -5,7 +5,6 @@ import Api from 'Api';
 // CONSTANTS
 // ------------------------------------
 export const INIT_DATA = 'SECTIONS/INIT_DATA';
-export const GET_DATA = 'SECTIONS/GET_DATA';
 export const SET_DATA = 'SECTIONS/SET_DATA';
 
 // ------------------------------------
@@ -15,9 +14,6 @@ export default function reducer(state = -1, action) {
     switch (action.type) {
         case INIT_DATA: {
             return [action.payload];
-        }
-        case GET_DATA: {
-            return getDataFunc(state, action.payload);
         }
         case SET_DATA: {
             return setDataFunc(state, action.payload);
@@ -33,8 +29,17 @@ export default function reducer(state = -1, action) {
 export const initData = (payload) => {
     return { type: INIT_DATA, payload: payload };
 };
-export const getData = (payload) => {
-    return { type: GET_DATA, payload: payload };
+export const getData = (id) => {
+    return (dispatch/* , getState */) => new Promise((resolve, reject) => {
+        Api.getConfiguration(id)
+            .then((configuration) => {
+                dispatch(setData(configuration));
+                resolve(configuration);
+            })
+            .catch((e) => {
+                reject(e);
+            });
+    });
 };
 export const setData = (payload) => {
     return { type: SET_DATA, payload: payload };
@@ -43,9 +48,6 @@ export const setData = (payload) => {
 // ------------------------------------
 // FUNCTIONS
 // ------------------------------------
-
-function getDataFunc(state, payload) {
-}
 
 function setDataFunc(state, payload) {
     let newState = _.cloneDeep(state);
