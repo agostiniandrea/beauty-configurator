@@ -8,6 +8,8 @@ module.exports = {
     Containers: path.resolve(__dirname + '/src/app/Redux/containers/'),
     Modules: path.resolve(__dirname + '/src/app/Redux/modules/'),
     Pages: path.resolve(__dirname + '/src/app/React/page/'),
-    Utility: path.resolve(__dirname + '/src/app/utility/index.js'),
+    Routes: path.resolve(__dirname + '/src/app/routes/'),
+    Store: path.resolve(__dirname + '/src/app/Redux/store.js'),
+    Utilities: path.resolve(__dirname + '/src/app/utility/index.js'),
     Variables: path.resolve(__dirname + './src/scss/Variables.scss'),
 };

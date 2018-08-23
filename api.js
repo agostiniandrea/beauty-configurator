@@ -3,7 +3,7 @@ const app = express();
 
 const fs = require('fs');
 
-var routes = require('./routes');
+var routes = require('././src/app/routes/index');
 app.use('/', routes);
 
 app.get('/src/img/images2.json', function (req, res) {

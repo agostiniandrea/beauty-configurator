@@ -11,6 +11,7 @@ export default class PageWrapper extends Component {
     }
 
     render() {
+        if (this.props.loading) return null;
         return (
             <main className="page-wrapper">
                 <Header />
@@ -24,5 +25,6 @@ export default class PageWrapper extends Component {
 }
 
 PageWrapper.propTypes = {
-    children: PropTypes.object
+    children: PropTypes.object,
+    loading: PropTypes.bool
 };

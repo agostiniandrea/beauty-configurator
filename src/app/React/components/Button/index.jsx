@@ -11,7 +11,7 @@ export default class Button extends Component {
 
     render() {
         return (
-            <UIButton variant="contained" color="primary" onClick={this.props.onClick}>
+            <UIButton variant="contained" color="primary" href={this.props.href} onClick={this.props.onClick}>
                 <Translate content={this.props.text} />
             </UIButton>
         );
@@ -20,6 +20,7 @@ export default class Button extends Component {
 }
 
 Button.propTypes = {
+    href: PropTypes.string,
     onClick: PropTypes.func,
     text: PropTypes.string
 };

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { objValidator } from 'Utility';
+import { objValidator } from 'Utilities';
 
 export default {
     getConfiguration,

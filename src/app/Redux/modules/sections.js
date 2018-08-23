@@ -13,7 +13,7 @@ export const SET_DATA = 'SECTIONS/SET_DATA';
 export default function reducer(state = -1, action) {
     switch (action.type) {
         case INIT_DATA: {
-            return [action.payload];
+            return action.payload;
         }
         case SET_DATA: {
             return setDataFunc(state, action.payload);
@@ -58,12 +58,12 @@ function setDataFunc(state, payload) {
 }
 
 function populateObj(fullPayloadObj, curPayloadObj, obj) {
-    obj.push({
+    obj[curPayloadObj.id] = {
         id: curPayloadObj.id,
         title: curPayloadObj.title,
         description: curPayloadObj.description,
         categories: getChildren(fullPayloadObj, curPayloadObj)
-    });
+    };
 }
 
 function getChildren(full, cur) {

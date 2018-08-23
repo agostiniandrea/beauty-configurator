@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ModelsPage from 'Containers/page/ModelsPage';
-import handler from './handler.js';
+import handler from '../handler';
+/* import getUrlParams from 'Routes/getUrlParams'; */
+import getPage from 'Routes/getPage';
 
 //## Routes
 /**
@@ -13,9 +15,12 @@ import handler from './handler.js';
 
 class Parent extends Component {
     render() {
-        return (
-            <ModelsPage />
-        );
+        if (this.props.routes[1].section === 'homepage') {
+            return <ModelsPage />;
+        }
+        else {
+            return <div></div>;
+        }
     }
 }
 
@@ -43,26 +48,40 @@ export default {
     childRoutes: getChilds()
 };
 
-export const paramNames = ['lang', 'id'];
+export const paramNames = ['lang', 'id', 'step'];
 
 function getChilds() {
-    return [
+    const pages = ['1', '2', '3', '4'];
+    //replace('lang/it/id/MUAIT201801');
+    let children = [
         {
-            path: '/lang/:lang/id/:id',
+            path: '/',
+            section: '0',
+            indexRoute: {
+                onEnter: (nextState, replace) => {
+                    replace('/lang/it/id/MUAIT201801/page/home/');
+                }
+            }
+        },
+        {
+            path: '/lang/:lang/id/:id/page/home',
             section: 'homepage',
+            indexRoute: {
+                onEnter: (/* nextState, replace */) => {
+                }
+            }
+        }
+    ];
+    for (let page in pages) {
+        children.push({
+            path: '/lang/:lang/id/:id/page/' + pages[page],
+            section: pages[page],
             indexRoute: {
                 onEnter: (/* nextState, replace */) => {
                     /* console.log(''); */
                 }
             }
-        },
-        {
-            path: '/*',
-            indexRoute: {
-                onEnter: (nextState, replace) => {
-                    replace('lang/it/id/MUAIT201801');
-                }
-            }
-        }
-    ];
+        });
+    }
+    return children;
 }

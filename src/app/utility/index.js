@@ -1,1 +1,5 @@
-export objValidator from './objValidator.js'; 
+import objValidator from './objValidator.js';
+
+export default {
+    objValidator
+};

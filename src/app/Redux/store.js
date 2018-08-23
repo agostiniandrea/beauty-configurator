@@ -1,7 +1,8 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { combineReducers } from 'redux';
 import modules from 'Modules/index.js';
+import { routerMiddleware } from 'react-router-redux';
+import history from 'Routes/history';
 
 //ATTIVAZIONE HOT MODULE RELOADER
 if (module.hot) {
@@ -9,10 +10,10 @@ if (module.hot) {
 }
 //CREAZIONE DELLO STORE
 const store = createStore(
-    combineReducers(modules),
-    compose(
+    modules, compose(
         applyMiddleware(
-            thunk
+            thunk/* ,
+            routerMiddleware(history) */
         ),
         window.devToolsExtension ? window.devToolsExtension() : f => f
     )

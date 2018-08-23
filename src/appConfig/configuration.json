@@ -1,9 +1,35 @@
 {
     "theme": "white",
-    "firstStep": {
-        "id": 0,
-        "title": "Page 0",
-        "description": "Page description 0",
-        "categories": null
-    }
+    "defaultPages": [
+        {
+            "id": "home",
+            "title": "Page 0",
+            "description": "Page description 0",
+            "categories": null
+        },
+        {
+            "id": 1,
+            "title": "Page 1",
+            "description": "Page description 1",
+            "categories": null
+        },
+        {
+            "id": 2,
+            "title": "Page 2",
+            "description": "Page description 2",
+            "categories": null
+        },
+        {
+            "id": 3,
+            "title": "Page 3",
+            "description": "Page description 3",
+            "categories": null
+        },
+        {
+            "id": 4,
+            "title": "Page 4",
+            "description": "Page description 4",
+            "categories": null
+        }
+    ]
 }
