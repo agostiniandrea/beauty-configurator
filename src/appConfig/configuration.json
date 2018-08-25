@@ -2,32 +2,32 @@
     "theme": "white",
     "defaultPages": [
         {
-            "id": "home",
-            "title": "Page 0",
+            "id": "0",
+            "title": "home",
             "description": "Page description 0",
             "categories": null
         },
         {
-            "id": 1,
-            "title": "Page 1",
+            "id": "1",
+            "title": "page1",
             "description": "Page description 1",
             "categories": null
         },
         {
-            "id": 2,
-            "title": "Page 2",
+            "id": "2",
+            "title": "page2",
             "description": "Page description 2",
             "categories": null
         },
         {
-            "id": 3,
-            "title": "Page 3",
+            "id": "3",
+            "title": "page3",
             "description": "Page description 3",
             "categories": null
         },
         {
-            "id": 4,
-            "title": "Page 4",
+            "id": "4",
+            "title": "page4",
             "description": "Page description 4",
             "categories": null
         }

@@ -23,7 +23,7 @@ export default (location) => new Promise((resolve, reject) => {
             .catch((err) => {
                 reject(err);
             });
-    }else {
+    } else {
         normalProcessing()
         .then(() => {
             resolve();

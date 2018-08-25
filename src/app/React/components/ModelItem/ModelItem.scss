@@ -5,6 +5,11 @@
     height: 100px;
     margin: 10px 0;
     padding: 10px;
+    footer {
+        a {
+            float: right;
+        }
+    }
 }
 
 @media (min-width: $screen-sm-min) {

@@ -12,19 +12,19 @@ import handler from '../handler';
 * * getComponent: assures that principal component of the page gets split into another chunk and than imported only when the relative route is active
 * * routeParams: are the params send to the Parent. These are the params that can change from a route to another
 */
-
+let firstLanding = true;
 class Parent extends Component {
     render() {
         switch (this.props.routes[1].section) {
             case 'homepage':
                 return <ModelsPage />;
-            case '1':
+            case 'page1':
                 return <CategoryPage />;
-            case '2':
+            case 'page2':
                 return <CategoryPage />;
-            case '3':
+            case 'page3':
                 return <CategoryPage />;
-            case '4':
+            case 'page4':
                 return <CategoryPage />;
             default:
                 return null;
@@ -56,10 +56,10 @@ export default {
     childRoutes: getChilds()
 };
 
-export const paramNames = ['lang', 'id', 'step'];
+export const paramNames = ['lang', 'id', 'page'];
 
 function getChilds() {
-    const pages = ['1', '2', '3', '4'];
+    const pages = ['page1', 'page2', 'page3', 'page4'];
     let children = [
         {
             path: '/',
@@ -75,6 +75,7 @@ function getChilds() {
             section: 'homepage',
             indexRoute: {
                 onEnter: () => {
+                    firstLanding = false;
                 }
             }
         }
@@ -84,7 +85,11 @@ function getChilds() {
             path: '/lang/:lang/id/:id/page/' + pages[page],
             section: pages[page],
             indexRoute: {
-                onEnter: () => {
+                onEnter: (nextState, replace) => {
+                    if (firstLanding) {
+                        firstLanding = false;
+                        replace('/lang/it/id/MUAIT201801/page/home/');
+                    }
                     /* console.log(''); */
                 }
             }

@@ -5,13 +5,13 @@ export default (path, noPage) => {
     const keysUrl = {
         LANG: 'lang',
         ID: 'id',
-        STEP: 'step'
+        PAGE: 'page'
     };
     let pathToArray = path.split('/');
     let params = {
         lang: pathToArray[pathToArray.indexOf(keysUrl.LANG) + 1],
         id: pathToArray[pathToArray.indexOf(keysUrl.ID) + 1],
-        step: pathToArray[pathToArray.indexOf(keysUrl.STEP) + 1]
+        page: pathToArray[pathToArray.indexOf(keysUrl.PAGE) + 1]
     };
 
     return noPage ? params : { ...params, page: pathToArray[1] };

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
-/* import Button from 'Components/Button'; */
+import Button from 'Components/Button';
 import './ModelItem.scss';
 
 export default class ModelItem extends Component {
@@ -10,18 +9,16 @@ export default class ModelItem extends Component {
     }
 
     render() {
-        const url = this.props.routing.replace('home', this.props.nextStep);
+        const url = this.props.href.replace('home', this.props.nextStep);
         return (
-            <section className="model-item col-xs-12">
+            <section className="model-item">
                 <header>
                     <h2>{this.props.description}</h2>
                 </header>
                 <main>
                 </main>
                 <footer>
-                    <Link to={url} onClick={() => this.props.configureFunc(this.props.id)}>
-                        <p>GO AHEAD</p>
-                    </Link>
+                    <Button href={url} onClick={() => this.props.configureFunc(this.props.nextStep, this.props.id)} text="modelItem.configure" />
                 </footer>
             </section>
         );
@@ -33,6 +30,6 @@ ModelItem.propTypes = {
     description: PropTypes.string,
     id: PropTypes.string,
     features: PropTypes.array,
-    nextStep: PropTypes.number,
+    nextStep: PropTypes.string,
     routing: PropTypes.string
 };

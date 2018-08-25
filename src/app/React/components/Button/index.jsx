@@ -10,12 +10,16 @@ export default class Button extends Component {
     }
 
     render() {
+        /* return (
+            <UIButton variant="contained" color="primary" href={this.props.href} onClick={this.props.onClick}>
+                <Translate content={this.props.text} />
+            </UIButton>
+        ); */
         return (
             <UIButton variant="contained" color="primary" href={this.props.href} onClick={this.props.onClick}>
                 <Translate content={this.props.text} />
             </UIButton>
         );
-        /* return <Translate content={this.props.text} component="button" onClick={this.props.onClick} />; */
     }
 }
 
