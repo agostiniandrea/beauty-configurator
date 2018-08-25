@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ModelsPage from 'Pages/ModelsPage/ModelsPage';
+import ModelsPage from 'PagesComponents/ModelsPage';
 
 const mapStateToProps = (state) => {
     return {

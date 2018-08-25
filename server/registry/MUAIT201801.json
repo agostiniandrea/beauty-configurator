@@ -5,17 +5,17 @@
         "userCode": "MUAIT201801",
         "models": {
             "MUAIT201801_1": {
-                "id": "1",
+                "id": "MUAIT201801_1",
                 "order": 1,
                 "description": "Evening"
             },
             "MUAIT201801_2": {
-                "id": "2",
+                "id": "MUAIT201801_2",
                 "order": 2,
                 "description": "Formal"
             },
             "MUAIT201801_3": {
-                "id": "3",
+                "id": "MUAIT201801_3",
                 "order": 3,
                 "description": "Nighttime"
             }
@@ -26,21 +26,25 @@
             "id": "1",
             "features": [
                 {
+                    "id": "1_1",
                     "value": "Feature 1-1",
                     "order": 1,
                     "type": "MF"
                 },
                 {
+                    "id": "1_2",
                     "value": "Feature 1-2",
                     "order": 2,
                     "type": "MF"
                 },
                 {
+                    "id": "1_3",
                     "value": "Feature 1-3",
                     "order": 3,
                     "type": "MF"
                 },
                 {
+                    "id": "1_4",
                     "value": "Feature 1-4",
                     "order": 4,
                     "type": "MF"
@@ -51,16 +55,19 @@
             "id": "2",
             "features": [
                 {
+                    "id": "2_1",
                     "value": "Feature 2-1",
                     "order": 1,
                     "type": "MF"
                 },
                 {
+                    "id": "2_2",
                     "value": "Feature 2-2",
                     "order": 2,
                     "type": "MF"
                 },
                 {
+                    "id": "2_3",
                     "value": "Feature 2-3",
                     "order": 3,
                     "type": "MF"
@@ -71,16 +78,19 @@
             "id": "3",
             "features": [
                 {
+                    "id": "3_1",
                     "value": "Feature 3-1",
                     "order": 1,
                     "type": "MF"
                 },
                 {
+                    "id": "3_2",
                     "value": "Feature 3-2",
                     "order": 2,
                     "type": "MF"
                 },
                 {
+                    "id": "3_3",
                     "value": "Feature 3-3",
                     "order": 3,
                     "type": "MF"

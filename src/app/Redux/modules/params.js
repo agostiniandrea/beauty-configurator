@@ -1,4 +1,4 @@
-import { paramNames } from './../../routes';
+import { paramNames } from 'Routes';
 
 // ------------------------------------
 // CONSTANTS

@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import Header from 'Components/Header';
+import CategoryPage from 'PagesComponents/CategoryPage';
 
 const mapStateToProps = (state) => {
     return {
-        params: state.params
+        loading: state.loading,
+        models: state.sections
     };
 };
 
 export default connect(
     mapStateToProps,
     null
-)(Header);
+)(CategoryPage);

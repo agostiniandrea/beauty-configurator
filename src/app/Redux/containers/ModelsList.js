@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ModelsList from 'Components/ModelsList/ModelsList';
+import ModelsList from 'Components/ModelsList';
 
 const mapStateToProps = (state) => {
     return {
