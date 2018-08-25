@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import Navigator from 'Components/Navigator';
+import CategoryPage from 'PagesComponents/CategoryPage';
 
 const mapStateToProps = (state) => {
     return {
-        views: state.sections
+        loading: state.loading,
+        models: state.sections
     };
 };
 
 export default connect(
     mapStateToProps,
     null
-)(Navigator);
+)(CategoryPage);

@@ -25,6 +25,8 @@ export default class PageWrapper extends Component {
 }
 
 PageWrapper.propTypes = {
-    children: PropTypes.object,
+    children: PropTypes.oneOfType([
+        PropTypes.array, PropTypes.element, PropTypes.object
+    ]),
     loading: PropTypes.bool
 };

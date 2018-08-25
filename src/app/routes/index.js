@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import ModelsPage from 'Containers/page/ModelsPage';
+import CategoryPage from 'PagesContainers/CategoryPage';
+import ModelsPage from 'PagesContainers/ModelsPage';
 import handler from '../handler';
 /* import getUrlParams from 'Routes/getUrlParams'; */
-import getPage from 'Routes/getPage';
 
 //## Routes
 /**
@@ -15,11 +15,19 @@ import getPage from 'Routes/getPage';
 
 class Parent extends Component {
     render() {
-        if (this.props.routes[1].section === 'homepage') {
-            return <ModelsPage />;
-        }
-        else {
-            return <div></div>;
+        switch (this.props.routes[1].section) {
+            case 'homepage':
+                return <ModelsPage />;
+            case '1':
+                return <CategoryPage />;
+            case '2':
+                return <CategoryPage />;
+            case '3':
+                return <CategoryPage />;
+            case '4':
+                return <CategoryPage />;
+            default:
+                return null;
         }
     }
 }
@@ -52,11 +60,10 @@ export const paramNames = ['lang', 'id', 'step'];
 
 function getChilds() {
     const pages = ['1', '2', '3', '4'];
-    //replace('lang/it/id/MUAIT201801');
     let children = [
         {
             path: '/',
-            section: '0',
+            section: null,
             indexRoute: {
                 onEnter: (nextState, replace) => {
                     replace('/lang/it/id/MUAIT201801/page/home/');
@@ -67,7 +74,7 @@ function getChilds() {
             path: '/lang/:lang/id/:id/page/home',
             section: 'homepage',
             indexRoute: {
-                onEnter: (/* nextState, replace */) => {
+                onEnter: () => {
                 }
             }
         }
@@ -77,7 +84,7 @@ function getChilds() {
             path: '/lang/:lang/id/:id/page/' + pages[page],
             section: pages[page],
             indexRoute: {
-                onEnter: (/* nextState, replace */) => {
+                onEnter: () => {
                     /* console.log(''); */
                 }
             }

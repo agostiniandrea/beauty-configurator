@@ -12,8 +12,8 @@ if (module.hot) {
 const store = createStore(
     modules, compose(
         applyMiddleware(
-            thunk/* ,
-            routerMiddleware(history) */
+            thunk,
+            routerMiddleware(history)
         ),
         window.devToolsExtension ? window.devToolsExtension() : f => f
     )
