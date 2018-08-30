@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CategoryPage from 'PagesContainers/CategoryPage';
 import ModelsPage from 'PagesContainers/ModelsPage';
 import handler from '../handler';
+import Store from 'Store';
 /* import getUrlParams from 'Routes/getUrlParams'; */
 
 //## Routes
@@ -17,7 +18,11 @@ class Parent extends Component {
     render() {
         switch (this.props.routes[1].section) {
             case 'homepage':
-                return <ModelsPage />;
+                if (Store.getState().loading) {
+                    return null;
+                } else {
+                    return <ModelsPage />;
+                }
             case 'page1':
                 return <CategoryPage />;
             case 'page2':

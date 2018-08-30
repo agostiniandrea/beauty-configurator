@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import Api from 'Api';
+import { endLoading } from 'Modules/loading';
 
 // ------------------------------------
 // CONSTANTS
@@ -40,6 +41,7 @@ export const getData = (id) => {
             .then((configuration) => {
                 dispatch(setData(configuration));
                 resolve(configuration);
+                dispatch(endLoading());
             })
             .catch((e) => {
                 reject(e);
@@ -92,9 +94,14 @@ function unlockFunc(state, payload) {
 }
 
 function populateObj(fullPayloadObj, curPayloadObj, obj) {
+    //to be done better
     obj[curPayloadObj.id] = {
-        ...curPayloadObj,
-        categories: getChildren(fullPayloadObj, curPayloadObj)
+        ...obj[curPayloadObj.id],
+        id: curPayloadObj.id,
+        title: curPayloadObj.title,
+        categories: getChildren(fullPayloadObj, curPayloadObj),
+        description: curPayloadObj.description,
+        order: curPayloadObj.order
     };
 }
 
@@ -106,11 +113,13 @@ function getChildren(full, cur) {
         for (let subCategory of cur.subCategories) {
             let _subCategory = full.subCategories[subCategory];
             subCategories.push({
+                id: subCategory,
                 ..._subCategory,
                 options: getOptionsBySubcategory(full.options, subCategory)
             });
         }
         _category = {
+            id: category,
             ..._category,
             subCategories
         };
