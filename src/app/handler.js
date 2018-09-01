@@ -3,6 +3,7 @@ import Api from 'Api';
 import TranslateConfig from '../locales/index';
 import { endLoading, startLoading } from 'Modules/loading';
 import { initData as modelsInitData } from 'Modules/models';
+import { initData as paramsInitData } from 'Modules/params';
 import { initData as sectionsInitData } from 'Modules/sections';
 import { initData as userInitData } from 'Modules/user';
 
@@ -36,6 +37,7 @@ export default (location) => new Promise((resolve, reject) => {
 function initApp() {
     return new Promise((resolve, reject) => {
         document.title = 'Loading...';
+        store.dispatch(paramsInitData(window.location));
         store.dispatch(startLoading());
         store.dispatch(sectionsInitData(store.getState().appConfig.defaultPages));
         Api.getRegistry(USER_ID)

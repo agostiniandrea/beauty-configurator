@@ -21,7 +21,7 @@ export default function reducer(state = -1, action) {
             return setDataFunc(state, action.payload);
         }
         case UNLOCK: {
-            return unlockFunc(state, action.payload);
+            return unlockFunc(state);
         }
         default:
             return state;
@@ -65,8 +65,7 @@ function initDataFunc(payload) {
     for (let section of newState) {
         obj.push({
             ...section,
-            active: section.id === 'home',
-            selected: section.id === 'home'
+            active: section.id === 'home'
         });
     }
     return obj;
@@ -77,17 +76,16 @@ function setDataFunc(state, payload) {
     for (let view in payload.views) {
         populateObj(payload, payload.views[view], newState);
     }
-    return newState;
+    return _.orderBy(newState, ['order']);
 }
 
-function unlockFunc(state, payload) {
+function unlockFunc(state) {
     let newState = _.cloneDeep(state);
     let obj = [];
     for (let section of newState) {
         obj.push({
             ...section,
-            active: true,
-            selected: section.id === payload
+            active: true
         });
     }
     return obj;
@@ -100,8 +98,7 @@ function populateObj(fullPayloadObj, curPayloadObj, obj) {
         id: curPayloadObj.id,
         title: curPayloadObj.title,
         categories: getChildren(fullPayloadObj, curPayloadObj),
-        description: curPayloadObj.description,
-        order: curPayloadObj.order
+        description: curPayloadObj.description
     };
 }
 
@@ -121,11 +118,11 @@ function getChildren(full, cur) {
         _category = {
             id: category,
             ..._category,
-            subCategories
+            subCategories: _.orderBy(subCategories, ['order'])
         };
         obj.push(_category);
     }
-    return obj;
+    return _.orderBy(obj, ['order']);
 }
 
 function getOptionsBySubcategory(optObj, id) {
@@ -135,5 +132,5 @@ function getOptionsBySubcategory(optObj, id) {
             options.push(optObj[opt]);
         }
     }
-    return options;
+    return _.orderBy(options, ['order']);
 }

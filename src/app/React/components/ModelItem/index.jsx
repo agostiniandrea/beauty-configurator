@@ -20,7 +20,7 @@ export default class ModelItem extends Component {
                 <footer>
                     <Button
                         onClick={() => {
-                            this.props.configureFunc(this.props.nextStep, this.props.id, url);
+                            this.props.configureFunc(this.props.selected, this.props.id, url);
                         }}
                         text="modelItem.configure"
                     />
@@ -36,5 +36,6 @@ ModelItem.propTypes = {
     id: PropTypes.string,
     features: PropTypes.array,
     nextStep: PropTypes.string,
-    routing: PropTypes.string
+    routing: PropTypes.string,
+    selected: PropTypes.bool
 };
