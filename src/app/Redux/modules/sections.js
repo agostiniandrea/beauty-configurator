@@ -37,7 +37,7 @@ export const initData = (payload) => {
 
 export const getData = (id) => {
     return (dispatch/* , getState */) => new Promise((resolve, reject) => {
-        Api.getConfiguration(id)
+        Api.getModel(id)
             .then((configuration) => {
                 dispatch(setData(configuration));
                 resolve(configuration);

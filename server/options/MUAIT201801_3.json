@@ -1,0 +1,18 @@
+{
+    "1": {
+        "description": "Option 1",
+        "price": 0
+    },
+    "2": {
+        "description": "Option 2",
+        "price": 0
+    },
+    "3": {
+        "description": "Option 3",
+        "price": 0
+    },
+    "4": {
+        "description": "Option 4",
+        "price": 0
+    }
+}

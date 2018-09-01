@@ -44,17 +44,17 @@ function initDataFunc(state, payload) {
     let newState = _.cloneDeep(state);
     for (let model in payload.user.models) {
         let _model = payload.user.models[model];
+        let _wb = [];
         for (let wb of payload.whyBuy) {
-            let _wb = [];
-            if (wb.id === _model.id) {
+            if (wb.id == _model.order) {
                 _wb = wb;
             }
-            _model = {
-                selected: false,
-                ..._model,
-                ..._wb
-            };
         }
+        _model = {
+            selected: false,
+            ..._model,
+            features: _wb.features
+        };
         newState.list.push(_model);
     }
     return newState;

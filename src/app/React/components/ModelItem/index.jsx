@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from 'Components/Button';
+import Feature from 'Components/Feature';
 import './ModelItem.scss';
 
 export default class ModelItem extends Component {
@@ -16,6 +17,11 @@ export default class ModelItem extends Component {
                     <h2>{this.props.description}</h2>
                 </header>
                 <main>
+                    <ul className="features-list">
+                        {this.props.features && this.props.features.map((feature) =>
+                            <Feature key={feature.id} text={feature.value} />
+                        )}
+                    </ul>
                 </main>
                 <footer>
                     <Button
