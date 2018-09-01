@@ -1,5 +1,12 @@
 @import "../../../../scss/Variables.scss";
 
+article.section-container {
+    margin: 20px;
+    title.section-description {
+        margin-bottom: 40px;
+    }
+}
+
 @media (min-width: $screen-sm-min) {
 }
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Translate from 'react-translate-component';
-import UIButton from '@material-ui/core/Button';
 import './Button.scss';
 
 export default class Button extends Component {
@@ -10,15 +9,12 @@ export default class Button extends Component {
     }
 
     render() {
-        /* return (
-            <UIButton variant="contained" color="primary" href={this.props.href} onClick={this.props.onClick}>
-                <Translate content={this.props.text} />
-            </UIButton>
-        ); */
         return (
-            <UIButton variant="contained" color="primary" href={this.props.href} onClick={this.props.onClick}>
-                <Translate content={this.props.text} />
-            </UIButton>
+            <Translate
+                component="button"
+                content={this.props.text}
+                onClick={this.props.onClick}
+            />
         );
     }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CategoryPage from 'PagesContainers/CategoryPage';
+import SectionPage from 'PagesContainers/SectionPage';
 import ModelsPage from 'PagesContainers/ModelsPage';
 import handler from '../handler';
 import Store from 'Store';
@@ -24,13 +24,10 @@ class Parent extends Component {
                     return <ModelsPage />;
                 }
             case 'page1':
-                return <CategoryPage />;
             case 'page2':
-                return <CategoryPage />;
             case 'page3':
-                return <CategoryPage />;
             case 'page4':
-                return <CategoryPage />;
+                return <SectionPage />;
             default:
                 return null;
         }

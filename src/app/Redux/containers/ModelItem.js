@@ -13,11 +13,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        configureFunc: (nextSectionId, id) => {
+        configureFunc: (nextSectionId, id, url) => {
             dispatch(startLoading());
             dispatch(setModelById(id));
             dispatch(unlockSections(nextSectionId));
             dispatch(getData(id));
+            window.location.replace(url);
         }
     };
 };

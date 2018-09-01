@@ -11,9 +11,8 @@ export default class ModelsList extends Component {
     render() {
         return (
             <article className="models-list">
-                <title>
+                <title className="models-list-title">
                     <Translate
-                        className="models-list-title"
                         component="h3"
                         content="modelsList.title"
                         key="models-list-title"

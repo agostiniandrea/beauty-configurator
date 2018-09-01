@@ -18,7 +18,12 @@ export default class ModelItem extends Component {
                 <main>
                 </main>
                 <footer>
-                    <Button href={url} onClick={() => this.props.configureFunc(this.props.nextStep, this.props.id)} text="modelItem.configure" />
+                    <Button
+                        onClick={() => {
+                            this.props.configureFunc(this.props.nextStep, this.props.id, url);
+                        }}
+                        text="modelItem.configure"
+                    />
                 </footer>
             </section>
         );

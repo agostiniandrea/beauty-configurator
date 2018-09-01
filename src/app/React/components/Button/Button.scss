@@ -3,9 +3,20 @@
 button {
     background-color: $red-base;
     border: 1px solid $base-border;
+    color: $light-bg;
     float: right;
+    padding: 10px;
     &:hover {
         background-color: $red-dark-hover;
         cursor: pointer;
     }
+}
+
+@media (min-width: $screen-sm-min) {
+}
+
+@media (min-width: $screen-md-min) {
+}
+
+@media (min-width: $screen-lg-min) {
 }

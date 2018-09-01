@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import CategoryPage from 'PagesComponents/CategoryPage';
+import SectionPage from 'PagesComponents/SectionPage';
 
 const mapStateToProps = (state) => {
     return {
@@ -12,4 +12,4 @@ const mapStateToProps = (state) => {
 export default connect(
     mapStateToProps,
     null
-)(CategoryPage);
+)(SectionPage);
