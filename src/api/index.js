@@ -2,7 +2,7 @@ import axios from 'axios';
 import { objValidator } from 'Utilities';
 
 export default {
-    getConfiguration,
+    getModel,
     getRegistry
 };
 
@@ -26,10 +26,10 @@ function getRegistry(id) {
     });
 }
 
-function getConfiguration(id) {
+function getModel(id) {
     return new Promise((resolve, reject) => {
         axios({
-            url: 'http://localhost:3000/server/configurations/' + id + '.json',
+            url: 'http://localhost:3000/server/models/' + id + '.json',
             method: 'get',
             headers: { 'Content-type': 'application/json; charset=UTF-8' }
         }).then((response) => {

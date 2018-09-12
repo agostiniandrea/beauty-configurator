@@ -2,10 +2,18 @@
 
 .model-item {
     border: 1px solid $base-border;
-    height: 100px;
+    min-height: 150px;
     margin: 10px 0;
     padding: 10px;
+    header {
+        min-height: 30px;
+    }
+    main ul {
+        margin: 10px -10px;
+    }
     footer {
+        margin-bottom: 20px;
+        min-height: 30px;
         a {
             float: right;
         }

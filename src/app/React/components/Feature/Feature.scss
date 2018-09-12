@@ -1,5 +1,10 @@
 @import "../../../../scss/Variables.scss";
 
+li.feature {
+    color: $grey-semidark;
+    list-style-type: none;
+}
+
 @media (min-width: $screen-sm-min) {
 }
 

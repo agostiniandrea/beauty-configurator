@@ -23,6 +23,22 @@ app.get('/logos/*', function (req, res) {
     }, 500);
 });
 
+app.get('/models/*', function (req, res) {
+    callLog(req.url);
+    let data = fs.readFileSync('./server/' + req.url, { encoding: 'utf8' });
+    setTimeout(() => {
+        res.json(JSON.parse(data));
+    }, 500);
+});
+
+app.get('/options/*', function (req, res) {
+    callLog(req.url);
+    let data = fs.readFileSync('./server/' + req.url, { encoding: 'utf8' });
+    setTimeout(() => {
+        res.json(JSON.parse(data));
+    }, 500);
+});
+
 app.get('/registry/*', function (req, res) {
     callLog(req.url);
     let data = fs.readFileSync('./server/' + req.url, { encoding: 'utf8' });

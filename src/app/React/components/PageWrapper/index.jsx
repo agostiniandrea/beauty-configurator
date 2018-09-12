@@ -12,15 +12,13 @@ export default class PageWrapper extends Component {
 
     render() {
         if (this.props.loading) return null;
-        return (
-            <main className="page-wrapper">
-                <Header />
-                <Main>
-                    {this.props.children}
-                </Main>
-                <Footer />
-            </main>
-        );
+        return ([
+            <Header key="header" />,
+            <Main key="main">
+                {this.props.children}
+            </Main>,
+            <Footer key="footer" />
+        ]);
     }
 }
 

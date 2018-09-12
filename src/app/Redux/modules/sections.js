@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import Api from 'Api';
+import { endLoading } from 'Modules/loading';
 
 // ------------------------------------
 // CONSTANTS
@@ -20,7 +21,7 @@ export default function reducer(state = -1, action) {
             return setDataFunc(state, action.payload);
         }
         case UNLOCK: {
-            return unlockFunc(state, action.payload);
+            return unlockFunc(state);
         }
         default:
             return state;
@@ -36,10 +37,11 @@ export const initData = (payload) => {
 
 export const getData = (id) => {
     return (dispatch/* , getState */) => new Promise((resolve, reject) => {
-        Api.getConfiguration(id)
+        Api.getModel(id)
             .then((configuration) => {
                 dispatch(setData(configuration));
                 resolve(configuration);
+                dispatch(endLoading());
             })
             .catch((e) => {
                 reject(e);
@@ -63,8 +65,7 @@ function initDataFunc(payload) {
     for (let section of newState) {
         obj.push({
             ...section,
-            active: section.id === 'home',
-            selected: section.id === 'home'
+            active: section.id === 'home'
         });
     }
     return obj;
@@ -75,26 +76,29 @@ function setDataFunc(state, payload) {
     for (let view in payload.views) {
         populateObj(payload, payload.views[view], newState);
     }
-    return newState;
+    return _.orderBy(newState, ['order']);
 }
 
-function unlockFunc(state, payload) {
+function unlockFunc(state) {
     let newState = _.cloneDeep(state);
     let obj = [];
     for (let section of newState) {
         obj.push({
             ...section,
-            active: true,
-            selected: section.id === payload
+            active: true
         });
     }
     return obj;
 }
 
 function populateObj(fullPayloadObj, curPayloadObj, obj) {
+    //to be done better
     obj[curPayloadObj.id] = {
-        ...curPayloadObj,
-        categories: getChildren(fullPayloadObj, curPayloadObj)
+        ...obj[curPayloadObj.id],
+        id: curPayloadObj.id,
+        title: curPayloadObj.title,
+        categories: getChildren(fullPayloadObj, curPayloadObj),
+        description: curPayloadObj.description
     };
 }
 
@@ -106,17 +110,19 @@ function getChildren(full, cur) {
         for (let subCategory of cur.subCategories) {
             let _subCategory = full.subCategories[subCategory];
             subCategories.push({
+                id: subCategory,
                 ..._subCategory,
                 options: getOptionsBySubcategory(full.options, subCategory)
             });
         }
         _category = {
+            id: category,
             ..._category,
-            subCategories
+            subCategories: _.orderBy(subCategories, ['order'])
         };
         obj.push(_category);
     }
-    return obj;
+    return _.orderBy(obj, ['order']);
 }
 
 function getOptionsBySubcategory(optObj, id) {
@@ -126,5 +132,5 @@ function getOptionsBySubcategory(optObj, id) {
             options.push(optObj[opt]);
         }
     }
-    return options;
+    return _.orderBy(options, ['order']);
 }
