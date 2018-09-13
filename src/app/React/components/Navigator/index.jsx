@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Responsive from 'react-responsive';
 /* import Translate from 'react-translate-component'; */
 import AppBar from '@material-ui/core/AppBar';
 import Tab from '@material-ui/core/Tab';
@@ -19,9 +20,16 @@ export default class Navigator extends Component {
     render() {
         return (
             <AppBar position="static">
-                <Tabs value={this.props.views.indexOf(this.props.current)} /*onChange={this.handleChange} */>
-                    {this.props.views.map(view => <Tab key={view.id} label={view.title} href={this.getNextStep(view.title)} />)}
-                </Tabs>
+                <Responsive minWidth={768}>
+                    {this.props.current && <Tabs centered value={this.props.views.indexOf(this.props.current)} /*onChange={this.handleChange} */>
+                        {this.props.views.map(view => <Tab key={view.id} label={view.title} href={this.getNextStep(view.title)} />)}
+                    </Tabs>}
+                </Responsive>
+                <Responsive maxWidth={767}>
+                    {this.props.current && <Tabs centered value={this.props.views.indexOf(this.props.current)} /*onChange={this.handleChange} */>
+                        {this.props.views.map(view => <Tab key={view.id} label={view.id !== '0' ? view.id : view.title} href={this.getNextStep(view.title)} />)}
+                    </Tabs>}
+                </Responsive>
             </AppBar>
         );
     }
