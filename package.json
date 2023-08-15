@@ -35,7 +35,7 @@
     },
     "dependencies": {
         "@material-ui/core": "^1.5.1",
-        "axios": "^0.16.1",
+        "axios": "^0.21.2",
         "babel-polyfill": "^6.23.0",
         "bluebird": "^3.5.0",
         "counterpart": "^0.17.8",
