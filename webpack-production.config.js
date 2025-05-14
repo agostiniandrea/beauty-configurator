@@ -67,6 +67,10 @@ const config = {
         loaders: ['style', 'css', 'less']
       }
     ]
+  },
+  resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.scss', '.min.js'],
+    alias: webpackAlias
   }
 };
 
