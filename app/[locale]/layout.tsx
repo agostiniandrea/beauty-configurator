@@ -44,12 +44,16 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const messages = await getMessages();
 
+  // The font wrapper div must be OUTSIDE NextIntlClientProvider.
+  // NextIntlClientProvider is a Client Component — if it sits at the root of
+  // the layout, React inserts an SSR boundary marker (display:contents) that
+  // the client doesn't reproduce, causing a hydration mismatch.
   return (
-    <NextIntlClientProvider messages={messages}>
+    <div className={`${cormorant.variable} ${dmSans.variable}`}>
       <HtmlLang locale={locale} />
-      <div className={`${cormorant.variable} ${dmSans.variable}`}>
+      <NextIntlClientProvider messages={messages}>
         {children}
-      </div>
-    </NextIntlClientProvider>
+      </NextIntlClientProvider>
+    </div>
   );
 }
