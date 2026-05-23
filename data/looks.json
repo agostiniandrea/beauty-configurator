@@ -1,0 +1,32 @@
+[
+  {
+    "id": "natural-glow",
+    "name": { "en": "Natural Glow", "it": "Luminosità Naturale" },
+    "description": {
+      "en": "A fresh, everyday look that enhances your natural features",
+      "it": "Un look fresco e quotidiano che esalta i tuoi tratti naturali"
+    },
+    "tags": ["everyday", "fresh", "minimal"],
+    "basePrice": 0
+  },
+  {
+    "id": "evening-drama",
+    "name": { "en": "Evening Drama", "it": "Drama Serale" },
+    "description": {
+      "en": "Bold and sophisticated for special occasions",
+      "it": "Audace e sofisticato per le occasioni speciali"
+    },
+    "tags": ["evening", "bold", "glamour"],
+    "basePrice": 0
+  },
+  {
+    "id": "soft-rose",
+    "name": { "en": "Soft Rose", "it": "Rosa Delicato" },
+    "description": {
+      "en": "Feminine and romantic with warm rose tones",
+      "it": "Femminile e romantico con toni rosa caldi"
+    },
+    "tags": ["romantic", "warm", "feminine"],
+    "basePrice": 0
+  }
+]
