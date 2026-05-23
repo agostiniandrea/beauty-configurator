@@ -1,22 +1,56 @@
 {
   "nav": {
     "home": "Home",
-    "back": "Back to looks"
+    "back": "Back to looks",
+    "backToConfigurator": "Back to configurator",
+    "backToSummary": "Back to summary"
   },
   "home": {
     "title": "Beauty Configurator",
-    "subtitle": "Choose a look and make it yours",
-    "cta": "Configure"
+    "subtitle": "Your perfect look, configured.",
+    "lead": "Choose a look, personalise every detail step by step, and bring your configuration to the studio.",
+    "cta": "Configure this look",
+    "looksTitle": "Available Looks",
+    "step1": "Choose a look",
+    "step2": "Configure each detail",
+    "step3": "Bring the card to the studio"
   },
   "configurator": {
     "summary": "Your selection",
     "totalLabel": "Total",
     "included": "Included",
-    "selectOption": "Select an option",
-    "noOptions": "No options available for this category"
+    "selectOption": "Select an option for this category",
+    "noOptions": "No options available for this category",
+    "stepsCompleted": "steps completed",
+    "progress": "Configuration progress",
+    "stepOf": "Step {current} of {total}",
+    "next": "Next",
+    "back": "Back",
+    "reviewOrder": "Review my order",
+    "selectTooltip": "Select an option to continue"
+  },
+  "summary": {
+    "title": "Your configuration",
+    "subtitle": "Review your choices before confirming.",
+    "lookLabel": "Look",
+    "edit": "Edit",
+    "confirm": "Confirm order",
+    "emptyState": "No options selected. Go back and configure your look."
+  },
+  "complete": {
+    "title": "Order ready",
+    "subtitle": "Show this page at the studio to have your look realised.",
+    "orderDate": "Date",
+    "lookLabel": "Look",
+    "selectionLabel": "Configuration",
+    "studioNote": "Present this card at the studio — the team will have everything they need.",
+    "printButton": "Print / Save as PDF",
+    "emailButton": "Send by email",
+    "emailSubject": "My Beauty Configurator order",
+    "emailBody": "Here is my beauty configuration:\n\n{selection}\n\nTotal: {total}\n\nSee you at the studio!"
   },
   "common": {
-    "loading": "Loading...",
+    "loading": "Loading…",
     "notFound": "Not found"
   }
 }
