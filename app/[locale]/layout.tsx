@@ -6,6 +6,7 @@ import { routing } from "@/i18n/routing";
 import "@/app/globals.css";
 import type { Metadata } from "next";
 import siteConfig from "@/site.config";
+import HtmlLang from "@/components/HtmlLang";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -44,15 +45,11 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html
-      lang={locale}
-      className={`${cormorant.variable} ${dmSans.variable}`}
-    >
-      <body>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <HtmlLang locale={locale} />
+      <div className={`${cormorant.variable} ${dmSans.variable}`}>
+        {children}
+      </div>
+    </NextIntlClientProvider>
   );
 }
