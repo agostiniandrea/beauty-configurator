@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryNav renders correctly on first step 1`] = `
+<div>
+  <nav
+    aria-label="Configuration steps"
+  >
+    <ol
+      class="flex flex-col gap-1"
+    >
+      <li>
+        <button
+          aria-current="step"
+          class="w-full text-left flex items-center gap-3 px-4 py-3 rounded-2xl text-sm transition-all bg-[var(--color-action-bg)] text-[var(--color-action-text)]"
+        >
+          <span
+            aria-hidden="true"
+            class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium shrink-0 bg-[var(--color-brand-rose)] text-white"
+          >
+            1
+          </span>
+          <span
+            class="font-medium"
+          >
+            Base
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          class="w-full text-left flex items-center gap-3 px-4 py-3 rounded-2xl text-sm transition-all text-[var(--color-text-muted)] cursor-not-allowed opacity-50"
+          disabled=""
+        >
+          <span
+            aria-hidden="true"
+            class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium shrink-0 bg-[var(--color-border)] text-[var(--color-text-muted)]"
+          >
+            2
+          </span>
+          <span
+            class="font-medium"
+          >
+            Eyes
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          class="w-full text-left flex items-center gap-3 px-4 py-3 rounded-2xl text-sm transition-all text-[var(--color-text-muted)] cursor-not-allowed opacity-50"
+          disabled=""
+        >
+          <span
+            aria-hidden="true"
+            class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium shrink-0 bg-[var(--color-border)] text-[var(--color-text-muted)]"
+          >
+            3
+          </span>
+          <span
+            class="font-medium"
+          >
+            Lips
+          </span>
+        </button>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;

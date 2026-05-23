@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SummaryPanel renders correctly with full selection 1`] = `
+<div>
+  <aside
+    aria-label="summary"
+    class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 flex flex-col gap-5"
+  >
+    <div>
+      <h3
+        class="font-[family-name:var(--font-heading)] text-xl font-light text-[var(--color-text-primary)]"
+      >
+        summary
+      </h3>
+      <p
+        class="text-xs text-[var(--color-text-muted)] mt-0.5"
+      >
+        3
+        /
+        3
+         
+        stepsCompleted
+      </p>
+    </div>
+    <div
+      aria-label="progress"
+      aria-valuemax="3"
+      aria-valuemin="0"
+      aria-valuenow="3"
+      class="h-1 rounded-full bg-[var(--color-border)] overflow-hidden"
+      role="progressbar"
+    >
+      <div
+        class="h-full bg-[var(--color-brand-rose)] rounded-full transition-all duration-500"
+        style="width: 100%;"
+      />
+    </div>
+    <ul
+      class="flex flex-col gap-3"
+    >
+      <li
+        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+      >
+        <span
+          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+        >
+          Base
+        </span>
+        <span
+          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+        >
+          Light Coverage
+        </span>
+      </li>
+      <li
+        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+      >
+        <span
+          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+        >
+          Eyes
+        </span>
+        <span
+          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+        >
+          Smoky Eye
+        </span>
+      </li>
+      <li
+        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+      >
+        <span
+          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+        >
+          Lips
+        </span>
+        <span
+          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+        >
+          Nude Lip
+        </span>
+      </li>
+    </ul>
+    <div
+      class="border-t-2 border-[var(--color-border-strong)] pt-4 flex justify-between items-baseline"
+    >
+      <span
+        class="text-sm text-[var(--color-text-secondary)] font-medium"
+      >
+        totalLabel
+      </span>
+      <span
+        class="font-[family-name:var(--font-heading)] text-2xl text-[var(--color-text-primary)]"
+      >
+        €15
+      </span>
+    </div>
+  </aside>
+</div>
+`;
+
+exports[`SummaryPanel renders correctly with no selection 1`] = `
+<div>
+  <aside
+    aria-label="summary"
+    class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 flex flex-col gap-5"
+  >
+    <div>
+      <h3
+        class="font-[family-name:var(--font-heading)] text-xl font-light text-[var(--color-text-primary)]"
+      >
+        summary
+      </h3>
+      <p
+        class="text-xs text-[var(--color-text-muted)] mt-0.5"
+      >
+        0
+        /
+        3
+         
+        stepsCompleted
+      </p>
+    </div>
+    <div
+      aria-label="progress"
+      aria-valuemax="3"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="h-1 rounded-full bg-[var(--color-border)] overflow-hidden"
+      role="progressbar"
+    >
+      <div
+        class="h-full bg-[var(--color-brand-rose)] rounded-full transition-all duration-500"
+        style="width: 0%;"
+      />
+    </div>
+    <ul
+      class="flex flex-col gap-3"
+    >
+      <li
+        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+      >
+        <span
+          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+        >
+          Base
+        </span>
+        <span
+          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+        >
+          <span
+            class="text-[var(--color-border-strong)] font-sans text-xs italic"
+          >
+            —
+          </span>
+        </span>
+      </li>
+      <li
+        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+      >
+        <span
+          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+        >
+          Eyes
+        </span>
+        <span
+          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+        >
+          <span
+            class="text-[var(--color-border-strong)] font-sans text-xs italic"
+          >
+            —
+          </span>
+        </span>
+      </li>
+      <li
+        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+      >
+        <span
+          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+        >
+          Lips
+        </span>
+        <span
+          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+        >
+          <span
+            class="text-[var(--color-border-strong)] font-sans text-xs italic"
+          >
+            —
+          </span>
+        </span>
+      </li>
+    </ul>
+    <div
+      class="border-t-2 border-[var(--color-border-strong)] pt-4 flex justify-between items-baseline"
+    >
+      <span
+        class="text-sm text-[var(--color-text-secondary)] font-medium"
+      >
+        totalLabel
+      </span>
+      <span
+        class="font-[family-name:var(--font-heading)] text-2xl text-[var(--color-text-primary)]"
+      >
+        included
+      </span>
+    </div>
+  </aside>
+</div>
+`;
