@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "home": "Home",
+    "back": "Back to looks"
+  },
+  "home": {
+    "title": "Beauty Configurator",
+    "subtitle": "Choose a look and make it yours",
+    "cta": "Configure"
+  },
+  "configurator": {
+    "summary": "Your selection",
+    "totalLabel": "Total",
+    "included": "Included",
+    "selectOption": "Select an option",
+    "noOptions": "No options available for this category"
+  },
+  "common": {
+    "loading": "Loading...",
+    "notFound": "Not found"
+  }
+}
