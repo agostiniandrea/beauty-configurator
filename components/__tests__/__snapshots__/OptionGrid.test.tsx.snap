@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OptionGrid renders correctly with no selection 1`] = `
+<div>
+  <ul
+    aria-label="selectOption"
+    class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
+    role="listbox"
+  >
+    <li
+      aria-selected="false"
+      role="option"
+    >
+      <button
+        aria-pressed="false"
+        class="w-full text-left rounded-3xl border-2 p-5 transition-all duration-200 group border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-brand-rose)] hover:shadow-sm"
+      >
+        <div
+          aria-hidden="true"
+          class="aspect-[4/3] rounded-2xl mb-4 flex items-center justify-center transition-all bg-gradient-to-br from-[var(--color-surface-alt)] to-[var(--color-border)]"
+        >
+          <span
+            class="text-3xl font-[family-name:var(--font-heading)] italic transition-colors text-[var(--color-border-strong)]"
+          >
+            ○
+          </span>
+        </div>
+        <p
+          class="font-[family-name:var(--font-heading)] text-lg leading-tight mb-1 transition-colors text-[var(--color-text-primary)]"
+        >
+          Light Coverage
+        </p>
+        <p
+          class="text-xs text-[var(--color-text-muted)] leading-relaxed"
+        >
+          Lightweight, skin-like finish
+        </p>
+        <p
+          class="text-xs font-medium mt-3 text-[var(--color-text-muted)]"
+        >
+          included
+        </p>
+      </button>
+    </li>
+    <li
+      aria-selected="false"
+      role="option"
+    >
+      <button
+        aria-pressed="false"
+        class="w-full text-left rounded-3xl border-2 p-5 transition-all duration-200 group border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-brand-rose)] hover:shadow-sm"
+      >
+        <div
+          aria-hidden="true"
+          class="aspect-[4/3] rounded-2xl mb-4 flex items-center justify-center transition-all bg-gradient-to-br from-[var(--color-surface-alt)] to-[var(--color-border)]"
+        >
+          <span
+            class="text-3xl font-[family-name:var(--font-heading)] italic transition-colors text-[var(--color-border-strong)]"
+          >
+            ○
+          </span>
+        </div>
+        <p
+          class="font-[family-name:var(--font-heading)] text-lg leading-tight mb-1 transition-colors text-[var(--color-text-primary)]"
+        >
+          Medium Coverage
+        </p>
+        <p
+          class="text-xs text-[var(--color-text-muted)] leading-relaxed"
+        >
+          Balanced coverage with glow
+        </p>
+        <p
+          class="text-xs font-medium mt-3 text-[var(--color-text-muted)]"
+        >
+          included
+        </p>
+      </button>
+    </li>
+  </ul>
+</div>
+`;

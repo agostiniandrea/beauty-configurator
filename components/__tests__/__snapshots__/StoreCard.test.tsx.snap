@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StoreCard renders correctly with full selection 1`] = `
+<div>
+  <div
+    class="max-w-2xl mx-auto"
+  >
+    <div
+      class="no-print flex flex-col sm:flex-row gap-3 mb-8"
+    >
+      <button
+        class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
+      >
+        🖨 
+        printButton
+      </button>
+      <button
+        class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
+      >
+        ✉ 
+        emailButton
+      </button>
+    </div>
+    <article
+      aria-label="Store card"
+      class="rounded-3xl border-2 border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden"
+    >
+      <header
+        class="bg-gradient-to-r from-[var(--color-brand-rose-light)]/40 to-[var(--color-brand-gold)]/20 px-8 py-8 border-b border-[var(--color-border)]"
+      >
+        <div
+          class="flex items-start justify-between gap-6"
+        >
+          <div>
+            <p
+              class="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-brand-rose)] mb-2"
+            >
+              Beauty Configurator
+               — Beauty Studio
+            </p>
+            <h2
+              class="font-[family-name:var(--font-heading)] text-3xl font-light text-[var(--color-text-primary)]"
+            >
+              Natural Glow
+            </h2>
+            <p
+              class="text-sm text-[var(--color-text-muted)] mt-1"
+            >
+              orderDate
+              : 
+              23 May 2026
+            </p>
+          </div>
+          <div
+            class="shrink-0 p-3 bg-white rounded-2xl border border-[var(--color-border)]"
+          >
+            <svg
+              aria-label="QR code per l'ordine"
+              height="96"
+              role="img"
+              viewBox="0 0 37 37"
+              width="96"
+            >
+              <path
+                d="M0,0 h37v37H0z"
+                fill="white"
+                shape-rendering="crispEdges"
+              />
+              <path
+                d="M0 0h7v1H0zM8 0h7v1H8zM16 0h1v1H16zM19 0h2v1H19zM22 0h1v1H22zM26 0h1v1H26zM30,0 h7v1H30zM0 1h1v1H0zM6 1h1v1H6zM9 1h1v1H9zM11 1h1v1H11zM13 1h1v1H13zM17 1h2v1H17zM20 1h3v1H20zM24 1h3v1H24zM28 1h1v1H28zM30 1h1v1H30zM36,1 h1v1H36zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h1v1H8zM12 2h1v1H12zM17 2h5v1H17zM23 2h4v1H23zM28 2h1v1H28zM30 2h1v1H30zM32 2h3v1H32zM36,2 h1v1H36zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM10 3h1v1H10zM13 3h2v1H13zM16 3h3v1H16zM21 3h3v1H21zM25 3h2v1H25zM30 3h1v1H30zM32 3h3v1H32zM36,3 h1v1H36zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM9 4h1v1H9zM11 4h4v1H11zM16 4h1v1H16zM18 4h1v1H18zM21 4h2v1H21zM25 4h2v1H25zM28 4h1v1H28zM30 4h1v1H30zM32 4h3v1H32zM36,4 h1v1H36zM0 5h1v1H0zM6 5h1v1H6zM8 5h1v1H8zM11 5h2v1H11zM14 5h1v1H14zM17 5h2v1H17zM20 5h3v1H20zM24 5h1v1H24zM26 5h1v1H26zM28 5h1v1H28zM30 5h1v1H30zM36,5 h1v1H36zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18 6h1v1H18zM20 6h1v1H20zM22 6h1v1H22zM24 6h1v1H24zM26 6h1v1H26zM28 6h1v1H28zM30,6 h7v1H30zM9 7h2v1H9zM16 7h2v1H16zM19 7h2v1H19zM22 7h2v1H22zM26 7h1v1H26zM28 7h1v1H28zM0 8h1v1H0zM2 8h1v1H2zM6 8h2v1H6zM12 8h1v1H12zM15 8h1v1H15zM17 8h1v1H17zM20 8h1v1H20zM23 8h2v1H23zM26 8h2v1H26zM31 8h1v1H31zM34 8h1v1H34zM36,8 h1v1H36zM1 9h2v1H1zM4 9h1v1H4zM9 9h1v1H9zM11 9h2v1H11zM20 9h2v1H20zM23 9h2v1H23zM26 9h3v1H26zM30 9h2v1H30zM33 9h1v1H33zM35,9 h2v1H35zM0 10h2v1H0zM5 10h2v1H5zM11 10h2v1H11zM14 10h2v1H14zM17 10h2v1H17zM20 10h1v1H20zM23 10h2v1H23zM26 10h2v1H26zM30 10h3v1H30zM36,10 h1v1H36zM2 11h1v1H2zM4 11h1v1H4zM7 11h3v1H7zM11 11h4v1H11zM18 11h3v1H18zM24 11h1v1H24zM26 11h1v1H26zM29 11h1v1H29zM31 11h2v1H31zM4 12h5v1H4zM13 12h1v1H13zM15 12h2v1H15zM20 12h1v1H20zM24 12h1v1H24zM27 12h2v1H27zM30 12h2v1H30zM33 12h1v1H33zM36,12 h1v1H36zM1 13h2v1H1zM4 13h1v1H4zM7 13h1v1H7zM10 13h3v1H10zM14 13h3v1H14zM18 13h2v1H18zM21 13h1v1H21zM23 13h3v1H23zM27 13h5v1H27zM33 13h1v1H33zM35,13 h2v1H35zM1 14h3v1H1zM6 14h2v1H6zM9 14h2v1H9zM13 14h1v1H13zM15 14h1v1H15zM17 14h3v1H17zM21 14h3v1H21zM25 14h1v1H25zM27 14h2v1H27zM30 14h1v1H30zM33 14h2v1H33zM36,14 h1v1H36zM0 15h1v1H0zM2 15h1v1H2zM5 15h1v1H5zM7 15h2v1H7zM10 15h1v1H10zM14 15h1v1H14zM16 15h1v1H16zM18 15h1v1H18zM20 15h1v1H20zM23 15h2v1H23zM26 15h1v1H26zM28 15h2v1H28zM31 15h3v1H31zM35,15 h2v1H35zM1 16h4v1H1zM6 16h1v1H6zM11 16h1v1H11zM13 16h1v1H13zM16 16h4v1H16zM24 16h1v1H24zM28 16h1v1H28zM30 16h2v1H30zM5 17h1v1H5zM7 17h1v1H7zM9 17h1v1H9zM11 17h2v1H11zM14 17h1v1H14zM16 17h1v1H16zM18 17h1v1H18zM22 17h4v1H22zM27 17h5v1H27zM33,17 h4v1H33zM1 18h1v1H1zM4 18h1v1H4zM6 18h1v1H6zM10 18h3v1H10zM14 18h1v1H14zM16 18h2v1H16zM19 18h1v1H19zM23 18h1v1H23zM27 18h3v1H27zM31 18h2v1H31zM36,18 h1v1H36zM1 19h4v1H1zM8 19h2v1H8zM12 19h5v1H12zM24 19h1v1H24zM26 19h2v1H26zM33 19h1v1H33zM2 20h3v1H2zM6 20h1v1H6zM8 20h1v1H8zM10 20h2v1H10zM16 20h1v1H16zM19 20h2v1H19zM24 20h1v1H24zM27 20h2v1H27zM30 20h2v1H30zM33 20h1v1H33zM35 20h1v1H35zM0 21h2v1H0zM3 21h1v1H3zM5 21h1v1H5zM10 21h1v1H10zM15 21h1v1H15zM17 21h4v1H17zM23 21h1v1H23zM27 21h2v1H27zM30 21h1v1H30zM36,21 h1v1H36zM4 22h1v1H4zM6 22h1v1H6zM9 22h2v1H9zM13 22h1v1H13zM15 22h2v1H15zM19 22h3v1H19zM23 22h2v1H23zM26 22h3v1H26zM30 22h1v1H30zM33 22h2v1H33zM36,22 h1v1H36zM1 23h2v1H1zM4 23h2v1H4zM9 23h4v1H9zM16 23h2v1H16zM19 23h1v1H19zM23 23h2v1H23zM31 23h3v1H31zM0 24h2v1H0zM5 24h2v1H5zM9 24h1v1H9zM13 24h1v1H13zM17 24h1v1H17zM19 24h4v1H19zM24 24h1v1H24zM27 24h2v1H27zM30 24h1v1H30zM1 25h1v1H1zM4 25h1v1H4zM7 25h1v1H7zM9 25h1v1H9zM11 25h1v1H11zM13 25h2v1H13zM20 25h2v1H20zM23 25h1v1H23zM25 25h1v1H25zM27 25h2v1H27zM30 25h2v1H30zM36,25 h1v1H36zM0 26h3v1H0zM5 26h3v1H5zM12 26h4v1H12zM17 26h1v1H17zM20 26h4v1H20zM25 26h1v1H25zM27 26h1v1H27zM29 26h2v1H29zM32 26h1v1H32zM36,26 h1v1H36zM2 27h4v1H2zM10 27h1v1H10zM13 27h1v1H13zM18 27h3v1H18zM22 27h1v1H22zM24 27h1v1H24zM26 27h4v1H26zM31 27h3v1H31zM36,27 h1v1H36zM0 28h2v1H0zM6 28h1v1H6zM9 28h2v1H9zM12 28h5v1H12zM23 28h2v1H23zM26 28h1v1H26zM28 28h6v1H28zM36,28 h1v1H36zM8 29h1v1H8zM10 29h2v1H10zM13 29h4v1H13zM18 29h4v1H18zM23 29h2v1H23zM27 29h2v1H27zM32 29h1v1H32zM36,29 h1v1H36zM0 30h7v1H0zM8 30h2v1H8zM11 30h5v1H11zM17 30h3v1H17zM23 30h1v1H23zM25 30h2v1H25zM28 30h1v1H28zM30 30h1v1H30zM32 30h1v1H32zM36,30 h1v1H36zM0 31h1v1H0zM6 31h1v1H6zM9 31h3v1H9zM13 31h2v1H13zM18 31h1v1H18zM20 31h2v1H20zM24 31h1v1H24zM26 31h3v1H26zM32 31h1v1H32zM35,31 h2v1H35zM0 32h1v1H0zM2 32h3v1H2zM6 32h1v1H6zM9 32h2v1H9zM12 32h1v1H12zM15 32h5v1H15zM21 32h1v1H21zM23 32h2v1H23zM27 32h6v1H27zM36,32 h1v1H36zM0 33h1v1H0zM2 33h3v1H2zM6 33h1v1H6zM9 33h1v1H9zM11 33h4v1H11zM16 33h1v1H16zM18 33h1v1H18zM23 33h5v1H23zM29 33h1v1H29zM32 33h3v1H32zM0 34h1v1H0zM2 34h3v1H2zM6 34h1v1H6zM8 34h3v1H8zM12 34h1v1H12zM16 34h1v1H16zM18 34h2v1H18zM23 34h1v1H23zM29 34h1v1H29zM31 34h2v1H31zM36,34 h1v1H36zM0 35h1v1H0zM6 35h1v1H6zM10 35h2v1H10zM13 35h1v1H13zM15 35h2v1H15zM22 35h2v1H22zM26 35h4v1H26zM32 35h2v1H32zM0 36h7v1H0zM8 36h2v1H8zM11 36h1v1H11zM13 36h1v1H13zM16 36h1v1H16zM19 36h1v1H19zM23 36h2v1H23zM27 36h2v1H27zM30 36h2v1H30zM33 36h1v1H33zM36,36 h1v1H36z"
+                fill="#2D1F1A"
+                shape-rendering="crispEdges"
+              />
+            </svg>
+            <p
+              class="text-[9px] text-center text-[var(--color-text-muted)] mt-1.5"
+            >
+              Scansiona
+            </p>
+          </div>
+        </div>
+      </header>
+      <ul
+        aria-label="selectionLabel"
+        class="divide-y divide-[var(--color-border)]"
+      >
+        <li
+          class="flex items-start gap-6 px-8 py-4"
+        >
+          <span
+            class="w-28 shrink-0 text-xs font-medium uppercase tracking-widest text-[var(--color-text-muted)] pt-0.5"
+          >
+            Base
+          </span>
+          <div
+            class="flex-1"
+          >
+            <p
+              class="font-[family-name:var(--font-heading)] text-lg leading-tight text-[var(--color-text-primary)]"
+            >
+              Light Coverage
+            </p>
+            <p
+              class="text-xs text-[var(--color-text-muted)] mt-0.5"
+            >
+              Lightweight, skin-like finish
+            </p>
+          </div>
+        </li>
+        <li
+          class="flex items-start gap-6 px-8 py-4"
+        >
+          <span
+            class="w-28 shrink-0 text-xs font-medium uppercase tracking-widest text-[var(--color-text-muted)] pt-0.5"
+          >
+            Eyes
+          </span>
+          <div
+            class="flex-1"
+          >
+            <p
+              class="font-[family-name:var(--font-heading)] text-lg leading-tight text-[var(--color-text-primary)]"
+            >
+              Smoky Eye
+            </p>
+            <p
+              class="text-xs text-[var(--color-text-muted)] mt-0.5"
+            >
+              Dramatic dark tones
+            </p>
+          </div>
+        </li>
+        <li
+          class="flex items-start gap-6 px-8 py-4"
+        >
+          <span
+            class="w-28 shrink-0 text-xs font-medium uppercase tracking-widest text-[var(--color-text-muted)] pt-0.5"
+          >
+            Lips
+          </span>
+          <div
+            class="flex-1"
+          >
+            <p
+              class="font-[family-name:var(--font-heading)] text-lg leading-tight text-[var(--color-text-primary)]"
+            >
+              Nude Lip
+            </p>
+            <p
+              class="text-xs text-[var(--color-text-muted)] mt-0.5"
+            >
+              Natural-toned lip color
+            </p>
+          </div>
+        </li>
+      </ul>
+      <footer
+        class="px-8 py-6 border-t border-[var(--color-border)] bg-[var(--color-surface-alt)]"
+      >
+        <div
+          class="flex items-center justify-between flex-wrap gap-4"
+        >
+          <p
+            class="text-sm text-[var(--color-text-secondary)] max-w-xs leading-relaxed"
+          >
+            studioNote
+          </p>
+          <div
+            class="text-right"
+          >
+            <p
+              class="text-xs text-[var(--color-text-muted)] mb-0.5"
+            >
+              Totale
+            </p>
+            <p
+              class="font-[family-name:var(--font-heading)] text-3xl text-[var(--color-text-primary)]"
+            >
+              €15
+            </p>
+          </div>
+        </div>
+      </footer>
+    </article>
+  </div>
+</div>
+`;
