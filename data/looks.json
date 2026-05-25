@@ -8,7 +8,13 @@
     },
     "tags": ["everyday", "fresh", "minimal"],
     "basePrice": 0,
-    "imageUrl": "/images/look-natural-glow.jpeg"
+    "imageUrl": "/images/look-natural-glow.jpeg",
+    "defaultOptions": {
+      "base": "base-light",
+      "eyes": "eyes-nude",
+      "lips": "lips-nude",
+      "cheeks": "cheeks-natural"
+    }
   },
   {
     "id": "evening-drama",
@@ -19,7 +25,13 @@
     },
     "tags": ["evening", "bold", "glamour"],
     "basePrice": 0,
-    "imageUrl": "/images/look-evening-drama.jpeg"
+    "imageUrl": "/images/look-evening-drama.jpeg",
+    "defaultOptions": {
+      "base": "base-full",
+      "eyes": "eyes-smoky",
+      "lips": "lips-red",
+      "cheeks": "cheeks-bronze"
+    }
   },
   {
     "id": "soft-rose",
@@ -30,6 +42,12 @@
     },
     "tags": ["romantic", "warm", "feminine"],
     "basePrice": 0,
-    "imageUrl": "/images/look-soft-rose.jpeg"
+    "imageUrl": "/images/look-soft-rose.jpeg",
+    "defaultOptions": {
+      "base": "base-medium",
+      "eyes": "eyes-nude",
+      "lips": "lips-pink",
+      "cheeks": "cheeks-berry"
+    }
   }
 ]

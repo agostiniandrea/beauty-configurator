@@ -10,6 +10,7 @@ export type Look = {
   tags: string[];
   basePrice: number;
   imageUrl?: string;
+  defaultOptions?: Record<string, string>;
 };
 
 export type Category = {
