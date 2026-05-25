@@ -53,7 +53,7 @@
     "name": { "en": "Nude Lip", "it": "Labbra Nude" },
     "description": { "en": "Natural-toned lip color", "it": "Colore labbra dai toni naturali" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/lips-nude/400/300"
+    "imageUrl": "/images/opt-lips-nude.jpeg"
   },
   {
     "id": "lips-red",
@@ -61,7 +61,7 @@
     "name": { "en": "Classic Red", "it": "Rosso Classico" },
     "description": { "en": "Timeless bold red lipstick", "it": "Rossetto rosso audace senza tempo" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/lips-red/400/300"
+    "imageUrl": "/images/opt-lips-red.jpeg"
   },
   {
     "id": "lips-pink",
@@ -69,7 +69,7 @@
     "name": { "en": "Rose Pink", "it": "Rosa" },
     "description": { "en": "Soft, feminine pink tones", "it": "Toni rosa morbidi e femminili" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/lips-pink/400/300"
+    "imageUrl": "/images/opt-lips-pink.jpeg"
   },
   {
     "id": "cheeks-natural",
