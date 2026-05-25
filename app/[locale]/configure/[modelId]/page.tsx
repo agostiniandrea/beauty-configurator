@@ -47,7 +47,7 @@ export default async function ConfiguratorPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-[var(--color-background)]">
       <Header backLink />
       <ConfiguratorClient
         look={look}
