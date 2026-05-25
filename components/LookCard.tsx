@@ -36,7 +36,7 @@ export default function LookCard({ look }: Props) {
       </div>
 
       <div className="flex flex-col gap-3 p-6 flex-1">
-        <h2 className="font-[family-name:var(--font-heading)] text-2xl font-light text-[var(--color-text-primary)] leading-tight">
+        <h2 className="font-[family-name:var(--font-heading)] text-3xl font-light text-[var(--color-text-primary)] leading-tight">
           {look.name[locale]}
         </h2>
         <p className="text-sm text-[var(--color-text-secondary)] flex-1 leading-relaxed">
