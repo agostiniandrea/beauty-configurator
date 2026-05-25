@@ -77,7 +77,7 @@
     "name": { "en": "Natural Flush", "it": "Rossore Naturale" },
     "description": { "en": "Subtle, healthy-looking color", "it": "Colore sottile dall'aspetto sano" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/cheeks-natural/400/300"
+    "imageUrl": "/images/opt-cheeks-natural.jpeg"
   },
   {
     "id": "cheeks-bronze",
@@ -85,7 +85,7 @@
     "name": { "en": "Sun-kissed Bronze", "it": "Bronzo Baciato dal Sole" },
     "description": { "en": "Warm bronzer for a summer glow", "it": "Bronzer caldo per un glow estivo" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/cheeks-bronze/400/300"
+    "imageUrl": "/images/opt-cheeks-bronze.jpeg"
   },
   {
     "id": "cheeks-berry",
@@ -93,6 +93,6 @@
     "name": { "en": "Berry Blush", "it": "Blush Berry" },
     "description": { "en": "Deep berry tones for a bold cheek look", "it": "Toni berry profondi per guance audaci" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/cheeks-berry/400/300"
+    "imageUrl": "/images/opt-cheeks-berry.jpeg"
   }
 ]
