@@ -29,7 +29,7 @@
     "name": { "en": "Nude Palette", "it": "Palette Nude" },
     "description": { "en": "Warm neutrals for everyday wear", "it": "Neutri caldi per tutti i giorni" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/eyes-nude/400/300"
+    "imageUrl": "/images/opt-eyes-nude.jpeg"
   },
   {
     "id": "eyes-smoky",
@@ -37,7 +37,7 @@
     "name": { "en": "Smoky Eye", "it": "Smoky Eye" },
     "description": { "en": "Dramatic dark tones for bold looks", "it": "Toni scuri drammatici per look audaci" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/eyes-smoky/400/300"
+    "imageUrl": "/images/opt-eyes-smoky.jpeg"
   },
   {
     "id": "eyes-colorful",
