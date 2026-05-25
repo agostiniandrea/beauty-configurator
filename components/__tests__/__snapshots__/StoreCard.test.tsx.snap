@@ -18,6 +18,11 @@ exports[`StoreCard renders correctly with full selection 1`] = `
         ✉ 
         emailButton
       </button>
+      <button
+        class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
+      >
+        ⎘ shareButton
+      </button>
     </div>
     <article
       aria-label="Store card"

@@ -62,6 +62,12 @@ const siteConfig = {
      * Show a "Print" / "Save as PDF" button on the completion page.
      */
     enablePrint: true,
+
+    /**
+     * Show a "Copy link" button on the completion page.
+     * Copies the full order URL to the clipboard.
+     */
+    enableShare: true,
   },
 
   locales: {
