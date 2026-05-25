@@ -5,7 +5,7 @@
     "name": { "en": "Light Coverage", "it": "Copertura Leggera" },
     "description": { "en": "Lightweight, skin-like finish", "it": "Finish leggero, effetto seconda pelle" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/base-light/400/300"
+    "imageUrl": "/images/opt-base-light.jpeg"
   },
   {
     "id": "base-medium",
@@ -13,7 +13,7 @@
     "name": { "en": "Medium Coverage", "it": "Copertura Media" },
     "description": { "en": "Balanced coverage with a natural glow", "it": "Copertura equilibrata con glow naturale" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/base-medium/400/300"
+    "imageUrl": "/images/opt-base-medium.jpeg"
   },
   {
     "id": "base-full",
@@ -21,7 +21,7 @@
     "name": { "en": "Full Coverage", "it": "Copertura Totale" },
     "description": { "en": "Flawless, long-lasting finish", "it": "Finish impeccabile e lunga durata" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/base-full/400/300"
+    "imageUrl": "/images/opt-base-full.jpeg"
   },
   {
     "id": "eyes-nude",
