@@ -22,7 +22,7 @@ export default function ConfiguratorClient({ look, categories, optionsByCategory
   const pathname = usePathname();
 
   const [currentStep, setCurrentStep] = useState(0);
-  const [selection, setSelection] = useState<Selection>({});
+  const [selection, setSelection] = useState<Selection>(look.defaultOptions ?? {});
 
   const activeCategory = categories[currentStep];
   const activeOptions = optionsByCategory[activeCategory?.id ?? ""] ?? [];
