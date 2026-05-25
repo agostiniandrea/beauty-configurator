@@ -1,24 +1,128 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import styled from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
 import type { Look } from "@/lib/types";
 import type { Locale } from "@/site.config";
 
-type Props = {
-  look: Look;
-};
+const Card = styled.article`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: border-color 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    border-color: var(--color-border-strong);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--color-brand-rose) 8%, transparent);
+  }
+`;
+
+const ImageWrap = styled.div`
+  aspect-ratio: 3 / 2;
+  position: relative;
+  overflow: hidden;
+`;
+
+const ImageFallback = styled.div`
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-rose-light),
+    var(--color-surface-alt),
+    color-mix(in srgb, var(--color-brand-gold) 30%, transparent)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const FallbackGlyph = styled.span`
+  color: color-mix(in srgb, var(--color-brand-rose) 40%, transparent);
+  font-size: 72px;
+  font-family: var(--font-heading);
+  font-style: italic;
+  user-select: none;
+`;
+
+const TagsOverlay = styled.div`
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+`;
+
+const Tag = styled.span`
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  backdrop-filter: blur(4px);
+  color: var(--color-text-secondary);
+`;
+
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  flex: 1;
+`;
+
+const Title = styled.h2`
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+`;
+
+const Description = styled.p`
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  flex: 1;
+  line-height: 1.6;
+`;
+
+const CtaLink = styled(Link)`
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 16px;
+  background: var(--color-action-bg);
+  color: var(--color-action-text);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: background 0.2s;
+
+  &:hover { background: var(--color-action-bg-hover); }
+  &:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 3px; }
+`;
+
+type Props = { look: Look };
 
 export default function LookCard({ look }: Props) {
   const locale = useLocale() as Locale;
   const t = useTranslations("home");
 
   return (
-    <article className="group flex flex-col w-full rounded-3xl overflow-hidden bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:shadow-lg hover:shadow-[var(--color-brand-rose)]/8 transition-all duration-300">
-      <div
-        className="aspect-[3/2] relative overflow-hidden"
-        role="img"
-        aria-label={`${look.name[locale]} — preview`}
-      >
+    <Card>
+      <ImageWrap role="img" aria-label={`${look.name[locale]} — preview`}>
         {look.imageUrl ? (
           <Image
             src={look.imageUrl}
@@ -28,39 +132,26 @@ export default function LookCard({ look }: Props) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-[var(--color-brand-rose-light)] via-[var(--color-surface-alt)] to-[var(--color-brand-gold)]/30 flex items-center justify-center">
-            <span className="text-[var(--color-brand-rose)]/40 text-7xl font-[family-name:var(--font-heading)] italic select-none">✦</span>
-          </div>
+          <ImageFallback>
+            <FallbackGlyph aria-hidden="true">✦</FallbackGlyph>
+          </ImageFallback>
         )}
-        {/* Tags overlay */}
-        <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
-          {look.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] font-medium uppercase tracking-widest px-2 py-0.5 rounded-full bg-[var(--color-surface)]/80 backdrop-blur-sm text-[var(--color-text-secondary)]"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
+        <TagsOverlay>
+          {look.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+        </TagsOverlay>
+      </ImageWrap>
 
-      <div className="flex flex-col gap-3 p-6 flex-1">
-        <h2 className="font-[family-name:var(--font-heading)] text-2xl font-light text-[var(--color-text-primary)] leading-tight">
-          {look.name[locale]}
-        </h2>
-        <p className="text-sm text-[var(--color-text-secondary)] flex-1 leading-relaxed grow">
-          {look.description[locale]}
-        </p>
-        <Link
+      <Body>
+        <Title>{look.name[locale]}</Title>
+        <Description>{look.description[locale]}</Description>
+        <CtaLink
           href={`/${locale}/configure/${look.id}`}
-          className="mt-3 inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--color-action-bg)] text-[var(--color-action-text)] text-sm font-medium px-5 py-3 hover:bg-[var(--color-action-bg-hover)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-focus-ring)]"
           aria-label={`${t("cta")} — ${look.name[locale]}`}
         >
           {t("cta")}
           <span aria-hidden="true">→</span>
-        </Link>
-      </div>
-    </article>
+        </CtaLink>
+      </Body>
+    </Card>
   );
 }

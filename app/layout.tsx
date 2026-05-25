@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import StyledComponentsRegistry from "@/lib/registry";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -33,7 +34,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
-        {children}
+        <StyledComponentsRegistry>
+          {children}
+        </StyledComponentsRegistry>
         <Analytics />
       </body>
     </html>

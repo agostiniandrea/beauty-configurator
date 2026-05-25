@@ -1,5 +1,6 @@
 import { jest } from "@jest/globals";
 import "@testing-library/jest-dom";
+import "jest-styled-components";
 
 // Mock next/navigation (App Router)
 jest.mock("next/navigation", () => ({
