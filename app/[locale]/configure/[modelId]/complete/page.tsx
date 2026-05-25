@@ -87,7 +87,7 @@ export default async function CompletePage({ params, searchParams }: Props) {
           orderUrl={orderUrl}
         />
 
-        <div className="mt-10 no-print">
+        <div className="mt-10 no-print max-w-2xl mx-auto">
           <BookingForm
             look={look}
             categories={categories}
