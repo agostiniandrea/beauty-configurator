@@ -23,6 +23,7 @@ export default function ConfiguratorClient({ look, categories, optionsByCategory
 
   const [currentStep, setCurrentStep] = useState(0);
   const [selection, setSelection] = useState<Selection>(look.defaultOptions ?? {});
+  const [animDir, setAnimDir] = useState<"forward" | "backward">("forward");
 
   const activeCategory = categories[currentStep];
   const activeOptions = optionsByCategory[activeCategory?.id ?? ""] ?? [];
@@ -47,12 +48,21 @@ export default function ConfiguratorClient({ look, categories, optionsByCategory
       Object.entries(selection).forEach(([k, v]) => params.set(k, v));
       router.push(`${pathname}/summary?${params.toString()}`);
     } else {
+      setAnimDir("forward");
       setCurrentStep((s) => s + 1);
     }
   }
 
   function handleBack() {
-    if (currentStep > 0) setCurrentStep((s) => s - 1);
+    if (currentStep > 0) {
+      setAnimDir("backward");
+      setCurrentStep((s) => s - 1);
+    }
+  }
+
+  function handleStepSelect(step: number) {
+    setAnimDir(step > currentStep ? "forward" : "backward");
+    setCurrentStep(step);
   }
 
   return (
@@ -93,12 +103,16 @@ export default function ConfiguratorClient({ look, categories, optionsByCategory
             categories={categories}
             currentStep={currentStep}
             completedSteps={completedSteps}
-            onSelect={setCurrentStep}
+            onSelect={handleStepSelect}
           />
         </aside>
 
         {/* Center: options */}
-        <section aria-labelledby="category-heading">
+        <section
+          key={currentStep}
+          className={`step-enter-${animDir}`}
+          aria-labelledby="category-heading"
+        >
           <div className="mb-8">
             <h2
               id="category-heading"
