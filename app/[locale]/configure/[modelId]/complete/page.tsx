@@ -18,8 +18,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, modelId } = await params;
   const look = getLook(modelId);
   if (!look) return {};
+  const loc = (locale === "it" ? "it" : "en") as "en" | "it";
+  const title = `${look.name[loc]} — ${siteConfig.name}`;
+  const description = look.description[loc];
   return {
-    title: `${look.name[locale as "en" | "it"]} — ${siteConfig.name}`,
+    title,
+    description,
+    openGraph: {
+      type: "website",
+      siteName: siteConfig.seo.openGraph.siteName,
+      title,
+      description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
