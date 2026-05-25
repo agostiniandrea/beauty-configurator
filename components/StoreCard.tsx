@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import { useTranslations } from "next-intl";
 import type { Look, Category, Option, Selection } from "@/lib/types";
@@ -24,6 +25,7 @@ export default function StoreCard({
   orderUrl,
 }: Props) {
   const t = useTranslations("complete");
+  const [copied, setCopied] = useState(false);
 
   const orderDate = new Date().toLocaleDateString(locale === "it" ? "it-IT" : "en-GB", {
     day: "numeric",
@@ -45,6 +47,12 @@ export default function StoreCard({
 
   function handlePrint() {
     window.print();
+  }
+
+  async function handleShare() {
+    await navigator.clipboard.writeText(orderUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   }
 
   function handleEmail() {
@@ -76,6 +84,14 @@ export default function StoreCard({
             className="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
           >
             ✉ {t("emailButton")}
+          </button>
+        )}
+        {siteConfig.features.enableShare && (
+          <button
+            onClick={handleShare}
+            className="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
+          >
+            {copied ? `✓ ${t("shareCopied")}` : `⎘ ${t("shareButton")}`}
           </button>
         )}
       </div>
