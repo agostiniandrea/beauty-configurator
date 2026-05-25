@@ -3,6 +3,29 @@ import { getLooks } from "@/lib/data";
 import LookCard from "@/components/LookCard";
 import Header from "@/components/Header";
 import siteConfig from "@/site.config";
+import type { Metadata } from "next";
+
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const loc = (locale === "it" ? "it" : "en") as "en" | "it";
+  const description = siteConfig.seo.description[loc];
+  return {
+    description,
+    openGraph: {
+      type: "website",
+      siteName: siteConfig.seo.openGraph.siteName,
+      description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      description,
+    },
+  };
+}
 
 export default function HomePage() {
   const t = useTranslations("home");
