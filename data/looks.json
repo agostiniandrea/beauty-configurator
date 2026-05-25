@@ -49,5 +49,56 @@
       "lips": "lips-pink",
       "cheeks": "cheeks-berry"
     }
+  },
+  {
+    "id": "golden-hour",
+    "name": { "en": "Golden Hour", "it": "Ora d'Oro" },
+    "description": {
+      "en": "Sun-kissed warmth with bronzed tones and a luminous finish",
+      "it": "Calore baciato dal sole con toni bronzati e un finish luminoso"
+    },
+    "tags": ["bronze", "warm", "glow"],
+    "basePrice": 0,
+    "imageUrl": "/images/look-golden-hour.jpeg",
+    "defaultOptions": {
+      "base": "base-medium",
+      "eyes": "eyes-colorful",
+      "lips": "lips-nude",
+      "cheeks": "cheeks-bronze"
+    }
+  },
+  {
+    "id": "urban-cool",
+    "name": { "en": "Urban Cool", "it": "Urban Cool" },
+    "description": {
+      "en": "Editorial and modern with an unexpected pop of colour",
+      "it": "Editoriale e moderno con un tocco inaspettato di colore"
+    },
+    "tags": ["editorial", "modern", "bold"],
+    "basePrice": 0,
+    "imageUrl": "/images/look-urban-cool.jpeg",
+    "defaultOptions": {
+      "base": "base-light",
+      "eyes": "eyes-colorful",
+      "lips": "lips-red",
+      "cheeks": "cheeks-natural"
+    }
+  },
+  {
+    "id": "bridal-glow",
+    "name": { "en": "Bridal Glow", "it": "Glow da Sposa" },
+    "description": {
+      "en": "Timeless, luminous beauty for your most important day",
+      "it": "Bellezza senza tempo e luminosa per il giorno più importante"
+    },
+    "tags": ["bridal", "timeless", "luminous"],
+    "basePrice": 0,
+    "imageUrl": "/images/look-bridal-glow.jpeg",
+    "defaultOptions": {
+      "base": "base-full",
+      "eyes": "eyes-nude",
+      "lips": "lips-pink",
+      "cheeks": "cheeks-natural"
+    }
   }
 ]
