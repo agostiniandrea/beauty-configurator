@@ -45,7 +45,7 @@
     "name": { "en": "Colorful", "it": "Colorato" },
     "description": { "en": "Vibrant pigments for an expressive look", "it": "Pigmenti vivaci per un look espressivo" },
     "price": 0,
-    "imageUrl": "https://picsum.photos/seed/eyes-colorful/400/300"
+    "imageUrl": "/images/opt-eyes-colorful.jpeg"
   },
   {
     "id": "lips-nude",
