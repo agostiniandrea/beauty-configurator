@@ -8,7 +8,7 @@
     },
     "tags": ["everyday", "fresh", "minimal"],
     "basePrice": 0,
-    "imageUrl": "https://picsum.photos/seed/natural-glow/600/400"
+    "imageUrl": "/images/look-natural-glow.jpeg"
   },
   {
     "id": "evening-drama",
@@ -19,7 +19,7 @@
     },
     "tags": ["evening", "bold", "glamour"],
     "basePrice": 0,
-    "imageUrl": "https://picsum.photos/seed/evening-drama/600/400"
+    "imageUrl": "/images/look-evening-drama.jpeg"
   },
   {
     "id": "soft-rose",
@@ -30,6 +30,6 @@
     },
     "tags": ["romantic", "warm", "feminine"],
     "basePrice": 0,
-    "imageUrl": "https://picsum.photos/seed/soft-rose/600/400"
+    "imageUrl": "/images/look-soft-rose.jpeg"
   }
 ]
