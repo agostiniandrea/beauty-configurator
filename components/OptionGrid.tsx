@@ -29,10 +29,10 @@ export default function OptionGrid({ options, selectedOptionId, onSelect }: Prop
       {options.map((opt) => {
         const isSelected = opt.id === selectedOptionId;
         return (
-          <li key={opt.id} role="option" aria-selected={isSelected}>
+          <li key={opt.id} role="option" aria-selected={isSelected} className="flex">
             <button
               onClick={() => onSelect(opt.id)}
-              className={`w-full text-left rounded-3xl border-2 p-5 transition-all duration-200 group ${
+              className={`w-full h-full flex flex-col text-left rounded-3xl border-2 p-5 transition-all duration-200 group ${
                 isSelected
                   ? "border-[var(--color-action-bg)] bg-[var(--color-surface-alt)] shadow-md"
                   : "border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-brand-rose)] hover:shadow-sm"
@@ -73,7 +73,7 @@ export default function OptionGrid({ options, selectedOptionId, onSelect }: Prop
               }`}>
                 {opt.name[locale]}
               </p>
-              <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
+              <p className="text-xs text-[var(--color-text-muted)] leading-relaxed flex-1">
                 {opt.description[locale]}
               </p>
               {siteConfig.features.showPricing && (
