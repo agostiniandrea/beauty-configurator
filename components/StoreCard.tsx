@@ -2,10 +2,179 @@
 
 import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
+import styled from "styled-components";
 import { useTranslations } from "next-intl";
 import type { Look, Category, Option, Selection } from "@/lib/types";
 import type { Locale } from "@/site.config";
 import siteConfig from "@/site.config";
+
+const ActionBar = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+  @media (min-width: 640px) { flex-direction: row; }
+`;
+
+const ActionButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  &:hover { border-color: var(--color-border-strong); color: var(--color-text-primary); }
+`;
+
+const CardArticle = styled.article`
+  border-radius: 24px;
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  overflow: hidden;
+`;
+
+const CardHeader = styled.header`
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--color-brand-rose-light) 40%, transparent),
+    color-mix(in srgb, var(--color-brand-gold) 20%, transparent)
+  );
+  padding: 32px;
+  border-bottom: 1px solid var(--color-border);
+`;
+
+const HeaderRow = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+`;
+
+const BrandLabel = styled.p`
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-brand-rose);
+  margin-bottom: 8px;
+`;
+
+const LookTitle = styled.h2`
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 300;
+  color: var(--color-text-primary);
+`;
+
+const OrderDate = styled.p`
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+`;
+
+const QrWrap = styled.div`
+  flex-shrink: 0;
+  padding: 12px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+`;
+
+const QrCaption = styled.p`
+  font-size: 9px;
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+`;
+
+const SelectionList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
+
+const SelectionItem = styled.li`
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--color-border);
+  &:last-child { border-bottom: none; }
+`;
+
+const SelectionCategory = styled.span`
+  width: 112px;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  padding-top: 2px;
+`;
+
+const SelectionName = styled.p`
+  font-family: var(--font-heading);
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+`;
+
+const SelectionDesc = styled.p`
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+`;
+
+const CardFooter = styled.footer`
+  padding: 24px 32px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+`;
+
+const FooterRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+`;
+
+const StudioNote = styled.p`
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  max-width: 280px;
+  line-height: 1.6;
+`;
+
+const StudioDetail = styled.span`
+  display: block;
+  margin-top: 4px;
+  color: var(--color-text-muted);
+`;
+
+const TotalBlock = styled.div`
+  text-align: right;
+`;
+
+const TotalCaption = styled.p`
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+`;
+
+const TotalAmount = styled.p`
+  font-family: var(--font-heading);
+  font-size: 30px;
+  color: var(--color-text-primary);
+`;
 
 type Props = {
   look: Look;
@@ -16,14 +185,7 @@ type Props = {
   orderUrl: string;
 };
 
-export default function StoreCard({
-  look,
-  categories,
-  allOptions,
-  selection,
-  locale,
-  orderUrl,
-}: Props) {
+export default function StoreCard({ look, categories, allOptions, selection, locale, orderUrl }: Props) {
   const t = useTranslations("complete");
   const [copied, setCopied] = useState(false);
 
@@ -45,8 +207,14 @@ export default function StoreCard({
     })
     .join("\n");
 
-  function handlePrint() {
-    window.print();
+  function handlePrint() { window.print(); }
+
+  function handleEmail() {
+    const subject = encodeURIComponent(t("emailSubject"));
+    const body = encodeURIComponent(
+      t("emailBody", { selection: selectionText, total: total === 0 ? "Included" : `€${total}` })
+    );
+    window.open(`mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`);
   }
 
   async function handleShare() {
@@ -55,131 +223,71 @@ export default function StoreCard({
     setTimeout(() => setCopied(false), 2000);
   }
 
-  function handleEmail() {
-    const subject = encodeURIComponent(t("emailSubject"));
-    const body = encodeURIComponent(
-      t("emailBody", {
-        selection: selectionText,
-        total: total === 0 ? "Included" : `€${total}`,
-      })
-    );
-    window.open(`mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`);
-  }
-
   return (
     <div>
-      {/* Action buttons — hidden on print */}
-      <div className="no-print flex flex-col sm:flex-row gap-3 mb-8">
+      <ActionBar className="no-print">
         {siteConfig.features.enablePrint && (
-          <button
-            onClick={handlePrint}
-            className="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
-          >
-            🖨 {t("printButton")}
-          </button>
+          <ActionButton onClick={handlePrint}>🖨 {t("printButton")}</ActionButton>
         )}
         {siteConfig.features.enableEmailOrder && (
-          <button
-            onClick={handleEmail}
-            className="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
-          >
-            ✉ {t("emailButton")}
-          </button>
+          <ActionButton onClick={handleEmail}>✉ {t("emailButton")}</ActionButton>
         )}
         {siteConfig.features.enableShare && (
-          <button
-            onClick={handleShare}
-            className="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
-          >
+          <ActionButton onClick={handleShare}>
             {copied ? `✓ ${t("shareCopied")}` : `⎘ ${t("shareButton")}`}
-          </button>
+          </ActionButton>
         )}
-      </div>
+      </ActionBar>
 
-      {/* Store card — this is what gets printed */}
-      <article
-        className="rounded-3xl border-2 border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden"
-        aria-label="Store card"
-      >
-        {/* Card header */}
-        <header className="bg-gradient-to-r from-[var(--color-brand-rose-light)]/40 to-[var(--color-brand-gold)]/20 px-8 py-8 border-b border-[var(--color-border)]">
-          <div className="flex items-start justify-between gap-6">
+      <CardArticle aria-label="Store card">
+        <CardHeader>
+          <HeaderRow>
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-brand-rose)] mb-2">
+              <BrandLabel>
                 {siteConfig.name}
                 {siteConfig.contact.studioName && ` — ${siteConfig.contact.studioName}`}
-              </p>
-              <h2 className="font-[family-name:var(--font-heading)] text-3xl font-light text-[var(--color-text-primary)]">
-                {look.name[locale]}
-              </h2>
-              <p className="text-sm text-[var(--color-text-muted)] mt-1">{t("orderDate")}: {orderDate}</p>
+              </BrandLabel>
+              <LookTitle>{look.name[locale]}</LookTitle>
+              <OrderDate>{t("orderDate")}: {orderDate}</OrderDate>
             </div>
-            {/* QR code */}
-            <div className="shrink-0 p-3 bg-white rounded-2xl border border-[var(--color-border)]">
-              <QRCodeSVG
-                value={orderUrl}
-                size={96}
-                bgColor="white"
-                fgColor="#2D1F1A"
-                level="M"
-                aria-label="QR code per l'ordine"
-              />
-              <p className="text-[9px] text-center text-[var(--color-text-muted)] mt-1.5">Scansiona</p>
-            </div>
-          </div>
-        </header>
+            <QrWrap>
+              <QRCodeSVG value={orderUrl} size={96} bgColor="white" fgColor="#2D1F1A" level="M" aria-label="QR code per l'ordine" />
+              <QrCaption>Scansiona</QrCaption>
+            </QrWrap>
+          </HeaderRow>
+        </CardHeader>
 
-        {/* Selection list */}
-        <ul className="divide-y divide-[var(--color-border)]" aria-label={t("selectionLabel")}>
+        <SelectionList aria-label={t("selectionLabel")}>
           {categories.map((cat) => {
             const selectedOpt = allOptions.find((o) => o.id === selection[cat.id]);
             return (
-              <li key={cat.id} className="flex items-start gap-6 px-8 py-4">
-                <span className="w-28 shrink-0 text-xs font-medium uppercase tracking-widest text-[var(--color-text-muted)] pt-0.5">
-                  {cat.name[locale]}
-                </span>
-                <div className="flex-1">
-                  <p className="font-[family-name:var(--font-heading)] text-lg leading-tight text-[var(--color-text-primary)]">
-                    {selectedOpt?.name[locale] ?? "—"}
-                  </p>
-                  {selectedOpt && (
-                    <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
-                      {selectedOpt.description[locale]}
-                    </p>
-                  )}
+              <SelectionItem key={cat.id}>
+                <SelectionCategory>{cat.name[locale]}</SelectionCategory>
+                <div>
+                  <SelectionName>{selectedOpt?.name[locale] ?? "—"}</SelectionName>
+                  {selectedOpt && <SelectionDesc>{selectedOpt.description[locale]}</SelectionDesc>}
                 </div>
-              </li>
+              </SelectionItem>
             );
           })}
-        </ul>
+        </SelectionList>
 
-        {/* Footer */}
-        <footer className="px-8 py-6 border-t border-[var(--color-border)] bg-[var(--color-surface-alt)]">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <p className="text-sm text-[var(--color-text-secondary)] max-w-xs leading-relaxed">
+        <CardFooter>
+          <FooterRow>
+            <StudioNote>
               {t("studioNote")}
-              {siteConfig.contact.studioAddress && (
-                <span className="block mt-1 text-[var(--color-text-muted)]">
-                  {siteConfig.contact.studioAddress}
-                </span>
-              )}
-              {siteConfig.contact.studioPhone && (
-                <span className="block text-[var(--color-text-muted)]">
-                  {siteConfig.contact.studioPhone}
-                </span>
-              )}
-            </p>
+              {siteConfig.contact.studioAddress && <StudioDetail>{siteConfig.contact.studioAddress}</StudioDetail>}
+              {siteConfig.contact.studioPhone && <StudioDetail>{siteConfig.contact.studioPhone}</StudioDetail>}
+            </StudioNote>
             {siteConfig.features.showPricing && (
-              <div className="text-right">
-                <p className="text-xs text-[var(--color-text-muted)] mb-0.5">Totale</p>
-                <p className="font-[family-name:var(--font-heading)] text-3xl text-[var(--color-text-primary)]">
-                  {total === 0 ? "Incluso" : `€${total}`}
-                </p>
-              </div>
+              <TotalBlock>
+                <TotalCaption>Totale</TotalCaption>
+                <TotalAmount>{total === 0 ? "Incluso" : `€${total}`}</TotalAmount>
+              </TotalBlock>
             )}
-          </div>
-        </footer>
-      </article>
+          </FooterRow>
+        </CardFooter>
+      </CardArticle>
     </div>
   );
 }
