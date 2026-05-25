@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import siteConfig from "@/site.config";
+import ThemeToggle from "./ThemeToggle";
 
 type Props = {
   backLink?: boolean;
@@ -38,7 +39,7 @@ export default function Header({ backLink = false, backLabel, backHref }: Props)
           {siteConfig.name}
         </Link>
 
-        <nav className="ml-auto flex items-center gap-4" aria-label="Language switcher">
+        <nav className="ml-auto flex items-center gap-3" aria-label="Site controls">
           <Link
             href={`/${otherLocale}`}
             className="text-xs font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors uppercase tracking-widest"
@@ -47,6 +48,7 @@ export default function Header({ backLink = false, backLabel, backHref }: Props)
           >
             {otherLocale}
           </Link>
+          <ThemeToggle />
         </nav>
       </div>
     </header>
