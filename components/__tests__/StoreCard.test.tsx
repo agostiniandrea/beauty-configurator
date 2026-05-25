@@ -6,6 +6,15 @@ import { mockLooks, mockCategories, mockOptions, mockSelectionFull, mockSelectio
 const orderUrl = "https://example.com/en/configure/natural-glow/complete?base=base-light";
 
 describe("StoreCard", () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date("2025-06-15"));
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   it("renders correctly with full selection", () => {
     const { container } = renderWithIntl(
       <StoreCard
