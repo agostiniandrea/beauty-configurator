@@ -13,7 +13,7 @@ export default function LookCard({ look }: Props) {
   const t = useTranslations("home");
 
   return (
-    <article className="group flex flex-col rounded-3xl overflow-hidden bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:shadow-lg hover:shadow-[var(--color-brand-rose)]/8 transition-all duration-300">
+    <article className="group flex flex-col w-full rounded-3xl overflow-hidden bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:shadow-lg hover:shadow-[var(--color-brand-rose)]/8 transition-all duration-300">
       <div
         className="aspect-[3/2] relative overflow-hidden"
         role="img"
@@ -49,7 +49,7 @@ export default function LookCard({ look }: Props) {
         <h2 className="font-[family-name:var(--font-heading)] text-2xl font-light text-[var(--color-text-primary)] leading-tight">
           {look.name[locale]}
         </h2>
-        <p className="text-sm text-[var(--color-text-secondary)] flex-1 leading-relaxed">
+        <p className="text-sm text-[var(--color-text-secondary)] flex-1 leading-relaxed grow">
           {look.description[locale]}
         </p>
         <Link
