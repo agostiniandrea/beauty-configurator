@@ -2,9 +2,7 @@
 
 exports[`StoreCard renders correctly with full selection 1`] = `
 <div>
-  <div
-    class="max-w-2xl mx-auto"
-  >
+  <div>
     <div
       class="no-print flex flex-col sm:flex-row gap-3 mb-8"
     >

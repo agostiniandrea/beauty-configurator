@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { getLook, getCategoriesForLook, getOptionsForCategory } from "@/lib/data";
 import Header from "@/components/Header";
 import StoreCard from "@/components/StoreCard";
+import BookingForm from "@/components/BookingForm";
 import type { Option, Selection } from "@/lib/types";
 import type { Metadata } from "next";
 import siteConfig from "@/site.config";
@@ -85,6 +86,16 @@ export default async function CompletePage({ params, searchParams }: Props) {
           locale={locale as "en" | "it"}
           orderUrl={orderUrl}
         />
+
+        <div className="mt-10 no-print">
+          <BookingForm
+            look={look}
+            categories={categories}
+            allOptions={allOptions}
+            selection={selection}
+            locale={locale as "en" | "it"}
+          />
+        </div>
       </main>
     </div>
   );

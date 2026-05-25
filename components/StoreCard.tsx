@@ -59,7 +59,7 @@ export default function StoreCard({
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div>
       {/* Action buttons — hidden on print */}
       <div className="no-print flex flex-col sm:flex-row gap-3 mb-8">
         {siteConfig.features.enablePrint && (
