@@ -65,6 +65,40 @@
   --color-action-text:     var(--color-action-text);
 }
 
+/* ─── Dark mode ──────────────────────────────────────────────────────────── */
+
+html.dark {
+  --color-background:    #1C1410;
+  --color-surface:       #241916;
+  --color-surface-alt:   #2E211C;
+  --color-border:        #3D2E28;
+  --color-border-strong: #5C4A44;
+  --color-text-primary:   #FAF7F4;
+  --color-text-secondary: #D4C5BE;
+  --color-text-muted:     #9A857C;
+  --color-text-inverse:   #1C1410;
+  --color-action-bg:       #C4857A;
+  --color-action-bg-hover: #D4958A;
+  --color-action-text:     #1C1410;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --color-background:    #1C1410;
+    --color-surface:       #241916;
+    --color-surface-alt:   #2E211C;
+    --color-border:        #3D2E28;
+    --color-border-strong: #5C4A44;
+    --color-text-primary:   #FAF7F4;
+    --color-text-secondary: #D4C5BE;
+    --color-text-muted:     #9A857C;
+    --color-text-inverse:   #1C1410;
+    --color-action-bg:       #C4857A;
+    --color-action-bg-hover: #D4958A;
+    --color-action-text:     #1C1410;
+  }
+}
+
 /* ─── Base styles ────────────────────────────────────────────────────────── */
 
 *, *::before, *::after {
