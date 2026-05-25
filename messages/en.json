@@ -49,6 +49,24 @@
     "emailSubject": "My Beauty Configurator order",
     "emailBody": "Here is my beauty configuration:\n\n{selection}\n\nTotal: {total}\n\nSee you at the studio!"
   },
+  "booking": {
+    "title": "Book your appointment",
+    "subtitle": "Fill in the form and we'll get in touch to confirm your slot.",
+    "name": "Your name",
+    "namePlaceholder": "Jane Doe",
+    "email": "Email address",
+    "emailPlaceholder": "jane@example.com",
+    "phone": "Phone number",
+    "phonePlaceholder": "+1 234 567 890",
+    "date": "Preferred date",
+    "message": "Additional notes",
+    "messagePlaceholder": "Any preferences, questions or special requests…",
+    "submit": "Book now",
+    "successTitle": "Request sent!",
+    "successSubtitle": "Your email client will open with all the details pre-filled. Send it to confirm your appointment.",
+    "emailSubject": "Appointment request — {look}",
+    "emailBody": "Hi,\n\nI would like to book an appointment for the following configuration:\n\nLook: {look}\n{selection}\n\nPreferred date: {date}\nPhone: {phone}\n\nNotes: {message}\n\nThank you!"
+  },
   "common": {
     "loading": "Loading…",
     "notFound": "Not found"
