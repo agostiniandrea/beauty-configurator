@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Look } from "@/lib/types";
@@ -13,15 +14,24 @@ export default function LookCard({ look }: Props) {
 
   return (
     <article className="group flex flex-col rounded-3xl overflow-hidden bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:shadow-lg hover:shadow-[var(--color-brand-rose)]/8 transition-all duration-300">
-      {/* Image placeholder — replace with <Image> when assets are ready */}
       <div
-        className="aspect-[3/2] bg-gradient-to-br from-[var(--color-brand-rose-light)] via-[var(--color-surface-alt)] to-[var(--color-brand-gold)]/30 flex items-center justify-center relative overflow-hidden"
+        className="aspect-[3/2] relative overflow-hidden"
         role="img"
         aria-label={`${look.name[locale]} — preview`}
       >
-        <span className="text-[var(--color-brand-rose)]/40 text-7xl font-[family-name:var(--font-heading)] italic select-none">
-          ✦
-        </span>
+        {look.imageUrl ? (
+          <Image
+            src={look.imageUrl}
+            alt={look.name[locale]}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-[var(--color-brand-rose-light)] via-[var(--color-surface-alt)] to-[var(--color-brand-gold)]/30 flex items-center justify-center">
+            <span className="text-[var(--color-brand-rose)]/40 text-7xl font-[family-name:var(--font-heading)] italic select-none">✦</span>
+          </div>
+        )}
         {/* Tags overlay */}
         <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
           {look.tags.map((tag) => (

@@ -4,83 +4,95 @@
     "categoryId": "base",
     "name": { "en": "Light Coverage", "it": "Copertura Leggera" },
     "description": { "en": "Lightweight, skin-like finish", "it": "Finish leggero, effetto seconda pelle" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/base-light/400/300"
   },
   {
     "id": "base-medium",
     "categoryId": "base",
     "name": { "en": "Medium Coverage", "it": "Copertura Media" },
     "description": { "en": "Balanced coverage with a natural glow", "it": "Copertura equilibrata con glow naturale" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/base-medium/400/300"
   },
   {
     "id": "base-full",
     "categoryId": "base",
     "name": { "en": "Full Coverage", "it": "Copertura Totale" },
     "description": { "en": "Flawless, long-lasting finish", "it": "Finish impeccabile e lunga durata" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/base-full/400/300"
   },
   {
     "id": "eyes-nude",
     "categoryId": "eyes",
     "name": { "en": "Nude Palette", "it": "Palette Nude" },
     "description": { "en": "Warm neutrals for everyday wear", "it": "Neutri caldi per tutti i giorni" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/eyes-nude/400/300"
   },
   {
     "id": "eyes-smoky",
     "categoryId": "eyes",
     "name": { "en": "Smoky Eye", "it": "Smoky Eye" },
     "description": { "en": "Dramatic dark tones for bold looks", "it": "Toni scuri drammatici per look audaci" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/eyes-smoky/400/300"
   },
   {
     "id": "eyes-colorful",
     "categoryId": "eyes",
     "name": { "en": "Colorful", "it": "Colorato" },
     "description": { "en": "Vibrant pigments for an expressive look", "it": "Pigmenti vivaci per un look espressivo" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/eyes-colorful/400/300"
   },
   {
     "id": "lips-nude",
     "categoryId": "lips",
     "name": { "en": "Nude Lip", "it": "Labbra Nude" },
     "description": { "en": "Natural-toned lip color", "it": "Colore labbra dai toni naturali" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/lips-nude/400/300"
   },
   {
     "id": "lips-red",
     "categoryId": "lips",
     "name": { "en": "Classic Red", "it": "Rosso Classico" },
     "description": { "en": "Timeless bold red lipstick", "it": "Rossetto rosso audace senza tempo" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/lips-red/400/300"
   },
   {
     "id": "lips-pink",
     "categoryId": "lips",
     "name": { "en": "Rose Pink", "it": "Rosa" },
     "description": { "en": "Soft, feminine pink tones", "it": "Toni rosa morbidi e femminili" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/lips-pink/400/300"
   },
   {
     "id": "cheeks-natural",
     "categoryId": "cheeks",
     "name": { "en": "Natural Flush", "it": "Rossore Naturale" },
     "description": { "en": "Subtle, healthy-looking color", "it": "Colore sottile dall'aspetto sano" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/cheeks-natural/400/300"
   },
   {
     "id": "cheeks-bronze",
     "categoryId": "cheeks",
     "name": { "en": "Sun-kissed Bronze", "it": "Bronzo Baciato dal Sole" },
     "description": { "en": "Warm bronzer for a summer glow", "it": "Bronzer caldo per un glow estivo" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/cheeks-bronze/400/300"
   },
   {
     "id": "cheeks-berry",
     "categoryId": "cheeks",
     "name": { "en": "Berry Blush", "it": "Blush Berry" },
     "description": { "en": "Deep berry tones for a bold cheek look", "it": "Toni berry profondi per guance audaci" },
-    "price": 0
+    "price": 0,
+    "imageUrl": "https://picsum.photos/seed/cheeks-berry/400/300"
   }
 ]

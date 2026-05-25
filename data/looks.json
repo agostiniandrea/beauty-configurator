@@ -7,7 +7,8 @@
       "it": "Un look fresco e quotidiano che esalta i tuoi tratti naturali"
     },
     "tags": ["everyday", "fresh", "minimal"],
-    "basePrice": 0
+    "basePrice": 0,
+    "imageUrl": "https://picsum.photos/seed/natural-glow/600/400"
   },
   {
     "id": "evening-drama",
@@ -17,7 +18,8 @@
       "it": "Audace e sofisticato per le occasioni speciali"
     },
     "tags": ["evening", "bold", "glamour"],
-    "basePrice": 0
+    "basePrice": 0,
+    "imageUrl": "https://picsum.photos/seed/evening-drama/600/400"
   },
   {
     "id": "soft-rose",
@@ -27,6 +29,7 @@
       "it": "Femminile e romantico con toni rosa caldi"
     },
     "tags": ["romantic", "warm", "feminine"],
-    "basePrice": 0
+    "basePrice": 0,
+    "imageUrl": "https://picsum.photos/seed/soft-rose/600/400"
   }
 ]

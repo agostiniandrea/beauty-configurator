@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import type { Category, Option, Selection } from "@/lib/types";
 import type { Locale } from "@/site.config";
@@ -34,6 +35,35 @@ export default function SummaryPanel({ categories, options, selection }: Props) 
         <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
           {completedCount}/{categories.length} {t("stepsCompleted")}
         </p>
+      </div>
+
+      {/* Incremental visual preview */}
+      <div className="grid grid-cols-2 gap-2">
+        {categories.map((cat) => {
+          const selectedOpt = options.find((o) => o.id === selection[cat.id]);
+          return (
+            <div key={cat.id} className="flex flex-col gap-1">
+              <div className="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]">
+                {selectedOpt?.imageUrl ? (
+                  <Image
+                    src={selectedOpt.imageUrl}
+                    alt={selectedOpt.name[locale]}
+                    fill
+                    className="object-cover transition-opacity duration-300"
+                    sizes="120px"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic">○</span>
+                  </div>
+                )}
+              </div>
+              <p className="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate">
+                {selectedOpt ? selectedOpt.name[locale] : cat.name[locale]}
+              </p>
+            </div>
+          );
+        })}
       </div>
 
       {/* Progress bar */}
