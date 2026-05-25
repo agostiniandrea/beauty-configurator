@@ -7,7 +7,14 @@
       "it": "Un look fresco e quotidiano che esalta i tuoi tratti naturali"
     },
     "tags": ["everyday", "fresh", "minimal"],
-    "basePrice": 0
+    "basePrice": 0,
+    "imageUrl": "/images/look-natural-glow.jpeg",
+    "defaultOptions": {
+      "base": "base-light",
+      "eyes": "eyes-nude",
+      "lips": "lips-nude",
+      "cheeks": "cheeks-natural"
+    }
   },
   {
     "id": "evening-drama",
@@ -17,7 +24,14 @@
       "it": "Audace e sofisticato per le occasioni speciali"
     },
     "tags": ["evening", "bold", "glamour"],
-    "basePrice": 0
+    "basePrice": 0,
+    "imageUrl": "/images/look-evening-drama.jpeg",
+    "defaultOptions": {
+      "base": "base-full",
+      "eyes": "eyes-smoky",
+      "lips": "lips-red",
+      "cheeks": "cheeks-bronze"
+    }
   },
   {
     "id": "soft-rose",
@@ -27,6 +41,13 @@
       "it": "Femminile e romantico con toni rosa caldi"
     },
     "tags": ["romantic", "warm", "feminine"],
-    "basePrice": 0
+    "basePrice": 0,
+    "imageUrl": "/images/look-soft-rose.jpeg",
+    "defaultOptions": {
+      "base": "base-medium",
+      "eyes": "eyes-nude",
+      "lips": "lips-pink",
+      "cheeks": "cheeks-berry"
+    }
   }
 ]

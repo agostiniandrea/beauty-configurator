@@ -9,6 +9,8 @@ export type Look = {
   description: LocalizedString;
   tags: string[];
   basePrice: number;
+  imageUrl?: string;
+  defaultOptions?: Record<string, string>;
 };
 
 export type Category = {
@@ -24,6 +26,7 @@ export type Option = {
   name: LocalizedString;
   description: LocalizedString;
   price: number;
+  imageUrl?: string;
 };
 
 export type Selection = Record<string, string>;

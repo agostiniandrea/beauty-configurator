@@ -70,7 +70,7 @@ export default function HomePage() {
         </h2>
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {looks.map((look) => (
-            <li key={look.id}>
+            <li key={look.id} className="flex">
               <LookCard look={look} />
             </li>
           ))}
