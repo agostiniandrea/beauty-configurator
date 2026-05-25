@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 type Theme = "light" | "dark";
 
@@ -10,6 +11,31 @@ function getInitialTheme(): Theme {
   if (saved === "dark" || saved === "light") return saved;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
+
+const TogglePlaceholder = styled.div`
+  width: 32px;
+  height: 32px;
+`;
+
+const ToggleButton = styled.button`
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  font-size: 16px;
+
+  &:hover {
+    color: var(--color-text-primary);
+    background: var(--color-surface-alt);
+  }
+`;
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("light");
@@ -28,15 +54,14 @@ export default function ThemeToggle() {
     document.documentElement.classList.toggle("light", next === "light");
   }
 
-  if (!mounted) return <div className="w-8 h-8" aria-hidden />;
+  if (!mounted) return <TogglePlaceholder aria-hidden />;
 
   return (
-    <button
+    <ToggleButton
       onClick={toggle}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className="w-8 h-8 flex items-center justify-center rounded-xl text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface-alt)] transition-all"
     >
       {theme === "dark" ? "☀" : "☾"}
-    </button>
+    </ToggleButton>
   );
 }
