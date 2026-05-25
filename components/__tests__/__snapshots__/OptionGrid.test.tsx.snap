@@ -9,21 +9,26 @@ exports[`OptionGrid renders correctly with no selection 1`] = `
   >
     <li
       aria-selected="false"
+      class="flex"
       role="option"
     >
       <button
         aria-pressed="false"
-        class="w-full text-left rounded-3xl border-2 p-5 transition-all duration-200 group border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-brand-rose)] hover:shadow-sm"
+        class="w-full h-full flex flex-col text-left rounded-3xl border-2 p-5 transition-all duration-200 group border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-brand-rose)] hover:shadow-sm"
       >
         <div
           aria-hidden="true"
-          class="aspect-[4/3] rounded-2xl mb-4 flex items-center justify-center transition-all bg-gradient-to-br from-[var(--color-surface-alt)] to-[var(--color-border)]"
+          class="aspect-[4/3] rounded-2xl mb-4 overflow-hidden relative transition-all "
         >
-          <span
-            class="text-3xl font-[family-name:var(--font-heading)] italic transition-colors text-[var(--color-border-strong)]"
+          <div
+            class="w-full h-full flex items-center justify-center bg-gradient-to-br from-[var(--color-surface-alt)] to-[var(--color-border)]"
           >
-            ○
-          </span>
+            <span
+              class="text-3xl font-[family-name:var(--font-heading)] italic text-[var(--color-border-strong)]"
+            >
+              ○
+            </span>
+          </div>
         </div>
         <p
           class="font-[family-name:var(--font-heading)] text-lg leading-tight mb-1 transition-colors text-[var(--color-text-primary)]"
@@ -31,7 +36,7 @@ exports[`OptionGrid renders correctly with no selection 1`] = `
           Light Coverage
         </p>
         <p
-          class="text-xs text-[var(--color-text-muted)] leading-relaxed"
+          class="text-xs text-[var(--color-text-muted)] leading-relaxed flex-1"
         >
           Lightweight, skin-like finish
         </p>
@@ -44,21 +49,26 @@ exports[`OptionGrid renders correctly with no selection 1`] = `
     </li>
     <li
       aria-selected="false"
+      class="flex"
       role="option"
     >
       <button
         aria-pressed="false"
-        class="w-full text-left rounded-3xl border-2 p-5 transition-all duration-200 group border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-brand-rose)] hover:shadow-sm"
+        class="w-full h-full flex flex-col text-left rounded-3xl border-2 p-5 transition-all duration-200 group border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-brand-rose)] hover:shadow-sm"
       >
         <div
           aria-hidden="true"
-          class="aspect-[4/3] rounded-2xl mb-4 flex items-center justify-center transition-all bg-gradient-to-br from-[var(--color-surface-alt)] to-[var(--color-border)]"
+          class="aspect-[4/3] rounded-2xl mb-4 overflow-hidden relative transition-all "
         >
-          <span
-            class="text-3xl font-[family-name:var(--font-heading)] italic transition-colors text-[var(--color-border-strong)]"
+          <div
+            class="w-full h-full flex items-center justify-center bg-gradient-to-br from-[var(--color-surface-alt)] to-[var(--color-border)]"
           >
-            ○
-          </span>
+            <span
+              class="text-3xl font-[family-name:var(--font-heading)] italic text-[var(--color-border-strong)]"
+            >
+              ○
+            </span>
+          </div>
         </div>
         <p
           class="font-[family-name:var(--font-heading)] text-lg leading-tight mb-1 transition-colors text-[var(--color-text-primary)]"
@@ -66,7 +76,7 @@ exports[`OptionGrid renders correctly with no selection 1`] = `
           Medium Coverage
         </p>
         <p
-          class="text-xs text-[var(--color-text-muted)] leading-relaxed"
+          class="text-xs text-[var(--color-text-muted)] leading-relaxed flex-1"
         >
           Balanced coverage with glow
         </p>

@@ -3,18 +3,22 @@
 exports[`LookCard renders correctly 1`] = `
 <div>
   <article
-    class="group flex flex-col rounded-3xl overflow-hidden bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:shadow-lg hover:shadow-[var(--color-brand-rose)]/8 transition-all duration-300"
+    class="group flex flex-col w-full rounded-3xl overflow-hidden bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:shadow-lg hover:shadow-[var(--color-brand-rose)]/8 transition-all duration-300"
   >
     <div
       aria-label="Natural Glow — preview"
-      class="aspect-[3/2] bg-gradient-to-br from-[var(--color-brand-rose-light)] via-[var(--color-surface-alt)] to-[var(--color-brand-gold)]/30 flex items-center justify-center relative overflow-hidden"
+      class="aspect-[3/2] relative overflow-hidden"
       role="img"
     >
-      <span
-        class="text-[var(--color-brand-rose)]/40 text-7xl font-[family-name:var(--font-heading)] italic select-none"
+      <div
+        class="w-full h-full bg-gradient-to-br from-[var(--color-brand-rose-light)] via-[var(--color-surface-alt)] to-[var(--color-brand-gold)]/30 flex items-center justify-center"
       >
-        ✦
-      </span>
+        <span
+          class="text-[var(--color-brand-rose)]/40 text-7xl font-[family-name:var(--font-heading)] italic select-none"
+        >
+          ✦
+        </span>
+      </div>
       <div
         class="absolute bottom-3 left-3 flex flex-wrap gap-1.5"
       >
@@ -44,7 +48,7 @@ exports[`LookCard renders correctly 1`] = `
         Natural Glow
       </h2>
       <p
-        class="text-sm text-[var(--color-text-secondary)] flex-1 leading-relaxed"
+        class="text-sm text-[var(--color-text-secondary)] flex-1 leading-relaxed grow"
       >
         A fresh, everyday look that enhances your natural features
       </p>

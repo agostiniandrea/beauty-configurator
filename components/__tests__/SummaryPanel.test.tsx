@@ -27,7 +27,7 @@ describe("SummaryPanel", () => {
       <SummaryPanel categories={mockCategories} options={mockOptions} selection={{}} />,
     );
     mockCategories.forEach((cat) => {
-      expect(screen.getByText(cat.name.en)).toBeInTheDocument();
+      expect(screen.getAllByText(cat.name.en).length).toBeGreaterThan(0);
     });
   });
 
@@ -39,9 +39,9 @@ describe("SummaryPanel", () => {
         selection={mockSelectionFull}
       />,
     );
-    expect(screen.getByText("Light Coverage")).toBeInTheDocument();
-    expect(screen.getByText("Smoky Eye")).toBeInTheDocument();
-    expect(screen.getByText("Nude Lip")).toBeInTheDocument();
+    expect(screen.getAllByText("Light Coverage").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Smoky Eye").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Nude Lip").length).toBeGreaterThan(0);
   });
 
   it("shows completed step count", () => {

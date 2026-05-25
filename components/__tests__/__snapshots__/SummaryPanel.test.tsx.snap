@@ -23,6 +23,76 @@ exports[`SummaryPanel renders correctly with full selection 1`] = `
       </p>
     </div>
     <div
+      class="grid grid-cols-2 gap-2"
+    >
+      <div
+        class="flex flex-col gap-1"
+      >
+        <div
+          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+        >
+          <div
+            class="w-full h-full flex items-center justify-center"
+          >
+            <span
+              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+            >
+              ○
+            </span>
+          </div>
+        </div>
+        <p
+          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+        >
+          Light Coverage
+        </p>
+      </div>
+      <div
+        class="flex flex-col gap-1"
+      >
+        <div
+          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+        >
+          <div
+            class="w-full h-full flex items-center justify-center"
+          >
+            <span
+              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+            >
+              ○
+            </span>
+          </div>
+        </div>
+        <p
+          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+        >
+          Smoky Eye
+        </p>
+      </div>
+      <div
+        class="flex flex-col gap-1"
+      >
+        <div
+          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+        >
+          <div
+            class="w-full h-full flex items-center justify-center"
+          >
+            <span
+              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+            >
+              ○
+            </span>
+          </div>
+        </div>
+        <p
+          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+        >
+          Nude Lip
+        </p>
+      </div>
+    </div>
+    <div
       aria-label="progress"
       aria-valuemax="3"
       aria-valuemin="0"
@@ -120,6 +190,76 @@ exports[`SummaryPanel renders correctly with no selection 1`] = `
          
         stepsCompleted
       </p>
+    </div>
+    <div
+      class="grid grid-cols-2 gap-2"
+    >
+      <div
+        class="flex flex-col gap-1"
+      >
+        <div
+          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+        >
+          <div
+            class="w-full h-full flex items-center justify-center"
+          >
+            <span
+              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+            >
+              ○
+            </span>
+          </div>
+        </div>
+        <p
+          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+        >
+          Base
+        </p>
+      </div>
+      <div
+        class="flex flex-col gap-1"
+      >
+        <div
+          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+        >
+          <div
+            class="w-full h-full flex items-center justify-center"
+          >
+            <span
+              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+            >
+              ○
+            </span>
+          </div>
+        </div>
+        <p
+          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+        >
+          Eyes
+        </p>
+      </div>
+      <div
+        class="flex flex-col gap-1"
+      >
+        <div
+          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+        >
+          <div
+            class="w-full h-full flex items-center justify-center"
+          >
+            <span
+              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+            >
+              ○
+            </span>
+          </div>
+        </div>
+        <p
+          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+        >
+          Lips
+        </p>
+      </div>
     </div>
     <div
       aria-label="progress"
