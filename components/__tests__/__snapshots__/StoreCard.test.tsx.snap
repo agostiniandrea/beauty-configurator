@@ -1,53 +1,223 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StoreCard renders correctly with full selection 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.c1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s,color 0.2s;
+}
+
+.c1:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+
+.c2 {
+  border-radius: 24px;
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.c3 {
+  background: linear-gradient(     to right,     color-mix(in srgb, var(--color-brand-rose-light) 40%, transparent),     color-mix(in srgb, var(--color-brand-gold) 20%, transparent)   );
+  padding: 32px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.c4 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.c5 {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-brand-rose);
+  margin-bottom: 8px;
+}
+
+.c6 {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 300;
+  color: var(--color-text-primary);
+}
+
+.c7 {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+.c8 {
+  flex-shrink: 0;
+  padding: 12px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+}
+
+.c9 {
+  font-size: 9px;
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+}
+
+.c10 {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c11 {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.c11:last-child {
+  border-bottom: none;
+}
+
+.c12 {
+  width: 112px;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  padding-top: 2px;
+}
+
+.c13 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+.c14 {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.c15 {
+  padding: 24px 32px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+}
+
+.c16 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.c17 {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  max-width: 280px;
+  line-height: 1.6;
+}
+
+.c18 {
+  text-align: right;
+}
+
+.c19 {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+
+.c20 {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 640px) {
+  .c0 {
+    flex-direction: row;
+  }
+}
+
 <div>
   <div>
     <div
-      class="no-print flex flex-col sm:flex-row gap-3 mb-8"
+      class="c0 no-print"
     >
       <button
-        class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
+        class="c1"
       >
         🖨 
         printButton
       </button>
       <button
-        class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
+        class="c1"
       >
         ✉ 
         emailButton
       </button>
       <button
-        class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
+        class="c1"
       >
         ⎘ shareButton
       </button>
     </div>
     <article
       aria-label="Store card"
-      class="rounded-3xl border-2 border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden"
+      class="c2"
     >
       <header
-        class="bg-gradient-to-r from-[var(--color-brand-rose-light)]/40 to-[var(--color-brand-gold)]/20 px-8 py-8 border-b border-[var(--color-border)]"
+        class="c3"
       >
         <div
-          class="flex items-start justify-between gap-6"
+          class="c4"
         >
           <div>
             <p
-              class="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-brand-rose)] mb-2"
+              class="c5"
             >
               Beauty Configurator
                — Beauty Studio
             </p>
             <h2
-              class="font-[family-name:var(--font-heading)] text-3xl font-light text-[var(--color-text-primary)]"
+              class="c6"
             >
               Natural Glow
             </h2>
             <p
-              class="text-sm text-[var(--color-text-muted)] mt-1"
+              class="c7"
             >
               orderDate
               : 
@@ -55,7 +225,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
             </p>
           </div>
           <div
-            class="shrink-0 p-3 bg-white rounded-2xl border border-[var(--color-border)]"
+            class="c8"
           >
             <svg
               aria-label="QR code per l'ordine"
@@ -76,7 +246,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
               />
             </svg>
             <p
-              class="text-[9px] text-center text-[var(--color-text-muted)] mt-1.5"
+              class="c9"
             >
               Scansiona
             </p>
@@ -85,72 +255,66 @@ exports[`StoreCard renders correctly with full selection 1`] = `
       </header>
       <ul
         aria-label="selectionLabel"
-        class="divide-y divide-[var(--color-border)]"
+        class="c10"
       >
         <li
-          class="flex items-start gap-6 px-8 py-4"
+          class="c11"
         >
           <span
-            class="w-28 shrink-0 text-xs font-medium uppercase tracking-widest text-[var(--color-text-muted)] pt-0.5"
+            class="c12"
           >
             Base
           </span>
-          <div
-            class="flex-1"
-          >
+          <div>
             <p
-              class="font-[family-name:var(--font-heading)] text-lg leading-tight text-[var(--color-text-primary)]"
+              class="c13"
             >
               Light Coverage
             </p>
             <p
-              class="text-xs text-[var(--color-text-muted)] mt-0.5"
+              class="c14"
             >
               Lightweight, skin-like finish
             </p>
           </div>
         </li>
         <li
-          class="flex items-start gap-6 px-8 py-4"
+          class="c11"
         >
           <span
-            class="w-28 shrink-0 text-xs font-medium uppercase tracking-widest text-[var(--color-text-muted)] pt-0.5"
+            class="c12"
           >
             Eyes
           </span>
-          <div
-            class="flex-1"
-          >
+          <div>
             <p
-              class="font-[family-name:var(--font-heading)] text-lg leading-tight text-[var(--color-text-primary)]"
+              class="c13"
             >
               Smoky Eye
             </p>
             <p
-              class="text-xs text-[var(--color-text-muted)] mt-0.5"
+              class="c14"
             >
               Dramatic dark tones
             </p>
           </div>
         </li>
         <li
-          class="flex items-start gap-6 px-8 py-4"
+          class="c11"
         >
           <span
-            class="w-28 shrink-0 text-xs font-medium uppercase tracking-widest text-[var(--color-text-muted)] pt-0.5"
+            class="c12"
           >
             Lips
           </span>
-          <div
-            class="flex-1"
-          >
+          <div>
             <p
-              class="font-[family-name:var(--font-heading)] text-lg leading-tight text-[var(--color-text-primary)]"
+              class="c13"
             >
               Nude Lip
             </p>
             <p
-              class="text-xs text-[var(--color-text-muted)] mt-0.5"
+              class="c14"
             >
               Natural-toned lip color
             </p>
@@ -158,26 +322,26 @@ exports[`StoreCard renders correctly with full selection 1`] = `
         </li>
       </ul>
       <footer
-        class="px-8 py-6 border-t border-[var(--color-border)] bg-[var(--color-surface-alt)]"
+        class="c15"
       >
         <div
-          class="flex items-center justify-between flex-wrap gap-4"
+          class="c16"
         >
           <p
-            class="text-sm text-[var(--color-text-secondary)] max-w-xs leading-relaxed"
+            class="c17"
           >
             studioNote
           </p>
           <div
-            class="text-right"
+            class="c18"
           >
             <p
-              class="text-xs text-[var(--color-text-muted)] mb-0.5"
+              class="c19"
             >
               Totale
             </p>
             <p
-              class="font-[family-name:var(--font-heading)] text-3xl text-[var(--color-text-primary)]"
+              class="c20"
             >
               €15
             </p>

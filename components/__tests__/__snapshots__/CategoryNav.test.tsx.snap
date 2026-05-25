@@ -1,26 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CategoryNav renders correctly on first step 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c1 {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  border: none;
+  transition: background 0.15s,color 0.15s;
+  cursor: pointer;
+  opacity: 1;
+  background: var(--color-action-bg);
+  color: var(--color-action-text);
+}
+
+.c4 {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  border: none;
+  transition: background 0.15s,color 0.15s;
+  cursor: not-allowed;
+  opacity: 0.5;
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+.c2 {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 500;
+  flex-shrink: 0;
+  background: var(--color-brand-rose);
+  color: white;
+}
+
+.c5 {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 500;
+  flex-shrink: 0;
+  background: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.c3 {
+  font-weight: 500;
+}
+
 <div>
   <nav
     aria-label="Configuration steps"
   >
     <ol
-      class="flex flex-col gap-1"
+      class="c0"
     >
       <li>
         <button
           aria-current="step"
-          class="w-full text-left flex items-center gap-3 px-4 py-3 rounded-2xl text-sm transition-all bg-[var(--color-action-bg)] text-[var(--color-action-text)]"
+          class="c1"
         >
           <span
             aria-hidden="true"
-            class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium shrink-0 bg-[var(--color-brand-rose)] text-white"
+            class="c2"
           >
             1
           </span>
           <span
-            class="font-medium"
+            class="c3"
           >
             Base
           </span>
@@ -28,17 +103,17 @@ exports[`CategoryNav renders correctly on first step 1`] = `
       </li>
       <li>
         <button
-          class="w-full text-left flex items-center gap-3 px-4 py-3 rounded-2xl text-sm transition-all text-[var(--color-text-muted)] cursor-not-allowed opacity-50"
+          class="c4"
           disabled=""
         >
           <span
             aria-hidden="true"
-            class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium shrink-0 bg-[var(--color-border)] text-[var(--color-text-muted)]"
+            class="c5"
           >
             2
           </span>
           <span
-            class="font-medium"
+            class="c3"
           >
             Eyes
           </span>
@@ -46,17 +121,17 @@ exports[`CategoryNav renders correctly on first step 1`] = `
       </li>
       <li>
         <button
-          class="w-full text-left flex items-center gap-3 px-4 py-3 rounded-2xl text-sm transition-all text-[var(--color-text-muted)] cursor-not-allowed opacity-50"
+          class="c4"
           disabled=""
         >
           <span
             aria-hidden="true"
-            class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium shrink-0 bg-[var(--color-border)] text-[var(--color-text-muted)]"
+            class="c5"
           >
             3
           </span>
           <span
-            class="font-medium"
+            class="c3"
           >
             Lips
           </span>

@@ -1,14 +1,100 @@
 "use client";
 
 import Image from "next/image";
+import styled, { css } from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
 import type { Option } from "@/lib/types";
 import type { Locale } from "@/site.config";
-import siteConfig from "@/site.config";
+
+const Grid = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: 640px) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 1280px) { grid-template-columns: repeat(3, 1fr); }
+`;
+
+const Item = styled.li`
+  display: flex;
+`;
+
+const OptionButton = styled.button<{ $selected: boolean }>`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border-radius: 24px;
+  border: 2px solid ${({ $selected }) => $selected ? "var(--color-brand-rose)" : "var(--color-border)"};
+  padding: 20px;
+  background: ${({ $selected }) => $selected ? "color-mix(in srgb, var(--color-brand-rose) 5%, var(--color-surface))" : "var(--color-surface)"};
+  box-shadow: ${({ $selected }) => $selected ? "0 0 0 3px color-mix(in srgb, var(--color-brand-rose) 15%, transparent)" : "none"};
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+
+  ${({ $selected }) =>
+    !$selected &&
+    css`
+      &:hover {
+        border-color: var(--color-brand-rose);
+        box-shadow: 0 1px 4px color-mix(in srgb, var(--color-brand-rose) 8%, transparent);
+      }
+    `}
+`;
+
+const ImageSlot = styled.div`
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  position: relative;
+`;
+
+const ImageFallback = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-surface-alt), var(--color-border));
+`;
+
+const FallbackGlyph = styled.span`
+  font-size: 30px;
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--color-border-strong);
+`;
+
+const OptionName = styled.p<{ $selected: boolean }>`
+  font-family: var(--font-heading);
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  transition: color 0.2s;
+  color: ${({ $selected }) => $selected ? "var(--color-brand-rose)" : "var(--color-text-primary)"};
+`;
+
+const OptionDescription = styled.p`
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  flex: 1;
+`;
+
+const PriceTag = styled.p`
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+`;
 
 type Props = {
   options: Option[];
-  selectedOptionId: string | undefined;
+  selectedOptionId?: string;
   onSelect: (id: string) => void;
 };
 
@@ -17,76 +103,42 @@ export default function OptionGrid({ options, selectedOptionId, onSelect }: Prop
   const t = useTranslations("configurator");
 
   if (options.length === 0) {
-    return <p className="text-[var(--color-text-muted)] text-sm italic">{t("noOptions")}</p>;
+    return <p style={{ fontSize: 14, color: "var(--color-text-muted)" }}>{t("noOptions")}</p>;
   }
 
   return (
-    <ul
-      className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
-      role="listbox"
-      aria-label={t("selectOption")}
-    >
+    <Grid role="listbox">
       {options.map((opt) => {
         const isSelected = opt.id === selectedOptionId;
         return (
-          <li key={opt.id} role="option" aria-selected={isSelected} className="flex">
-            <button
+          <Item key={opt.id} role="option" aria-selected={isSelected}>
+            <OptionButton
               onClick={() => onSelect(opt.id)}
-              className={`w-full h-full flex flex-col text-left rounded-3xl border-2 p-5 transition-all duration-200 group ${
-                isSelected
-                  ? "border-[var(--color-action-bg)] bg-[var(--color-surface-alt)] shadow-md"
-                  : "border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-brand-rose)] hover:shadow-sm"
-              }`}
               aria-pressed={isSelected}
+              $selected={isSelected}
             >
-              <div
-                className={`aspect-[4/3] rounded-2xl mb-4 overflow-hidden relative transition-all ${
-                  isSelected ? "ring-2 ring-[var(--color-action-bg)]" : ""
-                }`}
-                aria-hidden="true"
-              >
+              <ImageSlot aria-hidden="true">
                 {opt.imageUrl ? (
                   <Image
                     src={opt.imageUrl}
                     alt={opt.name[locale]}
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover"
                     sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   />
                 ) : (
-                  <div className={`w-full h-full flex items-center justify-center ${
-                    isSelected
-                      ? "bg-gradient-to-br from-[var(--color-brand-rose-light)] to-[var(--color-brand-gold)]/20"
-                      : "bg-gradient-to-br from-[var(--color-surface-alt)] to-[var(--color-border)]"
-                  }`}>
-                    <span className={`text-3xl font-[family-name:var(--font-heading)] italic ${
-                      isSelected ? "text-[var(--color-brand-rose)]" : "text-[var(--color-border-strong)]"
-                    }`}>
-                      {isSelected ? "✦" : "○"}
-                    </span>
-                  </div>
+                  <ImageFallback>
+                    <FallbackGlyph>○</FallbackGlyph>
+                  </ImageFallback>
                 )}
-              </div>
-
-              <p className={`font-[family-name:var(--font-heading)] text-lg leading-tight mb-1 transition-colors ${
-                isSelected ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-primary)]"
-              }`}>
-                {opt.name[locale]}
-              </p>
-              <p className="text-xs text-[var(--color-text-muted)] leading-relaxed flex-1">
-                {opt.description[locale]}
-              </p>
-              {siteConfig.features.showPricing && (
-                <p className={`text-xs font-medium mt-3 ${
-                  isSelected ? "text-[var(--color-brand-rose)]" : "text-[var(--color-text-muted)]"
-                }`}>
-                  {opt.price === 0 ? t("included") : `+€${opt.price}`}
-                </p>
-              )}
-            </button>
-          </li>
+              </ImageSlot>
+              <OptionName $selected={isSelected}>{opt.name[locale]}</OptionName>
+              <OptionDescription>{opt.description[locale]}</OptionDescription>
+              {opt.price > 0 && <PriceTag>+€{opt.price}</PriceTag>}
+            </OptionButton>
+          </Item>
         );
       })}
-    </ul>
+    </Grid>
   );
 }

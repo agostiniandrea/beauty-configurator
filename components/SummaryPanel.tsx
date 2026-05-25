@@ -1,10 +1,166 @@
 "use client";
 
 import Image from "next/image";
+import styled from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
 import type { Category, Option, Selection } from "@/lib/types";
 import type { Locale } from "@/site.config";
 import siteConfig from "@/site.config";
+
+const Panel = styled.aside`
+  border-radius: 24px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+const PanelHeader = styled.div``;
+
+const PanelTitle = styled.h3`
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--color-text-primary);
+`;
+
+const PanelSubtitle = styled.p`
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+`;
+
+const PreviewGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+`;
+
+const PreviewCell = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+
+const PreviewImage = styled.div`
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-surface-alt);
+`;
+
+const PreviewEmpty = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const PreviewEmptyGlyph = styled.span`
+  color: var(--color-border-strong);
+  font-size: 20px;
+  font-family: var(--font-heading);
+  font-style: italic;
+`;
+
+const PreviewLabel = styled.p`
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+const ProgressBar = styled.div`
+  height: 4px;
+  border-radius: 99px;
+  background: var(--color-border);
+  overflow: hidden;
+`;
+
+const ProgressFill = styled.div<{ $pct: number }>`
+  height: 100%;
+  border-radius: 99px;
+  background: var(--color-brand-rose);
+  width: ${({ $pct }) => $pct}%;
+  transition: width 0.5s ease;
+`;
+
+const SelectionList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
+
+const SelectionItem = styled.li`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 12px;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+`;
+
+const CategoryLabel = styled.span`
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  padding-top: 2px;
+`;
+
+const OptionLabel = styled.span`
+  color: var(--color-text-primary);
+  text-align: right;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.2;
+`;
+
+const EmptyDash = styled.span`
+  color: var(--color-border-strong);
+  font-size: 11px;
+  font-style: italic;
+  font-family: sans-serif;
+`;
+
+const TotalRow = styled.div`
+  border-top: 2px solid var(--color-border-strong);
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
+const TotalLabel = styled.span`
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+`;
+
+const TotalValue = styled.span`
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--color-text-primary);
+`;
 
 type Props = {
   categories: Category[];
@@ -22,28 +178,21 @@ export default function SummaryPanel({ categories, options, selection }: Props) 
   }, 0);
 
   const completedCount = Object.keys(selection).length;
+  const pct = (completedCount / categories.length) * 100;
 
   return (
-    <aside
-      className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 flex flex-col gap-5"
-      aria-label={t("summary")}
-    >
-      <div>
-        <h3 className="font-[family-name:var(--font-heading)] text-xl font-light text-[var(--color-text-primary)]">
-          {t("summary")}
-        </h3>
-        <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
-          {completedCount}/{categories.length} {t("stepsCompleted")}
-        </p>
-      </div>
+    <Panel aria-label={t("summary")}>
+      <PanelHeader>
+        <PanelTitle>{t("summary")}</PanelTitle>
+        <PanelSubtitle>{completedCount}/{categories.length} {t("stepsCompleted")}</PanelSubtitle>
+      </PanelHeader>
 
-      {/* Incremental visual preview */}
-      <div className="grid grid-cols-2 gap-2">
+      <PreviewGrid>
         {categories.map((cat) => {
           const selectedOpt = options.find((o) => o.id === selection[cat.id]);
           return (
-            <div key={cat.id} className="flex flex-col gap-1">
-              <div className="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]">
+            <PreviewCell key={cat.id}>
+              <PreviewImage>
                 {selectedOpt?.imageUrl ? (
                   <Image
                     src={selectedOpt.imageUrl}
@@ -53,68 +202,49 @@ export default function SummaryPanel({ categories, options, selection }: Props) 
                     sizes="120px"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic">○</span>
-                  </div>
+                  <PreviewEmpty>
+                    <PreviewEmptyGlyph>○</PreviewEmptyGlyph>
+                  </PreviewEmpty>
                 )}
-              </div>
-              <p className="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate">
+              </PreviewImage>
+              <PreviewLabel>
                 {selectedOpt ? selectedOpt.name[locale] : cat.name[locale]}
-              </p>
-            </div>
+              </PreviewLabel>
+            </PreviewCell>
           );
         })}
-      </div>
+      </PreviewGrid>
 
-      {/* Progress bar */}
-      <div
-        className="h-1 rounded-full bg-[var(--color-border)] overflow-hidden"
+      <ProgressBar
         role="progressbar"
         aria-valuenow={completedCount}
         aria-valuemin={0}
         aria-valuemax={categories.length}
         aria-label={t("progress")}
       >
-        <div
-          className="h-full bg-[var(--color-brand-rose)] rounded-full transition-all duration-500"
-          style={{ width: `${(completedCount / categories.length) * 100}%` }}
-        />
-      </div>
+        <ProgressFill $pct={pct} />
+      </ProgressBar>
 
-      <ul className="flex flex-col gap-3">
+      <SelectionList>
         {categories.map((cat) => {
-          const selectedId = selection[cat.id];
-          const selectedOpt = options.find((o) => o.id === selectedId);
+          const selectedOpt = options.find((o) => o.id === selection[cat.id]);
           return (
-            <li
-              key={cat.id}
-              className="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
-            >
-              <span className="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5">
-                {cat.name[locale]}
-              </span>
-              <span className="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight">
-                {selectedOpt ? (
-                  selectedOpt.name[locale]
-                ) : (
-                  <span className="text-[var(--color-border-strong)] font-sans text-xs italic">
-                    —
-                  </span>
-                )}
-              </span>
-            </li>
+            <SelectionItem key={cat.id}>
+              <CategoryLabel>{cat.name[locale]}</CategoryLabel>
+              <OptionLabel>
+                {selectedOpt ? selectedOpt.name[locale] : <EmptyDash>—</EmptyDash>}
+              </OptionLabel>
+            </SelectionItem>
           );
         })}
-      </ul>
+      </SelectionList>
 
       {siteConfig.features.showPricing && (
-        <div className="border-t-2 border-[var(--color-border-strong)] pt-4 flex justify-between items-baseline">
-          <span className="text-sm text-[var(--color-text-secondary)] font-medium">{t("totalLabel")}</span>
-          <span className="font-[family-name:var(--font-heading)] text-2xl text-[var(--color-text-primary)]">
-            {total === 0 ? t("included") : `€${total}`}
-          </span>
-        </div>
+        <TotalRow>
+          <TotalLabel>{t("totalLabel")}</TotalLabel>
+          <TotalValue>{total === 0 ? t("included") : `€${total}`}</TotalValue>
+        </TotalRow>
       )}
-    </aside>
+    </Panel>
   );
 }

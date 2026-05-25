@@ -1,19 +1,167 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SummaryPanel renders correctly with full selection 1`] = `
+.c0 {
+  border-radius: 24px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.c1 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--color-text-primary);
+}
+
+.c2 {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.c3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.c4 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.c5 {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-surface-alt);
+}
+
+.c6 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c7 {
+  color: var(--color-border-strong);
+  font-size: 20px;
+  font-family: var(--font-heading);
+  font-style: italic;
+}
+
+.c8 {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c9 {
+  height: 4px;
+  border-radius: 99px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.c10 {
+  height: 100%;
+  border-radius: 99px;
+  background: var(--color-brand-rose);
+  width: 100%;
+  transition: width 0.5s ease;
+}
+
+.c11 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c12 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 12px;
+}
+
+.c12:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.c13 {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  padding-top: 2px;
+}
+
+.c14 {
+  color: var(--color-text-primary);
+  text-align: right;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.c15 {
+  border-top: 2px solid var(--color-border-strong);
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.c16 {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.c17 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--color-text-primary);
+}
+
 <div>
   <aside
     aria-label="summary"
-    class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 flex flex-col gap-5"
+    class="c0"
   >
-    <div>
+    <div
+      class=""
+    >
       <h3
-        class="font-[family-name:var(--font-heading)] text-xl font-light text-[var(--color-text-primary)]"
+        class="c1"
       >
         summary
       </h3>
       <p
-        class="text-xs text-[var(--color-text-muted)] mt-0.5"
+        class="c2"
       >
         3
         /
@@ -23,70 +171,70 @@ exports[`SummaryPanel renders correctly with full selection 1`] = `
       </p>
     </div>
     <div
-      class="grid grid-cols-2 gap-2"
+      class="c3"
     >
       <div
-        class="flex flex-col gap-1"
+        class="c4"
       >
         <div
-          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+          class="c5"
         >
           <div
-            class="w-full h-full flex items-center justify-center"
+            class="c6"
           >
             <span
-              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+              class="c7"
             >
               ○
             </span>
           </div>
         </div>
         <p
-          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+          class="c8"
         >
           Light Coverage
         </p>
       </div>
       <div
-        class="flex flex-col gap-1"
+        class="c4"
       >
         <div
-          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+          class="c5"
         >
           <div
-            class="w-full h-full flex items-center justify-center"
+            class="c6"
           >
             <span
-              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+              class="c7"
             >
               ○
             </span>
           </div>
         </div>
         <p
-          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+          class="c8"
         >
           Smoky Eye
         </p>
       </div>
       <div
-        class="flex flex-col gap-1"
+        class="c4"
       >
         <div
-          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+          class="c5"
         >
           <div
-            class="w-full h-full flex items-center justify-center"
+            class="c6"
           >
             <span
-              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+              class="c7"
             >
               ○
             </span>
           </div>
         </div>
         <p
-          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+          class="c8"
         >
           Nude Lip
         </p>
@@ -97,70 +245,69 @@ exports[`SummaryPanel renders correctly with full selection 1`] = `
       aria-valuemax="3"
       aria-valuemin="0"
       aria-valuenow="3"
-      class="h-1 rounded-full bg-[var(--color-border)] overflow-hidden"
+      class="c9"
       role="progressbar"
     >
       <div
-        class="h-full bg-[var(--color-brand-rose)] rounded-full transition-all duration-500"
-        style="width: 100%;"
+        class="c10"
       />
     </div>
     <ul
-      class="flex flex-col gap-3"
+      class="c11"
     >
       <li
-        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+        class="c12"
       >
         <span
-          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+          class="c13"
         >
           Base
         </span>
         <span
-          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+          class="c14"
         >
           Light Coverage
         </span>
       </li>
       <li
-        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+        class="c12"
       >
         <span
-          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+          class="c13"
         >
           Eyes
         </span>
         <span
-          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+          class="c14"
         >
           Smoky Eye
         </span>
       </li>
       <li
-        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+        class="c12"
       >
         <span
-          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+          class="c13"
         >
           Lips
         </span>
         <span
-          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+          class="c14"
         >
           Nude Lip
         </span>
       </li>
     </ul>
     <div
-      class="border-t-2 border-[var(--color-border-strong)] pt-4 flex justify-between items-baseline"
+      class="c15"
     >
       <span
-        class="text-sm text-[var(--color-text-secondary)] font-medium"
+        class="c16"
       >
         totalLabel
       </span>
       <span
-        class="font-[family-name:var(--font-heading)] text-2xl text-[var(--color-text-primary)]"
+        class="c17"
       >
         €15
       </span>
@@ -170,19 +317,174 @@ exports[`SummaryPanel renders correctly with full selection 1`] = `
 `;
 
 exports[`SummaryPanel renders correctly with no selection 1`] = `
+.c0 {
+  border-radius: 24px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.c1 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--color-text-primary);
+}
+
+.c2 {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.c3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.c4 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.c5 {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-surface-alt);
+}
+
+.c6 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c7 {
+  color: var(--color-border-strong);
+  font-size: 20px;
+  font-family: var(--font-heading);
+  font-style: italic;
+}
+
+.c8 {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c9 {
+  height: 4px;
+  border-radius: 99px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.c10 {
+  height: 100%;
+  border-radius: 99px;
+  background: var(--color-brand-rose);
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+.c11 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c12 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 12px;
+}
+
+.c12:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.c13 {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  padding-top: 2px;
+}
+
+.c14 {
+  color: var(--color-text-primary);
+  text-align: right;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.c15 {
+  color: var(--color-border-strong);
+  font-size: 11px;
+  font-style: italic;
+  font-family: sans-serif;
+}
+
+.c16 {
+  border-top: 2px solid var(--color-border-strong);
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.c17 {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.c18 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--color-text-primary);
+}
+
 <div>
   <aside
     aria-label="summary"
-    class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 flex flex-col gap-5"
+    class="c0"
   >
-    <div>
+    <div
+      class=""
+    >
       <h3
-        class="font-[family-name:var(--font-heading)] text-xl font-light text-[var(--color-text-primary)]"
+        class="c1"
       >
         summary
       </h3>
       <p
-        class="text-xs text-[var(--color-text-muted)] mt-0.5"
+        class="c2"
       >
         0
         /
@@ -192,70 +494,70 @@ exports[`SummaryPanel renders correctly with no selection 1`] = `
       </p>
     </div>
     <div
-      class="grid grid-cols-2 gap-2"
+      class="c3"
     >
       <div
-        class="flex flex-col gap-1"
+        class="c4"
       >
         <div
-          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+          class="c5"
         >
           <div
-            class="w-full h-full flex items-center justify-center"
+            class="c6"
           >
             <span
-              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+              class="c7"
             >
               ○
             </span>
           </div>
         </div>
         <p
-          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+          class="c8"
         >
           Base
         </p>
       </div>
       <div
-        class="flex flex-col gap-1"
+        class="c4"
       >
         <div
-          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+          class="c5"
         >
           <div
-            class="w-full h-full flex items-center justify-center"
+            class="c6"
           >
             <span
-              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+              class="c7"
             >
               ○
             </span>
           </div>
         </div>
         <p
-          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+          class="c8"
         >
           Eyes
         </p>
       </div>
       <div
-        class="flex flex-col gap-1"
+        class="c4"
       >
         <div
-          class="aspect-square rounded-xl overflow-hidden relative bg-[var(--color-surface-alt)]"
+          class="c5"
         >
           <div
-            class="w-full h-full flex items-center justify-center"
+            class="c6"
           >
             <span
-              class="text-[var(--color-border-strong)] text-xl font-[family-name:var(--font-heading)] italic"
+              class="c7"
             >
               ○
             </span>
           </div>
         </div>
         <p
-          class="text-[9px] uppercase tracking-widest text-[var(--color-text-muted)] text-center truncate"
+          class="c8"
         >
           Lips
         </p>
@@ -266,66 +568,65 @@ exports[`SummaryPanel renders correctly with no selection 1`] = `
       aria-valuemax="3"
       aria-valuemin="0"
       aria-valuenow="0"
-      class="h-1 rounded-full bg-[var(--color-border)] overflow-hidden"
+      class="c9"
       role="progressbar"
     >
       <div
-        class="h-full bg-[var(--color-brand-rose)] rounded-full transition-all duration-500"
-        style="width: 0%;"
+        class="c10"
       />
     </div>
     <ul
-      class="flex flex-col gap-3"
+      class="c11"
     >
       <li
-        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+        class="c12"
       >
         <span
-          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+          class="c13"
         >
           Base
         </span>
         <span
-          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+          class="c14"
         >
           <span
-            class="text-[var(--color-border-strong)] font-sans text-xs italic"
+            class="c15"
           >
             —
           </span>
         </span>
       </li>
       <li
-        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+        class="c12"
       >
         <span
-          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+          class="c13"
         >
           Eyes
         </span>
         <span
-          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+          class="c14"
         >
           <span
-            class="text-[var(--color-border-strong)] font-sans text-xs italic"
+            class="c15"
           >
             —
           </span>
         </span>
       </li>
       <li
-        class="flex items-start justify-between gap-3 text-sm border-b border-[var(--color-border)] last:border-0 pb-3 last:pb-0"
+        class="c12"
       >
         <span
-          class="text-[var(--color-text-muted)] shrink-0 text-xs uppercase tracking-wider font-medium pt-0.5"
+          class="c13"
         >
           Lips
         </span>
         <span
-          class="text-[var(--color-text-primary)] text-right font-[family-name:var(--font-heading)] text-base leading-tight"
+          class="c14"
         >
           <span
-            class="text-[var(--color-border-strong)] font-sans text-xs italic"
+            class="c15"
           >
             —
           </span>
@@ -333,15 +634,15 @@ exports[`SummaryPanel renders correctly with no selection 1`] = `
       </li>
     </ul>
     <div
-      class="border-t-2 border-[var(--color-border-strong)] pt-4 flex justify-between items-baseline"
+      class="c16"
     >
       <span
-        class="text-sm text-[var(--color-text-secondary)] font-medium"
+        class="c17"
       >
         totalLabel
       </span>
       <span
-        class="font-[family-name:var(--font-heading)] text-2xl text-[var(--color-text-primary)]"
+        class="c18"
       >
         included
       </span>
