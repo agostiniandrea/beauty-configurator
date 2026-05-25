@@ -46,6 +46,8 @@
     "studioNote": "Presenta questo voucher in studio — il team avrà tutto il necessario.",
     "printButton": "Stampa / Salva come PDF",
     "emailButton": "Invia per email",
+    "shareButton": "Copia link",
+    "shareCopied": "Link copiato!",
     "emailSubject": "Il mio ordine Beauty Configurator",
     "emailBody": "Ecco la mia configurazione beauty:\n\n{selection}\n\nTotale: {total}\n\nA presto in studio!"
   },

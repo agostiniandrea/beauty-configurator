@@ -46,6 +46,8 @@
     "studioNote": "Present this card at the studio — the team will have everything they need.",
     "printButton": "Print / Save as PDF",
     "emailButton": "Send by email",
+    "shareButton": "Copy link",
+    "shareCopied": "Link copied!",
     "emailSubject": "My Beauty Configurator order",
     "emailBody": "Here is my beauty configuration:\n\n{selection}\n\nTotal: {total}\n\nSee you at the studio!"
   },
