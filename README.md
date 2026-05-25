@@ -1,8 +1,10 @@
 # Beauty Configurator
 
-An interactive beauty-look configurator. Clients choose a look, personalise it step by step (base, eyes, lips, cheeks…), and receive a store card they can bring to the studio to have the look realised.
+An interactive beauty-look configurator. Clients choose a look, personalise it step by step (base, eyes, lips, cheeks), and receive a store card they can bring to the studio to have the look realised.
 
-Built as a portfolio/product concept. The data layer is designed to be swapped for Contentful when you're ready to go CMS-driven.
+Built as a portfolio/product concept — designed to be white-labelled for independent make-up artists and beauty studios.
+
+Live at **[beauty-configurator.vercel.app](https://beauty-configurator.vercel.app)**
 
 ---
 
@@ -11,13 +13,12 @@ Built as a portfolio/product concept. The data layer is designed to be swapped f
 ```
 Homepage               Choose a look from the available catalogue
      ↓
-Configurator           Step-by-step: one category per screen, progress bar,
-                       live summary panel on the right
+Configurator           Step-by-step: one category per screen, options pre-selected
+                       based on the chosen look, live summary panel on the right
      ↓
 Summary review         Full overview of the selection — edit or confirm
      ↓
 Completion / Store card  QR code + printable voucher to bring to the studio
-                          Print button / Send by email button
 ```
 
 ---
@@ -32,13 +33,40 @@ Completion / Store card  QR code + printable voucher to bring to the studio
 | i18n | next-intl — EN / IT |
 | QR code | qrcode.react |
 | Fonts | Cormorant Garamond (heading) + DM Sans (body) via next/font |
-| Deploy | Vercel (push to `main` = production) |
+| Testing | Jest + Testing Library |
+| Visual testing | Storybook + Chromatic |
+| Deploy | Vercel — push to `main` = production |
+
+---
+
+## Getting started
+
+```bash
+yarn install
+yarn dev        # http://localhost:3000
+```
+
+The middleware redirects `/` to your browser's preferred locale (`/en` or `/it`).
+
+---
+
+## Commands
+
+```bash
+yarn dev              # Dev server
+yarn build            # Production build
+yarn lint             # ESLint
+yarn test             # Jest — unit tests
+yarn test:coverage    # Jest with coverage report
+yarn storybook        # Storybook at http://localhost:6006
+yarn chromatic        # Publish to Chromatic (requires CHROMATIC_PROJECT_TOKEN)
+```
 
 ---
 
 ## Customisation
 
-Everything site-level lives in **[site.config.ts](./site.config.ts)** — no need to touch component code for typical changes:
+Everything site-level lives in **[site.config.ts](./site.config.ts)**:
 
 | Field | What it controls |
 |---|---|
@@ -53,53 +81,44 @@ Everything site-level lives in **[site.config.ts](./site.config.ts)** — no nee
 | `features.enableEmailOrder` | Toggle the email CTA on the completion page |
 | `features.enablePrint` | Toggle the print CTA |
 
-**Colors and typography** live in [app/globals.css](./app/globals.css) as CSS custom properties — edit the `:root` block to retheme the whole site in one place.
+Colors and typography live in [app/globals.css](./app/globals.css) as CSS custom properties.
 
 ---
 
 ## Content
 
-Edit the JSON files in `data/` to manage looks, categories, and options:
+Edit the files in `data/` to manage looks, categories, and options:
 
 ```
 data/
-  looks.json       # Available looks / styles
-  categories.json  # Makeup categories (eyes, lips, cheeks…)
-  options.json     # Configurable options per category
+  looks.json       # Available looks — includes defaultOptions per look
+  categories.json  # Makeup categories (base, eyes, lips, cheeks)
+  options.json     # Configurable options per category — includes imageUrl
 ```
 
-Each localised string has an `en` and `it` field. When Contentful is ready, replace `lib/data.ts` with Contentful fetch calls — the components consume the same TypeScript types.
+Images live in `public/images/`. Each look and option references its image via `imageUrl` in the JSON.
+
+Each localised string has an `en` and `it` field.
 
 ---
 
-## Getting started
+## CI / CD
 
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000). The middleware redirects `/` to your browser's preferred locale (`/en` or `/it`).
-
-```bash
-npm run build   # production build
-npm run lint    # ESLint
-```
-
----
-
-## Deploy (Vercel)
-
-1. Import the repo at [vercel.com/new](https://vercel.com/new)
-2. Vercel auto-detects Next.js — no extra configuration needed
-3. Every push to `main` triggers a production deploy
+| Workflow | Trigger |
+|---|---|
+| Chromatic | Push to `main` — publishes Storybook for visual diff |
+| Test & Lint | Every PR — runs Jest + ESLint, auto-merges on success |
 
 ---
 
 ## Roadmap
 
-- [ ] Contentful integration (replace `lib/data.ts`)
-- [ ] Real product images per option
+- [x] AI-generated images per look and option
+- [x] Incremental visual preview in summary panel
+- [x] Options pre-selected based on chosen look
+- [x] GitHub Actions — Chromatic + Test & Lint
+- [ ] Styled-components migration (replace Tailwind inline classes)
+- [ ] Selfie-based virtual try-on (MediaPipe FaceMesh)
 - [ ] Animated step transitions
 - [ ] Saved configurations (URL share / local storage)
 - [ ] Booking form integration on the completion page
