@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
+import ImagePlaceholder from "./ImagePlaceholder";
 import type { Look } from "@/lib/types";
 import type { Locale } from "@/site.config";
 
@@ -29,27 +30,6 @@ const ImageWrap = styled.div`
   overflow: hidden;
 `;
 
-const ImageFallback = styled.div`
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    var(--color-brand-rose-light),
-    var(--color-surface-alt),
-    color-mix(in srgb, var(--color-brand-gold) 30%, transparent)
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const FallbackGlyph = styled.span`
-  color: color-mix(in srgb, var(--color-brand-rose) 40%, transparent);
-  font-size: 72px;
-  font-family: var(--font-heading);
-  font-style: italic;
-  user-select: none;
-`;
 
 const TagsOverlay = styled.div`
   position: absolute;
@@ -132,9 +112,7 @@ export default function LookCard({ look }: Props) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
-          <ImageFallback>
-            <FallbackGlyph aria-hidden="true">✦</FallbackGlyph>
-          </ImageFallback>
+          <ImagePlaceholder label={look.name[locale]} size="lg" />
         )}
         <TagsOverlay>
           {look.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}

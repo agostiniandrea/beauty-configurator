@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
+import ImagePlaceholder from "./ImagePlaceholder";
 import type { Category, Option, Selection } from "@/lib/types";
 import type { Locale } from "@/site.config";
 import siteConfig from "@/site.config";
@@ -49,23 +50,8 @@ const PreviewImage = styled.div`
   border-radius: 12px;
   overflow: hidden;
   position: relative;
-  background: var(--color-surface-alt);
 `;
 
-const PreviewEmpty = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const PreviewEmptyGlyph = styled.span`
-  color: var(--color-border-strong);
-  font-size: 20px;
-  font-family: var(--font-heading);
-  font-style: italic;
-`;
 
 const PreviewLabel = styled.p`
   font-size: 9px;
@@ -202,9 +188,7 @@ export default function SummaryPanel({ categories, options, selection }: Props) 
                     sizes="120px"
                   />
                 ) : (
-                  <PreviewEmpty>
-                    <PreviewEmptyGlyph>○</PreviewEmptyGlyph>
-                  </PreviewEmpty>
+                  <ImagePlaceholder size="sm" />
                 )}
               </PreviewImage>
               <PreviewLabel>
