@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { getLooks } from "@/lib/data";
 import LookCard from "@/components/LookCard";
 import Header from "@/components/Header";
+import BrandValues from "@/components/BrandValues";
 import siteConfig from "@/site.config";
 import type { Metadata } from "next";
 
@@ -79,6 +80,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <BrandValues />
 
       {/* Looks grid */}
       <section

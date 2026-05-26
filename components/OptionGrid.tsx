@@ -73,8 +73,9 @@ const OptionDescription = styled.p`
 `;
 
 const PriceTag = styled.p`
-  font-size: 12px;
-  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-brand-rose);
   margin-top: 8px;
 `;
 
@@ -118,7 +119,7 @@ export default function OptionGrid({ options, selectedOptionId, onSelect }: Prop
               </ImageSlot>
               <OptionName $selected={isSelected}>{opt.name[locale]}</OptionName>
               <OptionDescription>{opt.description[locale]}</OptionDescription>
-              {opt.price > 0 && <PriceTag>+€{opt.price}</PriceTag>}
+              {opt.price > 0 && <PriceTag>€{opt.price}</PriceTag>}
             </OptionButton>
           </Item>
         );
