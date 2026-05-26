@@ -13,7 +13,5 @@ export default function StyledComponentsRegistry({ children }: { children: React
     return <>{styles}</>;
   });
 
-  if (typeof window !== "undefined") return <>{children}</>;
-
   return <StyleSheetManager sheet={sheet.instance}>{children}</StyleSheetManager>;
 }
