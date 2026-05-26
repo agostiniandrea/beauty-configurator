@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styled, { css } from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
+import ImagePlaceholder from "./ImagePlaceholder";
 import type { Option } from "@/lib/types";
 import type { Locale } from "@/site.config";
 
@@ -54,21 +55,6 @@ const ImageSlot = styled.div`
   position: relative;
 `;
 
-const ImageFallback = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--color-surface-alt), var(--color-border));
-`;
-
-const FallbackGlyph = styled.span`
-  font-size: 30px;
-  font-family: var(--font-heading);
-  font-style: italic;
-  color: var(--color-border-strong);
-`;
 
 const OptionName = styled.p<{ $selected: boolean }>`
   font-family: var(--font-heading);
@@ -127,9 +113,7 @@ export default function OptionGrid({ options, selectedOptionId, onSelect }: Prop
                     sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   />
                 ) : (
-                  <ImageFallback>
-                    <FallbackGlyph>○</FallbackGlyph>
-                  </ImageFallback>
+                  <ImagePlaceholder colorSeed={opt.name[locale]} size="md" />
                 )}
               </ImageSlot>
               <OptionName $selected={isSelected}>{opt.name[locale]}</OptionName>
