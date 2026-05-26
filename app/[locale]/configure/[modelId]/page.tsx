@@ -47,7 +47,7 @@ export default async function ConfiguratorPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)]">
+    <div className="min-h-screen bg-[var(--color-background)]" suppressHydrationWarning>
       <Header backLink />
       <ConfiguratorClient
         look={look}

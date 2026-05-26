@@ -73,7 +73,7 @@ export default async function CompletePage({ params, searchParams }: Props) {
   const summaryUrl = `/${locale}/configure/${modelId}/summary?${selectionParams}`;
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)]">
+    <div className="min-h-screen bg-[var(--color-background)]" suppressHydrationWarning>
       <div className="no-print">
         <Header
           backLink

@@ -52,7 +52,7 @@ export default async function SummaryPage({ params, searchParams }: Props) {
   ).toString();
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)]">
+    <div className="min-h-screen bg-[var(--color-background)]" suppressHydrationWarning>
       <Header
         backLink
         backLabel={tNav("backToConfigurator")}

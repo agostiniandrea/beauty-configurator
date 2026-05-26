@@ -32,7 +32,7 @@ export default function HomePage() {
   const looks = getLooks();
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)]">
+    <div className="min-h-screen bg-[var(--color-background)]" suppressHydrationWarning>
       <Header />
 
       {/* Hero */}
