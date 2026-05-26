@@ -12,35 +12,55 @@ export default function AppleIcon() {
           width: 180,
           height: 180,
           borderRadius: 40,
-          background: "linear-gradient(135deg, #FAF7F4 0%, #F3EDE8 100%)",
+          background: "linear-gradient(135deg, #C4857A 0%, #D4958A 100%)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           position: "relative",
-          overflow: "hidden",
         }}
       >
+        {/* Vertical arm */}
         <div
           style={{
             position: "absolute",
-            top: -30,
-            right: -30,
-            width: 100,
-            height: 100,
-            borderRadius: "50%",
-            background: "rgba(196, 133, 122, 0.12)",
+            width: 22,
+            height: 128,
+            background: "#FAF7F4",
+            borderRadius: 11,
           }}
         />
-        <span
+        {/* Horizontal arm */}
+        <div
           style={{
-            fontSize: 88,
-            color: "#C4857A",
-            fontFamily: "serif",
-            lineHeight: 1,
+            position: "absolute",
+            width: 128,
+            height: 22,
+            background: "#FAF7F4",
+            borderRadius: 11,
           }}
-        >
-          ✦
-        </span>
+        />
+        {/* NW–SE diagonal (shorter, semi-transparent) */}
+        <div
+          style={{
+            position: "absolute",
+            width: 14,
+            height: 88,
+            background: "rgba(250, 247, 244, 0.6)",
+            borderRadius: 7,
+            transform: "rotate(45deg)",
+          }}
+        />
+        {/* NE–SW diagonal */}
+        <div
+          style={{
+            position: "absolute",
+            width: 14,
+            height: 88,
+            background: "rgba(250, 247, 244, 0.6)",
+            borderRadius: 7,
+            transform: "rotate(-45deg)",
+          }}
+        />
       </div>
     ),
     { ...size },
