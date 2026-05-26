@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <StyledComponentsRegistry>
           {children}
         </StyledComponentsRegistry>
