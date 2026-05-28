@@ -106,7 +106,6 @@ exports[`OptionGrid renders correctly with no selection 1`] = `
   <ul
     aria-label="selectOption"
     class="c0"
-    role="group"
   >
     <li
       class="c1"
