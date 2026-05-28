@@ -212,19 +212,34 @@ exports[`StoreCard renders correctly with full selection 1`] = `
       <button
         class="c1"
       >
-        🖨 
+        <span
+          aria-hidden="true"
+        >
+          🖨
+        </span>
+         
         printButton
       </button>
       <button
         class="c1"
       >
-        ✉ 
+        <span
+          aria-hidden="true"
+        >
+          ✉
+        </span>
+         
         emailButton
       </button>
       <button
         class="c1"
       >
-        ⎘ shareButton
+        <span
+          aria-hidden="true"
+        >
+          ⎘
+        </span>
+        shareButton
       </button>
     </div>
     <article
@@ -261,7 +276,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
             class="c8"
           >
             <svg
-              aria-label="QR code per l'ordine"
+              aria-label="qrLabel"
               height="96"
               role="img"
               viewBox="0 0 37 37"
@@ -279,9 +294,10 @@ exports[`StoreCard renders correctly with full selection 1`] = `
               />
             </svg>
             <p
+              aria-hidden="true"
               class="c9"
             >
-              Scansiona
+              qrCaption
             </p>
           </div>
         </div>
@@ -371,7 +387,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
             <p
               class="c19"
             >
-              Totale
+              totalCaption
             </p>
             <p
               class="c20"
