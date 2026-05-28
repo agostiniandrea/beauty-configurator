@@ -110,7 +110,7 @@ export default function OptionGrid({ options, selectedOptionId, onSelect }: Prop
   }
 
   return (
-    <Grid role="group" aria-label={t("selectOption")}>
+    <Grid aria-label={t("selectOption")}>
       {options.map((opt, index) => {
         const isSelected = opt.id === selectedOptionId;
         return (
