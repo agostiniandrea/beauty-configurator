@@ -104,13 +104,12 @@ exports[`OptionGrid renders correctly with no selection 1`] = `
 
 <div>
   <ul
+    aria-label="selectOption"
     class="c0"
-    role="listbox"
+    role="group"
   >
     <li
-      aria-selected="false"
       class="c1"
-      role="option"
     >
       <button
         aria-pressed="false"
@@ -144,9 +143,7 @@ exports[`OptionGrid renders correctly with no selection 1`] = `
       </button>
     </li>
     <li
-      aria-selected="false"
       class="c1"
-      role="option"
     >
       <button
         aria-pressed="false"

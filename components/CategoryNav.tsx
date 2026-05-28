@@ -119,6 +119,7 @@ export default function CategoryNav({ categories, currentStep, completedSteps, o
               <NavButton
                 onClick={() => isAccessible && onSelect(index)}
                 disabled={!isAccessible}
+                aria-disabled={!isAccessible}
                 aria-current={isActive ? "step" : undefined}
                 $isActive={isActive}
                 $isDone={isDone}

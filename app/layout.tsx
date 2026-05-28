@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { getLocale } from "next-intl/server";
 import { Analytics } from "@vercel/analytics/next";
 import StyledComponentsRegistry from "@/lib/registry";
 import "./globals.css";
@@ -19,9 +20,11 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const locale = await getLocale();
   return (
     <html
+      lang={locale}
       suppressHydrationWarning
       className={`${cormorant.variable} ${dmSans.variable}`}
     >

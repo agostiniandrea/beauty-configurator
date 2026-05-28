@@ -85,7 +85,7 @@ describe("StoreCard", () => {
         orderUrl={orderUrl}
       />,
     );
-    expect(screen.getByLabelText(/QR code/i)).toBeInTheDocument();
+    expect(screen.getByLabelText("qrLabel")).toBeInTheDocument();
   });
 
   it("calls window.print when print button is clicked", () => {

@@ -61,7 +61,7 @@ export default async function SummaryPage({ params, searchParams }: Props) {
           backHref={`/${locale}/configure/${modelId}?${selectionParams}`}
         />
 
-        <main className="max-w-3xl mx-auto px-6 py-14">
+        <main id="main-content" className="max-w-3xl mx-auto px-6 py-14">
           <div className="mb-10">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-brand-rose)] mb-3">
               {t("lookLabel")} — {look.name[locale as "en" | "it"]}

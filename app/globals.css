@@ -18,11 +18,11 @@
   /* Text */
   --color-text-primary:   #2D1F1A;
   --color-text-secondary: #5C4A44;
-  --color-text-muted:     #9A857C;
+  --color-text-muted:     #7A5F58;  /* 5.4:1 on surface — was #9A857C (3.4:1) */
   --color-text-inverse:   #FFFCF9;
 
   /* Brand palette */
-  --color-brand-rose:       #C4857A;
+  --color-brand-rose:       #9B5F54;  /* 4.8:1 on surface — was #C4857A (2.9:1) */
   --color-brand-rose-light: #E8C4BD;
   --color-brand-mauve:      #9B6B6B;
   --color-brand-terracotta: #7D4E3F;
@@ -32,7 +32,7 @@
   --color-action-bg:       #2D1F1A;
   --color-action-bg-hover: #4A302A;
   --color-action-text:     #FFFCF9;
-  --color-focus-ring:      #C4857A;
+  --color-focus-ring:      #9B6B6B;  /* 4.3:1 on surface — was #C4857A (2.9:1) */
 
   /* ─── Typography scale ──────────────────────────────────────────────────── */
   --font-size-2xs:     9px;   /* micro labels, QR captions */
@@ -140,8 +140,9 @@ html.dark {
   --color-border-strong: #5C4A44;
   --color-text-primary:   #FAF7F4;
   --color-text-secondary: #D4C5BE;
-  --color-text-muted:     #9A857C;
+  --color-text-muted:     #9A857C;  /* 4.7:1 on dark surface — passes */
   --color-text-inverse:   #1C1410;
+  --color-brand-rose:     #D4958A;  /* 7:1 on dark surface — lighter for dark bg */
   --color-action-bg:       #C4857A;
   --color-action-bg-hover: #D4958A;
   --color-action-text:     #1C1410;
@@ -158,6 +159,7 @@ html.dark {
     --color-text-secondary: #D4C5BE;
     --color-text-muted:     #9A857C;
     --color-text-inverse:   #1C1410;
+    --color-brand-rose:     #D4958A;
     --color-action-bg:       #C4857A;
     --color-action-bg-hover: #D4958A;
     --color-action-text:     #1C1410;

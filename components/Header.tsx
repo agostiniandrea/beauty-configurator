@@ -87,6 +87,12 @@ export default function Header({ backLink = false, backLabel, backHref }: Props)
 
   return (
     <HeaderBar role="banner" suppressHydrationWarning>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:rounded-xl focus:text-sm focus:font-medium focus:bg-[var(--color-surface)] focus:border focus:border-[var(--color-border-strong)] focus:text-[var(--color-text-primary)]"
+      >
+        {t("skipToContent")}
+      </a>
       <Inner>
         {backLink && (
           <BackLink href={backHref ?? `/${locale}`} aria-label={backLabel ?? t("back")}>
