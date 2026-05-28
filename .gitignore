@@ -37,3 +37,6 @@ package-lock.json
 .yarn/install-state.gz
 .pnp.cjs
 .pnp.loader.mjs
+
+# Lighthouse CI reports
+.lighthouseci/
