@@ -33,6 +33,71 @@
   --color-action-bg-hover: #4A302A;
   --color-action-text:     #FFFCF9;
   --color-focus-ring:      #C4857A;
+
+  /* ─── Typography scale ──────────────────────────────────────────────────── */
+  --font-size-2xs:     9px;   /* micro labels, QR captions */
+  --font-size-xs:      10px;  /* pill tag chips */
+  --font-size-sm:      11px;  /* uppercase labels, category chips */
+  --font-size-caption: 12px;  /* option descriptions, badge text */
+  --font-size-note:    13px;  /* taglines, subtitles, price tags */
+  --font-size-base:    14px;  /* standard body text */
+  --font-size-md:      16px;  /* medium body */
+  --font-size-lg:      18px;  /* option names, subheadings */
+  --font-size-xl:      20px;  /* panel titles, site name */
+  --font-size-2xl:     24px;  /* section titles, card headings */
+  --font-size-3xl:     28px;  /* large display element */
+  --font-size-4xl:     30px;  /* page headings */
+  --font-size-hero:    44px;  /* hero glyphs */
+
+  --font-weight-light:    300;
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+
+  --line-height-tight:   1;
+  --line-height-snug:    1.2;
+  --line-height-normal:  1.5;
+  --line-height-relaxed: 1.6;
+
+  --letter-spacing-tight: 0.02em;
+  --letter-spacing-sm:    0.06em;
+  --letter-spacing-md:    0.08em;
+  --letter-spacing-lg:    0.10em;
+  --letter-spacing-xl:    0.12em;
+  --letter-spacing-2xl:   0.15em;
+  --letter-spacing-3xl:   0.20em;
+
+  /* ─── Spacing scale (4px base) ──────────────────────────────────────────── */
+  --space-0-5: 2px;
+  --space-1:   4px;
+  --space-1-5: 6px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-7:   28px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+
+  /* ─── Border radii ──────────────────────────────────────────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 99px;
+
+  /* ─── Shadows ────────────────────────────────────────────────────────────── */
+  --shadow-card:  0 8px 24px color-mix(in srgb, var(--color-brand-rose) 8%, transparent);
+  --shadow-focus: 0 0 0 3px color-mix(in srgb, var(--color-brand-rose) 15%, transparent);
+  --shadow-hover: 0 1px 4px color-mix(in srgb, var(--color-brand-rose) 8%, transparent);
+
+  /* ─── Transitions ────────────────────────────────────────────────────────── */
+  --transition-fast:  0.15s;
+  --transition-base:  0.2s;
+  --transition-slow:  0.3s;
+  --transition-image: 0.5s;
 }
 
 /* ─── Tailwind v4 theme registration ────────────────────────────────────── */

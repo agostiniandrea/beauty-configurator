@@ -7,20 +7,21 @@ import { useLocale, useTranslations } from "next-intl";
 import ImagePlaceholder from "./ImagePlaceholder";
 import type { Look } from "@/lib/types";
 import type { Locale } from "@/site.config";
+import siteConfig from "@/site.config";
 
 const Card = styled.article`
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: border-color var(--transition-slow), box-shadow var(--transition-slow);
 
   &:hover {
     border-color: var(--color-border-strong);
-    box-shadow: 0 8px 24px color-mix(in srgb, var(--color-brand-rose) 8%, transparent);
+    box-shadow: var(--shadow-card);
   }
 `;
 
@@ -30,23 +31,22 @@ const ImageWrap = styled.div`
   overflow: hidden;
 `;
 
-
 const TagsOverlay = styled.div`
   position: absolute;
-  bottom: 12px;
-  left: 12px;
+  bottom: var(--space-3);
+  left: var(--space-3);
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: var(--space-1-5);
 `;
 
 const Tag = styled.span`
-  font-size: 10px;
-  font-weight: 500;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 2px 8px;
-  border-radius: 99px;
+  letter-spacing: var(--letter-spacing-xl);
+  padding: var(--space-0-5) var(--space-2);
+  border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--color-surface) 80%, transparent);
   backdrop-filter: blur(4px);
   color: var(--color-text-secondary);
@@ -55,48 +55,55 @@ const Tag = styled.span`
 const Body = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 24px;
+  gap: var(--space-3);
+  padding: var(--space-6);
   flex: 1;
 `;
 
 const Title = styled.h2`
   font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 300;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-light);
   color: var(--color-text-primary);
-  line-height: 1.2;
+  line-height: var(--line-height-snug);
 `;
 
 const Description = styled.p`
-  font-size: 14px;
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
   flex: 1;
-  line-height: 1.6;
+  line-height: var(--line-height-relaxed);
+`;
+
+const PriceFrom = styled.p`
+  font-size: var(--font-size-note);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-rose);
+  letter-spacing: var(--letter-spacing-tight);
 `;
 
 const CtaLink = styled(Link)`
-  margin-top: 12px;
+  margin-top: var(--space-3);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border-radius: 16px;
+  gap: var(--space-2);
+  border-radius: var(--radius-lg);
   background: var(--color-action-bg);
   color: var(--color-action-text);
-  font-size: 14px;
-  font-weight: 500;
-  padding: 12px 20px;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-3) var(--space-5);
   text-decoration: none;
-  transition: background 0.2s;
+  transition: background var(--transition-base);
 
   &:hover { background: var(--color-action-bg-hover); }
   &:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 3px; }
 `;
 
-type Props = { look: Look };
+type Props = { look: Look; startingPrice?: number };
 
-export default function LookCard({ look }: Props) {
+export default function LookCard({ look, startingPrice }: Props) {
   const locale = useLocale() as Locale;
   const t = useTranslations("home");
 
@@ -122,6 +129,9 @@ export default function LookCard({ look }: Props) {
       <Body>
         <Title>{look.name[locale]}</Title>
         <Description>{look.description[locale]}</Description>
+        {siteConfig.features.showPricing && startingPrice != null && startingPrice > 0 && (
+          <PriceFrom>from €{startingPrice}</PriceFrom>
+        )}
         <CtaLink
           href={`/${locale}/configure/${look.id}`}
           aria-label={`${t("cta")} — ${look.name[locale]}`}

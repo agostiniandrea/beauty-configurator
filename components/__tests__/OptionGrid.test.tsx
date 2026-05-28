@@ -53,7 +53,7 @@ describe("OptionGrid", () => {
     renderWithIntl(
       <OptionGrid options={eyeOptions} selectedOptionId={undefined} onSelect={noop} />,
     );
-    expect(screen.getByText("+€15")).toBeInTheDocument();
+    expect(screen.getByText("€15")).toBeInTheDocument();
   });
 
   it("renders empty state message when no options", () => {

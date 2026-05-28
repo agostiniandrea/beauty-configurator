@@ -4,24 +4,24 @@ exports[`StoreCard renders correctly with full selection 1`] = `
 .c0 {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 32px;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
 }
 
 .c1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 20px;
-  border-radius: 16px;
-  font-size: 14px;
-  font-weight: 500;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   border: 1px solid var(--color-border);
   color: var(--color-text-secondary);
   background: transparent;
   cursor: pointer;
-  transition: border-color 0.2s,color 0.2s;
+  transition: border-color var(--transition-base),color var(--transition-base);
 }
 
 .c1:hover {
@@ -30,7 +30,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
 }
 
 .c2 {
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   border: 2px solid var(--color-border);
   background: var(--color-surface);
   overflow: hidden;
@@ -38,7 +38,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
 
 .c3 {
   background: linear-gradient(     to right,     color-mix(in srgb, var(--color-brand-rose-light) 40%, transparent),     color-mix(in srgb, var(--color-brand-gold) 20%, transparent)   );
-  padding: 32px;
+  padding: var(--space-6) var(--space-5);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -46,44 +46,45 @@ exports[`StoreCard renders correctly with full selection 1`] = `
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
+  gap: var(--space-4);
+  flex-wrap: wrap;
 }
 
 .c5 {
-  font-size: 11px;
-  font-weight: 500;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--letter-spacing-3xl);
   color: var(--color-brand-rose);
-  margin-bottom: 8px;
+  margin-bottom: var(--space-2);
 }
 
 .c6 {
   font-family: var(--font-heading);
-  font-size: 30px;
-  font-weight: 300;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-light);
   color: var(--color-text-primary);
 }
 
 .c7 {
-  font-size: 14px;
+  font-size: var(--font-size-base);
   color: var(--color-text-muted);
-  margin-top: 4px;
+  margin-top: var(--space-1);
 }
 
 .c8 {
   flex-shrink: 0;
-  padding: 12px;
+  padding: var(--space-3);
   background: white;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
 }
 
 .c9 {
-  font-size: 9px;
+  font-size: var(--font-size-2xs);
   text-align: center;
   color: var(--color-text-muted);
-  margin-top: 6px;
+  margin-top: var(--space-1-5);
 }
 
 .c10 {
@@ -94,9 +95,9 @@ exports[`StoreCard renders correctly with full selection 1`] = `
 
 .c11 {
   display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 16px 32px;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  padding: var(--space-4) var(--space-5);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -105,31 +106,30 @@ exports[`StoreCard renders correctly with full selection 1`] = `
 }
 
 .c12 {
-  width: 112px;
   flex-shrink: 0;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--letter-spacing-lg);
   color: var(--color-text-muted);
-  padding-top: 2px;
+  padding-top: var(--space-0-5);
 }
 
 .c13 {
   font-family: var(--font-heading);
-  font-size: 18px;
-  line-height: 1.2;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-snug);
   color: var(--color-text-primary);
 }
 
 .c14 {
-  font-size: 11px;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  margin-top: 2px;
+  margin-top: var(--space-0-5);
 }
 
 .c15 {
-  padding: 24px 32px;
+  padding: var(--space-5);
   border-top: 1px solid var(--color-border);
   background: var(--color-surface-alt);
 }
@@ -139,14 +139,14 @@ exports[`StoreCard renders correctly with full selection 1`] = `
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: var(--space-4);
 }
 
 .c17 {
-  font-size: 14px;
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
   max-width: 280px;
-  line-height: 1.6;
+  line-height: var(--line-height-relaxed);
 }
 
 .c18 {
@@ -154,20 +154,53 @@ exports[`StoreCard renders correctly with full selection 1`] = `
 }
 
 .c19 {
-  font-size: 11px;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  margin-bottom: 2px;
+  margin-bottom: var(--space-0-5);
 }
 
 .c20 {
   font-family: var(--font-heading);
-  font-size: 30px;
+  font-size: var(--font-size-4xl);
   color: var(--color-text-primary);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 480px) {
   .c0 {
     flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .c3 {
+    padding: var(--space-8);
+  }
+}
+
+@media (min-width: 480px) {
+  .c4 {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .c11 {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-6);
+    padding: var(--space-4) var(--space-8);
+  }
+}
+
+@media (min-width: 768px) {
+  .c12 {
+    width: 112px;
+  }
+}
+
+@media (min-width: 768px) {
+  .c15 {
+    padding: var(--space-6) var(--space-8);
   }
 }
 

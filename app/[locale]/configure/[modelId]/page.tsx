@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getLook, getCategoriesForLook, getOptionsForCategory } from "@/lib/data";
 import Header from "@/components/Header";
+import ClientOnly from "@/lib/ClientOnly";
 import ConfiguratorClient from "./ConfiguratorClient";
 import type { Option } from "@/lib/types";
 import type { Metadata } from "next";
@@ -47,13 +48,15 @@ export default async function ConfiguratorPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)]" suppressHydrationWarning>
-      <Header backLink />
-      <ConfiguratorClient
-        look={look}
-        categories={categories}
-        optionsByCategory={optionsByCategory}
-      />
+    <div className="min-h-screen bg-[var(--color-background)]">
+      <ClientOnly>
+        <Header backLink />
+        <ConfiguratorClient
+          look={look}
+          categories={categories}
+          optionsByCategory={optionsByCategory}
+        />
+      </ClientOnly>
     </div>
   );
 }
