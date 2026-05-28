@@ -41,6 +41,7 @@ export default function HomePage() {
       <ClientOnly>
         <Header />
 
+        <main id="main-content">
         {/* Hero */}
         <section className="relative overflow-hidden" aria-labelledby="hero-heading">
           {/* Decorative background */}
@@ -107,6 +108,7 @@ export default function HomePage() {
             ))}
           </ul>
         </section>
+        </main>
       </ClientOnly>
     </div>
   );

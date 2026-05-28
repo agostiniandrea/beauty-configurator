@@ -191,7 +191,7 @@ export default function BookingForm({ look, categories, allOptions, selection, l
 
   if (submitted) {
     return (
-      <SuccessCard>
+      <SuccessCard role="status">
         <SuccessIconWrap aria-hidden="true">
           <SuccessIcon>✦</SuccessIcon>
         </SuccessIconWrap>
@@ -211,22 +211,28 @@ export default function BookingForm({ look, categories, allOptions, selection, l
       <Form onSubmit={handleSubmit}>
         <FieldGrid>
           <Field>
-            <Label htmlFor="booking-name">{t("name")} *</Label>
+            <Label htmlFor="booking-name">
+              {t("name")} <abbr title={t("required")} aria-label={t("required")}>*</abbr>
+            </Label>
             <Input
               id="booking-name"
               type="text"
               required
+              aria-required="true"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={t("namePlaceholder")}
             />
           </Field>
           <Field>
-            <Label htmlFor="booking-email">{t("email")} *</Label>
+            <Label htmlFor="booking-email">
+              {t("email")} <abbr title={t("required")} aria-label={t("required")}>*</abbr>
+            </Label>
             <Input
               id="booking-email"
               type="email"
               required
+              aria-required="true"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t("emailPlaceholder")}
@@ -266,7 +272,7 @@ export default function BookingForm({ look, categories, allOptions, selection, l
         </Field>
 
         <SubmitButton type="submit">
-          {t("submit")} →
+          {t("submit")} <span aria-hidden="true">→</span>
         </SubmitButton>
       </Form>
     </FormSection>

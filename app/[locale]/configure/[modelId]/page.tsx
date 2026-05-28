@@ -51,11 +51,13 @@ export default async function ConfiguratorPage({ params }: Props) {
     <div className="min-h-screen bg-[var(--color-background)]">
       <ClientOnly>
         <Header backLink />
-        <ConfiguratorClient
-          look={look}
-          categories={categories}
-          optionsByCategory={optionsByCategory}
-        />
+        <main id="main-content">
+          <ConfiguratorClient
+            look={look}
+            categories={categories}
+            optionsByCategory={optionsByCategory}
+          />
+        </main>
       </ClientOnly>
     </div>
   );

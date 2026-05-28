@@ -3,7 +3,8 @@
     "home": "Home",
     "back": "Torna ai look",
     "backToConfigurator": "Torna al configuratore",
-    "backToSummary": "Torna al riepilogo"
+    "backToSummary": "Torna al riepilogo",
+    "skipToContent": "Vai al contenuto principale"
   },
   "home": {
     "title": "Beauty Configurator",
@@ -48,6 +49,10 @@
     "emailButton": "Invia per email",
     "shareButton": "Copia link",
     "shareCopied": "Link copiato!",
+    "qrLabel": "QR code per questo ordine",
+    "qrCaption": "Scansiona per aprire",
+    "totalCaption": "Totale",
+    "includedLabel": "Incluso",
     "emailSubject": "Il mio ordine Beauty Configurator",
     "emailBody": "Ecco la mia configurazione beauty:\n\n{selection}\n\nTotale: {total}\n\nA presto in studio!"
   },
@@ -63,6 +68,7 @@
     "date": "Data preferita",
     "message": "Note aggiuntive",
     "messagePlaceholder": "Preferenze, domande o richieste speciali…",
+    "required": "obbligatorio",
     "submit": "Prenota ora",
     "successTitle": "Richiesta inviata!",
     "successSubtitle": "Il tuo client email si aprirà con tutti i dettagli precompilati. Invialo per confermare l'appuntamento.",

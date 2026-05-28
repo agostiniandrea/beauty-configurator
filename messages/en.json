@@ -3,7 +3,8 @@
     "home": "Home",
     "back": "Back to looks",
     "backToConfigurator": "Back to configurator",
-    "backToSummary": "Back to summary"
+    "backToSummary": "Back to summary",
+    "skipToContent": "Skip to main content"
   },
   "home": {
     "title": "Beauty Configurator",
@@ -48,6 +49,10 @@
     "emailButton": "Send by email",
     "shareButton": "Copy link",
     "shareCopied": "Link copied!",
+    "qrLabel": "QR code for this order",
+    "qrCaption": "Scan to view",
+    "totalCaption": "Total",
+    "includedLabel": "Included",
     "emailSubject": "My Beauty Configurator order",
     "emailBody": "Here is my beauty configuration:\n\n{selection}\n\nTotal: {total}\n\nSee you at the studio!"
   },
@@ -63,6 +68,7 @@
     "date": "Preferred date",
     "message": "Additional notes",
     "messagePlaceholder": "Any preferences, questions or special requests…",
+    "required": "required",
     "submit": "Book now",
     "successTitle": "Request sent!",
     "successSubtitle": "Your email client will open with all the details pre-filled. Send it to confirm your appointment.",

@@ -253,14 +253,19 @@ export default function StoreCard({ look, categories, allOptions, selection, loc
     <div>
       <ActionBar className="no-print">
         {siteConfig.features.enablePrint && (
-          <ActionButton onClick={handlePrint}>🖨 {t("printButton")}</ActionButton>
+          <ActionButton onClick={handlePrint}>
+            <span aria-hidden="true">🖨</span> {t("printButton")}
+          </ActionButton>
         )}
         {siteConfig.features.enableEmailOrder && (
-          <ActionButton onClick={handleEmail}>✉ {t("emailButton")}</ActionButton>
+          <ActionButton onClick={handleEmail}>
+            <span aria-hidden="true">✉</span> {t("emailButton")}
+          </ActionButton>
         )}
         {siteConfig.features.enableShare && (
           <ActionButton onClick={handleShare}>
-            {copied ? `✓ ${t("shareCopied")}` : `⎘ ${t("shareButton")}`}
+            <span aria-hidden="true">{copied ? "✓" : "⎘"}</span>
+            {copied ? t("shareCopied") : t("shareButton")}
           </ActionButton>
         )}
       </ActionBar>
@@ -277,8 +282,8 @@ export default function StoreCard({ look, categories, allOptions, selection, loc
               <OrderDate>{t("orderDate")}: {orderDate}</OrderDate>
             </div>
             <QrWrap>
-              <QRCodeSVG value={orderUrl} size={96} bgColor="white" fgColor="#2D1F1A" level="M" aria-label="QR code per l'ordine" />
-              <QrCaption>Scansiona</QrCaption>
+              <QRCodeSVG value={orderUrl} size={96} bgColor="white" fgColor="#2D1F1A" level="M" aria-label={t("qrLabel")} />
+              <QrCaption aria-hidden="true">{t("qrCaption")}</QrCaption>
             </QrWrap>
           </HeaderRow>
         </CardHeader>
@@ -307,8 +312,8 @@ export default function StoreCard({ look, categories, allOptions, selection, loc
             </StudioNote>
             {siteConfig.features.showPricing && (
               <TotalBlock>
-                <TotalCaption>Totale</TotalCaption>
-                <TotalAmount>{total === 0 ? "Incluso" : `€${total}`}</TotalAmount>
+                <TotalCaption>{t("totalCaption")}</TotalCaption>
+                <TotalAmount>{total === 0 ? t("includedLabel") : `€${total}`}</TotalAmount>
               </TotalBlock>
             )}
           </FooterRow>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, type KeyboardEvent } from "react";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
@@ -93,19 +94,31 @@ type Props = {
 export default function OptionGrid({ options, selectedOptionId, onSelect }: Props) {
   const locale = useLocale() as Locale;
   const t = useTranslations("configurator");
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  function handleKeyDown(e: KeyboardEvent<HTMLButtonElement>, index: number) {
+    let next = -1;
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") next = (index + 1) % options.length;
+    else if (e.key === "ArrowUp" || e.key === "ArrowLeft") next = (index - 1 + options.length) % options.length;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = options.length - 1;
+    if (next !== -1) { e.preventDefault(); buttonRefs.current[next]?.focus(); }
+  }
 
   if (options.length === 0) {
     return <EmptyMessage>{t("noOptions")}</EmptyMessage>;
   }
 
   return (
-    <Grid role="listbox">
-      {options.map((opt) => {
+    <Grid role="group" aria-label={t("selectOption")}>
+      {options.map((opt, index) => {
         const isSelected = opt.id === selectedOptionId;
         return (
-          <Item key={opt.id} role="option" aria-selected={isSelected}>
+          <Item key={opt.id}>
             <OptionButton
+              ref={(el) => { buttonRefs.current[index] = el; }}
               onClick={() => onSelect(opt.id)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
               aria-pressed={isSelected}
               $selected={isSelected}
             >
