@@ -7,34 +7,36 @@ import { useTranslations } from "next-intl";
 import type { Look, Category, Option, Selection } from "@/lib/types";
 import type { Locale } from "@/site.config";
 import siteConfig from "@/site.config";
+import { mq } from "@/lib/breakpoints";
 
 const ActionBar = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 32px;
-  @media (min-width: 640px) { flex-direction: row; }
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+
+  ${mq.sm} { flex-direction: row; }
 `;
 
 const ActionButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 12px 20px;
-  border-radius: 16px;
-  font-size: 14px;
-  font-weight: 500;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   border: 1px solid var(--color-border);
   color: var(--color-text-secondary);
   background: transparent;
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color var(--transition-base), color var(--transition-base);
   &:hover { border-color: var(--color-border-strong); color: var(--color-text-primary); }
 `;
 
 const CardArticle = styled.article`
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   border: 2px solid var(--color-border);
   background: var(--color-surface);
   overflow: hidden;
@@ -46,52 +48,61 @@ const CardHeader = styled.header`
     color-mix(in srgb, var(--color-brand-rose-light) 40%, transparent),
     color-mix(in srgb, var(--color-brand-gold) 20%, transparent)
   );
-  padding: 32px;
+  padding: var(--space-6) var(--space-5);
   border-bottom: 1px solid var(--color-border);
+
+  ${mq.md} {
+    padding: var(--space-8);
+  }
 `;
 
 const HeaderRow = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+
+  ${mq.sm} {
+    flex-wrap: nowrap;
+  }
 `;
 
 const BrandLabel = styled.p`
-  font-size: 11px;
-  font-weight: 500;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--letter-spacing-3xl);
   color: var(--color-brand-rose);
-  margin-bottom: 8px;
+  margin-bottom: var(--space-2);
 `;
 
 const LookTitle = styled.h2`
   font-family: var(--font-heading);
-  font-size: 30px;
-  font-weight: 300;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-light);
   color: var(--color-text-primary);
 `;
 
 const OrderDate = styled.p`
-  font-size: 14px;
+  font-size: var(--font-size-base);
   color: var(--color-text-muted);
-  margin-top: 4px;
+  margin-top: var(--space-1);
 `;
 
 const QrWrap = styled.div`
   flex-shrink: 0;
-  padding: 12px;
+  padding: var(--space-3);
   background: white;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
 `;
 
 const QrCaption = styled.p`
-  font-size: 9px;
+  font-size: var(--font-size-2xs);
   text-align: center;
   color: var(--color-text-muted);
-  margin-top: 6px;
+  margin-top: var(--space-1-5);
 `;
 
 const SelectionList = styled.ul`
@@ -102,41 +113,56 @@ const SelectionList = styled.ul`
 
 const SelectionItem = styled.li`
   display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 16px 32px;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  padding: var(--space-4) var(--space-5);
   border-bottom: 1px solid var(--color-border);
+
   &:last-child { border-bottom: none; }
+
+  ${mq.md} {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-6);
+    padding: var(--space-4) var(--space-8);
+  }
 `;
 
 const SelectionCategory = styled.span`
-  width: 112px;
   flex-shrink: 0;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--letter-spacing-lg);
   color: var(--color-text-muted);
-  padding-top: 2px;
+  padding-top: var(--space-0-5);
+
+  ${mq.md} {
+    width: 112px;
+  }
 `;
 
 const SelectionName = styled.p`
   font-family: var(--font-heading);
-  font-size: 18px;
-  line-height: 1.2;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-snug);
   color: var(--color-text-primary);
 `;
 
 const SelectionDesc = styled.p`
-  font-size: 11px;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  margin-top: 2px;
+  margin-top: var(--space-0-5);
 `;
 
 const CardFooter = styled.footer`
-  padding: 24px 32px;
+  padding: var(--space-5);
   border-top: 1px solid var(--color-border);
   background: var(--color-surface-alt);
+
+  ${mq.md} {
+    padding: var(--space-6) var(--space-8);
+  }
 `;
 
 const FooterRow = styled.div`
@@ -144,19 +170,19 @@ const FooterRow = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: var(--space-4);
 `;
 
 const StudioNote = styled.p`
-  font-size: 14px;
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
   max-width: 280px;
-  line-height: 1.6;
+  line-height: var(--line-height-relaxed);
 `;
 
 const StudioDetail = styled.span`
   display: block;
-  margin-top: 4px;
+  margin-top: var(--space-1);
   color: var(--color-text-muted);
 `;
 
@@ -165,14 +191,14 @@ const TotalBlock = styled.div`
 `;
 
 const TotalCaption = styled.p`
-  font-size: 11px;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  margin-bottom: 2px;
+  margin-bottom: var(--space-0-5);
 `;
 
 const TotalAmount = styled.p`
   font-family: var(--font-heading);
-  font-size: 30px;
+  font-size: var(--font-size-4xl);
   color: var(--color-text-primary);
 `;
 

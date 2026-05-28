@@ -6,17 +6,18 @@ import { useLocale, useTranslations } from "next-intl";
 import ImagePlaceholder from "./ImagePlaceholder";
 import type { Option } from "@/lib/types";
 import type { Locale } from "@/site.config";
+import { mq } from "@/lib/breakpoints";
 
 const Grid = styled.ul`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 16px;
+  gap: var(--space-4);
   list-style: none;
   margin: 0;
   padding: 0;
 
-  @media (min-width: 640px) { grid-template-columns: repeat(2, 1fr); }
-  @media (min-width: 1280px) { grid-template-columns: repeat(3, 1fr); }
+  ${mq.md} { grid-template-columns: repeat(2, 1fr); }
+  ${mq.xl} { grid-template-columns: repeat(3, 1fr); }
 `;
 
 const Item = styled.li`
@@ -29,12 +30,12 @@ const OptionButton = styled.button<{ $selected: boolean }>`
   display: flex;
   flex-direction: column;
   text-align: left;
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   border: 2px solid ${({ $selected }) => $selected ? "var(--color-brand-rose)" : "var(--color-border)"};
-  padding: 20px;
+  padding: var(--space-5);
   background: ${({ $selected }) => $selected ? "color-mix(in srgb, var(--color-brand-rose) 5%, var(--color-surface))" : "var(--color-surface)"};
-  box-shadow: ${({ $selected }) => $selected ? "0 0 0 3px color-mix(in srgb, var(--color-brand-rose) 15%, transparent)" : "none"};
-  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  box-shadow: ${({ $selected }) => $selected ? "var(--shadow-focus)" : "none"};
+  transition: border-color var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
   cursor: pointer;
 
   ${({ $selected }) =>
@@ -42,41 +43,45 @@ const OptionButton = styled.button<{ $selected: boolean }>`
     css`
       &:hover {
         border-color: var(--color-brand-rose);
-        box-shadow: 0 1px 4px color-mix(in srgb, var(--color-brand-rose) 8%, transparent);
+        box-shadow: var(--shadow-hover);
       }
     `}
 `;
 
 const ImageSlot = styled.div`
   aspect-ratio: 4 / 3;
-  border-radius: 16px;
-  margin-bottom: 16px;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-4);
   overflow: hidden;
   position: relative;
 `;
 
-
 const OptionName = styled.p<{ $selected: boolean }>`
   font-family: var(--font-heading);
-  font-size: 18px;
-  line-height: 1.2;
-  margin-bottom: 4px;
-  transition: color 0.2s;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-snug);
+  margin-bottom: var(--space-1);
+  transition: color var(--transition-base);
   color: ${({ $selected }) => $selected ? "var(--color-brand-rose)" : "var(--color-text-primary)"};
 `;
 
 const OptionDescription = styled.p`
-  font-size: 12px;
+  font-size: var(--font-size-caption);
   color: var(--color-text-muted);
-  line-height: 1.5;
+  line-height: var(--line-height-normal);
   flex: 1;
 `;
 
 const PriceTag = styled.p`
-  font-size: 13px;
-  font-weight: 500;
+  font-size: var(--font-size-note);
+  font-weight: var(--font-weight-medium);
   color: var(--color-brand-rose);
-  margin-top: 8px;
+  margin-top: var(--space-2);
+`;
+
+const EmptyMessage = styled.p`
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
 `;
 
 type Props = {
@@ -90,7 +95,7 @@ export default function OptionGrid({ options, selectedOptionId, onSelect }: Prop
   const t = useTranslations("configurator");
 
   if (options.length === 0) {
-    return <p style={{ fontSize: 14, color: "var(--color-text-muted)" }}>{t("noOptions")}</p>;
+    return <EmptyMessage>{t("noOptions")}</EmptyMessage>;
   }
 
   return (
@@ -111,7 +116,7 @@ export default function OptionGrid({ options, selectedOptionId, onSelect }: Prop
                     alt={opt.name[locale]}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   />
                 ) : (
                   <ImagePlaceholder colorSeed={opt.name[locale]} size="md" />

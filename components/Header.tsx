@@ -5,8 +5,9 @@ import styled from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
 import siteConfig from "@/site.config";
 import ThemeToggle from "./ThemeToggle";
+import { mq } from "@/lib/breakpoints";
 
-const HeaderBar = styled.header`
+const HeaderBar = styled.div`
   border-bottom: 1px solid var(--color-border);
   background: color-mix(in srgb, var(--color-surface) 90%, transparent);
   backdrop-filter: blur(12px);
@@ -18,33 +19,38 @@ const HeaderBar = styled.header`
 const Inner = styled.div`
   max-width: 80rem;
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: var(--space-3) var(--space-4);
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: var(--space-4);
+
+  ${mq.md} {
+    padding: var(--space-4) var(--space-6);
+    gap: var(--space-6);
+  }
 `;
 
 const BackLink = styled(Link)`
-  font-size: 14px;
+  font-size: var(--font-size-base);
   color: var(--color-text-muted);
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-1-5);
   flex-shrink: 0;
-  transition: color 0.2s;
+  transition: color var(--transition-base);
 
   &:hover { color: var(--color-text-primary); }
 `;
 
 const SiteName = styled(Link)`
   font-family: var(--font-heading);
-  font-size: 20px;
-  font-weight: 300;
-  letter-spacing: 0.02em;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-light);
+  letter-spacing: var(--letter-spacing-tight);
   color: var(--color-text-primary);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color var(--transition-base);
 
   &:hover { color: var(--color-brand-rose); }
 `;
@@ -53,17 +59,17 @@ const Controls = styled.nav`
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
 `;
 
 const LocaleLink = styled(Link)`
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-2xl);
   text-transform: uppercase;
   color: var(--color-text-muted);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color var(--transition-base);
 
   &:hover { color: var(--color-text-primary); }
 `;
@@ -80,7 +86,7 @@ export default function Header({ backLink = false, backLabel, backHref }: Props)
   const otherLocale = locale === "en" ? "it" : "en";
 
   return (
-    <HeaderBar role="banner">
+    <HeaderBar role="banner" suppressHydrationWarning>
       <Inner>
         {backLink && (
           <BackLink href={backHref ?? `/${locale}`} aria-label={backLabel ?? t("back")}>

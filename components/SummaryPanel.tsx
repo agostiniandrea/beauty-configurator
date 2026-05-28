@@ -9,54 +9,56 @@ import type { Locale } from "@/site.config";
 import siteConfig from "@/site.config";
 
 const Panel = styled.aside`
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
-  padding: 24px;
+  padding: var(--space-6);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--space-5);
 `;
 
 const PanelHeader = styled.div``;
 
 const PanelTitle = styled.h3`
   font-family: var(--font-heading);
-  font-size: 20px;
-  font-weight: 300;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-light);
   color: var(--color-text-primary);
 `;
 
 const PanelSubtitle = styled.p`
-  font-size: 11px;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  margin-top: 2px;
+  margin-top: var(--space-0-5);
 `;
 
 const PreviewGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: var(--space-2);
 `;
 
 const PreviewCell = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-1);
+  min-width: 0;
 `;
 
 const PreviewImage = styled.div`
+  width: 100%;
   aspect-ratio: 1;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   position: relative;
+  flex-shrink: 0;
 `;
 
-
 const PreviewLabel = styled.p`
-  font-size: 9px;
+  font-size: var(--font-size-2xs);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--letter-spacing-xl);
   color: var(--color-text-muted);
   text-align: center;
   overflow: hidden;
@@ -66,23 +68,23 @@ const PreviewLabel = styled.p`
 
 const ProgressBar = styled.div`
   height: 4px;
-  border-radius: 99px;
+  border-radius: var(--radius-full);
   background: var(--color-border);
   overflow: hidden;
 `;
 
 const ProgressFill = styled.div<{ $pct: number }>`
   height: 100%;
-  border-radius: 99px;
+  border-radius: var(--radius-full);
   background: var(--color-brand-rose);
   width: ${({ $pct }) => $pct}%;
-  transition: width 0.5s ease;
+  transition: width var(--transition-image) ease;
 `;
 
 const SelectionList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-3);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -92,10 +94,10 @@ const SelectionItem = styled.li`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
-  font-size: 14px;
+  gap: var(--space-3);
+  font-size: var(--font-size-base);
   border-bottom: 1px solid var(--color-border);
-  padding-bottom: 12px;
+  padding-bottom: var(--space-3);
 
   &:last-child {
     border-bottom: none;
@@ -106,45 +108,45 @@ const SelectionItem = styled.li`
 const CategoryLabel = styled.span`
   color: var(--color-text-muted);
   flex-shrink: 0;
-  font-size: 11px;
+  font-size: var(--font-size-sm);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 500;
-  padding-top: 2px;
+  letter-spacing: var(--letter-spacing-md);
+  font-weight: var(--font-weight-medium);
+  padding-top: var(--space-0-5);
 `;
 
 const OptionLabel = styled.span`
   color: var(--color-text-primary);
   text-align: right;
   font-family: var(--font-heading);
-  font-size: 16px;
-  line-height: 1.2;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-snug);
 `;
 
 const EmptyDash = styled.span`
   color: var(--color-border-strong);
-  font-size: 11px;
+  font-size: var(--font-size-sm);
   font-style: italic;
   font-family: sans-serif;
 `;
 
 const TotalRow = styled.div`
   border-top: 2px solid var(--color-border-strong);
-  padding-top: 16px;
+  padding-top: var(--space-4);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 `;
 
 const TotalLabel = styled.span`
-  font-size: 14px;
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 `;
 
 const TotalValue = styled.span`
   font-family: var(--font-heading);
-  font-size: 24px;
+  font-size: var(--font-size-2xl);
   color: var(--color-text-primary);
 `;
 
