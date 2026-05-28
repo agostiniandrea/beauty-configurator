@@ -8,7 +8,7 @@ import type { Locale } from "@/site.config";
 const List = styled.ol`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-1);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -23,12 +23,12 @@ const NavButton = styled.button<{
   text-align: left;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  border-radius: 16px;
-  font-size: 14px;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
   border: none;
-  transition: background 0.15s, color 0.15s;
+  transition: background var(--transition-fast), color var(--transition-fast);
   cursor: ${({ $isAccessible }) => ($isAccessible ? "pointer" : "not-allowed")};
   opacity: ${({ $isAccessible }) => ($isAccessible ? 1 : 0.5)};
 
@@ -64,8 +64,8 @@ const StepBadge = styled.span<{ $isActive: boolean; $isDone: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   flex-shrink: 0;
 
   ${({ $isActive }) =>
@@ -93,7 +93,7 @@ const StepBadge = styled.span<{ $isActive: boolean; $isDone: boolean }>`
 `;
 
 const StepLabel = styled.span`
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 `;
 
 type Props = {

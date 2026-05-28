@@ -23,13 +23,13 @@ const ToggleButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   border: none;
   background: transparent;
   color: var(--color-text-muted);
   cursor: pointer;
-  transition: color 0.2s, background 0.2s;
-  font-size: 16px;
+  transition: color var(--transition-base), background var(--transition-base);
+  font-size: var(--font-size-md);
 
   &:hover {
     color: var(--color-text-primary);

@@ -66,9 +66,9 @@ export default function ConfiguratorClient({ look, categories, optionsByCategory
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-10">
+    <div className="max-w-7xl mx-auto px-4 py-8 md:px-6 md:py-10">
       {/* Progress bar */}
-      <div className="mb-8">
+      <div className="mb-6 md:mb-8">
         <div className="flex items-center justify-between mb-2">
           <p className="text-xs text-[var(--color-text-muted)] font-medium uppercase tracking-widest">
             {t("stepOf", { current: currentStep + 1, total: categories.length })}
@@ -92,11 +92,11 @@ export default function ConfiguratorClient({ look, categories, optionsByCategory
         </div>
       </div>
 
-      {/* 3-column layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr_260px] gap-8">
+      {/* Responsive layout: stack on mobile, 3-col on desktop */}
+      <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr_260px] gap-6 lg:gap-8">
         {/* Left: category navigation */}
         <aside className="lg:sticky lg:top-24 self-start">
-          <p className="text-xs text-[var(--color-text-muted)] uppercase tracking-widest mb-4 font-medium">
+          <p className="text-xs text-[var(--color-text-muted)] uppercase tracking-widest mb-3 md:mb-4 font-medium">
             {look.name[locale]}
           </p>
           <CategoryNav
@@ -113,7 +113,7 @@ export default function ConfiguratorClient({ look, categories, optionsByCategory
           className={`step-enter-${animDir}`}
           aria-labelledby="category-heading"
         >
-          <div className="mb-8">
+          <div className="mb-6 md:mb-8">
             <h2
               id="category-heading"
               className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl font-light text-[var(--color-text-primary)]"
@@ -130,11 +130,11 @@ export default function ConfiguratorClient({ look, categories, optionsByCategory
           />
 
           {/* Navigation buttons */}
-          <div className="flex items-center justify-between mt-10 pt-8 border-t border-[var(--color-border)]">
+          <div className="flex items-center justify-between mt-8 md:mt-10 pt-6 md:pt-8 border-t border-[var(--color-border)]">
             <button
               onClick={handleBack}
               disabled={currentStep === 0}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-2xl text-sm font-medium text-[var(--color-text-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="flex items-center gap-2 px-4 py-2.5 md:px-5 rounded-2xl text-sm font-medium text-[var(--color-text-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
             >
               <span aria-hidden="true">←</span>
               {t("back")}
@@ -144,7 +144,7 @@ export default function ConfiguratorClient({ look, categories, optionsByCategory
               onClick={handleNext}
               disabled={!canGoNext}
               title={!canGoNext ? t("selectTooltip") : undefined}
-              className="flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-medium bg-[var(--color-action-bg)] text-[var(--color-action-text)] hover:bg-[var(--color-action-bg-hover)] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+              className="flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-2xl text-sm font-medium bg-[var(--color-action-bg)] text-[var(--color-action-text)] hover:bg-[var(--color-action-bg-hover)] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
             >
               {isLastStep && allComplete ? t("reviewOrder") : t("next")}
               <span aria-hidden="true">{isLastStep && allComplete ? "✓" : "→"}</span>
@@ -152,7 +152,7 @@ export default function ConfiguratorClient({ look, categories, optionsByCategory
           </div>
         </section>
 
-        {/* Right: summary panel */}
+        {/* Right: summary panel (below on mobile, sticky on desktop) */}
         <aside className="lg:sticky lg:top-24 self-start">
           <SummaryPanel
             categories={categories}

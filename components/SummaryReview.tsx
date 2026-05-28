@@ -4,9 +4,10 @@ import styled from "styled-components";
 import type { Look, Category, Option, Selection } from "@/lib/types";
 import type { Locale } from "@/site.config";
 import siteConfig from "@/site.config";
+import { mq } from "@/lib/breakpoints";
 
 const ReviewCard = styled.div`
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   overflow: hidden;
@@ -16,59 +17,69 @@ const ItemList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-  divide-color: var(--color-border);
 `;
 
 const ReviewItem = styled.li`
   display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 20px 24px;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5);
   border-bottom: 1px solid var(--color-border);
 
   &:last-child { border-bottom: none; }
+
+  ${mq.md} {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-6);
+    padding: var(--space-5) var(--space-6);
+  }
 `;
 
 const CategoryCol = styled.div`
-  width: 128px;
   flex-shrink: 0;
+
+  ${mq.md} {
+    width: 128px;
+  }
 `;
 
 const CategoryLabel = styled.p`
-  font-size: 11px;
-  font-weight: 500;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--letter-spacing-xl);
   color: var(--color-text-muted);
 `;
 
 const OptionCol = styled.div`
   flex: 1;
+  min-width: 0;
 `;
 
 const OptionName = styled.p`
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: var(--font-size-lg);
   color: var(--color-text-primary);
-  line-height: 1.2;
+  line-height: var(--line-height-snug);
 `;
 
 const OptionDesc = styled.p`
-  font-size: 11px;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  margin-top: 2px;
+  margin-top: var(--space-0-5);
 `;
 
 const EmptyOption = styled.p`
-  font-size: 14px;
+  font-size: var(--font-size-base);
   color: var(--color-text-muted);
   font-style: italic;
 `;
 
 const PriceCol = styled.div`
   flex-shrink: 0;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
 `;
 
@@ -76,20 +87,24 @@ const Footer = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding: 20px 24px;
+  padding: var(--space-5) var(--space-5);
   background: var(--color-surface-alt);
   border-top: 1px solid var(--color-border);
+
+  ${mq.md} {
+    padding: var(--space-5) var(--space-6);
+  }
 `;
 
 const FooterLabel = styled.p`
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
 `;
 
 const FooterTotal = styled.p`
   font-family: var(--font-heading);
-  font-size: 30px;
+  font-size: var(--font-size-4xl);
   color: var(--color-text-primary);
 `;
 
@@ -128,7 +143,7 @@ export default function SummaryReview({ categories, allOptions, selection, local
                 )}
               </OptionCol>
               {siteConfig.features.showPricing && selectedOpt && (
-                <PriceCol>{selectedOpt.price === 0 ? "—" : `+€${selectedOpt.price}`}</PriceCol>
+                <PriceCol>€{selectedOpt.price}</PriceCol>
               )}
             </ReviewItem>
           );

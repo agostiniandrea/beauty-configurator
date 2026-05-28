@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { getTranslations } from "next-intl/server";
 import { getLook, getCategoriesForLook, getOptionsForCategory } from "@/lib/data";
 import Header from "@/components/Header";
+import ClientOnly from "@/lib/ClientOnly";
 import StoreCard from "@/components/StoreCard";
 import BookingForm from "@/components/BookingForm";
 import type { Option, Selection } from "@/lib/types";
@@ -73,45 +74,47 @@ export default async function CompletePage({ params, searchParams }: Props) {
   const summaryUrl = `/${locale}/configure/${modelId}/summary?${selectionParams}`;
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)]" suppressHydrationWarning>
-      <div className="no-print">
-        <Header
-          backLink
-          backLabel={tNav("backToSummary")}
-          backHref={summaryUrl}
-        />
-      </div>
-
-      <main className="max-w-3xl mx-auto px-6 py-14">
-        <div className="mb-10 no-print">
-          <div className="w-12 h-12 rounded-2xl bg-[var(--color-brand-rose)]/15 flex items-center justify-center mb-5" aria-hidden="true">
-            <span className="text-[var(--color-brand-rose)] text-2xl">✦</span>
-          </div>
-          <h1 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-light text-[var(--color-text-primary)]">
-            {t("title")}
-          </h1>
-          <p className="text-[var(--color-text-secondary)] mt-2">{t("subtitle")}</p>
+    <div className="min-h-screen bg-[var(--color-background)]">
+      <ClientOnly>
+        <div className="no-print">
+          <Header
+            backLink
+            backLabel={tNav("backToSummary")}
+            backHref={summaryUrl}
+          />
         </div>
 
-        <StoreCard
-          look={look}
-          categories={categories}
-          allOptions={allOptions}
-          selection={selection}
-          locale={locale as "en" | "it"}
-          orderUrl={orderUrl}
-        />
+        <main className="max-w-3xl mx-auto px-6 py-14">
+          <div className="mb-10 no-print">
+            <div className="w-12 h-12 rounded-2xl bg-[var(--color-brand-rose)]/15 flex items-center justify-center mb-5" aria-hidden="true">
+              <span className="text-[var(--color-brand-rose)] text-2xl">✦</span>
+            </div>
+            <h1 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-light text-[var(--color-text-primary)]">
+              {t("title")}
+            </h1>
+            <p className="text-[var(--color-text-secondary)] mt-2">{t("subtitle")}</p>
+          </div>
 
-        <div className="mt-10 no-print">
-          <BookingForm
+          <StoreCard
             look={look}
             categories={categories}
             allOptions={allOptions}
             selection={selection}
             locale={locale as "en" | "it"}
+            orderUrl={orderUrl}
           />
-        </div>
-      </main>
+
+          <div className="mt-10 no-print">
+            <BookingForm
+              look={look}
+              categories={categories}
+              allOptions={allOptions}
+              selection={selection}
+              locale={locale as "en" | "it"}
+            />
+          </div>
+        </main>
+      </ClientOnly>
     </div>
   );
 }

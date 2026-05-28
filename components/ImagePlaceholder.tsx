@@ -19,7 +19,7 @@ const Wrap = styled.div<{ $bg: string }>`
   align-items: center;
   justify-content: center;
   background: ${({ $bg }) => $bg};
-  gap: 6px;
+  gap: var(--space-1-5);
   user-select: none;
 `;
 
@@ -27,24 +27,24 @@ const Glyph = styled.span<{ $size: PlaceholderSize }>`
   font-family: var(--font-heading);
   font-style: italic;
   color: color-mix(in srgb, var(--color-brand-rose) 45%, transparent);
-  line-height: 1;
+  line-height: var(--line-height-tight);
   font-size: ${({ $size }) =>
-    $size === "lg" ? "44px" : $size === "md" ? "28px" : "13px"};
+    $size === "lg" ? "var(--font-size-hero)" : $size === "md" ? "var(--font-size-3xl)" : "var(--font-size-note)"};
 `;
 
-const Label = styled.p<{ $size: PlaceholderSize }>`
+const PlaceholderLabel = styled.p<{ $size: PlaceholderSize }>`
   font-family: var(--font-heading);
-  font-weight: 300;
+  font-weight: var(--font-weight-light);
   font-style: italic;
   color: var(--color-text-secondary);
   text-align: center;
-  line-height: 1.3;
+  line-height: var(--line-height-normal);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 0 12px;
+  padding: 0 var(--space-3);
   max-width: 100%;
-  font-size: ${({ $size }) => ($size === "lg" ? "20px" : "12px")};
+  font-size: ${({ $size }) => ($size === "lg" ? "var(--font-size-xl)" : "var(--font-size-caption)")};
 `;
 
 function gradientIndex(label: string): number {
@@ -62,7 +62,7 @@ export default function ImagePlaceholder({ label, colorSeed, size = "md" }: Prop
   return (
     <Wrap $bg={bg} aria-hidden="true">
       <Glyph $size={size}>✦</Glyph>
-      {label && size !== "sm" && <Label $size={size}>{label}</Label>}
+      {label && size !== "sm" && <PlaceholderLabel $size={size}>{label}</PlaceholderLabel>}
     </Wrap>
   );
 }

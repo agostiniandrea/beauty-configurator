@@ -69,6 +69,14 @@
     "emailSubject": "Appointment request — {look}",
     "emailBody": "Hi,\n\nI would like to book an appointment for the following configuration:\n\nLook: {look}\n{selection}\n\nPreferred date: {date}\nPhone: {phone}\n\nNotes: {message}\n\nThank you!"
   },
+  "brandValues": {
+    "tagline": "Our commitment to clean, conscious beauty",
+    "vegan": "100% Vegan",
+    "crueltyfree": "Cruelty-Free",
+    "natural": "Natural Ingredients",
+    "sustainable": "Sustainable",
+    "ariaLabel": "Our values"
+  },
   "common": {
     "loading": "Loading…",
     "notFound": "Not found"

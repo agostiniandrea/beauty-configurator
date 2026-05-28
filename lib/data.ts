@@ -24,3 +24,11 @@ export function getCategoriesForLook(lookId: string): Category[] {
 export function getOptionsForCategory(categoryId: string): Option[] {
   return options.filter((o) => o.categoryId === categoryId);
 }
+
+export function getLookStartingPrice(look: Look): number {
+  if (!look.defaultOptions) return 0;
+  return Object.values(look.defaultOptions).reduce((sum, optId) => {
+    const opt = options.find((o) => o.id === optId);
+    return sum + (opt?.price ?? 0);
+  }, 0);
+}

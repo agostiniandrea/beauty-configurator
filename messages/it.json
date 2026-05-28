@@ -69,6 +69,14 @@
     "emailSubject": "Richiesta appuntamento — {look}",
     "emailBody": "Ciao,\n\nVorrei prenotare un appuntamento per la seguente configurazione:\n\nLook: {look}\n{selection}\n\nData preferita: {date}\nTelefono: {phone}\n\nNote: {message}\n\nGrazie!"
   },
+  "brandValues": {
+    "tagline": "Il nostro impegno per una beauty consapevole",
+    "vegan": "100% Vegan",
+    "crueltyfree": "Cruelty-Free",
+    "natural": "Ingredienti Naturali",
+    "sustainable": "Sostenibile",
+    "ariaLabel": "I nostri valori"
+  },
   "common": {
     "loading": "Caricamento…",
     "notFound": "Non trovato"
