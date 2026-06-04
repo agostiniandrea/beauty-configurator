@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { renderWithIntl } from "../../test-utils/renderWithIntl";
-import LookCard from "../LookCard";
+import LookCard from "../home/LookCard";
 import { mockLooks } from "../model";
 
 const look = mockLooks[0];

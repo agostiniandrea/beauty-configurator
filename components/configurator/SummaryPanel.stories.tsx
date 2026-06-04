@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import SummaryPanel from "./SummaryPanel";
-import { mockCategories, mockOptions, mockSelectionPartial, mockSelectionFull } from "./model";
+import { mockCategories, mockOptions, mockSelectionPartial, mockSelectionFull } from "../model";
 
 const meta: Meta<typeof SummaryPanel> = {
   title: "Components/SummaryPanel",

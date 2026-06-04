@@ -4,7 +4,7 @@ import { useRef, type KeyboardEvent } from "react";
 import Image from "next/image";
 import styled, { css } from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
-import ImagePlaceholder from "./ImagePlaceholder";
+import ImagePlaceholder from "../ui/ImagePlaceholder";
 import type { Option } from "@/lib/types";
 import type { Locale } from "@/site.config";
 import { mq } from "@/lib/breakpoints";

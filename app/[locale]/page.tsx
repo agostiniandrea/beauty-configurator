@@ -1,8 +1,8 @@
 import { useTranslations } from "next-intl";
 import { getLooks, getLookStartingPrice } from "@/lib/data";
-import LookCard from "@/components/LookCard";
-import Header from "@/components/Header";
-import BrandValues from "@/components/BrandValues";
+import LookCard from "@/components/home/LookCard";
+import Header from "@/components/layout/Header";
+import BrandValues from "@/components/home/BrandValues";
 import ClientOnly from "@/lib/ClientOnly";
 import siteConfig from "@/site.config";
 import type { Metadata } from "next";

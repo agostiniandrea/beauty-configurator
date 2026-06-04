@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import OptionGrid from "./OptionGrid";
-import { mockOptions } from "./model";
+import { mockOptions } from "../model";
 
 const baseOptions = mockOptions.filter((o) => o.categoryId === "base");
 
