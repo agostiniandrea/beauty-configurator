@@ -1,6 +1,6 @@
 import { screen, fireEvent } from "@testing-library/react";
 import { renderWithIntl } from "../../test-utils/renderWithIntl";
-import CategoryNav from "../CategoryNav";
+import CategoryNav from "../configurator/CategoryNav";
 import { mockCategories } from "../model";
 
 const noop = jest.fn();

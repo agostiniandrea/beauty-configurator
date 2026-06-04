@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import CategoryNav from "./CategoryNav";
-import { mockCategories } from "./model";
+import { mockCategories } from "../model";
 
 const meta: Meta<typeof CategoryNav> = {
   title: "Components/CategoryNav",

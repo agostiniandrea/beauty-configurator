@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
-import ImagePlaceholder from "./ImagePlaceholder";
+import ImagePlaceholder from "../ui/ImagePlaceholder";
 import type { Look } from "@/lib/types";
 import type { Locale } from "@/site.config";
 import siteConfig from "@/site.config";

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getLook, getCategoriesForLook, getOptionsForCategory } from "@/lib/data";
-import Header from "@/components/Header";
+import Header from "@/components/layout/Header";
 import ClientOnly from "@/lib/ClientOnly";
 import ConfiguratorClient from "./ConfiguratorClient";
 import type { Option } from "@/lib/types";

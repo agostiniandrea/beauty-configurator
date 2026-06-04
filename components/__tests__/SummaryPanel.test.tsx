@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { renderWithIntl } from "../../test-utils/renderWithIntl";
-import SummaryPanel from "../SummaryPanel";
+import SummaryPanel from "../configurator/SummaryPanel";
 import { mockCategories, mockOptions, mockSelectionFull } from "../model";
 
 describe("SummaryPanel", () => {

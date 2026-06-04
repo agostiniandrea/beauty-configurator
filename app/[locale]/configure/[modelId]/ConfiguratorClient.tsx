@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import CategoryNav from "@/components/CategoryNav";
-import OptionGrid from "@/components/OptionGrid";
-import SummaryPanel from "@/components/SummaryPanel";
+import CategoryNav from "@/components/configurator/CategoryNav";
+import OptionGrid from "@/components/configurator/OptionGrid";
+import SummaryPanel from "@/components/configurator/SummaryPanel";
 import type { Look, Category, Option, Selection } from "@/lib/types";
 import type { Locale } from "@/site.config";
 

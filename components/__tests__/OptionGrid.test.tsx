@@ -1,6 +1,6 @@
 import { screen, fireEvent } from "@testing-library/react";
 import { renderWithIntl } from "../../test-utils/renderWithIntl";
-import OptionGrid from "../OptionGrid";
+import OptionGrid from "../configurator/OptionGrid";
 import { mockOptions } from "../model";
 
 const baseOptions = mockOptions.filter((o) => o.categoryId === "base");

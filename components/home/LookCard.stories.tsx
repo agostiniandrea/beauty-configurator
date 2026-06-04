@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import LookCard from "./LookCard";
-import { mockLooks } from "./model";
+import { mockLooks } from "../model";
 
 const meta: Meta<typeof LookCard> = {
   title: "Components/LookCard",
