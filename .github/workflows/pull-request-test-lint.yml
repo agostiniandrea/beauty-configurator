@@ -59,50 +59,17 @@ jobs:
       - name: Run lint
         run: yarn lint
 
-  lighthouse:
-    name: Lighthouse Accessibility
-    runs-on: ubuntu-latest
-    needs: test-and-lint
-    if: ${{ !startsWith(github.actor, 'dependabot') }}
-
-    steps:
-      - name: Checkout PR branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Set Yarn version
-        run: corepack prepare yarn@4.9.1 --activate
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-
-      - name: Setup yarn cache
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Build
+      - name: Build for Lighthouse
         run: yarn build
 
-      - name: Run Lighthouse CI (accessibility must be 100)
-        run: npx @lhci/cli autorun
+      - name: Run Lighthouse CI (desktop)
+        run: |
+          yarn start &
+          npx wait-on http://localhost:3000 --timeout 30000
+          yarn lhci
+
+      - name: Run Lighthouse CI (mobile)
+        run: npx lhci autorun --config=.lighthouserc.mobile.json
 
       - name: Auto-merge PR
         if: success()
