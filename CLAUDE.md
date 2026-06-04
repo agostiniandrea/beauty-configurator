@@ -12,7 +12,7 @@ npm run lint        # zero ESLint warnings or errors
 npm run test:a11y   # Lighthouse accessibility audit — all pages must score 100
 ```
 
-`test:a11y` does a production build and runs `@lhci/cli` against four pages (homepage, configurator step, summary, complete). It fails the process if any page scores below 100. This mirrors the `lighthouse` CI job in `.github/workflows/pull-request-test-lint.yml`.
+`test:a11y` does a production build and runs `@lhci/cli` (desktop preset) against four pages (homepage, configurator step, summary, complete). CI also runs a second mobile pass. Both fail if accessibility, best-practices, or SEO score below 100. This mirrors the Lighthouse steps in `.github/workflows/pull-request-test-lint.yml`.
 
 ## Architecture
 

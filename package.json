@@ -11,7 +11,8 @@
     "test:coverage": "jest --coverage",
     "test:update": "jest --updateSnapshot",
     "test:watch": "jest --watch",
-    "test:a11y": "next build && npx @lhci/cli autorun",
+    "test:a11y": "next build && npx lhci autorun",
+    "lhci": "npx lhci autorun",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --build-script-name build-storybook --exit-zero-on-changes"
