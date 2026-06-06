@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore, useState } from "react";
 import styled from "styled-components";
 
 type Theme = "light" | "dark";
@@ -10,6 +10,10 @@ function getInitialTheme(): Theme {
   const saved = localStorage.getItem("theme") as Theme | null;
   if (saved === "dark" || saved === "light") return saved;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function subscribe() {
+  return () => {};
 }
 
 const TogglePlaceholder = styled.div`
@@ -38,13 +42,8 @@ const ToggleButton = styled.button`
 `;
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("light");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setTheme(getInitialTheme());
-    setMounted(true);
-  }, []);
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
 
   function toggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";
