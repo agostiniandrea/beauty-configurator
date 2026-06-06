@@ -1,6 +1,6 @@
 # Beauty Configurator — Project Context
 
-Next.js 15 App Router · styled-components v6 · next-intl (EN + IT) · Tailwind v4
+Next.js 16 App Router · React 19 · styled-components v6 · next-intl v4 (EN + IT) · Tailwind v4 · TypeScript 6
 
 ## Pre-PR checklist
 
