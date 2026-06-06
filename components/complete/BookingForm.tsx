@@ -158,12 +158,6 @@ type Props = {
 
 export default function BookingForm({ look, categories, allOptions, selection, locale }: Props) {
   const t = useTranslations("booking");
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [date, setDate] = useState("");
-  const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const selectionText = categories
@@ -173,16 +167,15 @@ export default function BookingForm({ look, categories, allOptions, selection, l
     })
     .join("\n");
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  function handleAction(formData: FormData) {
     const subject = encodeURIComponent(t("emailSubject", { look: look.name[locale] }));
     const body = encodeURIComponent(
       t("emailBody", {
         look: look.name[locale],
         selection: selectionText,
-        date: date || "—",
-        phone: phone || "—",
-        message: message || "—",
+        date: (formData.get("date") as string) || "—",
+        phone: (formData.get("phone") as string) || "—",
+        message: (formData.get("message") as string) || "—",
       })
     );
     window.open(`mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`);
@@ -208,7 +201,7 @@ export default function BookingForm({ look, categories, allOptions, selection, l
         <FormSubtitle>{t("subtitle")}</FormSubtitle>
       </FormHeader>
 
-      <Form onSubmit={handleSubmit}>
+      <Form action={handleAction}>
         <FieldGrid>
           <Field>
             <Label htmlFor="booking-name">
@@ -216,11 +209,10 @@ export default function BookingForm({ look, categories, allOptions, selection, l
             </Label>
             <Input
               id="booking-name"
+              name="name"
               type="text"
               required
               aria-required="true"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
               placeholder={t("namePlaceholder")}
             />
           </Field>
@@ -230,11 +222,10 @@ export default function BookingForm({ look, categories, allOptions, selection, l
             </Label>
             <Input
               id="booking-email"
+              name="email"
               type="email"
               required
               aria-required="true"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               placeholder={t("emailPlaceholder")}
             />
           </Field>
@@ -242,9 +233,8 @@ export default function BookingForm({ look, categories, allOptions, selection, l
             <Label htmlFor="booking-phone">{t("phone")}</Label>
             <Input
               id="booking-phone"
+              name="phone"
               type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
               placeholder={t("phonePlaceholder")}
             />
           </Field>
@@ -252,9 +242,8 @@ export default function BookingForm({ look, categories, allOptions, selection, l
             <Label htmlFor="booking-date">{t("date")}</Label>
             <Input
               id="booking-date"
+              name="date"
               type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
               min={new Date().toISOString().split("T")[0]}
             />
           </Field>
@@ -264,9 +253,8 @@ export default function BookingForm({ look, categories, allOptions, selection, l
           <Label htmlFor="booking-message">{t("message")}</Label>
           <Textarea
             id="booking-message"
+            name="message"
             rows={3}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
             placeholder={t("messagePlaceholder")}
           />
         </Field>
