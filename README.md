@@ -117,8 +117,8 @@ Each localised string has an `en` and `it` field.
 - [x] Incremental visual preview in summary panel
 - [x] Options pre-selected based on chosen look
 - [x] GitHub Actions — Chromatic + Test & Lint
-- [ ] Styled-components migration (replace Tailwind inline classes)
+- [x] Styled-components migration (replace Tailwind inline classes)
+- [x] Animated step transitions (directional slide, respects prefers-reduced-motion)
+- [x] Saved configurations (URL share + QR code on completion page)
+- [x] Booking form integration on the completion page
 - [ ] Selfie-based virtual try-on (MediaPipe FaceMesh)
-- [ ] Animated step transitions
-- [ ] Saved configurations (URL share / local storage)
-- [ ] Booking form integration on the completion page
