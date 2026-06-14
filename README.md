@@ -27,9 +27,9 @@ Completion / Store card  QR code + printable voucher to bring to the studio
 
 | Layer | Choice |
 |---|---|
-| Framework | Next.js 15, App Router |
+| Framework | Next.js 16, App Router |
 | Language | TypeScript |
-| Styling | Tailwind CSS v4 |
+| Styling | styled-components (components) + Tailwind CSS v4 (layout) |
 | i18n | next-intl — EN / IT |
 | QR code | qrcode.react |
 | Fonts | Cormorant Garamond (heading) + DM Sans (body) via next/font |
