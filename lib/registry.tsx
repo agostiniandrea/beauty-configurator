@@ -13,13 +13,12 @@ export default function StyledComponentsRegistry({ children }: { children: React
     return <>{styles}</>;
   });
 
-  // On the client, styled-components uses its own injection via useInsertionEffect.
-  // The SWC compiler (compiler.styledComponents) ensures class names are deterministic
-  // across server/client bundles, so no mismatch occurs even with this branch.
-  if (typeof window !== "undefined") return <>{children}</>;
-
+  // On the server the sheet captures styles for SSR injection.
+  // On the client we pass no sheet so styled-components uses its normal
+  // browser injection — but both renders return <StyleSheetManager> so
+  // React sees the same tree structure and hydration succeeds.
   return (
-    <StyleSheetManager sheet={sheet.instance}>
+    <StyleSheetManager sheet={typeof window === "undefined" ? sheet.instance : undefined}>
       {children}
     </StyleSheetManager>
   );
