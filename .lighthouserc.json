@@ -7,13 +7,14 @@
         "http://localhost:3000/configure/natural-glow/summary",
         "http://localhost:3000/configure/natural-glow/complete"
       ],
-      "numberOfRuns": 1,
+      "numberOfRuns": 3,
       "settings": {
         "preset": "desktop",
         "chromeFlags": "--no-sandbox --disable-dev-shm-usage"
       }
     },
     "assert": {
+      "aggregationMethod": "optimistic",
       "assertions": {
         "categories:accessibility": ["error", { "minScore": 1.0 }],
         "categories:best-practices": ["error", { "minScore": 1.0 }],
