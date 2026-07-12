@@ -29,7 +29,7 @@ export default function ConfiguratorClient({
 
   const [currentStep, setCurrentStep] = useState(0);
   const [selection, setSelection] = useState<Selection>(
-    initialSelection ?? look.defaultOptions ?? {}
+    initialSelection ?? look.defaultOptions ?? {},
   );
   const [animDir, setAnimDir] = useState<"forward" | "backward">("forward");
 
@@ -37,9 +37,7 @@ export default function ConfiguratorClient({
   const activeOptions = optionsByCategory[activeCategory?.id ?? ""] ?? [];
   const allOptions = Object.values(optionsByCategory).flat();
   const completedSteps = new Set(
-    categories
-      .map((cat, i) => (selection[cat.id] ? i : -1))
-      .filter((i) => i >= 0)
+    categories.map((cat, i) => (selection[cat.id] ? i : -1)).filter((i) => i >= 0),
   );
 
   const isLastStep = currentStep === categories.length - 1;
@@ -162,11 +160,7 @@ export default function ConfiguratorClient({
 
         {/* Right: summary panel (below on mobile, sticky on desktop) */}
         <aside className="lg:sticky lg:top-24 self-start">
-          <SummaryPanel
-            categories={categories}
-            options={allOptions}
-            selection={selection}
-          />
+          <SummaryPanel categories={categories} options={allOptions} selection={selection} />
         </aside>
       </div>
     </div>

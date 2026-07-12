@@ -26,7 +26,9 @@ const ReviewItem = styled.li`
   padding: var(--space-4) var(--space-5);
   border-bottom: 1px solid var(--color-border);
 
-  &:last-child { border-bottom: none; }
+  &:last-child {
+    border-bottom: none;
+  }
 
   ${mq.md} {
     flex-direction: row;

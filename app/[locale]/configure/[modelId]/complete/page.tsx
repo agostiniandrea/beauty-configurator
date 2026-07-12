@@ -86,16 +86,15 @@ export default async function CompletePage({ params, searchParams }: Props) {
     <div className="min-h-screen bg-[var(--color-background)]">
       <ClientOnly>
         <div className="no-print">
-          <Header
-            backLink
-            backLabel={tNav("backToSummary")}
-            backHref={summaryUrl}
-          />
+          <Header backLink backLabel={tNav("backToSummary")} backHref={summaryUrl} />
         </div>
 
         <main id="main-content" className="max-w-3xl mx-auto px-6 py-14">
           <div className="mb-10 no-print">
-            <div className="w-12 h-12 rounded-2xl bg-[var(--color-brand-rose)]/15 flex items-center justify-center mb-5" aria-hidden="true">
+            <div
+              className="w-12 h-12 rounded-2xl bg-[var(--color-brand-rose)]/15 flex items-center justify-center mb-5"
+              aria-hidden="true"
+            >
               <span className="text-[var(--color-brand-rose)] text-2xl">✦</span>
             </div>
             <h1 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-light text-[var(--color-text-primary)]">

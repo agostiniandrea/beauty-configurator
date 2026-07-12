@@ -25,17 +25,17 @@ Completion / Store card  QR code + printable voucher to bring to the studio
 
 ## Stack
 
-| Layer | Choice |
-|---|---|
-| Framework | Next.js 16, App Router |
-| Language | TypeScript |
-| Styling | styled-components (components) + Tailwind CSS v4 (layout) |
-| i18n | next-intl — EN / IT |
-| QR code | qrcode.react |
-| Fonts | Cormorant Garamond (heading) + DM Sans (body) via next/font |
-| Testing | Jest + Testing Library |
-| Visual testing | Storybook + Chromatic |
-| Deploy | Vercel — push to `main` = production |
+| Layer          | Choice                                                      |
+| -------------- | ----------------------------------------------------------- |
+| Framework      | Next.js 16, App Router                                      |
+| Language       | TypeScript                                                  |
+| Styling        | styled-components (components) + Tailwind CSS v4 (layout)   |
+| i18n           | next-intl — EN / IT                                         |
+| QR code        | qrcode.react                                                |
+| Fonts          | Cormorant Garamond (heading) + DM Sans (body) via next/font |
+| Testing        | Jest + Testing Library                                      |
+| Visual testing | Storybook + Chromatic                                       |
+| Deploy         | Vercel — push to `main` = production                        |
 
 ---
 
@@ -68,18 +68,18 @@ yarn chromatic        # Publish to Chromatic (requires CHROMATIC_PROJECT_TOKEN)
 
 Everything site-level lives in **[site.config.ts](./site.config.ts)**:
 
-| Field | What it controls |
-|---|---|
-| `name` | Site name in header, card, page titles |
-| `tagline` | Hero headline (EN + IT) |
-| `seo` | Default title, description, Open Graph |
-| `contact.email` | "Send by email" recipient |
-| `contact.studioName` | Shown on the store card |
-| `contact.studioAddress` | Optional — shown on the store card |
-| `contact.studioPhone` | Optional — shown on the store card |
-| `features.showPricing` | Toggle price display everywhere |
+| Field                       | What it controls                            |
+| --------------------------- | ------------------------------------------- |
+| `name`                      | Site name in header, card, page titles      |
+| `tagline`                   | Hero headline (EN + IT)                     |
+| `seo`                       | Default title, description, Open Graph      |
+| `contact.email`             | "Send by email" recipient                   |
+| `contact.studioName`        | Shown on the store card                     |
+| `contact.studioAddress`     | Optional — shown on the store card          |
+| `contact.studioPhone`       | Optional — shown on the store card          |
+| `features.showPricing`      | Toggle price display everywhere             |
 | `features.enableEmailOrder` | Toggle the email CTA on the completion page |
-| `features.enablePrint` | Toggle the print CTA |
+| `features.enablePrint`      | Toggle the print CTA                        |
 
 Colors and typography live in [app/globals.css](./app/globals.css) as CSS custom properties.
 
@@ -104,9 +104,9 @@ Each localised string has an `en` and `it` field.
 
 ## CI / CD
 
-| Workflow | Trigger |
-|---|---|
-| Chromatic | Push to `main` — publishes Storybook for visual diff |
+| Workflow    | Trigger                                               |
+| ----------- | ----------------------------------------------------- |
+| Chromatic   | Push to `main` — publishes Storybook for visual diff  |
 | Test & Lint | Every PR — runs Jest + ESLint, auto-merges on success |
 
 ---

@@ -1,7 +1,13 @@
 import { screen, fireEvent } from "@testing-library/react";
 import { renderWithIntl } from "../../test-utils/renderWithIntl";
 import StoreCard from "../complete/StoreCard";
-import { mockLooks, mockCategories, mockOptions, mockSelectionFull, mockSelectionPartial } from "../model";
+import {
+  mockLooks,
+  mockCategories,
+  mockOptions,
+  mockSelectionFull,
+  mockSelectionPartial,
+} from "../model";
 
 const orderUrl = "https://example.com/en/configure/natural-glow/complete?base=base-light";
 

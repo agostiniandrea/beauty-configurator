@@ -18,13 +18,9 @@ function params(values: Record<string, string>) {
 
 describe("summary page metadata", () => {
   it("includes a localized description and canonical URL (en)", async () => {
-    const meta = await summaryMetadata(
-      params({ locale: "en", modelId: "natural-glow" }),
-    );
+    const meta = await summaryMetadata(params({ locale: "en", modelId: "natural-glow" }));
     expect(meta.title).toContain("Natural Glow");
-    expect(meta.description).toBe(
-      "A fresh, everyday look that enhances your natural features",
-    );
+    expect(meta.description).toBe("A fresh, everyday look that enhances your natural features");
     expect(meta.alternates?.canonical).toBe("/en/configure/natural-glow/summary");
     expect(meta.alternates?.languages).toMatchObject({
       en: "/en/configure/natural-glow/summary",
@@ -33,19 +29,13 @@ describe("summary page metadata", () => {
   });
 
   it("localizes the description in Italian", async () => {
-    const meta = await summaryMetadata(
-      params({ locale: "it", modelId: "natural-glow" }),
-    );
-    expect(meta.description).toBe(
-      "Un look fresco e quotidiano che esalta i tuoi tratti naturali",
-    );
+    const meta = await summaryMetadata(params({ locale: "it", modelId: "natural-glow" }));
+    expect(meta.description).toBe("Un look fresco e quotidiano che esalta i tuoi tratti naturali");
     expect(meta.alternates?.canonical).toBe("/it/configure/natural-glow/summary");
   });
 
   it("returns empty metadata for an unknown look", async () => {
-    const meta = await summaryMetadata(
-      params({ locale: "en", modelId: "does-not-exist" }),
-    );
+    const meta = await summaryMetadata(params({ locale: "en", modelId: "does-not-exist" }));
     expect(meta).toEqual({});
   });
 });

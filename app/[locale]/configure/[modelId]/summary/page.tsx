@@ -72,9 +72,7 @@ export default async function SummaryPage({ params, searchParams }: Props) {
   const t = await getTranslations("summary");
   const tNav = await getTranslations("nav");
 
-  const selectionParams = new URLSearchParams(
-    Object.entries(selection)
-  ).toString();
+  const selectionParams = new URLSearchParams(Object.entries(selection)).toString();
 
   return (
     <div className="min-h-screen bg-[var(--color-background)]">

@@ -29,7 +29,11 @@ const Glyph = styled.span<{ $size: PlaceholderSize }>`
   color: color-mix(in srgb, var(--color-brand-rose) 45%, transparent);
   line-height: var(--line-height-tight);
   font-size: ${({ $size }) =>
-    $size === "lg" ? "var(--font-size-hero)" : $size === "md" ? "var(--font-size-3xl)" : "var(--font-size-note)"};
+    $size === "lg"
+      ? "var(--font-size-hero)"
+      : $size === "md"
+        ? "var(--font-size-3xl)"
+        : "var(--font-size-note)"};
 `;
 
 const PlaceholderLabel = styled.p<{ $size: PlaceholderSize }>`

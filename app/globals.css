@@ -7,96 +7,96 @@
 
 :root {
   /* Backgrounds */
-  --color-background:    #FAF7F4;
-  --color-surface:       #FFFCF9;
-  --color-surface-alt:   #F3EDE8;
+  --color-background: #faf7f4;
+  --color-surface: #fffcf9;
+  --color-surface-alt: #f3ede8;
 
   /* Borders */
-  --color-border:        #EDE6DF;
-  --color-border-strong: #D9CFC8;
+  --color-border: #ede6df;
+  --color-border-strong: #d9cfc8;
 
   /* Text */
-  --color-text-primary:   #2D1F1A;
-  --color-text-secondary: #5C4A44;
-  --color-text-muted:     #7A5F58;  /* 5.4:1 on surface — was #9A857C (3.4:1) */
-  --color-text-inverse:   #FFFCF9;
+  --color-text-primary: #2d1f1a;
+  --color-text-secondary: #5c4a44;
+  --color-text-muted: #7a5f58; /* 5.4:1 on surface — was #9A857C (3.4:1) */
+  --color-text-inverse: #fffcf9;
 
   /* Brand palette */
-  --color-brand-rose:       #9B5F54;  /* 4.8:1 on surface — was #C4857A (2.9:1) */
-  --color-brand-rose-light: #E8C4BD;
-  --color-brand-mauve:      #9B6B6B;
-  --color-brand-terracotta: #7D4E3F;
-  --color-brand-gold:       #C9A96E;
+  --color-brand-rose: #9b5f54; /* 4.8:1 on surface — was #C4857A (2.9:1) */
+  --color-brand-rose-light: #e8c4bd;
+  --color-brand-mauve: #9b6b6b;
+  --color-brand-terracotta: #7d4e3f;
+  --color-brand-gold: #c9a96e;
 
   /* Interactive / action */
-  --color-action-bg:       #2D1F1A;
-  --color-action-bg-hover: #4A302A;
-  --color-action-text:     #FFFCF9;
-  --color-focus-ring:      #9B6B6B;  /* 4.3:1 on surface — was #C4857A (2.9:1) */
+  --color-action-bg: #2d1f1a;
+  --color-action-bg-hover: #4a302a;
+  --color-action-text: #fffcf9;
+  --color-focus-ring: #9b6b6b; /* 4.3:1 on surface — was #C4857A (2.9:1) */
 
   /* ─── Typography scale ──────────────────────────────────────────────────── */
-  --font-size-2xs:     9px;   /* micro labels, QR captions */
-  --font-size-xs:      10px;  /* pill tag chips */
-  --font-size-sm:      11px;  /* uppercase labels, category chips */
-  --font-size-caption: 12px;  /* option descriptions, badge text */
-  --font-size-note:    13px;  /* taglines, subtitles, price tags */
-  --font-size-base:    14px;  /* standard body text */
-  --font-size-md:      16px;  /* medium body */
-  --font-size-lg:      18px;  /* option names, subheadings */
-  --font-size-xl:      20px;  /* panel titles, site name */
-  --font-size-2xl:     24px;  /* section titles, card headings */
-  --font-size-3xl:     28px;  /* large display element */
-  --font-size-4xl:     30px;  /* page headings */
-  --font-size-hero:    44px;  /* hero glyphs */
+  --font-size-2xs: 9px; /* micro labels, QR captions */
+  --font-size-xs: 10px; /* pill tag chips */
+  --font-size-sm: 11px; /* uppercase labels, category chips */
+  --font-size-caption: 12px; /* option descriptions, badge text */
+  --font-size-note: 13px; /* taglines, subtitles, price tags */
+  --font-size-base: 14px; /* standard body text */
+  --font-size-md: 16px; /* medium body */
+  --font-size-lg: 18px; /* option names, subheadings */
+  --font-size-xl: 20px; /* panel titles, site name */
+  --font-size-2xl: 24px; /* section titles, card headings */
+  --font-size-3xl: 28px; /* large display element */
+  --font-size-4xl: 30px; /* page headings */
+  --font-size-hero: 44px; /* hero glyphs */
 
-  --font-weight-light:    300;
-  --font-weight-normal:   400;
-  --font-weight-medium:   500;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
   --font-weight-semibold: 600;
 
-  --line-height-tight:   1;
-  --line-height-snug:    1.2;
-  --line-height-normal:  1.5;
+  --line-height-tight: 1;
+  --line-height-snug: 1.2;
+  --line-height-normal: 1.5;
   --line-height-relaxed: 1.6;
 
   --letter-spacing-tight: 0.02em;
-  --letter-spacing-sm:    0.06em;
-  --letter-spacing-md:    0.08em;
-  --letter-spacing-lg:    0.10em;
-  --letter-spacing-xl:    0.12em;
-  --letter-spacing-2xl:   0.15em;
-  --letter-spacing-3xl:   0.20em;
+  --letter-spacing-sm: 0.06em;
+  --letter-spacing-md: 0.08em;
+  --letter-spacing-lg: 0.1em;
+  --letter-spacing-xl: 0.12em;
+  --letter-spacing-2xl: 0.15em;
+  --letter-spacing-3xl: 0.2em;
 
   /* ─── Spacing scale (4px base) ──────────────────────────────────────────── */
   --space-0-5: 2px;
-  --space-1:   4px;
+  --space-1: 4px;
   --space-1-5: 6px;
-  --space-2:   8px;
-  --space-3:   12px;
-  --space-4:   16px;
-  --space-5:   20px;
-  --space-6:   24px;
-  --space-7:   28px;
-  --space-8:   32px;
-  --space-10:  40px;
-  --space-12:  48px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
 
   /* ─── Border radii ──────────────────────────────────────────────────────── */
-  --radius-sm:   4px;
-  --radius-md:   12px;
-  --radius-lg:   16px;
-  --radius-xl:   24px;
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 99px;
 
   /* ─── Shadows ────────────────────────────────────────────────────────────── */
-  --shadow-card:  0 8px 24px color-mix(in srgb, var(--color-brand-rose) 8%, transparent);
+  --shadow-card: 0 8px 24px color-mix(in srgb, var(--color-brand-rose) 8%, transparent);
   --shadow-focus: 0 0 0 3px color-mix(in srgb, var(--color-brand-rose) 15%, transparent);
   --shadow-hover: 0 1px 4px color-mix(in srgb, var(--color-brand-rose) 8%, transparent);
 
   /* ─── Transitions ────────────────────────────────────────────────────────── */
-  --transition-fast:  0.15s;
-  --transition-base:  0.2s;
-  --transition-slow:  0.3s;
+  --transition-fast: 0.15s;
+  --transition-base: 0.2s;
+  --transition-slow: 0.3s;
   --transition-image: 0.5s;
 }
 
@@ -105,70 +105,72 @@
 @theme {
   /* Fonts (variables injected by next/font/google on <html>) */
   --font-heading: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  --font-body:    var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+  --font-body: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
 
   /* Colors — expose design tokens as Tailwind utilities */
-  --color-background:    var(--color-background);
-  --color-surface:       var(--color-surface);
-  --color-surface-alt:   var(--color-surface-alt);
-  --color-border:        var(--color-border);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-border: var(--color-border);
   --color-border-strong: var(--color-border-strong);
 
-  --color-text-primary:   var(--color-text-primary);
+  --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
-  --color-text-muted:     var(--color-text-muted);
-  --color-text-inverse:   var(--color-text-inverse);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-inverse: var(--color-text-inverse);
 
-  --color-brand-rose:       var(--color-brand-rose);
+  --color-brand-rose: var(--color-brand-rose);
   --color-brand-rose-light: var(--color-brand-rose-light);
-  --color-brand-mauve:      var(--color-brand-mauve);
+  --color-brand-mauve: var(--color-brand-mauve);
   --color-brand-terracotta: var(--color-brand-terracotta);
-  --color-brand-gold:       var(--color-brand-gold);
+  --color-brand-gold: var(--color-brand-gold);
 
-  --color-action-bg:       var(--color-action-bg);
+  --color-action-bg: var(--color-action-bg);
   --color-action-bg-hover: var(--color-action-bg-hover);
-  --color-action-text:     var(--color-action-text);
+  --color-action-text: var(--color-action-text);
 }
 
 /* ─── Dark mode ──────────────────────────────────────────────────────────── */
 
 html.dark {
-  --color-background:    #1C1410;
-  --color-surface:       #241916;
-  --color-surface-alt:   #2E211C;
-  --color-border:        #3D2E28;
-  --color-border-strong: #5C4A44;
-  --color-text-primary:   #FAF7F4;
-  --color-text-secondary: #D4C5BE;
-  --color-text-muted:     #9A857C;  /* 4.7:1 on dark surface — passes */
-  --color-text-inverse:   #1C1410;
-  --color-brand-rose:     #D4958A;  /* 7:1 on dark surface — lighter for dark bg */
-  --color-action-bg:       #C4857A;
-  --color-action-bg-hover: #D4958A;
-  --color-action-text:     #1C1410;
+  --color-background: #1c1410;
+  --color-surface: #241916;
+  --color-surface-alt: #2e211c;
+  --color-border: #3d2e28;
+  --color-border-strong: #5c4a44;
+  --color-text-primary: #faf7f4;
+  --color-text-secondary: #d4c5be;
+  --color-text-muted: #9a857c; /* 4.7:1 on dark surface — passes */
+  --color-text-inverse: #1c1410;
+  --color-brand-rose: #d4958a; /* 7:1 on dark surface — lighter for dark bg */
+  --color-action-bg: #c4857a;
+  --color-action-bg-hover: #d4958a;
+  --color-action-text: #1c1410;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
-    --color-background:    #1C1410;
-    --color-surface:       #241916;
-    --color-surface-alt:   #2E211C;
-    --color-border:        #3D2E28;
-    --color-border-strong: #5C4A44;
-    --color-text-primary:   #FAF7F4;
-    --color-text-secondary: #D4C5BE;
-    --color-text-muted:     #9A857C;
-    --color-text-inverse:   #1C1410;
-    --color-brand-rose:     #D4958A;
-    --color-action-bg:       #C4857A;
-    --color-action-bg-hover: #D4958A;
-    --color-action-text:     #1C1410;
+    --color-background: #1c1410;
+    --color-surface: #241916;
+    --color-surface-alt: #2e211c;
+    --color-border: #3d2e28;
+    --color-border-strong: #5c4a44;
+    --color-text-primary: #faf7f4;
+    --color-text-secondary: #d4c5be;
+    --color-text-muted: #9a857c;
+    --color-text-inverse: #1c1410;
+    --color-brand-rose: #d4958a;
+    --color-action-bg: #c4857a;
+    --color-action-bg-hover: #d4958a;
+    --color-action-text: #1c1410;
   }
 }
 
 /* ─── Base styles ────────────────────────────────────────────────────────── */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -186,7 +188,12 @@ body {
   min-height: 100dvh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   line-height: 1.15;
   font-weight: 400;
@@ -202,7 +209,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
@@ -211,21 +220,42 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Step transition animations ────────────────────────────────────────── */
 
 @keyframes step-enter-forward {
-  from { opacity: 0; transform: translateX(20px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes step-enter-backward {
-  from { opacity: 0; transform: translateX(-20px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.step-enter-forward  { animation: step-enter-forward  0.28s cubic-bezier(0.4, 0, 0.2, 1) both; }
-.step-enter-backward { animation: step-enter-backward 0.28s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.step-enter-forward {
+  animation: step-enter-forward 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.step-enter-backward {
+  animation: step-enter-backward 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
 
 /* ─── Print styles (for store card) ─────────────────────────────────────── */
 
 @media print {
-  .no-print { display: none !important; }
-  body { background: white; color: black; }
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
 }

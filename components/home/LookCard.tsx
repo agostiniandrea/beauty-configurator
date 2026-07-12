@@ -17,7 +17,9 @@ const Card = styled.article`
   overflow: hidden;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  transition: border-color var(--transition-slow), box-shadow var(--transition-slow);
+  transition:
+    border-color var(--transition-slow),
+    box-shadow var(--transition-slow);
 
   &:hover {
     border-color: var(--color-border-strong);
@@ -97,8 +99,13 @@ const CtaLink = styled(Link)`
   text-decoration: none;
   transition: background var(--transition-base);
 
-  &:hover { background: var(--color-action-bg-hover); }
-  &:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 3px; }
+  &:hover {
+    background: var(--color-action-bg-hover);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 3px;
+  }
 `;
 
 type Props = { look: Look; startingPrice?: number };
@@ -122,7 +129,9 @@ export default function LookCard({ look, startingPrice }: Props) {
           <ImagePlaceholder label={look.name[locale]} size="lg" />
         )}
         <TagsOverlay>
-          {look.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+          {look.tags.map((tag) => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
         </TagsOverlay>
       </ImageWrap>
 

@@ -52,28 +52,18 @@ async function configureAndReview(page: Page, s: LocaleStrings) {
 
   // Step 1 (Base): default preselected, switch to a non-default option.
   await expect(page.getByRole("heading", { name: s.categories[0] })).toBeVisible();
-  await expect(await optionButton(page, s.defaultBase)).toHaveAttribute(
-    "aria-pressed",
-    "true"
-  );
+  await expect(await optionButton(page, s.defaultBase)).toHaveAttribute("aria-pressed", "true");
   await (await optionButton(page, s.changedBase)).click();
-  await expect(await optionButton(page, s.changedBase)).toHaveAttribute(
-    "aria-pressed",
-    "true"
-  );
+  await expect(await optionButton(page, s.changedBase)).toHaveAttribute("aria-pressed", "true");
 
   // Walk through the remaining categories.
   for (let step = 1; step < s.categories.length; step++) {
     await page.getByRole("button", { name: s.next, exact: true }).click();
-    await expect(
-      page.getByRole("heading", { name: s.categories[step] })
-    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: s.categories[step] })).toBeVisible();
   }
 
   await page.getByRole("button", { name: s.reviewOrder }).click();
-  await expect(
-    page.getByRole("heading", { name: s.summaryTitle })
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: s.summaryTitle })).toBeVisible();
 }
 
 for (const s of locales) {
@@ -82,9 +72,7 @@ for (const s of locales) {
       await page.goto(`/${s.locale}`);
       await page.getByRole("link", { name: s.ctaNaturalGlow }).click();
       await expect(page).toHaveURL(`/${s.locale}/configure/natural-glow`);
-      await expect(
-        page.getByRole("heading", { name: s.categories[0] })
-      ).toBeVisible();
+      await expect(page.getByRole("heading", { name: s.categories[0] })).toBeVisible();
     });
 
     test("full funnel: configure, summary, complete", async ({ page }) => {
@@ -95,9 +83,7 @@ for (const s of locales) {
       await expect(page.getByText(s.changedBase)).toBeVisible();
 
       await page.getByRole("link", { name: s.confirm }).click();
-      await expect(
-        page.getByRole("heading", { name: s.completeTitle })
-      ).toBeVisible();
+      await expect(page.getByRole("heading", { name: s.completeTitle })).toBeVisible();
       await expect(page).toHaveURL(/base=base-medium/);
       await expect(page.getByText(s.changedBase)).toBeVisible();
       // showPricing flag: base-medium 65 + eyes-nude 25 + lips-nude 15 + cheeks-natural 15
@@ -112,21 +98,14 @@ for (const s of locales) {
 
       // Jump back to the first category and check the changed option is active.
       await page.getByRole("button", { name: s.categories[0], exact: true }).click();
-      await expect(await optionButton(page, s.changedBase)).toHaveAttribute(
-        "aria-pressed",
-        "true"
-      );
+      await expect(await optionButton(page, s.changedBase)).toHaveAttribute("aria-pressed", "true");
     });
 
-    test("summary restores a configuration from the query string", async ({
-      page,
-    }) => {
+    test("summary restores a configuration from the query string", async ({ page }) => {
       await page.goto(
-        `/${s.locale}/configure/natural-glow/summary?base=base-full&eyes=eyes-smoky&lips=lips-red&cheeks=cheeks-bronze`
+        `/${s.locale}/configure/natural-glow/summary?base=base-full&eyes=eyes-smoky&lips=lips-red&cheeks=cheeks-bronze`,
       );
-      await expect(
-        page.getByRole("heading", { name: s.summaryTitle })
-      ).toBeVisible();
+      await expect(page.getByRole("heading", { name: s.summaryTitle })).toBeVisible();
       for (const name of s.restoredNames) {
         await expect(page.getByText(name).first()).toBeVisible();
       }
@@ -134,23 +113,17 @@ for (const s of locales) {
       await expect(page.getByText("€170")).toBeVisible();
     });
 
-    test("complete page restores a configuration from the query string", async ({
-      page,
-    }) => {
+    test("complete page restores a configuration from the query string", async ({ page }) => {
       await page.goto(
-        `/${s.locale}/configure/natural-glow/complete?base=base-full&eyes=eyes-smoky&lips=lips-red&cheeks=cheeks-bronze`
+        `/${s.locale}/configure/natural-glow/complete?base=base-full&eyes=eyes-smoky&lips=lips-red&cheeks=cheeks-bronze`,
       );
-      await expect(
-        page.getByRole("heading", { name: s.completeTitle })
-      ).toBeVisible();
+      await expect(page.getByRole("heading", { name: s.completeTitle })).toBeVisible();
       await expect(page.getByText("€170")).toBeVisible();
     });
   });
 }
 
-test("pricing feature flag shows starting prices on the homepage", async ({
-  page,
-}) => {
+test("pricing feature flag shows starting prices on the homepage", async ({ page }) => {
   await page.goto("/en");
   // natural-glow defaults: 50 + 25 + 15 + 15
   await expect(page.getByText("from €105")).toBeVisible();

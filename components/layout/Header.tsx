@@ -40,7 +40,9 @@ const BackLink = styled(Link)`
   flex-shrink: 0;
   transition: color var(--transition-base);
 
-  &:hover { color: var(--color-text-primary); }
+  &:hover {
+    color: var(--color-text-primary);
+  }
 `;
 
 const SiteName = styled(Link)`
@@ -52,7 +54,9 @@ const SiteName = styled(Link)`
   text-decoration: none;
   transition: color var(--transition-base);
 
-  &:hover { color: var(--color-brand-rose); }
+  &:hover {
+    color: var(--color-brand-rose);
+  }
 `;
 
 const Controls = styled.nav`
@@ -71,7 +75,9 @@ const LocaleLink = styled(Link)`
   text-decoration: none;
   transition: color var(--transition-base);
 
-  &:hover { color: var(--color-text-primary); }
+  &:hover {
+    color: var(--color-text-primary);
+  }
 `;
 
 type Props = {

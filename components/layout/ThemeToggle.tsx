@@ -32,7 +32,9 @@ const ToggleButton = styled.button`
   background: transparent;
   color: var(--color-text-muted);
   cursor: pointer;
-  transition: color var(--transition-base), background var(--transition-base);
+  transition:
+    color var(--transition-base),
+    background var(--transition-base);
   font-size: var(--font-size-md);
 
   &:hover {
@@ -43,7 +45,11 @@ const ToggleButton = styled.button`
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
-  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
+  const mounted = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
 
   function toggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";

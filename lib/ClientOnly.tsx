@@ -7,7 +7,11 @@ function subscribe() {
 }
 
 export default function ClientOnly({ children }: { children: ReactNode }) {
-  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
+  const mounted = useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
   if (!mounted) return null;
   return <>{children}</>;
 }

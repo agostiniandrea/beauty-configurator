@@ -57,9 +57,7 @@ describe("OptionGrid", () => {
   });
 
   it("renders empty state message when no options", () => {
-    renderWithIntl(
-      <OptionGrid options={[]} selectedOptionId={undefined} onSelect={noop} />,
-    );
+    renderWithIntl(<OptionGrid options={[]} selectedOptionId={undefined} onSelect={noop} />);
     // useTranslations mock returns the key
     expect(screen.getByText("noOptions")).toBeInTheDocument();
   });
@@ -87,9 +85,7 @@ describe("OptionGrid", () => {
     const options = mockOptions;
 
     function renderGrid() {
-      renderWithIntl(
-        <OptionGrid options={options} selectedOptionId={undefined} onSelect={noop} />,
-      );
+      renderWithIntl(<OptionGrid options={options} selectedOptionId={undefined} onSelect={noop} />);
       return screen.getAllByRole("button");
     }
 

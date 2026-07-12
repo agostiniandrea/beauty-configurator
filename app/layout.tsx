@@ -29,9 +29,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       className={`${cormorant.variable} ${dmSans.variable}`}
     >
       <body suppressHydrationWarning>
-        <StyledComponentsRegistry>
-          {children}
-        </StyledComponentsRegistry>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         {/* Only on Vercel deployments — locally the insights script 404s and
             drags the Lighthouse best-practices score down. */}
         {process.env.VERCEL === "1" && <Analytics />}

@@ -17,8 +17,12 @@ const Grid = styled.ul`
   margin: 0;
   padding: 0;
 
-  ${mq.md} { grid-template-columns: repeat(2, 1fr); }
-  ${mq.xl} { grid-template-columns: repeat(3, 1fr); }
+  ${mq.md} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  ${mq.xl} {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const Item = styled.li`
@@ -32,11 +36,15 @@ const OptionButton = styled.button<{ $selected: boolean }>`
   flex-direction: column;
   text-align: left;
   border-radius: var(--radius-xl);
-  border: 2px solid ${({ $selected }) => $selected ? "var(--color-brand-rose)" : "var(--color-border)"};
+  border: 2px solid
+    ${({ $selected }) => ($selected ? "var(--color-brand-rose)" : "var(--color-border)")};
   padding: var(--space-5);
-  background: ${({ $selected }) => $selected ? "color-mix(in srgb, var(--color-brand-rose) 5%, var(--color-surface))" : "var(--color-surface)"};
-  box-shadow: ${({ $selected }) => $selected ? "var(--shadow-focus)" : "none"};
-  transition: border-color var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+  background: ${({ $selected }) => ($selected ? "color-mix(in srgb, var(--color-brand-rose) 5%, var(--color-surface))" : "var(--color-surface)")};
+  box-shadow: ${({ $selected }) => ($selected ? "var(--shadow-focus)" : "none")};
+  transition:
+    border-color var(--transition-base),
+    background var(--transition-base),
+    box-shadow var(--transition-base);
   cursor: pointer;
 
   ${({ $selected }) =>
@@ -63,7 +71,7 @@ const OptionName = styled.p<{ $selected: boolean }>`
   line-height: var(--line-height-snug);
   margin-bottom: var(--space-1);
   transition: color var(--transition-base);
-  color: ${({ $selected }) => $selected ? "var(--color-brand-rose)" : "var(--color-text-primary)"};
+  color: ${({ $selected }) => ($selected ? "var(--color-brand-rose)" : "var(--color-text-primary)")};
 `;
 
 const OptionDescription = styled.p`
@@ -99,10 +107,14 @@ export default function OptionGrid({ options, selectedOptionId, onSelect }: Prop
   function handleKeyDown(e: KeyboardEvent<HTMLButtonElement>, index: number) {
     let next = -1;
     if (e.key === "ArrowDown" || e.key === "ArrowRight") next = (index + 1) % options.length;
-    else if (e.key === "ArrowUp" || e.key === "ArrowLeft") next = (index - 1 + options.length) % options.length;
+    else if (e.key === "ArrowUp" || e.key === "ArrowLeft")
+      next = (index - 1 + options.length) % options.length;
     else if (e.key === "Home") next = 0;
     else if (e.key === "End") next = options.length - 1;
-    if (next !== -1) { e.preventDefault(); buttonRefs.current[next]?.focus(); }
+    if (next !== -1) {
+      e.preventDefault();
+      buttonRefs.current[next]?.focus();
+    }
   }
 
   if (options.length === 0) {
@@ -116,7 +128,9 @@ export default function OptionGrid({ options, selectedOptionId, onSelect }: Prop
         return (
           <Item key={opt.id}>
             <OptionButton
-              ref={(el) => { buttonRefs.current[index] = el; }}
+              ref={(el) => {
+                buttonRefs.current[index] = el;
+              }}
               onClick={() => onSelect(opt.id)}
               onKeyDown={(e) => handleKeyDown(e, index)}
               aria-pressed={isSelected}

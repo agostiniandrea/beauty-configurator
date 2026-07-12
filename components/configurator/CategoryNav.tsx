@@ -28,7 +28,9 @@ const NavButton = styled.button<{
   border-radius: var(--radius-lg);
   font-size: var(--font-size-base);
   border: none;
-  transition: background var(--transition-fast), color var(--transition-fast);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
   cursor: ${({ $isAccessible }) => ($isAccessible ? "pointer" : "not-allowed")};
   opacity: ${({ $isAccessible }) => ($isAccessible ? 1 : 0.5)};
 
@@ -45,7 +47,9 @@ const NavButton = styled.button<{
     css`
       background: transparent;
       color: var(--color-text-secondary);
-      &:hover { background: var(--color-surface-alt); }
+      &:hover {
+        background: var(--color-surface-alt);
+      }
     `}
 
   ${({ $isActive, $isAccessible }) =>

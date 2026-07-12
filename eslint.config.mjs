@@ -41,11 +41,7 @@ const config = [
     },
   },
   {
-    files: [
-      "components/**/__tests__/**",
-      "jest.setup.tsx",
-      "test-utils/**",
-    ],
+    files: ["components/**/__tests__/**", "jest.setup.tsx", "test-utils/**"],
     ...jestPlugin.configs["flat/recommended"],
   },
   // Must be last: turns off stylistic rules that would fight Prettier.

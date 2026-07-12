@@ -51,7 +51,9 @@ const FieldGrid = styled.div`
   grid-template-columns: 1fr;
   gap: var(--space-5);
 
-  ${mq.sm} { grid-template-columns: repeat(2, 1fr); }
+  ${mq.sm} {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const Field = styled.div``;
@@ -84,7 +86,9 @@ const inputStyles = `
   }
 `;
 
-const Input = styled.input`${inputStyles}`;
+const Input = styled.input`
+  ${inputStyles}
+`;
 
 const Textarea = styled.textarea`
   ${inputStyles}
@@ -105,7 +109,9 @@ const SubmitButton = styled.button`
   border: none;
   cursor: pointer;
   transition: background var(--transition-base);
-  &:hover { background: var(--color-action-bg-hover); }
+  &:hover {
+    background: var(--color-action-bg-hover);
+  }
 `;
 
 const SuccessCard = styled.div`
@@ -176,7 +182,7 @@ export default function BookingForm({ look, categories, allOptions, selection, l
         date: (formData.get("date") as string) || "—",
         phone: (formData.get("phone") as string) || "—",
         message: (formData.get("message") as string) || "—",
-      })
+      }),
     );
     window.open(`mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`);
     setSubmitted(true);
@@ -205,7 +211,10 @@ export default function BookingForm({ look, categories, allOptions, selection, l
         <FieldGrid>
           <Field>
             <Label htmlFor="booking-name">
-              {t("name")} <abbr title={t("required")} aria-label={t("required")}>*</abbr>
+              {t("name")}{" "}
+              <abbr title={t("required")} aria-label={t("required")}>
+                *
+              </abbr>
             </Label>
             <Input
               id="booking-name"
@@ -218,7 +227,10 @@ export default function BookingForm({ look, categories, allOptions, selection, l
           </Field>
           <Field>
             <Label htmlFor="booking-email">
-              {t("email")} <abbr title={t("required")} aria-label={t("required")}>*</abbr>
+              {t("email")}{" "}
+              <abbr title={t("required")} aria-label={t("required")}>
+                *
+              </abbr>
             </Label>
             <Input
               id="booking-email"
@@ -231,12 +243,7 @@ export default function BookingForm({ look, categories, allOptions, selection, l
           </Field>
           <Field>
             <Label htmlFor="booking-phone">{t("phone")}</Label>
-            <Input
-              id="booking-phone"
-              name="phone"
-              type="tel"
-              placeholder={t("phonePlaceholder")}
-            />
+            <Input id="booking-phone" name="phone" type="tel" placeholder={t("phonePlaceholder")} />
           </Field>
           <Field>
             <Label htmlFor="booking-date">{t("date")}</Label>

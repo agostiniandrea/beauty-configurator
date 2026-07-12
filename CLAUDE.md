@@ -16,31 +16,32 @@ npm run test:a11y   # Lighthouse accessibility audit — all pages must score 10
 
 ## Architecture
 
-| Concern | Approach |
-|---|---|
-| Routing | `app/[locale]/` — all pages under locale segment |
-| i18n | next-intl; messages in `messages/en.json` + `messages/it.json` |
-| Styling | styled-components for component styles; Tailwind for layout utilities in pages |
-| Design tokens | All values (`--color-*`, `--font-*`, `--space-*`, etc.) defined in `app/globals.css` |
-| Breakpoints | `lib/breakpoints.ts` exports `mq` for use in styled-components template literals |
-| Hydration | All page body content rendered inside `lib/ClientOnly.tsx` to prevent browser-extension-induced hydration mismatches |
+| Concern       | Approach                                                                                                             |
+| ------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Routing       | `app/[locale]/` — all pages under locale segment                                                                     |
+| i18n          | next-intl; messages in `messages/en.json` + `messages/it.json`                                                       |
+| Styling       | styled-components for component styles; Tailwind for layout utilities in pages                                       |
+| Design tokens | All values (`--color-*`, `--font-*`, `--space-*`, etc.) defined in `app/globals.css`                                 |
+| Breakpoints   | `lib/breakpoints.ts` exports `mq` for use in styled-components template literals                                     |
+| Hydration     | All page body content rendered inside `lib/ClientOnly.tsx` to prevent browser-extension-induced hydration mismatches |
 
 ## Feature flags
 
 Controlled via `site.config.ts`:
 
-| Flag | Effect |
-|---|---|
-| `showPricing` | Shows per-option prices, running total, and "from €X" on LookCard |
-| `enablePrint` | Print button on complete page |
-| `enableEmailOrder` | Email button on complete page |
-| `enableShare` | Copy-link button on complete page |
+| Flag               | Effect                                                            |
+| ------------------ | ----------------------------------------------------------------- |
+| `showPricing`      | Shows per-option prices, running total, and "from €X" on LookCard |
+| `enablePrint`      | Print button on complete page                                     |
+| `enableEmailOrder` | Email button on complete page                                     |
+| `enableShare`      | Copy-link button on complete page                                 |
 
 ## Accessibility standard
 
 Target: **WCAG 2.2 Level AA**, Lighthouse accessibility score 100 on all pages.
 
 Key decisions:
+
 - `<html lang>` set dynamically via `getLocale()` in root layout
 - Skip link is first focusable element in Header (targets `#main-content`)
 - Every page has `<main id="main-content">`
