@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "styled-components";
+import { useTranslations } from "next-intl";
 import type { Look, Category, Option, Selection } from "@/lib/types";
 import type { Locale } from "@/site.config";
 import siteConfig from "@/site.config";
@@ -26,7 +27,9 @@ const ReviewItem = styled.li`
   padding: var(--space-4) var(--space-5);
   border-bottom: 1px solid var(--color-border);
 
-  &:last-child { border-bottom: none; }
+  &:last-child {
+    border-bottom: none;
+  }
 
   ${mq.md} {
     flex-direction: row;
@@ -117,6 +120,7 @@ type Props = {
 };
 
 export default function SummaryReview({ categories, allOptions, selection, locale }: Props) {
+  const t = useTranslations("configurator");
   const total = allOptions.reduce((sum, opt) => {
     if (Object.values(selection).includes(opt.id)) return sum + opt.price;
     return sum;
@@ -152,8 +156,8 @@ export default function SummaryReview({ categories, allOptions, selection, local
 
       {siteConfig.features.showPricing && (
         <Footer>
-          <FooterLabel>Totale</FooterLabel>
-          <FooterTotal>{total === 0 ? "Incluso" : `€${total}`}</FooterTotal>
+          <FooterLabel>{t("totalLabel")}</FooterLabel>
+          <FooterTotal>{total === 0 ? t("included") : `€${total}`}</FooterTotal>
         </Footer>
       )}
     </ReviewCard>

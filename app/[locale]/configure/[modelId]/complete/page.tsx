@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { headers } from "next/headers";
+import { getPathname } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { getLook, getCategoriesForLook, getOptionsForCategory } from "@/lib/data";
 import Header from "@/components/layout/Header";
@@ -22,9 +23,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const loc = (locale === "it" ? "it" : "en") as "en" | "it";
   const title = `${look.name[loc]} — ${siteConfig.name}`;
   const description = look.description[loc];
+  const path = `/configure/${modelId}/complete`;
   return {
     title,
     description,
+    alternates: {
+      canonical: loc === "en" ? path : `/${loc}${path}`,
+      languages: {
+        en: path,
+        it: `/it${path}`,
+        "x-default": path,
+      },
+    },
     openGraph: {
       type: "website",
       siteName: siteConfig.seo.openGraph.siteName,
@@ -69,24 +79,25 @@ export default async function CompletePage({ params, searchParams }: Props) {
   const host = headersList.get("host") ?? "localhost:3000";
   const proto = host.startsWith("localhost") ? "http" : "https";
   const selectionParams = new URLSearchParams(Object.entries(selection)).toString();
-  const orderUrl = `${proto}://${host}/${locale}/configure/${modelId}/complete?${selectionParams}`;
+  const loc = locale as "en" | "it";
+  const completePath = getPathname({ locale: loc, href: `/configure/${modelId}/complete` });
+  const orderUrl = `${proto}://${host}${completePath}?${selectionParams}`;
 
-  const summaryUrl = `/${locale}/configure/${modelId}/summary?${selectionParams}`;
+  const summaryUrl = `/configure/${modelId}/summary?${selectionParams}`;
 
   return (
     <div className="min-h-screen bg-[var(--color-background)]">
       <ClientOnly>
         <div className="no-print">
-          <Header
-            backLink
-            backLabel={tNav("backToSummary")}
-            backHref={summaryUrl}
-          />
+          <Header backLink backLabel={tNav("backToSummary")} backHref={summaryUrl} />
         </div>
 
         <main id="main-content" className="max-w-3xl mx-auto px-6 py-14">
           <div className="mb-10 no-print">
-            <div className="w-12 h-12 rounded-2xl bg-[var(--color-brand-rose)]/15 flex items-center justify-center mb-5" aria-hidden="true">
+            <div
+              className="w-12 h-12 rounded-2xl bg-[var(--color-brand-rose)]/15 flex items-center justify-center mb-5"
+              aria-hidden="true"
+            >
               <span className="text-[var(--color-brand-rose)] text-2xl">✦</span>
             </div>
             <h1 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-light text-[var(--color-text-primary)]">

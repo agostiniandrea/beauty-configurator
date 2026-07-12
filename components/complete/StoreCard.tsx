@@ -15,7 +15,9 @@ const ActionBar = styled.div`
   gap: var(--space-3);
   margin-bottom: var(--space-8);
 
-  ${mq.sm} { flex-direction: row; }
+  ${mq.sm} {
+    flex-direction: row;
+  }
 `;
 
 const ActionButton = styled.button`
@@ -31,8 +33,13 @@ const ActionButton = styled.button`
   color: var(--color-text-secondary);
   background: transparent;
   cursor: pointer;
-  transition: border-color var(--transition-base), color var(--transition-base);
-  &:hover { border-color: var(--color-border-strong); color: var(--color-text-primary); }
+  transition:
+    border-color var(--transition-base),
+    color var(--transition-base);
+  &:hover {
+    border-color: var(--color-border-strong);
+    color: var(--color-text-primary);
+  }
 `;
 
 const CardArticle = styled.article`
@@ -118,7 +125,9 @@ const SelectionItem = styled.li`
   padding: var(--space-4) var(--space-5);
   border-bottom: 1px solid var(--color-border);
 
-  &:last-child { border-bottom: none; }
+  &:last-child {
+    border-bottom: none;
+  }
 
   ${mq.md} {
     flex-direction: row;
@@ -211,7 +220,14 @@ type Props = {
   orderUrl: string;
 };
 
-export default function StoreCard({ look, categories, allOptions, selection, locale, orderUrl }: Props) {
+export default function StoreCard({
+  look,
+  categories,
+  allOptions,
+  selection,
+  locale,
+  orderUrl,
+}: Props) {
   const t = useTranslations("complete");
   const [copied, setCopied] = useState(false);
 
@@ -233,12 +249,14 @@ export default function StoreCard({ look, categories, allOptions, selection, loc
     })
     .join("\n");
 
-  function handlePrint() { window.print(); }
+  function handlePrint() {
+    window.print();
+  }
 
   function handleEmail() {
     const subject = encodeURIComponent(t("emailSubject"));
     const body = encodeURIComponent(
-      t("emailBody", { selection: selectionText, total: total === 0 ? "Included" : `€${total}` })
+      t("emailBody", { selection: selectionText, total: total === 0 ? "Included" : `€${total}` }),
     );
     window.open(`mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`);
   }
@@ -279,10 +297,19 @@ export default function StoreCard({ look, categories, allOptions, selection, loc
                 {siteConfig.contact.studioName && ` — ${siteConfig.contact.studioName}`}
               </BrandLabel>
               <LookTitle>{look.name[locale]}</LookTitle>
-              <OrderDate>{t("orderDate")}: {orderDate}</OrderDate>
+              <OrderDate>
+                {t("orderDate")}: {orderDate}
+              </OrderDate>
             </div>
             <QrWrap>
-              <QRCodeSVG value={orderUrl} size={96} bgColor="white" fgColor="#2D1F1A" level="M" aria-label={t("qrLabel")} />
+              <QRCodeSVG
+                value={orderUrl}
+                size={96}
+                bgColor="white"
+                fgColor="#2D1F1A"
+                level="M"
+                aria-label={t("qrLabel")}
+              />
               <QrCaption aria-hidden="true">{t("qrCaption")}</QrCaption>
             </QrWrap>
           </HeaderRow>
@@ -307,8 +334,12 @@ export default function StoreCard({ look, categories, allOptions, selection, loc
           <FooterRow>
             <StudioNote>
               {t("studioNote")}
-              {siteConfig.contact.studioAddress && <StudioDetail>{siteConfig.contact.studioAddress}</StudioDetail>}
-              {siteConfig.contact.studioPhone && <StudioDetail>{siteConfig.contact.studioPhone}</StudioDetail>}
+              {siteConfig.contact.studioAddress && (
+                <StudioDetail>{siteConfig.contact.studioAddress}</StudioDetail>
+              )}
+              {siteConfig.contact.studioPhone && (
+                <StudioDetail>{siteConfig.contact.studioPhone}</StudioDetail>
+              )}
             </StudioNote>
             {siteConfig.features.showPricing && (
               <TotalBlock>

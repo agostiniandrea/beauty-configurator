@@ -5,7 +5,12 @@ import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import siteConfig from "@/site.config";
 
+// Absolute base for Open Graph, Twitter, and canonical URLs.
+// NEXT_PUBLIC_SITE_URL must be set in production (e.g. on Vercel).
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: siteConfig.seo.defaultTitle,
     template: siteConfig.seo.titleTemplate,
@@ -26,9 +31,5 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const messages = await getMessages();
 
-  return (
-    <NextIntlClientProvider messages={messages}>
-      {children}
-    </NextIntlClientProvider>
-  );
+  return <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>;
 }

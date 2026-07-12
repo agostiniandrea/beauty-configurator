@@ -1,0 +1,10 @@
+.next
+.yarn
+node_modules
+coverage
+storybook-static
+test-results
+playwright-report
+.lighthouseci
+yarn.lock
+public

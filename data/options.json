@@ -3,7 +3,10 @@
     "id": "base-light",
     "categoryId": "base",
     "name": { "en": "Light Coverage", "it": "Copertura Leggera" },
-    "description": { "en": "Lightweight, skin-like finish", "it": "Finish leggero, effetto seconda pelle" },
+    "description": {
+      "en": "Lightweight, skin-like finish",
+      "it": "Finish leggero, effetto seconda pelle"
+    },
     "price": 50,
     "imageUrl": "/images/opt-base-light.jpeg"
   },
@@ -11,7 +14,10 @@
     "id": "base-medium",
     "categoryId": "base",
     "name": { "en": "Medium Coverage", "it": "Copertura Media" },
-    "description": { "en": "Balanced coverage with a natural glow", "it": "Copertura equilibrata con glow naturale" },
+    "description": {
+      "en": "Balanced coverage with a natural glow",
+      "it": "Copertura equilibrata con glow naturale"
+    },
     "price": 65,
     "imageUrl": "/images/opt-base-medium.jpeg"
   },
@@ -19,7 +25,10 @@
     "id": "base-full",
     "categoryId": "base",
     "name": { "en": "Full Coverage", "it": "Copertura Totale" },
-    "description": { "en": "Flawless, long-lasting finish", "it": "Finish impeccabile e lunga durata" },
+    "description": {
+      "en": "Flawless, long-lasting finish",
+      "it": "Finish impeccabile e lunga durata"
+    },
     "price": 85,
     "imageUrl": "/images/opt-base-full.jpeg"
   },
@@ -27,7 +36,10 @@
     "id": "eyes-nude",
     "categoryId": "eyes",
     "name": { "en": "Nude Palette", "it": "Palette Nude" },
-    "description": { "en": "Warm neutrals for everyday wear", "it": "Neutri caldi per tutti i giorni" },
+    "description": {
+      "en": "Warm neutrals for everyday wear",
+      "it": "Neutri caldi per tutti i giorni"
+    },
     "price": 25,
     "imageUrl": "/images/opt-eyes-nude.jpeg"
   },
@@ -35,7 +47,10 @@
     "id": "eyes-smoky",
     "categoryId": "eyes",
     "name": { "en": "Smoky Eye", "it": "Smoky Eye" },
-    "description": { "en": "Dramatic dark tones for bold looks", "it": "Toni scuri drammatici per look audaci" },
+    "description": {
+      "en": "Dramatic dark tones for bold looks",
+      "it": "Toni scuri drammatici per look audaci"
+    },
     "price": 45,
     "imageUrl": "/images/opt-eyes-smoky.jpeg"
   },
@@ -43,7 +58,10 @@
     "id": "eyes-colorful",
     "categoryId": "eyes",
     "name": { "en": "Colorful", "it": "Colorato" },
-    "description": { "en": "Vibrant pigments for an expressive look", "it": "Pigmenti vivaci per un look espressivo" },
+    "description": {
+      "en": "Vibrant pigments for an expressive look",
+      "it": "Pigmenti vivaci per un look espressivo"
+    },
     "price": 40,
     "imageUrl": "/images/opt-eyes-colorful.jpeg"
   },
@@ -59,7 +77,10 @@
     "id": "lips-red",
     "categoryId": "lips",
     "name": { "en": "Classic Red", "it": "Rosso Classico" },
-    "description": { "en": "Timeless bold red lipstick", "it": "Rossetto rosso audace senza tempo" },
+    "description": {
+      "en": "Timeless bold red lipstick",
+      "it": "Rossetto rosso audace senza tempo"
+    },
     "price": 20,
     "imageUrl": "/images/opt-lips-red.jpeg"
   },
@@ -75,7 +96,10 @@
     "id": "cheeks-natural",
     "categoryId": "cheeks",
     "name": { "en": "Natural Flush", "it": "Rossore Naturale" },
-    "description": { "en": "Subtle, healthy-looking color", "it": "Colore sottile dall'aspetto sano" },
+    "description": {
+      "en": "Subtle, healthy-looking color",
+      "it": "Colore sottile dall'aspetto sano"
+    },
     "price": 15,
     "imageUrl": "/images/opt-cheeks-natural.jpeg"
   },
@@ -83,7 +107,10 @@
     "id": "cheeks-bronze",
     "categoryId": "cheeks",
     "name": { "en": "Sun-kissed Bronze", "it": "Bronzo Baciato dal Sole" },
-    "description": { "en": "Warm bronzer for a summer glow", "it": "Bronzer caldo per un glow estivo" },
+    "description": {
+      "en": "Warm bronzer for a summer glow",
+      "it": "Bronzer caldo per un glow estivo"
+    },
     "price": 20,
     "imageUrl": "/images/opt-cheeks-bronze.jpeg"
   },
@@ -91,7 +118,10 @@
     "id": "cheeks-berry",
     "categoryId": "cheeks",
     "name": { "en": "Berry Blush", "it": "Blush Berry" },
-    "description": { "en": "Deep berry tones for a bold cheek look", "it": "Toni berry profondi per guance audaci" },
+    "description": {
+      "en": "Deep berry tones for a bold cheek look",
+      "it": "Toni berry profondi per guance audaci"
+    },
     "price": 20,
     "imageUrl": "/images/opt-cheeks-berry.jpeg"
   }

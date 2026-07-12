@@ -40,3 +40,16 @@ package-lock.json
 
 # Lighthouse CI reports
 .lighthouseci/
+
+# testing
+/coverage/
+
+# Storybook build output
+/storybook-static/
+build-storybook.log
+*storybook.log
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/

@@ -172,7 +172,9 @@ export default function SummaryPanel({ categories, options, selection }: Props) 
     <Panel aria-label={t("summary")}>
       <PanelHeader>
         <PanelTitle>{t("summary")}</PanelTitle>
-        <PanelSubtitle>{completedCount}/{categories.length} {t("stepsCompleted")}</PanelSubtitle>
+        <PanelSubtitle>
+          {completedCount}/{categories.length} {t("stepsCompleted")}
+        </PanelSubtitle>
       </PanelHeader>
 
       <PreviewGrid>

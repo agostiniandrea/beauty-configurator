@@ -3,24 +3,52 @@
     "id": "base",
     "name": { "en": "Base", "it": "Base" },
     "order": 1,
-    "lookIds": ["natural-glow", "evening-drama", "soft-rose", "golden-hour", "urban-cool", "bridal-glow"]
+    "lookIds": [
+      "natural-glow",
+      "evening-drama",
+      "soft-rose",
+      "golden-hour",
+      "urban-cool",
+      "bridal-glow"
+    ]
   },
   {
     "id": "eyes",
     "name": { "en": "Eyes", "it": "Occhi" },
     "order": 2,
-    "lookIds": ["natural-glow", "evening-drama", "soft-rose", "golden-hour", "urban-cool", "bridal-glow"]
+    "lookIds": [
+      "natural-glow",
+      "evening-drama",
+      "soft-rose",
+      "golden-hour",
+      "urban-cool",
+      "bridal-glow"
+    ]
   },
   {
     "id": "lips",
     "name": { "en": "Lips", "it": "Labbra" },
     "order": 3,
-    "lookIds": ["natural-glow", "evening-drama", "soft-rose", "golden-hour", "urban-cool", "bridal-glow"]
+    "lookIds": [
+      "natural-glow",
+      "evening-drama",
+      "soft-rose",
+      "golden-hour",
+      "urban-cool",
+      "bridal-glow"
+    ]
   },
   {
     "id": "cheeks",
     "name": { "en": "Cheeks", "it": "Guance" },
     "order": 4,
-    "lookIds": ["natural-glow", "evening-drama", "soft-rose", "golden-hour", "urban-cool", "bridal-glow"]
+    "lookIds": [
+      "natural-glow",
+      "evening-drama",
+      "soft-rose",
+      "golden-hour",
+      "urban-cool",
+      "bridal-glow"
+    ]
   }
 ]

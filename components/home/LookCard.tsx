@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import styled from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
 import ImagePlaceholder from "../ui/ImagePlaceholder";
@@ -17,7 +17,9 @@ const Card = styled.article`
   overflow: hidden;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  transition: border-color var(--transition-slow), box-shadow var(--transition-slow);
+  transition:
+    border-color var(--transition-slow),
+    box-shadow var(--transition-slow);
 
   &:hover {
     border-color: var(--color-border-strong);
@@ -97,8 +99,13 @@ const CtaLink = styled(Link)`
   text-decoration: none;
   transition: background var(--transition-base);
 
-  &:hover { background: var(--color-action-bg-hover); }
-  &:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 3px; }
+  &:hover {
+    background: var(--color-action-bg-hover);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 3px;
+  }
 `;
 
 type Props = { look: Look; startingPrice?: number };
@@ -122,7 +129,9 @@ export default function LookCard({ look, startingPrice }: Props) {
           <ImagePlaceholder label={look.name[locale]} size="lg" />
         )}
         <TagsOverlay>
-          {look.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+          {look.tags.map((tag) => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
         </TagsOverlay>
       </ImageWrap>
 
@@ -132,10 +141,7 @@ export default function LookCard({ look, startingPrice }: Props) {
         {siteConfig.features.showPricing && startingPrice != null && startingPrice > 0 && (
           <PriceFrom>from €{startingPrice}</PriceFrom>
         )}
-        <CtaLink
-          href={`/${locale}/configure/${look.id}`}
-          aria-label={`${t("cta")} — ${look.name[locale]}`}
-        >
+        <CtaLink href={`/configure/${look.id}`} aria-label={`${t("cta")} — ${look.name[locale]}`}>
           {t("cta")}
           <span aria-hidden="true">→</span>
         </CtaLink>

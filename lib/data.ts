@@ -16,9 +16,7 @@ export function getLook(id: string): Look | undefined {
 }
 
 export function getCategoriesForLook(lookId: string): Category[] {
-  return categories
-    .filter((c) => c.lookIds.includes(lookId))
-    .sort((a, b) => a.order - b.order);
+  return categories.filter((c) => c.lookIds.includes(lookId)).sort((a, b) => a.order - b.order);
 }
 
 export function getOptionsForCategory(categoryId: string): Option[] {

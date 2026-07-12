@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import StoreCard from "./StoreCard";
-import { mockLooks, mockCategories, mockOptions, mockSelectionFull, mockSelectionPartial } from "../model";
+import {
+  mockLooks,
+  mockCategories,
+  mockOptions,
+  mockSelectionFull,
+  mockSelectionPartial,
+} from "../model";
 
 const meta: Meta<typeof StoreCard> = {
   title: "Components/StoreCard",
@@ -13,7 +19,8 @@ const meta: Meta<typeof StoreCard> = {
     allOptions: mockOptions,
     selection: mockSelectionFull,
     locale: "en",
-    orderUrl: "https://beauty-configurator.vercel.app/en/configure/natural-glow/complete?base=base-light&eyes=eyes-smoky&lips=lips-nude",
+    orderUrl:
+      "https://beauty-configurator.vercel.app/en/configure/natural-glow/complete?base=base-light&eyes=eyes-smoky&lips=lips-nude",
   },
 };
 
