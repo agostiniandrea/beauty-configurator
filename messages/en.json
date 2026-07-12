@@ -22,7 +22,7 @@
     "included": "Included",
     "selectOption": "Select an option for this category",
     "noOptions": "No options available for this category",
-    "stepsCompleted": "steps completed",
+    "selectionsIncluded": "selections included",
     "progress": "Configuration progress",
     "stepOf": "Step {current} of {total}",
     "next": "Next",
@@ -35,11 +35,11 @@
     "subtitle": "Review your choices before confirming.",
     "lookLabel": "Look",
     "edit": "Edit",
-    "confirm": "Confirm order",
+    "confirm": "Create my beauty card",
     "emptyState": "No options selected. Go back and configure your look."
   },
   "complete": {
-    "title": "Order ready",
+    "title": "Your beauty card is ready",
     "subtitle": "Show this page at the studio to have your look realised.",
     "orderDate": "Date",
     "lookLabel": "Look",

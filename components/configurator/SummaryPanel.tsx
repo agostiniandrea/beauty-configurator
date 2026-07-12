@@ -173,7 +173,7 @@ export default function SummaryPanel({ categories, options, selection }: Props) 
       <PanelHeader>
         <PanelTitle>{t("summary")}</PanelTitle>
         <PanelSubtitle>
-          {completedCount}/{categories.length} {t("stepsCompleted")}
+          {completedCount}/{categories.length} {t("selectionsIncluded")}
         </PanelSubtitle>
       </PanelHeader>
 

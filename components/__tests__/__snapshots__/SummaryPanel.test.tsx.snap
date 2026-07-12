@@ -173,7 +173,7 @@ exports[`SummaryPanel renders correctly with full selection 1`] = `
         /
         3
          
-        stepsCompleted
+        selectionsIncluded
       </p>
     </div>
     <div
@@ -505,7 +505,7 @@ exports[`SummaryPanel renders correctly with no selection 1`] = `
         /
         3
          
-        stepsCompleted
+        selectionsIncluded
       </p>
     </div>
     <div
