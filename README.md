@@ -104,10 +104,29 @@ Each localised string has an `en` and `it` field.
 
 ## CI / CD
 
-| Workflow    | Trigger                                               |
-| ----------- | ----------------------------------------------------- |
-| Chromatic   | Push to `main` — publishes Storybook for visual diff  |
-| Test & Lint | Every PR — runs Jest + ESLint, auto-merges on success |
+| Workflow    | Trigger                                                                                               |
+| ----------- | ----------------------------------------------------------------------------------------------------- |
+| Chromatic   | Push to `main` — publishes Storybook for visual diff                                                  |
+| Test & Lint | Every PR — type-check, Jest, ESLint, build, Lighthouse (desktop + mobile), Playwright E2E, auto-merge |
+
+---
+
+## Quality Standards
+
+Every production release is verified against a fixed quality bar: Lighthouse (performance, accessibility, best practices, SEO), responsive behaviour, production build, linting, type checking and a website carbon estimate.
+
+Latest audit — **12 July 2026**, production ([beauty-configurator.vercel.app](https://beauty-configurator.vercel.app)), all four routes (home, configurator, summary, complete):
+
+| Lighthouse     | Desktop | Mobile |
+| -------------- | ------- | ------ |
+| Performance    | 99–100  | 100    |
+| Accessibility  | 100     | 100    |
+| Best Practices | 100     | 100    |
+| SEO            | 100     | 100    |
+
+Lighthouse thresholds are enforced in CI on every PR (`.lighthouserc.json` + mobile config), alongside 47 unit tests and 13 Playwright E2E tests covering the full funnel in both locales.
+
+**Carbon estimate** — page weight 316–386 KiB ≈ **0.11–0.13 g CO₂e per page view** (Sustainable Web Design v3 model). This is an estimate, not an exact emissions measurement; it corresponds to a Website Carbon "A" rating. Re-tested after substantial design, asset, hosting or performance changes.
 
 ---
 
