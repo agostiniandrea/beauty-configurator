@@ -130,6 +130,7 @@ export default function OptionGrid({ options, selectedOptionId, onSelect }: Prop
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    priority={index === 0}
                   />
                 ) : (
                   <ImagePlaceholder colorSeed={opt.name[locale]} size="md" />

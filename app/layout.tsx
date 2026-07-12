@@ -32,7 +32,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <StyledComponentsRegistry>
           {children}
         </StyledComponentsRegistry>
-        <Analytics />
+        {/* Only on Vercel deployments — locally the insights script 404s and
+            drags the Lighthouse best-practices score down. */}
+        {process.env.VERCEL === "1" && <Analytics />}
       </body>
     </html>
   );
