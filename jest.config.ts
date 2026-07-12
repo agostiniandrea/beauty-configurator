@@ -9,6 +9,15 @@ const config: JestConfigWithTsJest = {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
   testMatch: ["**/components/**/*.test.tsx"],
+  // Gradual floor — raise as coverage improves, never lower to make a PR pass.
+  coverageThreshold: {
+    global: {
+      statements: 75,
+      branches: 60,
+      functions: 55,
+      lines: 75,
+    },
+  },
   transform: {
     "^.+\\.(ts|tsx)$": [
       "ts-jest",
