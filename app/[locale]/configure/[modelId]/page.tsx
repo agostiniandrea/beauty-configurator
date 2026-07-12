@@ -17,9 +17,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!look) return {};
   const loc = (locale === "it" ? "it" : "en") as "en" | "it";
   const description = look.description[loc];
+  const path = `/configure/${modelId}`;
   return {
     title: look.name[loc],
     description,
+    alternates: {
+      canonical: `/${loc}${path}`,
+      languages: {
+        en: `/en${path}`,
+        it: `/it${path}`,
+        "x-default": `/en${path}`,
+      },
+    },
     openGraph: {
       type: "website",
       siteName: siteConfig.seo.openGraph.siteName,

@@ -17,6 +17,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = siteConfig.seo.description[loc];
   return {
     description,
+    alternates: {
+      canonical: `/${loc}`,
+      languages: {
+        en: "/en",
+        it: "/it",
+        "x-default": "/en",
+      },
+    },
     openGraph: {
       type: "website",
       siteName: siteConfig.seo.openGraph.siteName,
