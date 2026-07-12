@@ -8,6 +8,11 @@ exports[`StoreCard renders correctly with full selection 1`] = `
   margin-bottom: var(--space-8);
 }
 
+.c2 {
+  font-size: 1.4em;
+  line-height: 1;
+}
+
 .c1 {
   display: flex;
   align-items: center;
@@ -29,20 +34,20 @@ exports[`StoreCard renders correctly with full selection 1`] = `
   color: var(--color-text-primary);
 }
 
-.c2 {
+.c3 {
   border-radius: var(--radius-xl);
   border: 2px solid var(--color-border);
   background: var(--color-surface);
   overflow: hidden;
 }
 
-.c3 {
+.c4 {
   background: linear-gradient(     to right,     color-mix(in srgb, var(--color-brand-rose-light) 40%, transparent),     color-mix(in srgb, var(--color-brand-gold) 20%, transparent)   );
   padding: var(--space-6) var(--space-5);
   border-bottom: 1px solid var(--color-border);
 }
 
-.c4 {
+.c5 {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -50,7 +55,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
   flex-wrap: wrap;
 }
 
-.c5 {
+.c6 {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   text-transform: uppercase;
@@ -59,20 +64,20 @@ exports[`StoreCard renders correctly with full selection 1`] = `
   margin-bottom: var(--space-2);
 }
 
-.c6 {
+.c7 {
   font-family: var(--font-heading);
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-light);
   color: var(--color-text-primary);
 }
 
-.c7 {
+.c8 {
   font-size: var(--font-size-base);
   color: var(--color-text-muted);
   margin-top: var(--space-1);
 }
 
-.c8 {
+.c9 {
   flex-shrink: 0;
   padding: var(--space-3);
   background: white;
@@ -80,20 +85,20 @@ exports[`StoreCard renders correctly with full selection 1`] = `
   border: 1px solid var(--color-border);
 }
 
-.c9 {
+.c10 {
   font-size: var(--font-size-2xs);
   text-align: center;
   color: var(--color-text-muted);
   margin-top: var(--space-1-5);
 }
 
-.c10 {
+.c11 {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.c11 {
+.c12 {
   display: flex;
   flex-direction: column;
   gap: var(--space-0-5);
@@ -101,11 +106,11 @@ exports[`StoreCard renders correctly with full selection 1`] = `
   border-bottom: 1px solid var(--color-border);
 }
 
-.c11:last-child {
+.c12:last-child {
   border-bottom: none;
 }
 
-.c12 {
+.c13 {
   flex-shrink: 0;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
@@ -115,26 +120,26 @@ exports[`StoreCard renders correctly with full selection 1`] = `
   padding-top: var(--space-0-5);
 }
 
-.c13 {
+.c14 {
   font-family: var(--font-heading);
   font-size: var(--font-size-lg);
   line-height: var(--line-height-snug);
   color: var(--color-text-primary);
 }
 
-.c14 {
+.c15 {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   margin-top: var(--space-0-5);
 }
 
-.c15 {
+.c16 {
   padding: var(--space-5);
   border-top: 1px solid var(--color-border);
   background: var(--color-surface-alt);
 }
 
-.c16 {
+.c17 {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -142,24 +147,24 @@ exports[`StoreCard renders correctly with full selection 1`] = `
   gap: var(--space-4);
 }
 
-.c17 {
+.c18 {
   font-size: var(--font-size-base);
   color: var(--color-text-secondary);
   max-width: 280px;
   line-height: var(--line-height-relaxed);
 }
 
-.c18 {
+.c19 {
   text-align: right;
 }
 
-.c19 {
+.c20 {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   margin-bottom: var(--space-0-5);
 }
 
-.c20 {
+.c21 {
   font-family: var(--font-heading);
   font-size: var(--font-size-4xl);
   color: var(--color-text-primary);
@@ -172,19 +177,19 @@ exports[`StoreCard renders correctly with full selection 1`] = `
 }
 
 @media (min-width: 768px) {
-  .c3 {
+  .c4 {
     padding: var(--space-8);
   }
 }
 
 @media (min-width: 480px) {
-  .c4 {
+  .c5 {
     flex-wrap: nowrap;
   }
 }
 
 @media (min-width: 768px) {
-  .c11 {
+  .c12 {
     flex-direction: row;
     align-items: flex-start;
     gap: var(--space-6);
@@ -193,13 +198,13 @@ exports[`StoreCard renders correctly with full selection 1`] = `
 }
 
 @media (min-width: 768px) {
-  .c12 {
+  .c13 {
     width: 112px;
   }
 }
 
 @media (min-width: 768px) {
-  .c15 {
+  .c16 {
     padding: var(--space-6) var(--space-8);
   }
 }
@@ -214,6 +219,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
       >
         <span
           aria-hidden="true"
+          class="c2"
         >
           🖨
         </span>
@@ -225,6 +231,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
       >
         <span
           aria-hidden="true"
+          class="c2"
         >
           ✉
         </span>
@@ -236,6 +243,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
       >
         <span
           aria-hidden="true"
+          class="c2"
         >
           ⎘
         </span>
@@ -244,28 +252,28 @@ exports[`StoreCard renders correctly with full selection 1`] = `
     </div>
     <article
       aria-label="Store card"
-      class="c2"
+      class="c3"
     >
       <header
-        class="c3"
+        class="c4"
       >
         <div
-          class="c4"
+          class="c5"
         >
           <div>
             <p
-              class="c5"
+              class="c6"
             >
               Beauty Configurator
                — Beauty Studio
             </p>
             <h2
-              class="c6"
+              class="c7"
             >
               Natural Glow
             </h2>
             <p
-              class="c7"
+              class="c8"
             >
               orderDate
               : 
@@ -273,7 +281,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
             </p>
           </div>
           <div
-            class="c8"
+            class="c9"
           >
             <svg
               aria-label="qrLabel"
@@ -295,7 +303,7 @@ exports[`StoreCard renders correctly with full selection 1`] = `
             </svg>
             <p
               aria-hidden="true"
-              class="c9"
+              class="c10"
             >
               qrCaption
             </p>
@@ -304,66 +312,66 @@ exports[`StoreCard renders correctly with full selection 1`] = `
       </header>
       <ul
         aria-label="selectionLabel"
-        class="c10"
+        class="c11"
       >
         <li
-          class="c11"
+          class="c12"
         >
           <span
-            class="c12"
+            class="c13"
           >
             Base
           </span>
           <div>
             <p
-              class="c13"
+              class="c14"
             >
               Light Coverage
             </p>
             <p
-              class="c14"
+              class="c15"
             >
               Lightweight, skin-like finish
             </p>
           </div>
         </li>
         <li
-          class="c11"
+          class="c12"
         >
           <span
-            class="c12"
+            class="c13"
           >
             Eyes
           </span>
           <div>
             <p
-              class="c13"
+              class="c14"
             >
               Smoky Eye
             </p>
             <p
-              class="c14"
+              class="c15"
             >
               Dramatic dark tones
             </p>
           </div>
         </li>
         <li
-          class="c11"
+          class="c12"
         >
           <span
-            class="c12"
+            class="c13"
           >
             Lips
           </span>
           <div>
             <p
-              class="c13"
+              class="c14"
             >
               Nude Lip
             </p>
             <p
-              class="c14"
+              class="c15"
             >
               Natural-toned lip color
             </p>
@@ -371,26 +379,26 @@ exports[`StoreCard renders correctly with full selection 1`] = `
         </li>
       </ul>
       <footer
-        class="c15"
+        class="c16"
       >
         <div
-          class="c16"
+          class="c17"
         >
           <p
-            class="c17"
+            class="c18"
           >
             studioNote
           </p>
           <div
-            class="c18"
+            class="c19"
           >
             <p
-              class="c19"
+              class="c20"
             >
               totalCaption
             </p>
             <p
-              class="c20"
+              class="c21"
             >
               €15
             </p>
