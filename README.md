@@ -46,7 +46,7 @@ yarn install
 yarn dev        # http://localhost:3000
 ```
 
-The middleware redirects `/` to your browser's preferred locale (`/en` or `/it`).
+English is served at the root (`/`); Italian lives under `/it`. Visiting `/en` redirects to `/`.
 
 ---
 
