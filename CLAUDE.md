@@ -19,14 +19,14 @@ yarn test:a11y      # Lighthouse accessibility audit — all pages must score 10
 
 ## Architecture
 
-| Concern       | Approach                                                                                                             |
-| ------------- | -------------------------------------------------------------------------------------------------------------------- |
-| Routing       | `app/[locale]/` — all pages under locale segment                                                                     |
-| i18n          | next-intl; messages in `messages/en.json` + `messages/it.json`                                                       |
-| Styling       | styled-components for component styles; Tailwind for layout utilities in pages                                       |
-| Design tokens | All values (`--color-*`, `--font-*`, `--space-*`, etc.) defined in `app/globals.css`                                 |
-| Breakpoints   | `lib/breakpoints.ts` exports `mq` for use in styled-components template literals                                     |
-| Hydration     | All page body content rendered inside `lib/ClientOnly.tsx` to prevent browser-extension-induced hydration mismatches |
+| Concern       | Approach                                                                                                                                                                                                          |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Routing       | `app/[locale]/` — all pages under locale segment                                                                                                                                                                  |
+| i18n          | next-intl; messages in `messages/en.json` + `messages/it.json`; `localePrefix: "as-needed"` — EN at the root (`/`), only IT prefixed (`/it`); internal links use `i18n/navigation.ts`, never `next/link` directly |
+| Styling       | styled-components for component styles; Tailwind for layout utilities in pages                                                                                                                                    |
+| Design tokens | All values (`--color-*`, `--font-*`, `--space-*`, etc.) defined in `app/globals.css`                                                                                                                              |
+| Breakpoints   | `lib/breakpoints.ts` exports `mq` for use in styled-components template literals                                                                                                                                  |
+| Hydration     | All page body content rendered inside `lib/ClientOnly.tsx` to prevent browser-extension-induced hydration mismatches                                                                                              |
 
 ## Feature flags
 

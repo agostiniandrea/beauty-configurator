@@ -2,10 +2,10 @@
   "ci": {
     "collect": {
       "url": [
-        "http://localhost:3000/en",
-        "http://localhost:3000/en/configure/natural-glow",
-        "http://localhost:3000/en/configure/natural-glow/summary",
-        "http://localhost:3000/en/configure/natural-glow/complete"
+        "http://localhost:3000/",
+        "http://localhost:3000/configure/natural-glow",
+        "http://localhost:3000/configure/natural-glow/summary",
+        "http://localhost:3000/configure/natural-glow/complete"
       ],
       "numberOfRuns": 1,
       "settings": {

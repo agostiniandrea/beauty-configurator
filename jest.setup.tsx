@@ -30,6 +30,30 @@ jest.mock("next-intl", () => ({
   NextIntlClientProvider: ({ children }: { children: React.ReactNode }) => children,
 }));
 
+// Mock the locale-aware navigation wrappers (i18n/navigation.ts) — the real
+// createNavigation needs the next-intl request context, unavailable in jsdom.
+jest.mock("@/i18n/navigation", () => ({
+  Link: ({
+    href,
+    locale: _locale,
+    children,
+    ...props
+  }: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    href: string;
+    locale?: string;
+    children: React.ReactNode;
+  }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  ),
+  usePathname: () => "/",
+  useRouter: () => ({ push: jest.fn(), replace: jest.fn(), back: jest.fn() }),
+  redirect: jest.fn(),
+  getPathname: ({ locale, href }: { locale: string; href: string }) =>
+    locale === "en" ? href : `/${locale}${href}`,
+}));
+
 // Mock window.matchMedia
 Object.defineProperty(window, "matchMedia", {
   writable: true,

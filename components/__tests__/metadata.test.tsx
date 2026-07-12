@@ -21,9 +21,10 @@ describe("summary page metadata", () => {
     const meta = await summaryMetadata(params({ locale: "en", modelId: "natural-glow" }));
     expect(meta.title).toContain("Natural Glow");
     expect(meta.description).toBe("A fresh, everyday look that enhances your natural features");
-    expect(meta.alternates?.canonical).toBe("/en/configure/natural-glow/summary");
+    // Default locale lives at the root — no /en prefix.
+    expect(meta.alternates?.canonical).toBe("/configure/natural-glow/summary");
     expect(meta.alternates?.languages).toMatchObject({
-      en: "/en/configure/natural-glow/summary",
+      en: "/configure/natural-glow/summary",
       it: "/it/configure/natural-glow/summary",
     });
   });
@@ -44,7 +45,7 @@ describe("home page metadata", () => {
   it("includes a localized description and canonical URL per locale", async () => {
     const en = await homeMetadata(params({ locale: "en" }));
     expect(en.description).toBeTruthy();
-    expect(en.alternates?.canonical).toBe("/en");
+    expect(en.alternates?.canonical).toBe("/");
 
     const it = await homeMetadata(params({ locale: "it" }));
     expect(it.description).toContain("look");

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import styled from "styled-components";
 import { useLocale, useTranslations } from "next-intl";
 import ImagePlaceholder from "../ui/ImagePlaceholder";
@@ -141,10 +141,7 @@ export default function LookCard({ look, startingPrice }: Props) {
         {siteConfig.features.showPricing && startingPrice != null && startingPrice > 0 && (
           <PriceFrom>from €{startingPrice}</PriceFrom>
         )}
-        <CtaLink
-          href={`/${locale}/configure/${look.id}`}
-          aria-label={`${t("cta")} — ${look.name[locale]}`}
-        >
+        <CtaLink href={`/configure/${look.id}`} aria-label={`${t("cta")} — ${look.name[locale]}`}>
           {t("cta")}
           <span aria-hidden="true">→</span>
         </CtaLink>

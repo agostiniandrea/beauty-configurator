@@ -12,6 +12,8 @@ import { test, expect, type Page } from "@playwright/test";
 const locales = [
   {
     locale: "en",
+    // Default locale lives at the root — no /en prefix (localePrefix: "as-needed")
+    prefix: "",
     ctaNaturalGlow: "Configure this look — Natural Glow",
     categories: ["Base", "Eyes", "Lips", "Cheeks"],
     next: "Next",
@@ -26,6 +28,7 @@ const locales = [
   },
   {
     locale: "it",
+    prefix: "/it",
     ctaNaturalGlow: "Configura questo look — Luminosità Naturale",
     categories: ["Base", "Occhi", "Labbra", "Guance"],
     next: "Avanti",
@@ -48,7 +51,7 @@ async function optionButton(page: Page, name: string) {
 
 /** Walk from the first category to the summary page, changing the base option. */
 async function configureAndReview(page: Page, s: LocaleStrings) {
-  await page.goto(`/${s.locale}/configure/natural-glow`);
+  await page.goto(`${s.prefix}/configure/natural-glow`);
 
   // Step 1 (Base): default preselected, switch to a non-default option.
   await expect(page.getByRole("heading", { name: s.categories[0] })).toBeVisible();
@@ -69,9 +72,9 @@ async function configureAndReview(page: Page, s: LocaleStrings) {
 for (const s of locales) {
   test.describe(`funnel (${s.locale})`, () => {
     test("homepage lists looks and opens the configurator", async ({ page }) => {
-      await page.goto(`/${s.locale}`);
+      await page.goto(s.prefix || "/");
       await page.getByRole("link", { name: s.ctaNaturalGlow }).click();
-      await expect(page).toHaveURL(`/${s.locale}/configure/natural-glow`);
+      await expect(page).toHaveURL(`${s.prefix}/configure/natural-glow`);
       await expect(page.getByRole("heading", { name: s.categories[0] })).toBeVisible();
     });
 
@@ -103,7 +106,7 @@ for (const s of locales) {
 
     test("summary restores a configuration from the query string", async ({ page }) => {
       await page.goto(
-        `/${s.locale}/configure/natural-glow/summary?base=base-full&eyes=eyes-smoky&lips=lips-red&cheeks=cheeks-bronze`,
+        `${s.prefix}/configure/natural-glow/summary?base=base-full&eyes=eyes-smoky&lips=lips-red&cheeks=cheeks-bronze`,
       );
       await expect(page.getByRole("heading", { name: s.summaryTitle })).toBeVisible();
       for (const name of s.restoredNames) {
@@ -115,7 +118,7 @@ for (const s of locales) {
 
     test("complete page restores a configuration from the query string", async ({ page }) => {
       await page.goto(
-        `/${s.locale}/configure/natural-glow/complete?base=base-full&eyes=eyes-smoky&lips=lips-red&cheeks=cheeks-bronze`,
+        `${s.prefix}/configure/natural-glow/complete?base=base-full&eyes=eyes-smoky&lips=lips-red&cheeks=cheeks-bronze`,
       );
       await expect(page.getByRole("heading", { name: s.completeTitle })).toBeVisible();
       await expect(page.getByText("€170")).toBeVisible();
@@ -124,7 +127,27 @@ for (const s of locales) {
 }
 
 test("pricing feature flag shows starting prices on the homepage", async ({ page }) => {
-  await page.goto("/en");
+  await page.goto("/");
   // natural-glow defaults: 50 + 25 + 15 + 15
   await expect(page.getByText("from €105")).toBeVisible();
+});
+
+test.describe("locale prefix handling", () => {
+  test("default locale is served at the root and /en redirects to /", async ({ page }) => {
+    await page.goto("/en");
+    await expect(page).toHaveURL("/");
+    await expect(page.getByText("Your perfect look, configured.")).toBeVisible();
+  });
+
+  test("locale switcher toggles /it and returns without /en", async ({ page }) => {
+    await page.goto("/configure/natural-glow?base=base-medium");
+
+    await page.getByRole("link", { name: "Switch to Italiano" }).click();
+    await expect(page).toHaveURL("/it/configure/natural-glow?base=base-medium");
+    await expect(page.getByRole("button", { name: "Avanti", exact: true })).toBeVisible();
+
+    await page.getByRole("link", { name: "Switch to English" }).click();
+    await expect(page).toHaveURL("/configure/natural-glow?base=base-medium");
+    await expect(page.getByRole("button", { name: "Next", exact: true })).toBeVisible();
+  });
 });

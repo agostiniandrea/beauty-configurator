@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { headers } from "next/headers";
+import { getPathname } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { getLook, getCategoriesForLook, getOptionsForCategory } from "@/lib/data";
 import Header from "@/components/layout/Header";
@@ -27,11 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: {
-      canonical: `/${loc}${path}`,
+      canonical: loc === "en" ? path : `/${loc}${path}`,
       languages: {
-        en: `/en${path}`,
+        en: path,
         it: `/it${path}`,
-        "x-default": `/en${path}`,
+        "x-default": path,
       },
     },
     openGraph: {
@@ -78,9 +79,11 @@ export default async function CompletePage({ params, searchParams }: Props) {
   const host = headersList.get("host") ?? "localhost:3000";
   const proto = host.startsWith("localhost") ? "http" : "https";
   const selectionParams = new URLSearchParams(Object.entries(selection)).toString();
-  const orderUrl = `${proto}://${host}/${locale}/configure/${modelId}/complete?${selectionParams}`;
+  const loc = locale as "en" | "it";
+  const completePath = getPathname({ locale: loc, href: `/configure/${modelId}/complete` });
+  const orderUrl = `${proto}://${host}${completePath}?${selectionParams}`;
 
-  const summaryUrl = `/${locale}/configure/${modelId}/summary?${selectionParams}`;
+  const summaryUrl = `/configure/${modelId}/summary?${selectionParams}`;
 
   return (
     <div className="min-h-screen bg-[var(--color-background)]">

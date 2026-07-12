@@ -39,6 +39,12 @@ const config = [
         ...globals.node,
       },
     },
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_", ignoreRestSiblings: true },
+      ],
+    },
   },
   {
     files: ["components/**/__tests__/**", "jest.setup.tsx", "test-utils/**"],

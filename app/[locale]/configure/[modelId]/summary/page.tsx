@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { getLook, getCategoriesForLook, getOptionsForCategory } from "@/lib/data";
 import Header from "@/components/layout/Header";
@@ -26,11 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: {
-      canonical: `/${loc}${path}`,
+      canonical: loc === "en" ? path : `/${loc}${path}`,
       languages: {
-        en: `/en${path}`,
+        en: path,
         it: `/it${path}`,
-        "x-default": `/en${path}`,
+        "x-default": path,
       },
     },
     openGraph: {
@@ -80,7 +80,7 @@ export default async function SummaryPage({ params, searchParams }: Props) {
         <Header
           backLink
           backLabel={tNav("backToConfigurator")}
-          backHref={`/${locale}/configure/${modelId}?${selectionParams}`}
+          backHref={`/configure/${modelId}?${selectionParams}`}
         />
 
         <main id="main-content" className="max-w-3xl mx-auto px-6 py-14">
@@ -104,13 +104,13 @@ export default async function SummaryPage({ params, searchParams }: Props) {
 
           <div className="mt-10 flex flex-col sm:flex-row gap-3">
             <Link
-              href={`/${locale}/configure/${modelId}?${selectionParams}`}
+              href={`/configure/${modelId}?${selectionParams}`}
               className="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl text-sm font-medium border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] transition-all"
             >
               ← {t("edit")}
             </Link>
             <Link
-              href={`/${locale}/configure/${modelId}/complete?${selectionParams}`}
+              href={`/configure/${modelId}/complete?${selectionParams}`}
               className="flex items-center justify-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold bg-[var(--color-action-bg)] text-[var(--color-action-text)] hover:bg-[var(--color-action-bg-hover)] transition-all"
             >
               {t("confirm")} ✓

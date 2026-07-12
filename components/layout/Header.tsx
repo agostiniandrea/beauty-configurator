@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import styled from "styled-components";
+import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import siteConfig from "@/site.config";
 import ThemeToggle from "./ThemeToggle";
 import { mq } from "@/lib/breakpoints";
@@ -91,6 +92,11 @@ export default function Header({ backLink = false, backLabel, backHref }: Props)
   const t = useTranslations("nav");
   const otherLocale = locale === "en" ? "it" : "en";
 
+  // Switching locale keeps the user on the current page, selection included.
+  const pathname = usePathname();
+  const search = useSearchParams().toString();
+  const switchHref = search ? `${pathname}?${search}` : pathname;
+
   return (
     <HeaderBar role="banner" suppressHydrationWarning>
       <a
@@ -101,19 +107,20 @@ export default function Header({ backLink = false, backLabel, backHref }: Props)
       </a>
       <Inner>
         {backLink && (
-          <BackLink href={backHref ?? `/${locale}`} aria-label={backLabel ?? t("back")}>
+          <BackLink href={backHref ?? "/"} aria-label={backLabel ?? t("back")}>
             <span aria-hidden="true">←</span>
             <span>{backLabel ?? t("back")}</span>
           </BackLink>
         )}
 
-        <SiteName href={`/${locale}`} aria-label={`${siteConfig.name} — home`}>
+        <SiteName href="/" aria-label={`${siteConfig.name} — home`}>
           {siteConfig.name}
         </SiteName>
 
         <Controls aria-label="Site controls">
           <LocaleLink
-            href={`/${otherLocale}`}
+            href={switchHref}
+            locale={otherLocale}
             aria-label={`Switch to ${otherLocale === "en" ? "English" : "Italiano"}`}
             hrefLang={otherLocale}
           >

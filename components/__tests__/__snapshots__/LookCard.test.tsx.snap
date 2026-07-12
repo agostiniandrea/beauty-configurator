@@ -187,7 +187,7 @@ exports[`LookCard renders correctly 1`] = `
       <a
         aria-label="cta — Natural Glow"
         class="c10"
-        href="/en/configure/natural-glow"
+        href="/configure/natural-glow"
       >
         cta
         <span

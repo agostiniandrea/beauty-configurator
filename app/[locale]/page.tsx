@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     description,
     alternates: {
-      canonical: `/${loc}`,
+      canonical: loc === "en" ? "/" : "/it",
       languages: {
-        en: "/en",
+        en: "/",
         it: "/it",
-        "x-default": "/en",
+        "x-default": "/",
       },
     },
     openGraph: {
