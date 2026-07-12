@@ -13,16 +13,24 @@ type Props = {
   look: Look;
   categories: Category[];
   optionsByCategory: Record<string, Option[]>;
+  initialSelection?: Selection;
 };
 
-export default function ConfiguratorClient({ look, categories, optionsByCategory }: Props) {
+export default function ConfiguratorClient({
+  look,
+  categories,
+  optionsByCategory,
+  initialSelection,
+}: Props) {
   const locale = useLocale() as Locale;
   const t = useTranslations("configurator");
   const router = useRouter();
   const pathname = usePathname();
 
   const [currentStep, setCurrentStep] = useState(0);
-  const [selection, setSelection] = useState<Selection>(look.defaultOptions ?? {});
+  const [selection, setSelection] = useState<Selection>(
+    initialSelection ?? look.defaultOptions ?? {}
+  );
   const [animDir, setAnimDir] = useState<"forward" | "backward">("forward");
 
   const activeCategory = categories[currentStep];

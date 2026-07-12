@@ -3,12 +3,13 @@ import { getLook, getCategoriesForLook, getOptionsForCategory } from "@/lib/data
 import Header from "@/components/layout/Header";
 import ClientOnly from "@/lib/ClientOnly";
 import ConfiguratorClient from "./ConfiguratorClient";
-import type { Option } from "@/lib/types";
+import type { Option, Selection } from "@/lib/types";
 import type { Metadata } from "next";
 import siteConfig from "@/site.config";
 
 type Props = {
   params: Promise<{ modelId: string; locale: string }>;
+  searchParams: Promise<Record<string, string>>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -43,8 +44,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ConfiguratorPage({ params }: Props) {
+export default async function ConfiguratorPage({ params, searchParams }: Props) {
   const { modelId } = await params;
+  const rawParams = await searchParams;
 
   const look = getLook(modelId);
   if (!look) notFound();
@@ -56,6 +58,16 @@ export default async function ConfiguratorPage({ params }: Props) {
     optionsByCategory[cat.id] = getOptionsForCategory(cat.id);
   }
 
+  // Restore a previous selection from the query string (categoryId → optionId)
+  // so navigating back from summary/complete doesn't lose the user's choices.
+  const restoredSelection: Selection = {};
+  for (const cat of categories) {
+    const optionId = rawParams[cat.id];
+    if (optionId && optionsByCategory[cat.id].some((o) => o.id === optionId)) {
+      restoredSelection[cat.id] = optionId;
+    }
+  }
+
   return (
     <div className="min-h-screen bg-[var(--color-background)]">
       <ClientOnly>
@@ -65,6 +77,9 @@ export default async function ConfiguratorPage({ params }: Props) {
             look={look}
             categories={categories}
             optionsByCategory={optionsByCategory}
+            initialSelection={
+              Object.keys(restoredSelection).length > 0 ? restoredSelection : undefined
+            }
           />
         </main>
       </ClientOnly>
