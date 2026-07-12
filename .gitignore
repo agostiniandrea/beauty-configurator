@@ -48,3 +48,8 @@ package-lock.json
 /storybook-static/
 build-storybook.log
 *storybook.log
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/

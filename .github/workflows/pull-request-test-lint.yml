@@ -62,6 +62,14 @@ jobs:
       - name: Run Lighthouse CI (mobile)
         run: yarn lhci:mobile
 
+      - name: Install Playwright browsers
+        run: yarn playwright install chromium --with-deps
+
+      - name: Run E2E tests
+        run: yarn e2e
+        env:
+          CI: true
+
       - name: Auto-merge PR
         if: success()
         env:

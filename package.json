@@ -14,6 +14,7 @@
     "test:coverage": "jest --coverage",
     "test:update": "jest --updateSnapshot",
     "test:watch": "jest --watch",
+    "e2e": "playwright test",
     "test:a11y": "next build && lhci autorun",
     "lhci": "lhci autorun",
     "lhci:mobile": "lhci autorun --config=.lighthouserc.mobile.json",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^5.2.1",
     "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.61.1",
     "@storybook/addon-docs": "^10.4.2",
     "@storybook/addon-links": "^10.4.2",
     "@storybook/nextjs": "^10.4.2",
