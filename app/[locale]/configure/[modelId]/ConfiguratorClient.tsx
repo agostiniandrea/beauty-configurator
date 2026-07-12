@@ -80,7 +80,7 @@ export default function ConfiguratorClient({
             {t("stepOf", { current: currentStep + 1, total: categories.length })}
           </p>
           <p className="text-xs text-[var(--color-text-muted)]">
-            {completedSteps.size}/{categories.length} {t("stepsCompleted")}
+            {completedSteps.size}/{categories.length} {t("selectionsIncluded")}
           </p>
         </div>
         <div

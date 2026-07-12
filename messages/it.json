@@ -22,7 +22,7 @@
     "included": "Incluso",
     "selectOption": "Seleziona un'opzione per questa categoria",
     "noOptions": "Nessuna opzione disponibile per questa categoria",
-    "stepsCompleted": "step completati",
+    "selectionsIncluded": "selezioni incluse",
     "progress": "Progresso configurazione",
     "stepOf": "Step {current} di {total}",
     "next": "Avanti",
@@ -35,11 +35,11 @@
     "subtitle": "Rivedi le tue scelte prima di confermare.",
     "lookLabel": "Look",
     "edit": "Modifica",
-    "confirm": "Conferma ordine",
+    "confirm": "Crea la mia beauty card",
     "emptyState": "Nessuna opzione selezionata. Torna indietro e configura il tuo look."
   },
   "complete": {
-    "title": "Ordine pronto",
+    "title": "La tua beauty card è pronta",
     "subtitle": "Mostra questa pagina in studio per far realizzare il tuo look.",
     "orderDate": "Data",
     "lookLabel": "Look",
