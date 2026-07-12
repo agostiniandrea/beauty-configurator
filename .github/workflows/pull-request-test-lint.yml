@@ -39,6 +39,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: Type-check TypeScript
+        run: yarn typecheck
+
       - name: Run tests
         run: yarn test
 
@@ -48,14 +51,16 @@ jobs:
       - name: Build for Lighthouse
         run: yarn build
 
-      - name: Run Lighthouse CI (desktop)
+      - name: Start production server
         run: |
           yarn start &
-          npx wait-on http://localhost:3000 --timeout 30000
-          yarn lhci
+          yarn wait-on http://localhost:3000 --timeout 30000
+
+      - name: Run Lighthouse CI (desktop)
+        run: yarn lhci
 
       - name: Run Lighthouse CI (mobile)
-        run: npx lhci autorun --config=.lighthouserc.mobile.json
+        run: yarn lhci:mobile
 
       - name: Auto-merge PR
         if: success()

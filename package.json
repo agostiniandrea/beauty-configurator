@@ -14,8 +14,10 @@
     "test:coverage": "jest --coverage",
     "test:update": "jest --updateSnapshot",
     "test:watch": "jest --watch",
-    "test:a11y": "next build && npx lhci autorun",
-    "lhci": "npx lhci autorun",
+    "test:a11y": "next build && lhci autorun",
+    "lhci": "lhci autorun",
+    "lhci:mobile": "lhci autorun --config=.lighthouserc.mobile.json",
+    "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --build-script-name build-storybook --exit-zero-on-changes"
@@ -31,6 +33,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.2.1",
+    "@lhci/cli": "^0.15.1",
     "@storybook/addon-docs": "^10.4.2",
     "@storybook/addon-links": "^10.4.2",
     "@storybook/nextjs": "^10.4.2",
@@ -56,7 +59,8 @@
     "tailwindcss": "^4.3.0",
     "ts-jest": "29.4.11",
     "ts-node": "^10.9.2",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "wait-on": "^9.0.10"
   },
   "packageManager": "yarn@4.9.1",
   "browserslist": [
