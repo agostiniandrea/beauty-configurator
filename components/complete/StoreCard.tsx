@@ -20,6 +20,11 @@ const ActionBar = styled.div`
   }
 `;
 
+const ActionIcon = styled.span`
+  font-size: 1.4em;
+  line-height: 1;
+`;
+
 const ActionButton = styled.button`
   display: flex;
   align-items: center;
@@ -272,17 +277,17 @@ export default function StoreCard({
       <ActionBar className="no-print">
         {siteConfig.features.enablePrint && (
           <ActionButton onClick={handlePrint}>
-            <span aria-hidden="true">🖨</span> {t("printButton")}
+            <ActionIcon aria-hidden="true">🖨</ActionIcon> {t("printButton")}
           </ActionButton>
         )}
         {siteConfig.features.enableEmailOrder && (
           <ActionButton onClick={handleEmail}>
-            <span aria-hidden="true">✉</span> {t("emailButton")}
+            <ActionIcon aria-hidden="true">✉</ActionIcon> {t("emailButton")}
           </ActionButton>
         )}
         {siteConfig.features.enableShare && (
           <ActionButton onClick={handleShare}>
-            <span aria-hidden="true">{copied ? "✓" : "⎘"}</span>
+            <ActionIcon aria-hidden="true">{copied ? "✓" : "⎘"}</ActionIcon>
             {copied ? t("shareCopied") : t("shareButton")}
           </ActionButton>
         )}
