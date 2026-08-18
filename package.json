@@ -75,7 +75,7 @@
     "typescript": "6.0.3",
     "wait-on": "^9.0.10"
   },
-  "packageManager": "yarn@4.9.1",
+  "packageManager": "yarn@4.13.0",
   "browserslist": [
     "chrome >= 93",
     "edge >= 93",
