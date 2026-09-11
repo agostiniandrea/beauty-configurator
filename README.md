@@ -124,7 +124,7 @@ Latest audit — **12 July 2026**, production ([beauty-configurator.vercel.app](
 | Best Practices | 100     | 100    |
 | SEO            | 100     | 100    |
 
-Lighthouse thresholds are enforced in CI on every PR (`.lighthouserc.json` + mobile config), alongside 47 unit tests and 13 Playwright E2E tests covering the full funnel in both locales.
+Lighthouse thresholds are enforced in CI on every PR (`.lighthouserc.json` + mobile config), alongside 47 unit tests and 30 Playwright E2E tests — the full funnel in both locales, all six looks' real defaults, the booking form, the store-card actions (print / email / copy-link), the theme toggle, and 404 handling on unknown look ids.
 
 **Carbon estimate** — page weight 316–386 KiB ≈ **0.11–0.13 g CO₂e per page view** (Sustainable Web Design v3 model). This is an estimate, not an exact emissions measurement; it corresponds to a Website Carbon "A" rating. Re-tested after substantial design, asset, hosting or performance changes.
 

@@ -11,7 +11,7 @@ yarn typecheck      # tsc --noEmit
 yarn test           # Jest unit tests — all must pass (coverage thresholds enforced)
 yarn lint           # zero ESLint warnings or errors
 yarn prettier:check # formatting
-yarn e2e            # Playwright funnel tests (EN + IT); starts next dev automatically
+yarn e2e            # Playwright E2E (funnel EN + IT, booking form, store-card actions, theme, 404s); starts next dev automatically
 yarn test:a11y      # Lighthouse accessibility audit — all pages must score 100
 ```
 

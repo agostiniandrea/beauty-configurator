@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore, useState } from "react";
+import { useSyncExternalStore, useState, useEffect } from "react";
 import styled from "styled-components";
 
 type Theme = "light" | "dark";
@@ -51,12 +51,20 @@ export default function ThemeToggle() {
     () => false,
   );
 
+  // Runs on mount too, not just on toggle — otherwise a returning visitor
+  // whose stored preference disagrees with their current system preference
+  // gets a toggle button that already reads correctly (state is right from
+  // getInitialTheme) while the page itself renders in the *other* theme,
+  // since nothing had applied the class for this fresh load yet.
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    document.documentElement.classList.toggle("light", theme === "light");
+  }, [theme]);
+
   function toggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";
     setTheme(next);
     localStorage.setItem("theme", next);
-    document.documentElement.classList.toggle("dark", next === "dark");
-    document.documentElement.classList.toggle("light", next === "light");
   }
 
   if (!mounted) return <TogglePlaceholder aria-hidden />;
