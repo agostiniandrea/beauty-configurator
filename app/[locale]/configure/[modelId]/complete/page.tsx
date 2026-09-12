@@ -92,7 +92,7 @@ export default async function CompletePage({ params, searchParams }: Props) {
           <Header backLink backLabel={tNav("backToSummary")} backHref={summaryUrl} />
         </div>
 
-        <main id="main-content" className="max-w-3xl mx-auto px-6 py-14">
+        <main id="main-content" className="max-w-4xl mx-auto px-6 py-14">
           <div className="mb-10 no-print">
             <div
               className="w-12 h-12 rounded-2xl bg-[var(--color-brand-rose)]/15 flex items-center justify-center mb-5"

@@ -140,7 +140,7 @@ export default function ConfiguratorClient({
             <button
               onClick={handleBack}
               disabled={currentStep === 0}
-              className="flex items-center gap-2 px-4 py-2.5 md:px-5 rounded-2xl text-sm font-medium text-[var(--color-text-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="flex items-center gap-2 px-4 py-2.5 md:px-5 rounded-2xl text-sm font-medium text-[var(--color-text-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] cursor-pointer disabled:cursor-not-allowed disabled:opacity-30 transition-all"
             >
               <span aria-hidden="true">←</span>
               {t("back")}
@@ -150,7 +150,7 @@ export default function ConfiguratorClient({
               onClick={handleNext}
               disabled={!canGoNext}
               title={!canGoNext ? t("selectTooltip") : undefined}
-              className="flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-2xl text-sm font-medium bg-[var(--color-action-bg)] text-[var(--color-action-text)] hover:bg-[var(--color-action-bg-hover)] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+              className="flex items-center gap-2 px-5 py-2.5 md:px-6 md:py-3 rounded-2xl text-sm font-medium bg-[var(--color-action-bg)] text-[var(--color-action-text)] hover:bg-[var(--color-action-bg-hover)] cursor-pointer disabled:cursor-not-allowed disabled:opacity-40 transition-all"
             >
               {isLastStep && allComplete ? t("reviewOrder") : t("next")}
               <span aria-hidden="true">{isLastStep && allComplete ? "✓" : "→"}</span>
