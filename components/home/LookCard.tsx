@@ -115,7 +115,7 @@ export default function LookCard({ look, startingPrice }: Props) {
   const t = useTranslations("home");
 
   return (
-    <Card>
+    <Card className="group">
       <ImageWrap role="img" aria-label={`${look.name[locale]} — preview`}>
         {look.imageUrl ? (
           <Image

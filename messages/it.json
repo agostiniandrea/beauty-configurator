@@ -70,10 +70,10 @@
     "messagePlaceholder": "Preferenze, domande o richieste speciali…",
     "required": "obbligatorio",
     "submit": "Prenota ora",
-    "successTitle": "Richiesta inviata!",
-    "successSubtitle": "Il tuo client email si aprirà con tutti i dettagli precompilati. Invialo per confermare l'appuntamento.",
+    "successTitle": "La tua richiesta è pronta per l'invio",
+    "successSubtitle": "Abbiamo aperto la tua app di posta con i dettagli dell'appuntamento già compilati. Non è stato ancora inviato nulla: controlla il messaggio e premi invia dal tuo client per confermare la prenotazione.",
     "emailSubject": "Richiesta appuntamento — {look}",
-    "emailBody": "Ciao,\n\nVorrei prenotare un appuntamento per la seguente configurazione:\n\nLook: {look}\n{selection}\n\nData preferita: {date}\nTelefono: {phone}\n\nNote: {message}\n\nGrazie!"
+    "emailBody": "Ciao,\n\nVorrei prenotare un appuntamento per la seguente configurazione:\n\nLook: {look}\n{selection}\n\nNome: {name}\nEmail: {email}\nData preferita: {date}\nTelefono: {phone}\n\nNote: {message}\n\nGrazie!"
   },
   "brandValues": {
     "tagline": "Il nostro impegno per una beauty consapevole",

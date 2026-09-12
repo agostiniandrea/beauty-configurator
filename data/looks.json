@@ -7,7 +7,6 @@
       "it": "Un look fresco e quotidiano che esalta i tuoi tratti naturali"
     },
     "tags": ["everyday", "fresh", "minimal"],
-    "basePrice": 0,
     "imageUrl": "/images/look-natural-glow.jpeg",
     "defaultOptions": {
       "base": "base-light",
@@ -24,7 +23,6 @@
       "it": "Audace e sofisticato per le occasioni speciali"
     },
     "tags": ["evening", "bold", "glamour"],
-    "basePrice": 0,
     "imageUrl": "/images/look-evening-drama.jpeg",
     "defaultOptions": {
       "base": "base-full",
@@ -41,7 +39,6 @@
       "it": "Femminile e romantico con toni rosa caldi"
     },
     "tags": ["romantic", "warm", "feminine"],
-    "basePrice": 0,
     "imageUrl": "/images/look-soft-rose.jpeg",
     "defaultOptions": {
       "base": "base-medium",
@@ -58,7 +55,6 @@
       "it": "Calore baciato dal sole con toni bronzati e un finish luminoso"
     },
     "tags": ["bronze", "warm", "glow"],
-    "basePrice": 0,
     "imageUrl": "/images/look-golden-hour.jpeg",
     "defaultOptions": {
       "base": "base-medium",
@@ -75,7 +71,6 @@
       "it": "Editoriale e moderno con un tocco inaspettato di colore"
     },
     "tags": ["editorial", "modern", "bold"],
-    "basePrice": 0,
     "imageUrl": "/images/look-urban-cool.jpeg",
     "defaultOptions": {
       "base": "base-light",
@@ -92,7 +87,6 @@
       "it": "Bellezza senza tempo e luminosa per il giorno più importante"
     },
     "tags": ["bridal", "timeless", "luminous"],
-    "basePrice": 0,
     "imageUrl": "/images/look-bridal-glow.jpeg",
     "defaultOptions": {
       "base": "base-full",

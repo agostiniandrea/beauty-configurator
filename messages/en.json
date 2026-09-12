@@ -70,10 +70,10 @@
     "messagePlaceholder": "Any preferences, questions or special requests…",
     "required": "required",
     "submit": "Book now",
-    "successTitle": "Request sent!",
-    "successSubtitle": "Your email client will open with all the details pre-filled. Send it to confirm your appointment.",
+    "successTitle": "Your request is ready to send",
+    "successSubtitle": "We've opened your email app with your appointment details pre-filled. Nothing has been sent yet — please review the email and hit send from there to confirm your booking.",
     "emailSubject": "Appointment request — {look}",
-    "emailBody": "Hi,\n\nI would like to book an appointment for the following configuration:\n\nLook: {look}\n{selection}\n\nPreferred date: {date}\nPhone: {phone}\n\nNotes: {message}\n\nThank you!"
+    "emailBody": "Hi,\n\nI would like to book an appointment for the following configuration:\n\nLook: {look}\n{selection}\n\nName: {name}\nEmail: {email}\nPreferred date: {date}\nPhone: {phone}\n\nNotes: {message}\n\nThank you!"
   },
   "brandValues": {
     "tagline": "Our commitment to clean, conscious beauty",

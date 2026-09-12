@@ -15,7 +15,6 @@ export const mockLooks: Look[] = [
       it: "Un look fresco e quotidiano che esalta i tuoi tratti naturali",
     },
     tags: ["everyday", "fresh", "minimal"],
-    basePrice: 0,
   },
   {
     id: "evening-drama",
@@ -25,7 +24,6 @@ export const mockLooks: Look[] = [
       it: "Audace e sofisticato per le occasioni speciali",
     },
     tags: ["evening", "bold", "glamour"],
-    basePrice: 0,
   },
 ];
 

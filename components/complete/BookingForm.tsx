@@ -179,6 +179,8 @@ export default function BookingForm({ look, categories, allOptions, selection, l
       t("emailBody", {
         look: look.name[locale],
         selection: selectionText,
+        name: (formData.get("name") as string) || "—",
+        email: (formData.get("email") as string) || "—",
         date: (formData.get("date") as string) || "—",
         phone: (formData.get("phone") as string) || "—",
         message: (formData.get("message") as string) || "—",

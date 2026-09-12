@@ -129,7 +129,7 @@ exports[`LookCard renders correctly 1`] = `
 
 <div>
   <article
-    class="c0"
+    class="c0 group"
   >
     <div
       aria-label="Natural Glow — preview"

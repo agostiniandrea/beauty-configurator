@@ -8,7 +8,6 @@ export type Look = {
   name: LocalizedString;
   description: LocalizedString;
   tags: string[];
-  basePrice: number;
   imageUrl?: string | null;
   defaultOptions?: Record<string, string>;
 };

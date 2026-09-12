@@ -40,10 +40,14 @@ test.describe("Booking form", () => {
 
     await page.getByRole("button", { name: "Book now" }).click();
 
-    // Success card replaces the form entirely.
+    // Success card replaces the form entirely. Its copy must make clear that
+    // this only opened an email draft — nothing has actually been sent yet.
     const success = page.getByRole("status");
     await expect(success).toBeVisible();
-    await expect(success.getByRole("heading", { name: "Request sent!" })).toBeVisible();
+    await expect(
+      success.getByRole("heading", { name: "Your request is ready to send" }),
+    ).toBeVisible();
+    await expect(success).toContainText("Nothing has been sent yet");
     await expect(page.locator("#booking-name")).toHaveCount(0);
 
     const calls = await windowOpenCalls(page);
@@ -52,6 +56,10 @@ test.describe("Booking form", () => {
     expect(mailto).toContain("mailto:studio@beautyconfigurator.com");
     expect(mailto).toContain("Appointment request — Natural Glow");
     expect(mailto).toContain("Base: Light Coverage");
+    // Name and email are required fields — they must actually reach the
+    // studio via the email body, not just live in the (discarded) form state.
+    expect(mailto).toContain("Jane Doe");
+    expect(mailto).toContain("jane@example.com");
     expect(mailto).toContain("+1 234 567 890");
   });
 
