@@ -13,8 +13,19 @@ export default defineConfig({
   },
   projects: [
     {
-      name: "chromium",
+      name: "desktop",
       use: { ...devices["Desktop Chrome"] },
+    },
+    {
+      name: "tablet",
+      // Chromium-engine tablet (CI only installs chromium — see
+      // .github/workflows/pull-request-test-lint.yml). An iPad preset
+      // would force WebKit, which isn't installed there.
+      use: { ...devices["Galaxy Tab S9"] },
+    },
+    {
+      name: "mobile",
+      use: { ...devices["Pixel 7"] },
     },
   ],
   // In CI the production server is already running (started for Lighthouse).
