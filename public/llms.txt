@@ -1,0 +1,22 @@
+# Beauty Configurator
+
+> A beauty-look configurator demo: pick one of six pre-styled looks, customise base, eyes, lips and cheeks option by option, and bring the resulting card to the studio. Available in English and Italian.
+
+This is a demonstration project showcasing an interactive product-configurator UX pattern for beauty studios. The studio name, address and contact email shown in the app are placeholders, not a real business.
+
+## Pages
+
+- [Home](https://beauty-configurator.vercel.app/): the six available looks and their starting prices.
+- [Natural Glow](https://beauty-configurator.vercel.app/configure/natural-glow): configure the Natural Glow look.
+- [Evening Drama](https://beauty-configurator.vercel.app/configure/evening-drama): configure the Evening Drama look.
+- [Soft Rose](https://beauty-configurator.vercel.app/configure/soft-rose): configure the Soft Rose look.
+- [Golden Hour](https://beauty-configurator.vercel.app/configure/golden-hour): configure the Golden Hour look.
+- [Urban Cool](https://beauty-configurator.vercel.app/configure/urban-cool): configure the Urban Cool look.
+- [Bridal Glow](https://beauty-configurator.vercel.app/configure/bridal-glow): configure the Bridal Glow look.
+
+Each page above is also available in Italian under an `/it` prefix, e.g. https://beauty-configurator.vercel.app/it/configure/natural-glow.
+
+## Policies
+
+- [Privacy Policy](https://beauty-configurator.vercel.app/privacy)
+- [Cookie Policy](https://beauty-configurator.vercel.app/cookies)

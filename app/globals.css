@@ -251,7 +251,8 @@ h6 {
 /* ─── Print styles (for store card) ─────────────────────────────────────── */
 
 @media print {
-  .no-print {
+  .no-print,
+  .cookie-consent-banner {
     display: none !important;
   }
   body {

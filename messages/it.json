@@ -86,5 +86,77 @@
   "common": {
     "loading": "Caricamento…",
     "notFound": "Non trovato"
+  },
+  "footer": {
+    "rights": "© {year} {name}. Tutti i diritti riservati.",
+    "legalNavLabel": "Note legali",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "demoNotice": "Progetto dimostrativo — i dati dello studio sono segnaposto, non un'attività reale."
+  },
+  "consent": {
+    "message": "Utilizziamo strumenti essenziali per far funzionare il configuratore e, solo con il tuo consenso, uno script di analytics facoltativo per capire come viene usato il sito.",
+    "accept": "Accetta analytics",
+    "reject": "Rifiuta",
+    "learnMore": "Cookie Policy"
+  },
+  "legal": {
+    "backHome": "Torna alla home",
+    "lastUpdated": "Ultimo aggiornamento: ottobre 2026",
+    "draftNotice": "Questa pagina contiene testo segnaposto scritto per un progetto dimostrativo — non è una consulenza legale verificata. Sostituiscila con una policy revisionata da un avvocato qualificato prima di usare questo configuratore per un'attività reale.",
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "Chi siamo",
+          "body": "Beauty Configurator è un progetto dimostrativo creato per mostrare un'esperienza di configurazione di look di bellezza. Il nome dello studio, l'indirizzo e i contatti mostrati nell'app sono segnaposto e non appartengono a un'attività reale e operativa. Se distribuisci questo progetto per uno studio reale, sostituisci questa sezione con la ragione sociale, la sede legale e i contatti del titolare del trattamento della tua attività."
+        },
+        {
+          "heading": "Quali informazioni raccogliamo",
+          "body": "Scegliere un look, selezionare le opzioni e rivedere il riepilogo avvengono interamente nel tuo browser e non ci vengono mai inviati. Se usi i pulsanti \"Prenota ora\" o \"Invia per email\", il tuo browser apre un'email precompilata all'indirizzo dello studio — riceviamo solo ciò che scegli di inviare, e solo quando premi invio dalla tua app di posta. Con il tuo consenso, raccogliamo anche dati di utilizzo anonimi e aggregati — vedi la nostra Cookie Policy."
+        },
+        {
+          "heading": "Base giuridica del trattamento",
+          "body": "Quando dati personali raggiungono lo studio (ad esempio tramite un'email di prenotazione che scegli di inviare), vengono trattati sulla base del tuo consenso e, una volta confermata la prenotazione, per eseguire il servizio richiesto (Articolo 6(1)(a) e (b) GDPR). I dati di analytics vengono raccolti solo dopo che li accetti tramite il banner dei cookie (Articolo 6(1)(a) GDPR)."
+        },
+        {
+          "heading": "Per quanto tempo conserviamo i dati",
+          "body": "Questa applicazione non ha un backend né un database, quindi nessun dato di prenotazione o ordine viene conservato da essa oltre al tuo dispositivo e al tuo account email. La conservazione dei dati di analytics è definita dal fornitore — consulta la documentazione di Vercel per i periodi attuali."
+        },
+        {
+          "heading": "I tuoi diritti",
+          "body": "Ai sensi del GDPR hai diritto di accedere, rettificare, cancellare o limitare il trattamento dei tuoi dati personali, diritto alla portabilità dei dati e diritto di opporti al trattamento o revocare il consenso in qualsiasi momento. Poiché questa demo non memorizza dati personali su un server, la maggior parte di queste richieste può essere soddisfatta eliminando l'email di prenotazione dalla tua casella di posta e cancellando i dati del sito dal browser. Un'implementazione reale dovrebbe sostituire questa sezione con la procedura effettiva per esercitare questi diritti presso il proprio titolare del trattamento."
+        },
+        {
+          "heading": "Contatti",
+          "body": "Le domande su questa policy possono essere inviate all'indirizzo di contatto dello studio mostrato nell'app. Sostituiscilo con un indirizzo reale e monitorato prima di usare questo progetto per un'attività effettiva."
+        },
+        {
+          "heading": "Modifiche a questa policy",
+          "body": "Questa pagina potrebbe essere aggiornata con l'evolversi del progetto. Controlla la data sopra per l'ultima revisione."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "sections": [
+        {
+          "heading": "Cosa utilizziamo",
+          "body": "Scegliere un look e configurare le opzioni funziona senza alcun cookie. Chiediamo il tuo consenso prima di caricare due cose: uno script di analytics (Vercel Web Analytics) che ci aiuta a capire come i visitatori usano il sito, e una piccola porzione di local storage che ricorda la tua scelta sui cookie, così non te la richiediamo a ogni visita."
+        },
+        {
+          "heading": "Perché chiediamo il consenso anche per analytics \"senza cookie\"",
+          "body": "Vercel Web Analytics non utilizza cookie di tracciamento tradizionali, ma le autorità europee per la protezione dei dati (vedi le Linee guida 2/2023 dell'EDPB) considerano qualsiasi script che memorizza o accede a informazioni sul tuo dispositivo — basato su cookie o meno — soggetto allo stesso requisito di consenso previsto dalle norme ePrivacy. Chiediamo comunque il consenso, invece di affidarci a quell'esenzione."
+        },
+        {
+          "heading": "Gestire la tua scelta",
+          "body": "Puoi accettare o rifiutare l'analytics alla prima visita, usando il banner in fondo alla pagina. Per cambiare la tua scelta in seguito, cancella i dati di questo sito dalle impostazioni del browser e ricarica la pagina — il banner riapparirà."
+        },
+        {
+          "heading": "Terze parti",
+          "body": "Vercel Web Analytics (gestito da Vercel Inc.) è l'unico script di terze parti usato su questo sito, e solo dopo che lo hai accettato. Non utilizziamo cookie pubblicitari, pixel dei social media, né alcun tipo di tracciamento cross-site."
+        }
+      ]
+    }
   }
 }

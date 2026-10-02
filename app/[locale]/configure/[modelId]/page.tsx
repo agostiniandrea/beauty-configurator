@@ -1,11 +1,19 @@
 import { notFound } from "next/navigation";
-import { getLook, getCategoriesForLook, getOptionsForCategory } from "@/lib/data";
+import {
+  getLook,
+  getCategoriesForLook,
+  getOptionsForCategory,
+  getLookStartingPrice,
+} from "@/lib/data";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import ClientOnly from "@/lib/ClientOnly";
 import ConfiguratorClient from "./ConfiguratorClient";
 import type { Option, Selection } from "@/lib/types";
 import type { Metadata } from "next";
 import siteConfig from "@/site.config";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 type Props = {
   params: Promise<{ modelId: string; locale: string }>;
@@ -45,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ConfiguratorPage({ params, searchParams }: Props) {
-  const { modelId } = await params;
+  const { modelId, locale } = await params;
   const rawParams = await searchParams;
 
   const look = getLook(modelId);
@@ -68,11 +76,35 @@ export default async function ConfiguratorPage({ params, searchParams }: Props) 
     }
   }
 
+  const loc = (locale === "it" ? "it" : "en") as "en" | "it";
+  const path = `/configure/${modelId}`;
+  const canonicalPath = loc === "en" ? path : `/${loc}${path}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: look.name[loc],
+    description: look.description[loc],
+    image: `${siteUrl}${look.imageUrl}`,
+    offers: {
+      "@type": "Offer",
+      url: `${siteUrl}${canonicalPath}`,
+      priceCurrency: "EUR",
+      price: getLookStartingPrice(look),
+      availability: "https://schema.org/InStock",
+    },
+  };
+
   return (
-    <div className="min-h-screen bg-[var(--color-background)]">
+    <div className="min-h-screen bg-[var(--color-background)] flex flex-col">
+      <script
+        type="application/ld+json"
+        // Trusted server-generated data only (look name/description/image/price
+        // from the local catalog) — never user input.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ClientOnly>
         <Header backLink />
-        <main id="main-content">
+        <main id="main-content" className="flex-1">
           <ConfiguratorClient
             look={look}
             categories={categories}
@@ -82,6 +114,7 @@ export default async function ConfiguratorPage({ params, searchParams }: Props) 
             }
           />
         </main>
+        <Footer />
       </ClientOnly>
     </div>
   );

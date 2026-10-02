@@ -86,5 +86,77 @@
   "common": {
     "loading": "Loading…",
     "notFound": "Not found"
+  },
+  "footer": {
+    "rights": "© {year} {name}. All rights reserved.",
+    "legalNavLabel": "Legal",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "demoNotice": "Demo project — studio details shown are placeholders, not a real business."
+  },
+  "consent": {
+    "message": "We use essential tools to run this configurator, and — only with your consent — an optional analytics script to understand how the site is used.",
+    "accept": "Accept analytics",
+    "reject": "Decline",
+    "learnMore": "Cookie Policy"
+  },
+  "legal": {
+    "backHome": "Back to home",
+    "lastUpdated": "Last updated: October 2026",
+    "draftNotice": "This page is placeholder text written for a demo project — it is not reviewed legal advice. Replace it with policy reviewed by a qualified lawyer before using this configurator for a real business.",
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "Who we are",
+          "body": "Beauty Configurator is a demo project built to showcase a beauty-look configuration experience. The studio name, address and contact details shown in the app are placeholders and do not belong to a real, operating business. If you deploy this project for a real studio, replace this section with your business's legal name, registered address and the contact details of your data controller."
+        },
+        {
+          "heading": "What information we collect",
+          "body": "Choosing a look, picking options and reviewing a summary all run entirely in your browser and are never sent to us. If you use the \"Book now\" or \"Send by email\" buttons, your browser opens a pre-filled email to the studio's address — we only receive what you choose to send, and only once you press send in your own email app. With your consent, we also collect anonymous, aggregated usage analytics — see our Cookie Policy."
+        },
+        {
+          "heading": "Legal basis for processing",
+          "body": "Where personal data reaches the studio (for example, through a booking email you choose to send), it is processed on the basis of your consent and, once a booking is confirmed, to perform the service you requested (Article 6(1)(a) and (b) GDPR). Analytics data is collected only once you accept it through the cookie banner (Article 6(1)(a) GDPR)."
+        },
+        {
+          "heading": "How long we keep data",
+          "body": "This application has no backend or database, so no booking or order data is stored by it beyond your own device and your own email account. Analytics data retention is set by the provider — see Vercel's own documentation for current periods."
+        },
+        {
+          "heading": "Your rights",
+          "body": "Under the GDPR you have the right to access, rectify, erase or restrict processing of your personal data, the right to data portability, and the right to object to processing or withdraw consent at any time. Because this demo stores no personal data on a server, most of these requests can be satisfied by deleting the booking email from your own mailbox and clearing this site's data in your browser. A real deployment should replace this section with the actual process for exercising these rights with its data controller."
+        },
+        {
+          "heading": "Contact",
+          "body": "Questions about this policy can be sent to the studio contact address shown in the app. Replace it with a real, monitored address before using this project for an actual business."
+        },
+        {
+          "heading": "Changes to this policy",
+          "body": "This page may be updated as the project evolves. Check the date above for the latest revision."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "sections": [
+        {
+          "heading": "What we use",
+          "body": "Choosing a look and configuring options works with no cookies at all. We ask for your consent before loading two things: an analytics script (Vercel Web Analytics) that helps us understand how visitors use the site, and a small piece of local storage that remembers your cookie choice itself, so we don't ask again on every visit."
+        },
+        {
+          "heading": "Why we ask for consent even for \"cookieless\" analytics",
+          "body": "Vercel Web Analytics does not use traditional tracking cookies, but EU data protection authorities (see the EDPB's Guidelines 2/2023) treat any script that stores or accesses information on your device — cookie-based or not — as subject to the same consent requirement under ePrivacy rules. We ask first rather than relying on that exemption."
+        },
+        {
+          "heading": "Managing your choice",
+          "body": "You can accept or decline analytics the first time you visit, using the banner at the bottom of the page. To change your choice later, clear this site's data in your browser settings and reload the page — the banner will reappear."
+        },
+        {
+          "heading": "Third parties",
+          "body": "Vercel Web Analytics (operated by Vercel Inc.) is the only third-party script used on this site, and only once you've accepted it. We do not use advertising cookies, social media pixels, or cross-site tracking of any kind."
+        }
+      ]
+    }
   }
 }

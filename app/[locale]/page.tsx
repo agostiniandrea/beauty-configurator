@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { getLooks, getLookStartingPrice } from "@/lib/data";
 import LookCard from "@/components/home/LookCard";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import BrandValues from "@/components/home/BrandValues";
 import ClientOnly from "@/lib/ClientOnly";
 import siteConfig from "@/site.config";
@@ -45,11 +46,11 @@ export default function HomePage() {
     // The outer shell is the only thing in server HTML — everything inside
     // renders client-side to prevent a currency browser extension from
     // inserting display:contents wrappers before React hydrates.
-    <div className="min-h-screen bg-[var(--color-background)]">
+    <div className="min-h-screen bg-[var(--color-background)] flex flex-col">
       <ClientOnly>
         <Header />
 
-        <main id="main-content">
+        <main id="main-content" className="flex-1">
           {/* Hero */}
           <section className="relative overflow-hidden" aria-labelledby="hero-heading">
             {/* Decorative background */}
@@ -117,6 +118,7 @@ export default function HomePage() {
             </ul>
           </section>
         </main>
+        <Footer />
       </ClientOnly>
     </div>
   );
