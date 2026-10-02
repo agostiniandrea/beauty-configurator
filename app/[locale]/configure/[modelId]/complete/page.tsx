@@ -4,6 +4,7 @@ import { getPathname } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { getLook, getCategoriesForLook, getOptionsForCategory } from "@/lib/data";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import ClientOnly from "@/lib/ClientOnly";
 import StoreCard from "@/components/complete/StoreCard";
 import BookingForm from "@/components/complete/BookingForm";
@@ -86,13 +87,13 @@ export default async function CompletePage({ params, searchParams }: Props) {
   const summaryUrl = `/configure/${modelId}/summary?${selectionParams}`;
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)]">
+    <div className="min-h-screen bg-[var(--color-background)] flex flex-col">
       <ClientOnly>
         <div className="no-print">
           <Header backLink backLabel={tNav("backToSummary")} backHref={summaryUrl} />
         </div>
 
-        <main id="main-content" className="max-w-4xl mx-auto px-6 py-14">
+        <main id="main-content" className="max-w-4xl mx-auto px-6 py-14 flex-1 w-full">
           <div className="mb-10 no-print">
             <div
               className="w-12 h-12 rounded-2xl bg-[var(--color-brand-rose)]/15 flex items-center justify-center mb-5"
@@ -125,6 +126,9 @@ export default async function CompletePage({ params, searchParams }: Props) {
             />
           </div>
         </main>
+        <div className="no-print">
+          <Footer />
+        </div>
       </ClientOnly>
     </div>
   );

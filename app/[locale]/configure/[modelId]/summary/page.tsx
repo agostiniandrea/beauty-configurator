@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { getLook, getCategoriesForLook, getOptionsForCategory } from "@/lib/data";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import ClientOnly from "@/lib/ClientOnly";
 import SummaryReview from "@/components/configurator/SummaryReview";
 import type { Option, Selection } from "@/lib/types";
@@ -75,7 +76,7 @@ export default async function SummaryPage({ params, searchParams }: Props) {
   const selectionParams = new URLSearchParams(Object.entries(selection)).toString();
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)]">
+    <div className="min-h-screen bg-[var(--color-background)] flex flex-col">
       <ClientOnly>
         <Header
           backLink
@@ -83,7 +84,7 @@ export default async function SummaryPage({ params, searchParams }: Props) {
           backHref={`/configure/${modelId}?${selectionParams}`}
         />
 
-        <main id="main-content" className="max-w-4xl mx-auto px-6 py-14">
+        <main id="main-content" className="max-w-4xl mx-auto px-6 py-14 flex-1 w-full">
           <div className="mb-10">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-brand-rose)] mb-3">
               {t("lookLabel")} — {look.name[locale as "en" | "it"]}
@@ -117,6 +118,7 @@ export default async function SummaryPage({ params, searchParams }: Props) {
             </Link>
           </div>
         </main>
+        <Footer />
       </ClientOnly>
     </div>
   );

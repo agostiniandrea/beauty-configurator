@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { getLocale } from "next-intl/server";
-import { Analytics } from "@vercel/analytics/next";
 import StyledComponentsRegistry from "@/lib/registry";
+import AnalyticsGate from "@/components/layout/AnalyticsGate";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -31,8 +31,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body suppressHydrationWarning>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         {/* Only on Vercel deployments — locally the insights script 404s and
-            drags the Lighthouse best-practices score down. */}
-        {process.env.VERCEL === "1" && <Analytics />}
+            drags the Lighthouse best-practices score down. AnalyticsGate
+            additionally only mounts <Analytics/> once the visitor has
+            accepted it via the cookie-consent banner (see ConsentBanner). */}
+        {process.env.VERCEL === "1" && <AnalyticsGate />}
       </body>
     </html>
   );

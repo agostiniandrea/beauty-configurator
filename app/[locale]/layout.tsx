@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import siteConfig from "@/site.config";
+import ConsentBanner from "@/components/layout/ConsentBanner";
 
 // Absolute base for Open Graph, Twitter, and canonical URLs.
 // NEXT_PUBLIC_SITE_URL must be set in production (e.g. on Vercel).
@@ -31,5 +32,13 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const messages = await getMessages();
 
-  return <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>;
+  return (
+    <NextIntlClientProvider messages={messages}>
+      {/* Rendered before the page itself (not fixed/floating — see
+          ConsentBanner's own comment) so it pushes the Header and page
+          content down rather than overlapping any of it. */}
+      <ConsentBanner />
+      {children}
+    </NextIntlClientProvider>
+  );
 }
